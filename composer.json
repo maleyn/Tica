@@ -1,0 +1,16 @@
+{
+    "name": "kercode/tica",
+    "description": "Projet soutenance",
+    "autoload": {
+        "psr-4": {
+            "Projet\\": "./app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "maleyran",
+            "email": "maleyran.ren@hotmail.fr"
+        }
+    ],
+    "require": {}
+}
