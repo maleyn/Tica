@@ -1,0 +1,633 @@
+/* font-family: 'Raleway', sans-serif; */
+/* font-family: 'Spartan', sans-serif; */
+/* font-family: 'Srisakdi', cursive; */
+/* font-family: 'Stylish', sans-serif; */
+    
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.4rem;
+    background-color: #F0F0F0;
+
+}
+.container {
+
+    max-width: 1200px;
+    margin: 0 auto;
+
+}
+
+a {
+
+    text-decoration: none;
+    color: #c8c8c8;
+
+}
+
+h1 {
+
+    font-size: 2.5rem;
+    color: #a08a3a;
+
+}
+
+hr {
+
+    width: 400px;
+    margin: auto;
+    margin-top: 50px;
+    color: #909090;
+    
+}
+
+.button_light {
+
+    padding: 10px 30px;
+    font-size: 1.6rem;
+    font-weight: 100;
+    text-transform: uppercase;
+    color:#6C6C6C;
+    background-color: #E3D6A5;
+    box-shadow: 5px 5px 10px rgb(61, 61, 61);
+    transition: 0.3s;
+
+}
+
+.button_light:hover {
+    color: #c8c8c8;
+    background-color: #2E2E2E;
+    transition: 0.3s;
+}
+
+.button_dark {
+
+    padding: 10px 30px;
+    font-size: 1.6rem;
+    font-weight: 100;
+    text-transform: uppercase;
+    color: #E3D6A5;
+    background-color: #2E2E2E;
+    box-shadow: 5px 5px 10px rgb(61, 61, 61);
+    transition: 0.3s;
+
+}
+
+.button_dark:hover {
+
+    color: #2E2E2E;
+    background-color: #E3D6A5;
+    transition: 0.3s;
+
+}
+
+.button_dark_gold {
+
+    padding: 10px 30px;
+    font-size: 1.6rem;
+    font-weight: 100;
+    text-transform: uppercase;
+    color: #E3D6A5;
+    background-color: #2E2E2E;
+    border: 1px solid #E3D6A5;
+    transition: 0.3s;
+
+}
+
+.button_dark_gold:hover {
+
+    color: #2E2E2E;
+    background-color: #E3D6A5;
+    transition: 0.3s;
+
+}
+
+/* HEADER */
+
+#headband {
+
+    color: #c8c8c8;
+    background-color: #2E2E2E;
+    width: 100%;
+    height: 80px;
+    font-size: 1.6rem;
+    position: fixed;
+    z-index: 20000;
+
+}
+
+#headband #headband_items {
+
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+   
+}
+
+#headband #headband_items #headband_logo {
+
+    width: 30%;
+    padding-left: 10px;
+
+}
+
+#headband #headband_items #headband_logo a{
+
+    display: block;
+    width: 100px;
+
+}
+
+#headband #headband_items #headband_logo p:first-child {
+
+    font-family: 'Stylish', sans-serif;
+    font-size: 2.8rem;
+    
+
+}
+
+#headband #headband_items #headband_logo p:last-child {
+ 
+    font-family: 'Srisakdi', cursive;
+    line-height: 0.2rem;
+    font-weight: 700;
+    
+}
+#main_menu {
+
+    
+    width: 30%;
+    display: flex;
+    list-style: none;
+    text-transform: uppercase;
+    margin-top: 24px;
+    
+}
+
+#main_menu li {
+
+    padding:0 15px;
+
+}
+
+#headband #account_header {
+
+    width: 18%;
+    
+}
+
+#headband #account_header a{
+
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+
+}
+
+#headband #account_header img {
+
+    width: 30px;
+    height: 30px;
+
+}
+
+#headband #account_header p {
+
+    width:155px;
+    padding-left: 20px;
+
+}
+
+/* HOME PAGE */
+
+/* première partie */
+#background_home #background_galerie {
+
+    position: relative;
+    top: 70px;
+
+}
+
+#background_home #background_img{
+
+    max-width: 1200px;
+    width: 100%;
+    object-fit: cover;
+    height: 500px;
+
+}
+
+/* cadre dorée */
+
+#background_home #frame_header img {
+
+    max-width: 180px;
+    width: 26%;
+}
+
+#background_home #frame_header #frame_corner_lt {
+
+    position: absolute;
+    top: 50px;
+    left: 100px;
+
+}
+
+#background_home #frame_header #frame_corner_lb {
+
+    position: absolute;
+    bottom: 90px;
+    left: 100px;
+}
+
+#background_home #frame_header #frame_corner_rt {
+
+    position: absolute;
+    top: 50px;
+    right: 100px;
+}
+
+#background_home #frame_header #frame_corner_rb {
+
+    position: absolute;
+    bottom: 90px;
+    right: 100px;
+}
+
+  
+#background_home #intro_home{
+    
+    position: absolute;
+    top: 150px;
+    left: 22%;
+    right: 22%;
+    color: #c8c8c8;
+    font-size: 1.9rem; 
+    padding: 40px 20px;
+    vertical-align: middle;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.678);
+
+}
+
+#background_home #button_galerie {
+
+  position: absolute;
+  text-align: center;
+  margin: auto;
+  bottom: -20px;
+  left: 20%;
+  right: 20%;
+  
+}
+
+/* Présentation */
+
+#background_home #present_home {
+    
+    margin: 120px auto 0px auto;
+    text-align: center;
+    width: 700px;
+    
+
+}
+#background_home #present_home h1{
+    
+    text-transform: uppercase;
+    text-align: center;
+
+}
+
+#background_home #present_home p {
+
+    margin-top: 45px;
+
+}
+
+
+/* deuxième partie */
+
+#tica_present {
+
+    margin-top: 50px;
+    position: relative;
+
+}
+
+#tica_present h1 {
+
+    text-align: center;
+
+}
+
+#tica_present #flex_tica_frames {
+
+    display: flex;
+    width: 800px;
+    margin: 50px auto;
+    
+    
+}
+
+#tica_present #tica_frames {
+
+    width: 50%;
+    
+} 
+
+#tica_present .tica_frame {
+
+    display: flex;
+    width: 380px;
+    height: 130px;
+    background-color: #E3D6A5;
+    border: 1px solid rgb(151, 151, 151);
+    box-shadow: 2px 2px 8px rgb(97, 97, 97);
+    padding:10px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+#tica_present #first_frame_tica {
+
+    border-radius: 0px 10px 0px 0px;
+    
+}
+
+#tica_present #second_frame_tica p, #tica_present #third_frame_tica p{
+
+    padding-left: 90px;
+
+}
+
+#tica_present #third_frame_tica {
+
+    border-radius: 0px 0px 10px 0px;
+
+}
+
+#tica_present #frame_tica_black {
+
+    width: 400px;
+    height: 453px;
+    background-color: #2E2E2E;
+    border-radius: 10px 0px 0px 10px;
+    border: 1px solid rgb(151, 151, 151);
+    box-shadow: 2px 2px 8px rgb(97, 97, 97);
+
+}
+
+#tica_present figure img {
+    
+    position: absolute;
+    width: 370px;
+    object-fit: contain;
+    top: 120px;
+    left: 300px;
+
+}
+
+#tica_present #button_artistes {
+
+    margin-top: 60px;
+    text-align: center;
+
+}
+
+#tica_present hr {
+
+    margin-top: 60px;
+
+}
+
+/* Section Blog et instagram de home */
+
+#insta_blog {
+
+    margin-top: 80px;
+
+}
+
+
+#insta_blog .block_bottom {
+
+    background-color: #000000;
+    width: 35%;
+    max-width: 450px;
+    min-width: 450px;
+    height: 500px;
+    margin: 10px;
+    position: relative;
+    
+
+}
+
+#insta_blog #insta_blog_flex {
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+}
+
+#insta_blog .frames_bottom {
+
+    z-index: 1;
+
+}
+
+#insta_blog  #frame_corner_lt {
+
+    position: absolute;
+    top: -50px;
+    left: -50px;
+   
+
+}
+
+#insta_blog  #frame_corner_lb {
+
+    position: absolute;
+    bottom: -50px;
+    left: -50px;
+    
+}
+
+#insta_blog  #frame_corner_rt {
+
+    position: absolute;
+    top: -50px;
+    right: -50px;
+   
+
+}
+
+#insta_blog  #frame_corner_rb {
+
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    
+
+}
+#insta_blog_flex #block_instagram #instagram_cards {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 4px;
+    
+}
+
+#insta_blog_flex #block_instagram #instagram_cards a {
+
+    padding: 5px;
+    z-index: 2000;
+    transition: 0.3s;
+     
+}
+
+#insta_blog_flex #block_instagram #instagram_cards a:hover {
+
+    scale: 1.05;
+    transition: 0.3s;
+     
+}
+#insta_blog_flex #block_instagram #instagram_cards a img {
+   
+    max-width: 137px;
+    height: 180px;
+
+}
+
+#insta_blog .button_blog_insta {
+
+    z-index: 2000;
+    position: absolute;
+    text-align: center;
+    margin: 20px auto;
+    left: 25%;
+    right: 25%;
+
+}
+
+#insta_blog #block_blog_flex {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 3px;
+
+}
+
+#insta_blog #block_blog .card_blog {
+
+    width: 45%;
+    padding: 10px;
+    height: 176px;
+    z-index: 2000;
+    transition: 0.3s;
+
+}
+#insta_blog #block_blog .card_blog:hover {
+
+    scale: 1.05;
+    transition: 0.3s;
+
+}
+
+#insta_blog #block_blog .card_blog p{
+
+ font-size: 0.7rem;
+
+}
+
+#insta_blog #block_blog .card_blog h2{
+
+    font-size: 1rem;
+   
+   }
+
+#insta_blog #block_blog .card_blog img {
+
+    border-radius: 8px;
+    max-width: 200px;
+
+}
+
+/* FOOTER */
+
+footer {
+
+    margin-top: 100px;
+    background-color: #2E2E2E;
+    height: 260px;
+    width: 100%;
+    color: #cfcfcf;
+    padding-top: 45px;
+    font-size: 1.2rem;
+
+
+}
+footer #footer_flex {
+
+    display: flex;
+    width: 100%;
+   
+
+}
+
+footer .vertical_dot_line {
+
+    border-left: 2px dashed #B5B5B5;
+    height: 110px;
+
+}
+
+footer aside {
+
+    width: 40%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 2%;
+    margin-right: 2%;
+
+}
+
+footer aside div {
+
+    width: 50%;
+    text-align: center;
+
+}
+
+footer aside .icon_payment {
+
+    padding: 60px 20px 0px 20px;
+    
+}
+
+footer #nav_link {
+    
+    width: 40%;
+    margin-left: 10%;
+    margin-right: 10%;
+
+}
+
+footer #nav_link ul {
+    
+    list-style: none;
+    
+}
