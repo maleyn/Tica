@@ -1,12 +1,12 @@
 <?php
 
-require 'app/Views/Front/header.php'
+require 'app/Views/Front/header.php';
 
 ?>
 
     <section id="background_home" class="container">
         <div id="background_galerie">
-            <img id="background_img" src="app/Public/Front/img/image_fond_header.png" alt="tableau de ?">
+            <img id="background_img" src="<?= $dataSlider['url'] ?>" alt="<?= $dataSlider['img-alt'] ?>">
             <div id="frame_header">
                 <img id="frame_corner_lt" src="app/Public/Front/img/Frame_corner_LT.svg" alt="cadre coin haut gauche">
                 <img id="frame_corner_lb" src="app/Public/Front/img/Frame_corner_LB.svg" alt="cadre coin bas gauche">
@@ -15,8 +15,8 @@ require 'app/Views/Front/header.php'
             </div>
             <div id="intro_home">
                 <div>
-                    <p>TICA vous propose ses meilleures oeuvres</p>
-                    <p>ainsi que celles de plusieurs autres artistes</p>
+                    <p><?= $dataSlider['intro-text1'] ?></p>
+                    <p><?= $dataSlider['intro-text2'] ?></p>
                 </div>
                 <div id="button_galerie">
                 <a id="button_galerie_home" class="button_light" href="#">Galerie</a>
@@ -24,30 +24,30 @@ require 'app/Views/Front/header.php'
             </div>
         </div>
         <div id="present_home">
-            <h1>Présentation</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum debitis distinctio, quidem hic dolores atque dolorum fugit quaerat quasi, dolore magni facilis et aliquam reprehenderit, quae laboriosam aperiam officia libero?</p>
+            <h1><?= $dataIntro['title'] ?></h1>
+            <p><?= $dataIntro['content'] ?></p>
         </div>
         <hr>
     </section>
     <section id="tica_present" class="container">
-        <h1>TICA</h1>
+        <h1><?= $dataPresent['title'] ?></h1>
         <div id="flex_tica_frames">
             <div id="frame_tica_black">
             </div>
             <div id="tica_frames">
                 <article id="first_frame_tica" class="tica_frame">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                    <p><?= $dataPresent['text1'] ?></p>
                 </article>
                 <article id="second_frame_tica" class="tica_frame">
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page</p>
+                    <p><?= $dataPresent['text2'] ?></p>
                 </article>
                 <article id="third_frame_tica" class="tica_frame">
-                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece</p>
+                    <p><?= $dataPresent['text3'] ?></p>
                 </article>
             </div>
         </div>
         <figure>
-            <img src="app/Public/Front/img/Photo_de_tica.png" alt="Photo de tica">
+            <img src="<?= $dataPresent['url'] ?>" alt="<?= $dataPresent['img-alt'] ?>">
         </figure>
         <div id="button_artistes">
             <a href="#" class="button_dark">artistes</a>

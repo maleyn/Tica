@@ -1,6 +1,6 @@
 <?php
 namespace Projet\Models;
-
+use Exception;
 
 class Manager
 {
@@ -8,11 +8,14 @@ class Manager
     {
 
         try {
+            
             $bdd = new \PDO('mysql:host=localhost;dbname=tica;charset=utf8', 'root', '');
             return $bdd;
-        } catch (Exception $e) {
 
+        } catch (Exception $e) {
+            
             die('Erreur : ' . $e->getMessage());
+
         }
     }
 }

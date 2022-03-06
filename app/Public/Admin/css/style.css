@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+
+    font-family: 'Spartan';
+    font-size: 1.3rem;
+
+}
+
+h1 {
+
+   font-size: 2rem;
+   text-align: center;
+   margin: 30px 0 30px 0;
+
+}
+
+.small_font {
+
+    font-size: 0.8rem;
+}
+
+.center {
+
+    text-align: center;
+}
+
+.padding5 {
+
+    padding: 5px;
+}
+
+.padding-top10 {
+
+    padding-top: 10px;
+
+}
+
+a {
+
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+
+}
+a:hover {
+
+    color: rgb(110, 110, 110);
+
+}
+.button_submit {
+
+    background-color: rgb(54, 54, 54);
+    color: rgb(202, 202, 202);
+    border: none;
+    padding: 10px;
+    width: 250px;
+    font-size: 1.2rem;
+    
+}
+
+.button_submit:hover {
+
+    background-color: rgb(202, 202, 202);
+    color: rgb(54, 54, 54);
+    cursor: pointer;
+
+}
+
+/* Ecran de connexion back */
+
+.form_back form div{
+
+    width: 480px;
+    margin:0 auto;
+
+}
+
+
+.form_back form label {
+
+    display: inline-block;
+    width: 170px;
+    text-align: left;
+    padding-bottom: 20px;
+
+}
+
+.form_back form .input_text {
+
+    width: 250px;
+    padding: 5px;
+    font-size: 1.1rem;
+    
+}
+
+.form_back form a {
+
+    color: black;
+    
+}
+
+.form_back form a:hover {
+
+    color: rgb(31, 57, 177);
+
+}
+
+.form_back form input:focus {
+
+    outline: solid 1px black;
+    background-color: rgb(219, 219, 219);
+
+}
+
+.form_back form div:last-child a {
+
+    margin-top: 10px;
+    display: inline-block;
+    width: 250px;
+    background-color: rgb(54, 54, 54);
+    color: rgb(202, 202, 202);
+    padding: 10px 0;
+    font-size: 1.2rem;
+
+}
+
+.form_back form div:last-child a:hover {
+
+    background-color: rgb(202, 202, 202);
+    color: rgb(54, 54, 54);
+
+}
+
+
+

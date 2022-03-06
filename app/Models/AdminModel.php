@@ -5,6 +5,8 @@ namespace Projet\Models;
 class AdminModel extends Manager
 {
 
+    // Création d'utilisateurs dans la bdd
+
     public function createUser (array $firstname, $lastname, $mdp, $mail, $role)
     {
 
@@ -14,4 +16,15 @@ class AdminModel extends Manager
 
         return $user;
     } 
+
+    // récupération des roles dans la bdd
+
+    public function getRole ()
+    {
+
+        $bdd = $this->dbConnection();
+        $role = $bdd->query('SELECT role FROM roles');
+        
+        return $role;
+    }
 }
