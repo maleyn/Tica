@@ -14,6 +14,16 @@ try {
         {
             $adminController->usercreation();
 
+        } elseif ($_GET['action'] == 'create-user'){ 
+            
+            $mail = $_POST['mail'];
+            $pass = $_POST['password'];
+            $lastname = $firstname = $_POST['lastname'];
+            $firstname = $_POST['firstname'];
+            $role = 1;
+            $mdp = password_hash($pass, PASSWORD_DEFAULT);
+            $adminController->createuser($firstname, $lastname, $mdp, $mail, $role);
+
         }
 
     } else {

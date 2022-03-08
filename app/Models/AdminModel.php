@@ -9,11 +9,16 @@ class AdminModel extends Manager
 
     public function createUser (array $firstname, $lastname, $mdp, $mail, $role)
     {
-
         $bdd = $this->dbConnection();
-        $user = $bdd->prepare('INSERT INTO users ( firstname, lastname, mdp, mail, UserRole ) VALUE (? ,? ,? ,? ,?)');
-        $user->execute(array($firstname, $lastname, $mdp, $mail, $role));
-
+        $user = $bdd->prepare('INSERT INTO users ( firstname, lastname, mail, password, UserRoles ) VALUE (:firstname ,:lastname ,:mail ,:password , :UserRole )');
+        $user->execute(array(
+            ":firstname" => $firstname,
+            ":lastname" => $lastname,
+            ":password" => $mdp,
+            ":mail" => $mail,
+            ":UserRole" => $role
+        )
+        );
         return $user;
     } 
 
@@ -23,7 +28,7 @@ class AdminModel extends Manager
     {
 
         $bdd = $this->dbConnection();
-        $role = $bdd->query('SELECT role FROM roles');
+        $role = $bdd->query('SELECT role, id FROM roles');
         
         return $role;
     }

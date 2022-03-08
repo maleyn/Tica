@@ -23,10 +23,13 @@ class AdminController
 
     }
 
-    function createuser()
+    function createuser($firstname, $lastname, $mdp, $mail, $role)
     {
+        $userManager = new \Projet\Models\AdminModel();
+        var_dump($role);
+         $user = $userManager->createUser($firstname, $lastname, $mdp, $mail, $role);
 
-        
+         require 'app/views/Admin/createUser.php';
 
     }
 }

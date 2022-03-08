@@ -1,5 +1,6 @@
 <?php
 namespace Projet\Models;
+
 use Exception;
 
 class Manager
