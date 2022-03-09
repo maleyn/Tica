@@ -9,20 +9,33 @@ try {
     $adminController = new \Projet\Controllers\AdminController();
 
     if (isset($_GET['action'])) 
-    { 
+    {   
+        // si on clique sur création utilisateur
+        // allez sur la page de création
+
         if($_GET['action'] == 'user-creation')
         {
             $adminController->usercreation();
 
-        } elseif ($_GET['action'] == 'create-user'){ 
+        // Si on clique sur créer sur la page de création
+        // création d'utilisateur ou erreur indiquant l'erreur
+
+        } elseif ($_GET['action'] == 'create-user')
+        { 
             
             $mail = $_POST['mail'];
             $pass = $_POST['password'];
-            $lastname = $firstname = $_POST['lastname'];
+            $lastname = $_POST['lastname'];
             $firstname = $_POST['firstname'];
-            $role = 1;
+            $roleutil = $_POST['role'];
             $mdp = password_hash($pass, PASSWORD_DEFAULT);
-            $adminController->createuser($firstname, $lastname, $mdp, $mail, $role);
+            $adminController->createuser($firstname, $lastname, $mdp, $mail, $roleutil);
+
+        // Si on clique sur connexion vérification des infos de connexion et allez sur la page admin/editeur
+        // ou erreur indiquant l'erreur
+
+        }  elseif ($_GET['action'] == 'connexion')
+        {
 
         }
 

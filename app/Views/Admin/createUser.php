@@ -12,7 +12,7 @@
     
     <h1>Création d'utilisateur</h1>
 
-    <form action="indexAdmin.php?action=connexion" method="post">
+    <form action="indexAdmin.php?action=create-user" method="post">
         <div>
             <label for="lastname">Nom</label>
             <input class="input_text" type="text" placeholder="Nom de l'utilisateur" name="lastname" required>
@@ -27,10 +27,10 @@
         </div>
         <div>
             <label for="role">Rôle</label>
-            <select class="input_text" name="Rôle">
+            <select class="input_text" name="role" required>
                 <option value="">Choisissez un rôle</option>
-                    <?php foreach($data as $role) { ?>
-                        <option value=" <?= $role['role'] ?>" required ><?= $role['role'] ?></option>
+                    <?php foreach($roles as $role) { ?>
+                        <option value="<?=$role['role']?>"><?=$role['role']?></option>
                     <?php } ?>
             </select>
         </div>

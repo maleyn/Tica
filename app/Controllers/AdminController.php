@@ -17,19 +17,20 @@ class AdminController
     {
 
         $role = new \Projet\Models\AdminModel();
-        $data = $role->getRole();
+        $roles = $role->getRole();
 
         require 'app/Views/Admin/createUser.php';
 
     }
 
-    function createuser($firstname, $lastname, $mdp, $mail, $role)
+    function createuser($firstname, $lastname, $mdp, $mail, $roleutil)
     {
         $userManager = new \Projet\Models\AdminModel();
-        var_dump($role);
-         $user = $userManager->createUser($firstname, $lastname, $mdp, $mail, $role);
+        $roleutil = substr($roleutil, 1);
+        $role = $userManager->getRoleId($roleutil);
+        $user = $userManager->createUser($firstname, $lastname, $mdp, $mail, $role);
 
-         require 'app/views/Admin/createUser.php';
+        require 'app/views/Admin/createConfirm.php';
 
     }
 }
