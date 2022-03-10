@@ -17,7 +17,7 @@
             <div class="container">
                 <div id="headband_items">
                     <div id="headband_logo">
-                        <a href="#">
+                        <a href="index.php">
                             <p>TICA</p>
                             <p>Peinture</p>
                         </a>
@@ -25,7 +25,7 @@
                 
                     <nav>
                         <ul id="main_menu">
-                            <a href="#"><li>Accueil</li></a>
+                            <a href="index.php"><li>Accueil</li></a>
                             <a href="#"><li>Blog</li></a>
                             <a href="#"><li>Artistes</li></a>
                             <a href="#"><li>Galerie</li></a>

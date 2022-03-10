@@ -585,26 +585,75 @@ hr {
 
     display: flex;
     flex-direction: column;
+    text-align: center;
     
+}
+
+#contact h1 {
+
+    margin-bottom: 20px;
+
 }
 
 #contact div {
 
     width: 100%;
-
+    padding: 15px;
+    
 }
 
 #contact label {
 
-    width: 150px;
+    display: inline-block;
+    width: 180px;
+    text-align: left;
 
 }
 
 #contact input {
 
-    width: 150px;
+    width: 290px;
+    padding: 5px;
+    font-size: 1.3rem;
+    outline: none;
 
 }
+
+#contact textarea {
+
+    width: 290px;
+    padding: 5px;
+    font-size: 1.2rem;
+    height: 170px;
+    font-family: "Raleway";
+    outline: none;
+
+}
+
+#contact input:focus, #contact textarea:focus{
+
+    outline: 1px solid black;
+    background-color: #ebebeb;
+
+}
+
+#contact #label-textarea {
+
+    vertical-align: top ;
+
+}
+
+#contact #bouton_form_contact {
+
+    width: 70%;
+    cursor: pointer;
+
+}
+
+::placeholder {
+    color: #858585;
+}
+
 
 
 /* FOOTER */

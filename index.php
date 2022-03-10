@@ -6,9 +6,28 @@ try {
     $controllerFront = new \Projet\Controllers\FrontController();
 
     if(isset($_GET['action'])) {
+
         if($_GET['action'] == 'contact')
         {
             require 'app/Views/Front/contact.php';
+
+        } elseif($_GET['action'] == 'submit-contact')
+        {
+            $lastname = htmlspecialchars($_POST['lastname']);
+            $firstname = htmlspecialchars($_POST['firstname']);
+            $mail = htmlspecialchars($_POST['mail']);
+            $objet = htmlspecialchars($_POST['objet']);
+            $message = htmlspecialchars($_POST['message']);
+
+            if (!empty($lastname) && (!empty($firstname) && (!empty($mail) && (!empty($objet) && (!empty($message)))))) {
+
+                $controllerFront->contactSubmit($lastname, $firstname, $mail, $objet, $message);
+                require 'app/Views/Front/confirmcontact.php';
+
+            } else {
+                throw new Exception('tous les champs ne sont pas remplis');
+            }
+            
         }
 
 } else {

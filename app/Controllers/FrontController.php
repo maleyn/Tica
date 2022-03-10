@@ -17,5 +17,18 @@ class FrontController {
 
     }
 
+    public function contactSubmit($lastname, $firstname, $mail, $objet, $message) {
+
+        $mailSubmit = new \Projet\Models\ContactModel();
+
+        if (filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+            
+            $mailSubmit->mailSubmit($lastname, $firstname, $mail, $objet, $message);
+
+        } else {
+            echo "L'e-mail n'est pas valide";
+        }
+
 }
 
+}
