@@ -21,7 +21,15 @@ try {
 
             if (!empty($lastname) && (!empty($firstname) && (!empty($mail) && (!empty($objet) && (!empty($message)))))) {
 
-                $controllerFront->contactSubmit($lastname, $firstname, $mail, $objet, $message);
+                $contactMess = [
+                    "nom" => $lastname,
+                    "prenom" => $firstname,
+                    "mail" => $mail,
+                    "objet" => $objet,
+                    "message" => $message
+                ];
+
+                $controllerFront->contactSubmit($contactMess);
                 require 'app/Views/Front/confirmcontact.php';
 
             } else {

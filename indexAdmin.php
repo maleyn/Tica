@@ -24,13 +24,17 @@ try {
         } elseif ($_GET[$action] == 'create-user')
         { 
             
-            $mail = $_POST['mail'];
             $pass = $_POST['password'];
-            $lastname = $_POST['lastname'];
-            $firstname = $_POST['firstname'];
-            $roleutil = $_POST['role'];
             $mdp = password_hash($pass, PASSWORD_DEFAULT);
-            $adminController->createuser($firstname, $lastname, $mdp, $mail, $roleutil);
+            $userArray = [
+                    "prenom" => $_POST['firstname'], 
+                    "nom" => $_POST['lastname'],
+                    "mdp" => $mdp, 
+                    "mail" => $_POST['mail'], 
+                    "role" => $_POST['role']
+                    ];
+
+            $adminController->createuser($userArray);
 
         // Si on clique sur connexion vérification des infos de connexion et allez sur la page admin/editeur
         // ou erreur indiquant l'erreur

@@ -7,17 +7,17 @@ class AdminModel extends Manager
 
     // Création d'utilisateurs dans la bdd
 
-    public function createUser ($firstname, $lastname, $mdp, $mail, $role)
+    public function createUser ($userArray)
     {
         $bdd = $this->dbConnection();
         $user = $bdd->prepare('INSERT INTO users ( firstname, lastname, mail, password, UsersRoles ) VALUE (:firstname ,:lastname ,:mail ,:password , :UsersRoles )');
         $user->execute(array(
 
-            ":firstname" => $firstname,
-            ":lastname" => $lastname,
-            ":mail" => $mail,
-            ":password" => $mdp,
-            ":UsersRoles" => $role[0]
+            ":firstname" => $userArray['prenom'],
+            ":lastname" => $userArray['nom'],
+            ":mail" => $userArray['mail'],
+            ":password" => $userArray['mdp'],
+            ":UsersRoles" => $userArray['role']
         )
         );
         
@@ -41,8 +41,8 @@ class AdminModel extends Manager
 
     {
         $bdd = $this->dbConnection();
-        $id = $bdd->prepare("SELECT id FROM roles WHERE role = :roleu");
-        $id->execute(array(':roleu' => $role));
+        $id = $bdd->prepare("SELECT id FROM roles WHERE role = :role");
+        $id->execute(array(':role' => $role));
         
         return $id->fetch();
 

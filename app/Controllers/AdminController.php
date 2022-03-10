@@ -23,12 +23,17 @@ class AdminController
 
     }
 
-    function createuser($firstname, $lastname, $mdp, $mail, $roleutil)
+    function createuser($userArray)
     {
 
         $userManager = new \Projet\Models\AdminModel();
-        $role = $userManager->getRoleId($roleutil);
-        $user = $userManager->createUser($firstname, $lastname, $mdp, $mail, $role);
+        $idRole = $userManager->getRoleId($userArray['role']);
+        $arrayId = ["role" => $idRole[0]];
+       
+        // remplace la valeur de role du tableau userarray par son id correspondante
+        $userArrayMod = array_replace($userArray, $arrayId);
+       
+        $user = $userManager->createUser($userArrayMod);
 
         require 'app/views/Admin/createConfirm.php';
 
@@ -50,6 +55,7 @@ class AdminController
             $_SESSION['id'] = $result['id'];
             $_SESSION['firstname'] = $result['firstname'];
             $_SESSION['lastname'] = $result['lastname'];
+
             require 'app/Views/Admin/tableauDeBord.php';
         }
 
