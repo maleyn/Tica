@@ -47,4 +47,14 @@ class AdminModel extends Manager
         return $id->fetch();
 
     }
+
+    public function getPass ($mail)
+    {
+        $bdd = $this->dbConnection();
+        $req = $bdd->prepare('SELECT id, firstname, lastname, mail, password, UsersRoles FROM users WHERE mail = :mail');
+        $req->execute(array(':mail' => $mail));
+
+        return $req;
+
+    }
 }

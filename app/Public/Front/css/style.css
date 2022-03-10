@@ -25,6 +25,19 @@ body {
 
 }
 
+.container-med {
+
+    max-width: 800px;
+    margin: 0 auto;
+
+}
+
+.pagepadding-top {
+
+    padding-top: 150px;
+
+}
+
 a {
 
     text-decoration: none;
@@ -565,6 +578,34 @@ hr {
     max-width: 200px;
 
 }
+
+/* PAGE DE CONTACT */
+
+#contact {
+
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#contact div {
+
+    width: 100%;
+
+}
+
+#contact label {
+
+    width: 150px;
+
+}
+
+#contact input {
+
+    width: 150px;
+
+}
+
 
 /* FOOTER */
 

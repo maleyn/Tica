@@ -5,7 +5,7 @@ namespace Projet\Controllers;
 class AdminController
 {
     /* ------------- envoi vers la page de connexion admin ------------------ */
-    function connexion()
+    function connexionPage()
     {
 
         require 'app/Views/Admin/connexion.php';
@@ -25,12 +25,37 @@ class AdminController
 
     function createuser($firstname, $lastname, $mdp, $mail, $roleutil)
     {
+
         $userManager = new \Projet\Models\AdminModel();
-        $roleutil = substr($roleutil, 1);
         $role = $userManager->getRoleId($roleutil);
         $user = $userManager->createUser($firstname, $lastname, $mdp, $mail, $role);
 
         require 'app/views/Admin/createConfirm.php';
 
+    }
+
+    function connexion($mail, $mdp)
+    {
+        $users = new \Projet\Models\AdminModel();
+        $connexMdp = $users->getPass($mail);
+
+        $result = $connexMdp->fetch();
+
+        $passVerify = password_verify($mdp, $result['password']);
+
+        if ($passVerify) 
+        {
+            $_SESSION['mail'] = $result['mail'];
+            $_SESSION['mdp'] = $result['password'];
+            $_SESSION['id'] = $result['id'];
+            $_SESSION['firstname'] = $result['firstname'];
+            $_SESSION['lastname'] = $result['lastname'];
+            require 'app/Views/Admin/tableauDeBord.php';
+        }
+
+        else {
+            echo '<h1>Identifiant ou mot de passe incorrect</h1>';
+            require 'app/Views/Admin/connexion.php';
+        }
     }
 }

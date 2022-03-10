@@ -6,6 +6,11 @@ try {
     $controllerFront = new \Projet\Controllers\FrontController();
 
     if(isset($_GET['action'])) {
+        if($_GET['action'] == 'contact')
+        {
+            require 'app/Views/Front/contact.php';
+        }
+
 } else {
 
     $controllerFront->home();

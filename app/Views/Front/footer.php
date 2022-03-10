@@ -21,7 +21,7 @@
                 <li><a href="">Mentions légales</a></li>
                 <li><a href="">Conditions générales de vente</a></li>
                 <li><a href="">Mon compte</a></li>
-                <li><a href="">Contact</a></li>
+                <li><a href="index.php?action=contact">Contact</a></li>
                 <li><a href="">Témoignage de nos clients</a></li>
                 <li><a href="">Rejoindre nos artistes</a></li>
             </ul>

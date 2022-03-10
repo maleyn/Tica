@@ -3,7 +3,7 @@
     <title>Confimation de création</title>
 </head>
 <body>
-    <h1>Utilisateur créé</h1>
+    <h1>Rôle d'<?=$roleutil?> créé</h1>
     <div class="padding5">
         <a href="index.php">Retour accueil du site</a>
     </div>
