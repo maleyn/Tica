@@ -1,1 +1,0 @@
-<h1>Le message a bien été envoyé</h1>

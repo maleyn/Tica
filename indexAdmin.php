@@ -11,17 +11,17 @@ try {
 
     if (isset($_GET['action'])) 
     {   
-        // si on clique sur création utilisateur
-        // allez sur la page de création
+        
+        // allez sur la page de création d'utilisateur
 
         if($_GET[$action] == 'user-creation')
         {
             $adminController->usercreation();
 
-        // Si on clique sur créer sur la page de création
-        // création d'utilisateur ou erreur indiquant l'erreur
+        // Créer un utilisateur
 
         } elseif ($_GET[$action] == 'create-user')
+
         { 
             
             $pass = $_POST['password'];
@@ -36,10 +36,11 @@ try {
 
             $adminController->createuser($userArray);
 
-        // Si on clique sur connexion vérification des infos de connexion et allez sur la page admin/editeur
-        // ou erreur indiquant l'erreur
 
+        // Connexion au tableau de bord
+       
         }  elseif ($_GET[$action] == 'connexion')
+
         {
             $mail = htmlspecialchars($_POST['mail']);
             $mdp = $_POST['password'];
@@ -48,6 +49,29 @@ try {
             } else {
                 throw new Exception('Infos manquante');
             }
+
+        // Affichage des mails du tableau de bord
+
+        } elseif ($_GET[$action] == 'mail')
+
+        {
+            $adminController->mailContact();
+
+        } elseif ($_GET[$action] == 'dashboard')
+
+        {
+            $adminController->dashboard();
+        } elseif ($_GET[$action] == 'mailSolo')
+
+        {
+            $idMail = $_GET['id'];
+            $adminController->mailSolo($idMail);
+
+        } elseif ($_GET[$action] == 'mailDelete')
+
+        {
+            $idMail = $_GET['id'];
+            $adminController->mailDelete($idMail);
         }
 
     } else {

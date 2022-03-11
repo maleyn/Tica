@@ -7,10 +7,11 @@ class AdminModel extends Manager
 
     // Création d'utilisateurs dans la bdd
 
-    public function createUser ($userArray)
+    public function createUser($userArray)
     {
         $bdd = $this->dbConnection();
-        $user = $bdd->prepare('INSERT INTO users ( firstname, lastname, mail, password, UsersRoles ) VALUE (:firstname ,:lastname ,:mail ,:password , :UsersRoles )');
+        $user = $bdd->prepare('INSERT INTO users ( firstname, lastname, mail, password, UsersRoles ) 
+                               VALUE (:firstname ,:lastname ,:mail ,:password , :UsersRoles )');
         $user->execute(array(
 
             ":firstname" => $userArray['prenom'],
@@ -26,7 +27,7 @@ class AdminModel extends Manager
 
     // récupération des infos de roles dans la bdd
 
-    public function getRole ()
+    public function getRole()
     {
 
         $bdd = $this->dbConnection();
@@ -37,7 +38,7 @@ class AdminModel extends Manager
 
     // récupération de l'id du role utilisateur
 
-    public function getRoleId ($role)
+    public function getRoleId($role)
 
     {
         $bdd = $this->dbConnection();
@@ -48,13 +49,18 @@ class AdminModel extends Manager
 
     }
 
-    public function getPass ($mail)
+    // récupération des infos de l'utilisateur en fonction de son mail
+
+    public function getPass($mail)
     {
         $bdd = $this->dbConnection();
-        $req = $bdd->prepare('SELECT id, firstname, lastname, mail, password, UsersRoles FROM users WHERE mail = :mail');
+        $req = $bdd->prepare('SELECT id, firstname, lastname, mail, password, UsersRoles 
+                              FROM users WHERE mail = :mail');
         $req->execute(array(':mail' => $mail));
 
         return $req;
 
     }
+
+    
 }

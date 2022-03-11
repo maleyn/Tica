@@ -22,6 +22,7 @@ try {
             if (!empty($lastname) && (!empty($firstname) && (!empty($mail) && (!empty($objet) && (!empty($message)))))) {
 
                 $contactMess = [
+                    
                     "nom" => $lastname,
                     "prenom" => $firstname,
                     "mail" => $mail,
@@ -30,7 +31,8 @@ try {
                 ];
 
                 $controllerFront->contactSubmit($contactMess);
-                require 'app/Views/Front/confirmcontact.php';
+                $confirmMess = "Votre message à bien été envoyé !";
+                require 'app/Views/Front/contact.php';
 
             } else {
                 throw new Exception('tous les champs ne sont pas remplis');

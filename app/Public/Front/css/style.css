@@ -38,6 +38,12 @@ body {
 
 }
 
+.text-center {
+
+    text-align: center;
+
+}
+
 a {
 
     text-decoration: none;
@@ -647,6 +653,7 @@ hr {
 
     width: 70%;
     cursor: pointer;
+    margin-bottom: 15px;
 
 }
 

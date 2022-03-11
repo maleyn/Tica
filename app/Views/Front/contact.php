@@ -32,6 +32,12 @@ require 'app/Views/Front/header.php';
             <input id="bouton_form_contact" type="submit" value="Envoyer" class="button_dark_gold">
         </div>
     </form>
+    <?php
+    if(isset($confirmMess)){
+        
+        echo "<h2 class='text-center'>$confirmMess</h2>";
+    }
+        ?>
 </section>
 
 <?php

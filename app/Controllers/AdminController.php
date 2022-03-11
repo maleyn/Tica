@@ -22,7 +22,7 @@ class AdminController
         require 'app/Views/Admin/createUser.php';
 
     }
-
+    /* ------------ Création des utilisateurs d'administration du site ------------*/
     function createuser($userArray)
     {
 
@@ -38,7 +38,7 @@ class AdminController
         require 'app/views/Admin/createConfirm.php';
 
     }
-
+    /* -------------- Connexion au tableau de bord du site ------------- */
     function connexion($mail, $mdp)
     {
         $users = new \Projet\Models\AdminModel();
@@ -56,12 +56,51 @@ class AdminController
             $_SESSION['firstname'] = $result['firstname'];
             $_SESSION['lastname'] = $result['lastname'];
 
+            $mailNbr = new \Projet\Models\ContactModel();
+            $mailCount = $mailNbr->getMailsCount();
+
             require 'app/Views/Admin/tableauDeBord.php';
         }
 
         else {
-            echo '<h1>Identifiant ou mot de passe incorrect</h1>';
+
             require 'app/Views/Admin/connexion.php';
+
         }
+    }
+    /* -------------- Récupération des mails de contact ------------- */
+    function mailContact()
+    {
+        $contactMail = new \Projet\Models\ContactModel();
+        $allContactMail = $contactMail->getContactMails();
+
+        require 'app/Views/Admin/mailView.php';
+    }
+
+    function dashboard()
+    {
+        $mailNbr = new \Projet\Models\ContactModel();
+        $mailCount = $mailNbr->getMailsCount();
+
+        require 'app/Views/Admin/tableauDeBord.php';
+    }
+
+    function mailSolo($idMail)
+    {
+        $mail = new \Projet\Models\ContactModel();
+        $mailCount = $mail->getMailsCount();
+        $mailSolo = $mail->getMail($idMail);
+
+        require 'app/Views/Admin/mailSolo.php';
+    }
+
+    function mailDelete($idMail)
+    {
+        $mail = new \Projet\Models\ContactModel();
+        $mail->deleteMail($idMail);
+        $mailCount = $mail->getMailsCount();
+        $allContactMail = $mail->getContactMails();
+
+        require 'app/Views/Admin/mailView.php';
     }
 }
