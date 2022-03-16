@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : dim. 06 mars 2022 à 18:09
+-- Généré le : mer. 16 mars 2022 à 11:28
 -- Version du serveur : 10.4.21-MariaDB
 -- Version de PHP : 8.0.12
 
@@ -37,6 +37,34 @@ CREATE TABLE `articles` (
   `date` datetime NOT NULL,
   `ArticlesUsers` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `contacts`
+--
+
+CREATE TABLE `contacts` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `prenom` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `objet` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `message` text CHARACTER SET utf8 NOT NULL,
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `nom`, `prenom`, `email`, `objet`, `message`, `date`) VALUES
+(7, 'durand', 'marc', 'marc.durand@hotmail.fr', 'autre test', 'un autre test !', '2022-03-10 14:05:06'),
+(9, 'Tranche', 'Marc', 'marc.tranche@gmail.com', 'Bonjour', 'Au revoir !', '2022-03-11 17:17:42'),
+(20, 'Blanchard', 'Giselle', 'giselle.blanchard@gmail.fr', 'Bonjour', 'Juste pour dire bonjour !', '2022-03-11 17:23:26'),
+(21, 'Martinez ', 'Vivianne', 'vivianne.martinez@yahoo.fr', 'peinture', 'Je veux peindre !', '2022-03-11 17:24:26'),
+(22, 'Romichet', 'Robert', 'robert.romichet@hotmail.fr', 'gardien de la paix', 'à fortiori un gardien de la paix avant tout.', '2022-03-11 17:26:02'),
+(23, 'Patoulachi', 'marcel', 'marcel.patoulachi@yahoo.fr', 'Gardien', 'Du même avis que mon collègue ! à fortiori !', '2022-03-11 17:27:09');
 
 -- --------------------------------------------------------
 
@@ -202,6 +230,14 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `mail`, `password`, `UsersRoles`) VALUES
+(4, 'maleyran', 'renaud', 'maleyran@hotmail.fr', '$2y$10$VpKwOy5lqtl0XTi3XqVhj.6CFW2WHWd5dl3juYGKF8M1Vor/mGXp2', 1),
+(25, 'editeur', 'editeur', 'editeur@hotmail.fr', '$2y$10$pBpm5UucCH4f2tuBtVe/Kehei2jzVWlmpxKLmrHDU51omCWrI8EhW', 4);
+
+--
 -- Index pour les tables déchargées
 --
 
@@ -211,6 +247,12 @@ CREATE TABLE `users` (
 ALTER TABLE `articles`
   ADD PRIMARY KEY (`id`),
   ADD KEY `Articles_fk0` (`ArticlesUsers`);
+
+--
+-- Index pour la table `contacts`
+--
+ALTER TABLE `contacts`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `frames`
@@ -288,6 +330,12 @@ ALTER TABLE `articles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT pour la table `contacts`
+--
+ALTER TABLE `contacts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
 -- AUTO_INCREMENT pour la table `frames`
 --
 ALTER TABLE `frames`
@@ -345,7 +393,7 @@ ALTER TABLE `types`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- Contraintes pour les tables déchargées
@@ -375,7 +423,7 @@ ALTER TABLE `paints`
 -- Contraintes pour la table `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `Users_fk0` FOREIGN KEY (`UsersRoles`) REFERENCES `roles` (`id`);
+  ADD CONSTRAINT `FK_users_roles` FOREIGN KEY (`UsersRoles`) REFERENCES `roles` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
