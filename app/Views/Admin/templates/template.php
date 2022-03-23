@@ -35,7 +35,7 @@
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                 aria-expanded="false">Pages du site</a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="#tab2Id">Accueil</a>
+                <a class="dropdown-item" href="indexAdmin.php?action=homeView">Accueil</a>
                 <a class="dropdown-item" href="#tab3Id">Blog</a>
                 <a class="dropdown-item" href="#tab4Id">Galerie</a>
                 <a class="dropdown-item" href="#tab4Id">Artistes</a>

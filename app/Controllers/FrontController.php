@@ -9,10 +9,8 @@ class FrontController {
     public function home() {
 
         $data = new \Projet\Models\FrontModel();
-        $dataSlider = $data->getFrontslider();
-        $dataIntro = $data->getIntroduction();
-        $dataPresent = $data->getPresent();
-
+        $dataFront = $data->getFront();
+        
         require 'app/Views/Front/home.php';
 
     }

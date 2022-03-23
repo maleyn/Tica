@@ -61,6 +61,7 @@ try {
 
         {
             $adminController->dashboard();
+
         } elseif ($_GET[$action] == 'mailSolo')
 
         {
@@ -72,6 +73,66 @@ try {
         {
             $idMail = $_GET['id'];
             $adminController->mailDelete($idMail);
+
+        } elseif ($_GET[$action] == 'homeView')
+
+        {
+
+            $adminController->homeView();
+
+        } elseif ($_GET[$action] == 'homeUpdate')
+
+        {
+            echo "<div class='mt-5'></div>";
+            $uploadController = new \Projet\Controllers\UploadController();
+            
+            $sliderAlt = htmlspecialchars($_POST['sliderAlt']);
+            $sliderText1 = htmlspecialchars($_POST['sliderText1']);
+            $sliderText2 = htmlspecialchars($_POST['sliderText2']);
+            $introTitle = htmlspecialchars($_POST['introTitle']);
+            $introContent = htmlspecialchars($_POST['introContent']);
+            $presentAlt = htmlspecialchars($_POST['presentAlt']);
+            $presentTitle = htmlspecialchars($_POST['presentTitle']);
+            $presentText1 = htmlspecialchars($_POST['presentText1']);
+            $presentText2 = htmlspecialchars($_POST['presentText2']);
+            $presentText3 = htmlspecialchars($_POST['presentText3']);
+
+            if(!empty($_FILES['sliderUrl']['name']))
+            {
+            $sliderUrl = $uploadController->uploadimg('sliderUrl');
+            } else {
+            $dataUrl = $adminController->homeViewUrl();
+            $sliderUrl = $dataUrl['slider-url'];
+            }
+
+            if(!empty($_FILES['presentUrl']['name']))
+            {
+            $presentUrl = $uploadController->uploadimg('presentUrl');
+            } else {
+            $dataUrl = $adminController->homeViewUrl();
+            $presentUrl = $dataUrl['present-url'];
+            }
+
+            $dataFront = [
+
+                'sliderAlt' => $sliderAlt,
+                'sliderUrl' => $sliderUrl,
+                'sliderText1' => $sliderText1,
+                'sliderText2' => $sliderText2,
+                'introTitle' => $introTitle,
+                'introContent' => $introContent,
+                'presentAlt' => $presentAlt,
+                'presentUrl' => $presentUrl,
+                'presentTitle' => $presentTitle,
+                'presentText1' => $presentText1,
+                'presentText2' => $presentText2,
+                'presentText3' => $presentText3
+                
+            ];
+
+           
+            $adminController->homeUpdate($dataFront);
+            
         }
 
     } else {

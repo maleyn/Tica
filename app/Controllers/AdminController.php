@@ -69,6 +69,7 @@ class AdminController
         }
     }
     /* -------------- Récupération des mails de contact ------------- */
+
     function mailContact()
     {
         $contactMail = new \Projet\Models\ContactModel();
@@ -102,5 +103,34 @@ class AdminController
         $allContactMail = $mail->getContactMails();
 
         require 'app/Views/Admin/mailView.php';
+    }
+
+    /* ---------------Affichage et modification de la page Accueil ----------------------- */
+
+    function homeView()
+    {
+        $getFront = new \Projet\Models\FrontModel();
+        $frontView = $getFront->getFront();
+
+        require 'app/Views/Admin/homePage.php';
+    }
+
+    function homeUpdate($dataFront)
+    {
+        $front = new \Projet\Models\FrontModel();
+        $frontUpdate = $front->updateFront($dataFront);
+        $frontView = $front->getFront();
+
+        $confirmUpdate = "Mise à jour effectué";
+
+        require 'app/Views/Admin/homePage.php';
+    }
+
+    function homeViewUrl()
+    {
+        $frontUrl = new \Projet\Models\FrontModel();
+        $frontDataUrl = $frontUrl->getFrontUrl();
+
+        return $frontDataUrl;
     }
 }

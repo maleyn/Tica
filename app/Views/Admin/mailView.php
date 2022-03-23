@@ -16,7 +16,7 @@
     </thead>
     <tbody>
     <?php $count = 1; ?> 
-    <?php foreach($allContactMail as $contactMail) { // TOFIX fichier js permettant de cliquer sur le mail pour voir le mail?>
+    <?php foreach($allContactMail as $contactMail) { ?>
         
         <tr>
             <div id="contact-ligne<?=$count?>">
@@ -51,7 +51,6 @@
 
 <div id="countmail" class="d-none"><?= $count ?></div>
 </main>
-<script type="text/javascript" src="app/Public/Admin/js/mailselect.js"></script>
 <?php $mainContent = ob_get_clean();
 require 'templates/template.php';
 ?>

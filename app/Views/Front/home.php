@@ -6,7 +6,7 @@ require 'app/Views/Front/header.php';
 
     <section id="background_home" class="container">
         <div id="background_galerie">
-            <img id="background_img" src="<?= $dataSlider['url'] ?>" alt="<?= $dataSlider['img-alt'] ?>">
+            <img id="background_img" src="<?= $dataFront['slider-url'] ?>" alt="<?= $dataFront['slider-alt'] ?>">
             <div id="frame_header">
                 <img id="frame_corner_lt" src="app/Public/Front/img/Frame_corner_LT.svg" alt="cadre coin haut gauche">
                 <img id="frame_corner_lb" src="app/Public/Front/img/Frame_corner_LB.svg" alt="cadre coin bas gauche">
@@ -15,8 +15,8 @@ require 'app/Views/Front/header.php';
             </div>
             <div id="intro_home">
                 <div>
-                    <p><?= $dataSlider['intro-text1'] ?></p>
-                    <p><?= $dataSlider['intro-text2'] ?></p>
+                    <p><?= $dataFront['slider-text1'] ?></p>
+                    <p><?= $dataFront['slider-text2'] ?></p>
                 </div>
                 <div id="button_galerie">
                 <a id="button_galerie_home" class="button_light" href="#">Galerie</a>
@@ -24,30 +24,30 @@ require 'app/Views/Front/header.php';
             </div>
         </div>
         <div id="present_home">
-            <h1><?= $dataIntro['title'] ?></h1>
-            <p><?= $dataIntro['content'] ?></p>
+            <h1><?= $dataFront['intro-title'] ?></h1>
+            <p><?= $dataFront['intro-content'] ?></p>
         </div>
         <hr>
     </section>
     <section id="tica_present" class="container">
-        <h1><?= $dataPresent['title'] ?></h1>
+        <h1><?= $dataFront['present-title'] ?></h1>
         <div id="flex_tica_frames">
             <div id="frame_tica_black">
             </div>
             <div id="tica_frames">
                 <article id="first_frame_tica" class="tica_frame">
-                    <p><?= $dataPresent['text1'] ?></p>
+                    <p><?= $dataFront['present-text1'] ?></p>
                 </article>
                 <article id="second_frame_tica" class="tica_frame">
-                    <p><?= $dataPresent['text2'] ?></p>
+                    <p><?= $dataFront['present-text2'] ?></p>
                 </article>
                 <article id="third_frame_tica" class="tica_frame">
-                    <p><?= $dataPresent['text3'] ?></p>
+                    <p><?= $dataFront['present-text3'] ?></p>
                 </article>
             </div>
         </div>
         <figure>
-            <img src="<?= $dataPresent['url'] ?>" alt="<?= $dataPresent['img-alt'] ?>">
+            <img src="<?= $dataFront['present-url'] ?>" alt="<?= $dataFront['present-alt'] ?>">
         </figure>
         <div id="button_artistes">
             <a href="#" class="button_dark">artistes</a>
