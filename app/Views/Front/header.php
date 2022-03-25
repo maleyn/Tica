@@ -28,7 +28,7 @@
                             <a href="index.php"><li>Accueil</li></a>
                             <a href="#"><li>Blog</li></a>
                             <a href="#"><li>Artistes</li></a>
-                            <a href="#"><li>Galerie</li></a>
+                            <a href="index.php?action=galerie"><li>Galerie</li></a>
                         </ul>   
                     </nav>
             

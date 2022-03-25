@@ -31,7 +31,7 @@
              <a href="#">Accueil</a>
              <a href="#">Blog</a>
              <a href="#">Artistes</a>
-             <a href="#">Galerie</a>
+             <a href="index.php?action=galerie.php">Galerie</a>
          </nav>
     </div>
     <hr>

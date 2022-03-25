@@ -21,8 +21,7 @@ class FrontModel extends Manager
 
     public function updateFront($dataFront)
     {
-        // var_dump($dataFront);
-        // die;
+        
         $bdd = $this->dbConnection();
         $data = $bdd->prepare('UPDATE `homepage` SET `slider-alt` = :sliderAlt, `slider-url` = :sliderUrl, `slider-text1` = :sliderText1, 
                                         `slider-text2` = :sliderText2, `intro-title` = :introTitle, `intro-content` = :introContent, 
@@ -59,5 +58,80 @@ class FrontModel extends Manager
 
     } 
     
+    public function getGalerie()
+    {
 
+        $bdd = $this->dbConnection();
+        $data = $bdd->query('SELECT id , name , `img-url`
+                            FROM paints ORDER BY id DESC');
+        
+        return $data->fetchAll();
+
+    } 
+
+    public function getGaleriePaint($idpaint)
+    {
+
+        $bdd = $this->dbConnection();
+        $data = $bdd->prepare('SELECT paints.id as paintid, paints.name as paintname, `img-url`, dimensionH,
+                            dimensionL, frames.name as framename, painters.name as paintername, description, 
+                            painters.smallContent, painters.fullContent, styles.name as stylename, 
+                            types.name as typename 
+                            FROM paints, painters, frames, styles, types
+                            WHERE PaintsFrames = frames.id AND PaintsPainters = painters.id
+                            AND PaintsStyle = styles.id AND PaintsType = types.id 
+                            AND paints.id = :idpaint ORDER BY paints.id DESC');
+
+        $data->execute(array('idpaint' => $idpaint));
+
+        return $data->fetch();
+
+    } 
+
+    public function getPaintersBasics() 
+    {
+        $bdd = $this->dbConnection();
+        $data = $bdd->query('SELECT id , name FROM painters ORDER BY name');
+        
+        return $data->fetchAll();
+
+    }
+    
+    public function getFrames() 
+    {
+        $bdd = $this->dbConnection();
+        $data = $bdd->query('SELECT id , name FROM frames ORDER BY name');
+        
+        return $data->fetchAll();
+
+    }
+
+    public function getStyles() 
+    {
+        $bdd = $this->dbConnection();
+        $data = $bdd->query('SELECT id , name FROM styles ORDER BY name');
+        
+        return $data->fetchAll();
+
+    }
+    public function getTypes() 
+    {
+        $bdd = $this->dbConnection();
+        $data = $bdd->query('SELECT id , name FROM types ORDER BY name');
+        
+        return $data->fetchAll();
+
+    }
+    public function UpdatePaints()
+    {
+        $bdd = $this->dbConnection();
+        $data = $bdd->prepare('UPDATE `paints` SET `slider-alt` = :sliderAlt, `slider-url` = :sliderUrl, `slider-text1` = :sliderText1, 
+                                        `slider-text2` = :sliderText2, `intro-title` = :introTitle, `intro-content` = :introContent, 
+                                        `present-alt` = :presentAlt, `present-url` = :presentUrl, `present-title` = :presentTitle, 
+                                        `present-text1` = :presentText1, `present-text2` = :presentText2, `present-text3` = :presentText3
+                                        WHERE id=1');
+
+        $data->execute(array());
+    }
+    
 }

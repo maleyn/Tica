@@ -110,7 +110,9 @@ class AdminController
     function homeView()
     {
         $getFront = new \Projet\Models\FrontModel();
+        $mail = new \Projet\Models\ContactModel();
         $frontView = $getFront->getFront();
+        $mailCount = $mail->getMailsCount();
 
         require 'app/Views/Admin/homePage.php';
     }
@@ -118,8 +120,10 @@ class AdminController
     function homeUpdate($dataFront)
     {
         $front = new \Projet\Models\FrontModel();
+        $mail = new \Projet\Models\ContactModel();
         $frontUpdate = $front->updateFront($dataFront);
         $frontView = $front->getFront();
+        $mailCount = $mail->getMailsCount();
 
         $confirmUpdate = "Mise à jour effectué";
 
@@ -131,6 +135,47 @@ class AdminController
         $frontUrl = new \Projet\Models\FrontModel();
         $frontDataUrl = $frontUrl->getFrontUrl();
 
+
         return $frontDataUrl;
     }
+
+    /* ----------- Affichage et modification de la page Galerie ----------- */
+
+    function galerieView()
+    {
+        $galerie = new \Projet\Models\FrontModel();
+        $mail = new \Projet\Models\ContactModel();
+        $paints = $galerie->getGalerie();
+        $mailCount = $mail->getMailsCount();
+
+        require 'app/Views/Admin/galeriePage.php';
+    }
+
+    function paintView($idpaint)
+    {
+        $galerie = new \Projet\Models\FrontModel();
+        $mail = new \Projet\Models\ContactModel();
+        $paint = $galerie->getGaleriePaint($idpaint);
+        $painters = $galerie->getPaintersBasics();
+        $styles = $galerie->getStyles();
+        $types = $galerie->getTypes();
+        $frames = $galerie->getFrames();
+        $mailCount = $mail->getMailsCount();
+
+        require 'app/Views/Admin/paintPage.php';
+    }
+
+    function paintUpdate($dataPaint)
+    {
+        $galerie = new \Projet\Models\FrontModel();
+        $mail = new \Projet\Models\ContactModel();
+        $paints = $galerie->getGalerie();
+        $mailCount = $mail->getMailsCount();
+
+        $confirmUpdate = "Mise à jour / Ajout effectué";
+
+        require 'app/Views/Admin/galeriePage.php';
+    }
+
+ 
 }

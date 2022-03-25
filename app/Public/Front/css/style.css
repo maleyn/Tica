@@ -67,6 +67,13 @@ hr {
     
 }
 
+.uppercase {
+
+    text-transform: uppercase;
+
+}
+
+
 .button_light {
 
     padding: 10px 30px;

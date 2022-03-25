@@ -74,11 +74,15 @@ try {
             $idMail = $_GET['id'];
             $adminController->mailDelete($idMail);
 
+        // Affichage de la page homePage gérant la page d'accueil du site
+
         } elseif ($_GET[$action] == 'homeView')
 
         {
 
             $adminController->homeView();
+
+        // Mise à jour des infos de la page d'accueil
 
         } elseif ($_GET[$action] == 'homeUpdate')
 
@@ -130,9 +134,63 @@ try {
                 
             ];
 
-           
             $adminController->homeUpdate($dataFront);
             
+        // Affichage de la page galeriePage gérant la page galerie du site
+
+        } elseif ($_GET[$action] == 'galeriePage')
+
+        {
+            $adminController->galerieView();
+
+        // Affichage de paintPage gérant un tableau de la galerie
+
+        } elseif ($_GET[$action] == 'paintView')
+
+        {
+            if(!empty($_GET['id'])) {
+
+                $idpaint = $_GET['id'];
+
+            } else {
+                $idpaint = null;
+            }
+            
+            $adminController->paintView($idpaint);
+
+        // Mise à jour ou ajout d'un tableau 
+        
+        } elseif ($_GET[$action] == 'paintUpdate')
+
+        {
+            $paintUrl = htmlspecialchars($_POST['painturl']);
+            $paintName = htmlspecialchars($_POST['paintname']);
+            $paintDimH = htmlspecialchars($_POST['paintheight']);
+            $paintDimL = htmlspecialchars($_POST['paintwidth']);
+            $paintPainter = htmlspecialchars($_POST['painter']);
+            $paintType = htmlspecialchars($_POST['type']);
+            $paintStyle = htmlspecialchars($_POST['style']);
+            $paintFrame = htmlspecialchars($_POST['frame']);
+            $paintDescription = htmlspecialchars($_POST['description']);
+            
+        // tableau regroupant les variables
+
+            $dataPaint = [
+
+                'painturl' => $paintUrl,
+                'paintname' => $paintName,
+                'paintheight' => $paintDimH,
+                'paintWidth' => $paintDimL,
+                'paintpainter' => $paintPainter,
+                'painttype' => $paintType,
+                'paintstyle' => $paintStyle,
+                'paintframe' => $paintFrame,
+                'paintdescription' => $paintDescription
+
+            ];
+
+            $adminController->paintUpdate($dataPaint);
+
         }
 
     } else {

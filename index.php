@@ -38,6 +38,10 @@ try {
                 throw new Exception('tous les champs ne sont pas remplis');
             }
             
+        } elseif($_GET['action'] == 'galerie')
+        {
+            require 'app/Views/Front/galerie.php';
+
         }
 
 } else {

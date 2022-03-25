@@ -37,7 +37,7 @@
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="indexAdmin.php?action=homeView">Accueil</a>
                 <a class="dropdown-item" href="#tab3Id">Blog</a>
-                <a class="dropdown-item" href="#tab4Id">Galerie</a>
+                <a class="dropdown-item" href="indexAdmin.php?action=galeriePage">Galerie</a>
                 <a class="dropdown-item" href="#tab4Id">Artistes</a>
             </div>
         </li>
