@@ -163,7 +163,9 @@ try {
         } elseif ($_GET[$action] == 'paintUpdate')
 
         {
-            $paintUrl = htmlspecialchars($_POST['painturl']);
+            echo "<div class='mt-5'></div>";
+            $uploadController = new \Projet\Controllers\UploadController();
+    
             $paintName = htmlspecialchars($_POST['paintname']);
             $paintDimH = htmlspecialchars($_POST['paintheight']);
             $paintDimL = htmlspecialchars($_POST['paintwidth']);
@@ -172,6 +174,14 @@ try {
             $paintStyle = htmlspecialchars($_POST['style']);
             $paintFrame = htmlspecialchars($_POST['frame']);
             $paintDescription = htmlspecialchars($_POST['description']);
+
+            if(!empty($_FILES['painturl']['name']))
+            {
+            $paintUrl = $uploadController->uploadimg('painturl');
+            } else {
+            $dataUrl = $adminController->galerieViewUrl();
+            $paintUrl = $dataUrl['img-url'];
+            }
             
         // tableau regroupant les variables
 

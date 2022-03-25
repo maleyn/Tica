@@ -9,7 +9,7 @@
         <h2 class="p-3 text-secondary">Première partie</h2>
         <div class="col-12 mt-2">
             <label class="text-info" for="sliderUrl">Image de fond accueil (taille max : 2.5Mo) : </label>
-            <input type="file" name="sliderUrl" accept=".jpeg, .jpeg, .png">
+            <input type="file" name="sliderUrl" accept=".jpeg, .jpg, .png">
             <p class="text-info">Image actuelle : </p>
             <img width="200" src="<?= $frontView['slider-url']; ?>" alt="<?= $frontView['slider-alt']; ?>">
             <span class="text-info m-3">Emplacement : </span>
@@ -43,7 +43,7 @@
         </div>
         <div class="col-12 mt-2">
             <label class="text-info" for="presentUrl">Image de présentation (taille max : 2.5Mo) : </label>
-            <input class="" type="file" name="presentUrl" accept=".jpeg, .jpeg, .png">
+            <input class="" type="file" name="presentUrl" accept=".jpeg, .jpg, .png">
             <p class="text-info">Image actuelle : </p>
             <img width="200" src="<?= $frontView['present-url']; ?>" alt="<?= $frontView['present-alt']; ?>">
             <span class="text-info m-3">Emplacement : </span>

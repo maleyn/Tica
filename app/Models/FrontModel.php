@@ -133,5 +133,14 @@ class FrontModel extends Manager
 
         $data->execute(array());
     }
-    
+
+    public function getGalerieUrl()
+    {
+
+        $bdd = $this->dbConnection();
+        $data = $bdd->query('SELECT `img-url` FROM `paints`');
+        
+        return $data->fetch();
+
+    } 
 }

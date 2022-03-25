@@ -7,7 +7,7 @@
     <form action="indexAdmin.php?action=paintUpdate" method="post" class="form-group row pt-3" enctype="multipart/form-data">
         <div class="col-12 mt-2">
             <label class="text-info" for="painturl">Image du tableau (taille max : 2.5Mo) : </label>
-            <input type="file" name="painturl" accept=".jpeg, .jpeg, .png">
+            <input type="file" name="painturl" accept=".jpeg, .jpg, .png">
             <p class="text-info">Image actuelle : </p>
             <img width="400" src="<?php if(!empty($paint)) { echo $paint['img-url']; }; ?>" alt="<?php if(!empty($paint)) { echo $paint['paintname']; }; ?>">
             <span class="text-info m-3">Emplacement : </span>

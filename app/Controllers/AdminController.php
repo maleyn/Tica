@@ -177,5 +177,13 @@ class AdminController
         require 'app/Views/Admin/galeriePage.php';
     }
 
+    function galerieViewUrl()
+    {
+        $galerieUrl = new \Projet\Models\FrontModel();
+        $galerieDataUrl = $galerieUrl->getGalerieUrl();
+
+
+        return $galerieDataUrl;
+    }
  
 }
