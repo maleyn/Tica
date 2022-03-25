@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le : mer. 16 mars 2022 à 11:28
--- Version du serveur : 10.4.21-MariaDB
--- Version de PHP : 8.0.12
+-- Host: 127.0.0.1
+-- Generation Time: Mar 25, 2022 at 08:51 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `tica`
+-- Database: `tica`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `articles`
+-- Table structure for table `articles`
 --
 
 CREATE TABLE `articles` (
@@ -41,7 +41,7 @@ CREATE TABLE `articles` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `contacts`
+-- Table structure for table `contacts`
 --
 
 CREATE TABLE `contacts` (
@@ -55,7 +55,7 @@ CREATE TABLE `contacts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `contacts`
+-- Dumping data for table `contacts`
 --
 
 INSERT INTO `contacts` (`id`, `nom`, `prenom`, `email`, `objet`, `message`, `date`) VALUES
@@ -69,7 +69,7 @@ INSERT INTO `contacts` (`id`, `nom`, `prenom`, `email`, `objet`, `message`, `dat
 -- --------------------------------------------------------
 
 --
--- Structure de la table `frames`
+-- Table structure for table `frames`
 --
 
 CREATE TABLE `frames` (
@@ -77,106 +77,94 @@ CREATE TABLE `frames` (
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `frames`
+--
+
+INSERT INTO `frames` (`id`, `name`) VALUES
+(1, 'Bois');
+
 -- --------------------------------------------------------
 
 --
--- Structure de la table `home-introduction`
+-- Table structure for table `homepage`
 --
 
-CREATE TABLE `home-introduction` (
+CREATE TABLE `homepage` (
   `id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `content` text NOT NULL
+  `present-alt` varchar(150) NOT NULL,
+  `present-url` varchar(255) NOT NULL,
+  `present-text1` text NOT NULL,
+  `present-text2` text NOT NULL,
+  `present-text3` text NOT NULL,
+  `present-title` varchar(255) NOT NULL,
+  `slider-alt` varchar(255) NOT NULL,
+  `slider-url` varchar(255) NOT NULL,
+  `slider-text1` varchar(255) NOT NULL,
+  `slider-text2` varchar(255) NOT NULL,
+  `intro-title` varchar(255) NOT NULL,
+  `intro-content` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `home-introduction`
+-- Dumping data for table `homepage`
 --
 
-INSERT INTO `home-introduction` (`id`, `title`, `content`) VALUES
-(1, 'Présentation', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum debitis distinctio, quidem hic dolores atque dolorum fugit quaerat quasi, dolore magni facilis et aliquam reprehenderit, quae laboriosam aperiam officia libero?');
+INSERT INTO `homepage` (`id`, `present-alt`, `present-url`, `present-text1`, `present-text2`, `present-text3`, `present-title`, `slider-alt`, `slider-url`, `slider-text1`, `slider-text2`, `intro-title`, `intro-content`) VALUES
+(1, 'Photo de tica', 'app/Public/Front/img/Photo_de_tica.png', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s', 'It is a long established fact that a reader will be distracted by the readable content of a page', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece', 'tica', 'tableau de marin', 'app/Public/Front/img/image_fond_header.png', 'TICA vous propose ses meilleures oeuvres ', 'ainsi que celles de plusieurs autres artistes ', 'Présentation', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum debitis distinctio, quidem hic dolores atque dolorum fugit quaerat quasi, dolore magni facilis et aliquam reprehenderit, quae laboriosam aperiam officia libero?');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `home-slider`
---
-
-CREATE TABLE `home-slider` (
-  `id` int(11) NOT NULL,
-  `img-alt` varchar(150) NOT NULL,
-  `url` varchar(255) NOT NULL,
-  `intro-text1` varchar(255) DEFAULT NULL,
-  `intro-text2` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `home-slider`
---
-
-INSERT INTO `home-slider` (`id`, `img-alt`, `url`, `intro-text1`, `intro-text2`) VALUES
-(1, 'tableau de marin', 'app/Public/Front/img/image_fond_header.png', 'TICA vous propose ses meilleures oeuvres ', 'ainsi que celles de plusieurs autres artistes ');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `home-tica`
---
-
-CREATE TABLE `home-tica` (
-  `id` int(11) NOT NULL,
-  `img-alt` varchar(150) NOT NULL,
-  `url` varchar(255) NOT NULL,
-  `text1` text DEFAULT NULL,
-  `text2` text DEFAULT NULL,
-  `text3` text DEFAULT NULL,
-  `title` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `home-tica`
---
-
-INSERT INTO `home-tica` (`id`, `img-alt`, `url`, `text1`, `text2`, `text3`, `title`) VALUES
-(1, 'Photo de tica', 'app/Public/Front/img/Photo_de_tica.png', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s', 'It is a long established fact that a reader will be distracted by the readable content of a page', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece', 'tica');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `painters`
+-- Table structure for table `painters`
 --
 
 CREATE TABLE `painters` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `small-content` text NOT NULL,
-  `full-content` longtext NOT NULL,
-  `PainterStyle` int(11) NOT NULL,
-  `PainterType` int(11) NOT NULL
+  `smallContent` text NOT NULL,
+  `fullContent` longtext NOT NULL,
+  `style` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `painters`
+--
+
+INSERT INTO `painters` (`id`, `name`, `smallContent`, `fullContent`, `style`, `type`) VALUES
+(1, 'Tica', 'Lorem ipsum dolor sit amet. Et soluta alias ut unde accusantium qui quidem quaerat.', 'Hic molestiae eligendi et voluptas molestias sit doloribus voluptatum sit ducimus assumenda qui similique facilis ut voluptatum rerum 33 laborum veritatis. Et omnis tempora vel blanditiis eligendi sed fuga maxime sed labore neque 33 ipsa dolores et pariatur consequatur ex velit repudiandae. ', 'Réalisme, Abstrait ', 'Accrylique, Huile');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `paints`
+-- Table structure for table `paints`
 --
 
 CREATE TABLE `paints` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
   `img-url` varchar(255) NOT NULL,
-  `img-alt` varchar(255) NOT NULL,
-  `dimension-H` int(11) NOT NULL,
-  `dimension-L` int(11) NOT NULL,
-  `price` float NOT NULL,
+  `dimensionH` int(11) NOT NULL,
+  `dimensionL` int(11) NOT NULL,
   `PaintsFrames` int(11) NOT NULL,
-  `PaintsPainters` int(11) NOT NULL
+  `PaintsPainters` int(11) NOT NULL,
+  `PaintsStyle` int(11) NOT NULL,
+  `PaintsType` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `paints`
+--
+
+INSERT INTO `paints` (`id`, `name`, `description`, `img-url`, `dimensionH`, `dimensionL`, `PaintsFrames`, `PaintsPainters`, `PaintsStyle`, `PaintsType`) VALUES
+(6, 'Maison de campagne', '', 'app\\Public\\Front\\img\\maison_de_campagne.jpg', 80, 120, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `roles`
+-- Table structure for table `roles`
 --
 
 CREATE TABLE `roles` (
@@ -185,7 +173,7 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `roles`
+-- Dumping data for table `roles`
 --
 
 INSERT INTO `roles` (`id`, `role`) VALUES
@@ -195,29 +183,45 @@ INSERT INTO `roles` (`id`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `styles`
+-- Table structure for table `styles`
 --
 
 CREATE TABLE `styles` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL
+  `name` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `styles`
+--
+
+INSERT INTO `styles` (`id`, `name`) VALUES
+(1, 'Réalisme'),
+(2, 'Abstrait');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `types`
+-- Table structure for table `types`
 --
 
 CREATE TABLE `types` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL
+  `name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `types`
+--
+
+INSERT INTO `types` (`id`, `name`) VALUES
+(1, 'Acrylique'),
+(2, 'Huile');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -230,7 +234,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `mail`, `password`, `UsersRoles`) VALUES
@@ -238,189 +242,160 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `mail`, `password`, `UsersRo
 (25, 'editeur', 'editeur', 'editeur@hotmail.fr', '$2y$10$pBpm5UucCH4f2tuBtVe/Kehei2jzVWlmpxKLmrHDU51omCWrI8EhW', 4);
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `articles`
+-- Indexes for table `articles`
 --
 ALTER TABLE `articles`
   ADD PRIMARY KEY (`id`),
   ADD KEY `Articles_fk0` (`ArticlesUsers`);
 
 --
--- Index pour la table `contacts`
+-- Indexes for table `contacts`
 --
 ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `frames`
+-- Indexes for table `frames`
 --
 ALTER TABLE `frames`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `home-introduction`
+-- Indexes for table `homepage`
 --
-ALTER TABLE `home-introduction`
+ALTER TABLE `homepage`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `home-slider`
---
-ALTER TABLE `home-slider`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `home-tica`
---
-ALTER TABLE `home-tica`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `painters`
+-- Indexes for table `painters`
 --
 ALTER TABLE `painters`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `Painters_fk0` (`PainterStyle`),
-  ADD KEY `Painters_fk1` (`PainterType`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `paints`
+-- Indexes for table `paints`
 --
 ALTER TABLE `paints`
   ADD PRIMARY KEY (`id`),
   ADD KEY `Paints_fk0` (`PaintsFrames`),
-  ADD KEY `Paints_fk1` (`PaintsPainters`);
+  ADD KEY `Paints_fk1` (`PaintsPainters`),
+  ADD KEY `PaintsStyle` (`PaintsStyle`),
+  ADD KEY `PaintsType` (`PaintsType`);
 
 --
--- Index pour la table `roles`
+-- Indexes for table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `styles`
+-- Indexes for table `styles`
 --
 ALTER TABLE `styles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `types`
+-- Indexes for table `types`
 --
 ALTER TABLE `types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD KEY `Users_fk0` (`UsersRoles`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `articles`
+-- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `contacts`
+-- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT pour la table `frames`
+-- AUTO_INCREMENT for table `frames`
 --
 ALTER TABLE `frames`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `home-introduction`
---
-ALTER TABLE `home-introduction`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pour la table `home-slider`
+-- AUTO_INCREMENT for table `homepage`
 --
-ALTER TABLE `home-slider`
+ALTER TABLE `homepage`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pour la table `home-tica`
---
-ALTER TABLE `home-tica`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT pour la table `painters`
+-- AUTO_INCREMENT for table `painters`
 --
 ALTER TABLE `painters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pour la table `paints`
+-- AUTO_INCREMENT for table `paints`
 --
 ALTER TABLE `paints`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT pour la table `roles`
+-- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT pour la table `styles`
+-- AUTO_INCREMENT for table `styles`
 --
 ALTER TABLE `styles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT pour la table `types`
+-- AUTO_INCREMENT for table `types`
 --
 ALTER TABLE `types`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT pour la table `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `articles`
+-- Constraints for table `articles`
 --
 ALTER TABLE `articles`
   ADD CONSTRAINT `Articles_fk0` FOREIGN KEY (`ArticlesUsers`) REFERENCES `users` (`id`);
 
 --
--- Contraintes pour la table `painters`
---
-ALTER TABLE `painters`
-  ADD CONSTRAINT `Painters_fk0` FOREIGN KEY (`PainterStyle`) REFERENCES `styles` (`id`),
-  ADD CONSTRAINT `Painters_fk1` FOREIGN KEY (`PainterType`) REFERENCES `types` (`id`);
-
---
--- Contraintes pour la table `paints`
+-- Constraints for table `paints`
 --
 ALTER TABLE `paints`
+  ADD CONSTRAINT `FK_paints_styles` FOREIGN KEY (`PaintsStyle`) REFERENCES `styles` (`id`),
+  ADD CONSTRAINT `FK_paints_types` FOREIGN KEY (`PaintsType`) REFERENCES `types` (`id`),
   ADD CONSTRAINT `Paints_fk0` FOREIGN KEY (`PaintsFrames`) REFERENCES `frames` (`id`),
   ADD CONSTRAINT `Paints_fk1` FOREIGN KEY (`PaintsPainters`) REFERENCES `painters` (`id`);
 
 --
--- Contraintes pour la table `users`
+-- Constraints for table `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `FK_users_roles` FOREIGN KEY (`UsersRoles`) REFERENCES `roles` (`id`);
