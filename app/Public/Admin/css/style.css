@@ -3,11 +3,18 @@
     padding: 0;
 }
 
+/* Config Générale */
+
 body {
 
-    font-family: 'Spartan';
-    font-size: 1.3rem;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.2rem;
 
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 h1 {
@@ -38,6 +45,28 @@ h1 {
     padding-top: 10px;
 
 }
+.padding-top20 {
+
+    padding-top: 20px;
+
+}
+
+.padding-top30 {
+
+    padding-top: 30px;
+
+}
+
+.margin-bottom40 {
+
+    margin-bottom: 40px;
+
+}
+.margin-top10 {
+
+    margin-top: 10px;
+
+}
 
 a {
 
@@ -66,6 +95,94 @@ a:hover {
     background-color: rgb(202, 202, 202);
     color: rgb(54, 54, 54);
     cursor: pointer;
+
+}
+
+.text-green {
+
+    color: rgb(51, 145, 51);
+
+}
+
+.text-red {
+
+    color: rgb(189, 26, 26);
+    
+}
+
+.text-blue {
+
+    color: rgb(49, 115, 177);
+}
+
+.text-gray {
+
+    color: rgb(107, 107, 107);
+
+}
+
+.text-uppercase {
+
+    text-transform: uppercase;
+
+}
+
+.border-input {
+
+    border: 1px solid rgb(175, 175, 175);
+}
+
+.form-text:focus {
+
+    background-color: rgb(241, 241, 241);
+    outline: 2px solid rgb(179, 179, 179);
+}
+
+.form-text {
+
+    padding: 2px;
+    font-size: 1.2rem;
+    border: 1px solid rgb(175, 175, 175);
+    color: rgb(85, 85, 85);
+    font-family: 'Raleway', sans-serif;
+}
+.width100 {
+
+    width: 100%;
+
+}
+
+.width75 {
+
+    width: 75%;
+    
+}
+
+.width50 {
+
+    width: 50%;
+
+}
+.width25 {
+
+    width: 25%;
+
+}
+
+.vertic-align-top {
+
+    vertical-align: top;
+
+}
+
+.grid {
+
+    display: grid;
+
+}
+.inline-block {
+
+    display: inline-block;
 
 }
 
@@ -134,5 +251,276 @@ a:hover {
 
 }
 
+/* Dashboard */
+
+#header-fixed {
+
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+
+#flex-nav-dash {
+
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+    border-bottom: 1px solid rgb(196, 196, 196);
+    
+}
+
+#flex-nav-dash li {
+    
+    border-left: 1px solid rgb(192, 192, 192);
+    padding: 10px 20px 5px 10px;
+
+}
+
+#flex-nav-dash a {
+
+    color: rgb(37, 122, 192);
+
+}
+
+#flex-nav-dash a:hover {
+
+    color: rgb(2, 36, 63);
+    
+}
+
+#flex-nav-dash .subnav-content {
+
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    width: 150px;
+    margin-top: 5px;
+    
+    
+}
+
+#flex-nav-dash .subnav-content a {
+
+    position: relative;
+    left: -10px;
+    border-bottom: 1px solid rgb(179, 179, 179);
+    background-color: white;
+    padding: 15px 0 5px 10px;
+
+}
+
+#flex-nav-dash .subnav:hover .subnav-content {
+
+    display: flex;
+  
+}
+
+/* HomePage */
+
+#homepage-admin h1 {
+    font-size: 2.5rem;
+}
+
+#homepage-admin form {
+
+    display: grid;
+    
+}
 
 
+/* GaleriePage */
+
+#galerie h1 {
+
+    font-size: 2.5rem;
+
+}
+#galerie .button_submit {
+
+    margin-left: 30px;
+
+}
+
+#galerie #flex-galerie {
+    display: flex;
+    flex-wrap: wrap;
+}
+#galerie #flex-galerie div {
+
+    padding: 2%;
+
+}
+#galerie #flex-galerie div:hover {
+
+    scale: 1.1;
+
+}
+#galerie #flex-galerie div img {
+
+    height: 200px;
+    width: 300px;
+    object-fit: cover;
+
+}
+
+/* PaintPage */
+
+#paintpage h1 {
+    
+    font-size: 2.5rem;
+
+}
+
+#paintpage .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#paintpage #photo-paint img{
+
+    max-width: 400px;
+    object-fit: contain;
+
+}
+
+/* MailView */
+
+#mailview table {
+
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#mailview td {
+
+    border: 1px solid rgb(219, 219, 219);
+    border-collapse: collapse;
+    padding: 20px 10px;
+}
+
+#mailview tr:hover {
+
+    background-color: rgb(236, 236, 236);
+
+}
+
+#mailview .icones-flex {
+
+    display: flex;
+    justify-content: center;
+    
+
+}
+#mailview .icones-flex a {
+
+    padding: 0px 10px;
+    color: rgb(49, 115, 177);
+    width: 30px;
+}
+
+#mailview .icones-flex a:hover {
+
+    scale: 1.1;
+    color: black;
+}
+
+/* MailSolo */
+
+#mailsolo #mailviewsolo {
+    font-size: 1.4rem;
+    margin-top: 20px;
+}
+
+#mailsolo #mailviewsolo p {
+    padding: 3px;
+}
+
+#mailsolo #mailviewsolo p span {
+
+    color: rgb(49, 115, 177);
+
+}
+
+#mailsolo #btn-modal {
+
+    margin-top: 20px;
+
+}
+
+
+
+/* modal */
+
+.modal-off {
+
+    display: none;
+
+}
+.modal-on {
+
+    display: block;
+
+}
+
+.modaljs {
+
+    position: fixed; 
+    z-index: 2000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
+    text-align: center;
+
+}
+
+.modal-content {
+
+    background-color: #ffffff;
+    margin: 1% auto; 
+    border: 1px solid #888;
+    width: 50%;
+   
+    
+  }
+
+.modal-header {
+
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    background-color: rgb(189, 100, 100);
+    padding: 10px 0;
+    
+}
+.modal-header .button-close1 {
+
+    color: rgb(87, 87, 87);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    background-color: white;
+    padding: 0px 9px;
+    margin-right: 10px;
+}
+
+.modal-body {
+    padding: 10px 0;
+    font-size: 1.5rem;
+}
+
+.modal-footer {
+
+    vertical-align: bottom;
+    margin-top: 20px;
+}
+
+.button-close1:hover {
+
+    background-color: rgb(83, 83, 83);
+    color: white;
+    cursor: pointer;
+
+}

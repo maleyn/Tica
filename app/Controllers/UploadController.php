@@ -5,7 +5,8 @@ namespace Projet\Controllers;
 class UploadController
 {
 
-  public function uploadimg($img) {
+  public function uploadimg($img) 
+  {
 
     $targetDir = "app/Public/Front/img/";
     $targetFile = $targetDir . basename($_FILES["$img"]["name"]);
@@ -26,13 +27,14 @@ class UploadController
 
 
 // vérifie si le fichier existe déja
-    if (file_exists($targetFile)) {
+    if (file_exists($targetFile)) 
+    {
       
       return $targetFile;
     }
 
 // Vérifie la taille de l'image
-    if(self::checksize($img) == false)
+    if (self::checksize($img) == true)
     {
       $upload = 0;
       return $error = "<span class='text-danger'>Désolé l'image est trop volumineuse (elle doit être inférieur à 2.5Mo)</span>";
@@ -40,28 +42,34 @@ class UploadController
 
 // Limitation des format de fichier
 
-    if(self::checkformat($imageFileType) == false)
+    if(self::checkformat($imageFileType) == true)
     {
       $upload = 0;
       return $error = "<span class='text-danger'>Désolé, sont autorisés seulement les fichiers JPG, JPEG & PNG</span>";
     }
 
-    if($upload == 1) {
+    if($upload == 1)
+    {
     move_uploaded_file($_FILES["$img"]["tmp_name"], $targetFile);
     return $targetFile;
     }
   }
   private static function checksize($img) 
   {
+    
     if ($_FILES["$img"]["size"] > 2500000) {
-      return false;
+      return true;
       
     }
   }
+
   private static function checkformat($imageFileType)
   {
-    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-      return false;
-  }
+    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg")
+    {
+      return true;
+    }
   }
 }
+
+

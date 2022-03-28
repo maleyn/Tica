@@ -4,6 +4,9 @@ session_start();
 
 require_once __DIR__ . '/vendor/autoload.php';
 
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 try {
 
     $adminController = new \Projet\Controllers\AdminController();
@@ -60,7 +63,9 @@ try {
         } elseif ($_GET[$action] == 'dashboard')
 
         {
+
             $adminController->dashboard();
+        
 
         } elseif ($_GET[$action] == 'mailSolo')
 
@@ -108,7 +113,7 @@ try {
             $dataUrl = $adminController->homeViewUrl();
             $sliderUrl = $dataUrl['slider-url'];
             }
-
+            
             if(!empty($_FILES['presentUrl']['name']))
             {
             $presentUrl = $uploadController->uploadimg('presentUrl');
@@ -163,9 +168,10 @@ try {
         } elseif ($_GET[$action] == 'paintUpdate')
 
         {
-            echo "<div class='mt-5'></div>";
+            
             $uploadController = new \Projet\Controllers\UploadController();
-    
+           
+            $paintId = htmlspecialchars($_POST['paintid']);
             $paintName = htmlspecialchars($_POST['paintname']);
             $paintDimH = htmlspecialchars($_POST['paintheight']);
             $paintDimL = htmlspecialchars($_POST['paintwidth']);
@@ -175,6 +181,21 @@ try {
             $paintFrame = htmlspecialchars($_POST['frame']);
             $paintDescription = htmlspecialchars($_POST['description']);
 
+            // récupérer l'id des différentes tables
+
+            $painterId = $adminController->idView('painters', $paintPainter)['id'];
+            $typeId = $adminController->idView('types', $paintType)['id'];
+            $styleId = $adminController->idView('styles', $paintStyle)['id'];
+            $frameId = $adminController->idView('frames', $paintFrame)['id'];
+
+            if(!empty($_POST['paintid']))
+            {
+                $paintId = htmlspecialchars($_POST['paintid']);
+            } else {
+                $paintId = null;
+            }
+           
+
             if(!empty($_FILES['painturl']['name']))
             {
             $paintUrl = $uploadController->uploadimg('painturl');
@@ -183,18 +204,19 @@ try {
             $paintUrl = $dataUrl['img-url'];
             }
             
-        // tableau regroupant les variables
+            // array regroupant les variables
 
             $dataPaint = [
 
+                'paintid' => $paintId,
                 'painturl' => $paintUrl,
                 'paintname' => $paintName,
                 'paintheight' => $paintDimH,
-                'paintWidth' => $paintDimL,
-                'paintpainter' => $paintPainter,
-                'painttype' => $paintType,
-                'paintstyle' => $paintStyle,
-                'paintframe' => $paintFrame,
+                'paintwidth' => $paintDimL,
+                'paintpainter' => $painterId,
+                'painttype' => $typeId,
+                'paintstyle' => $styleId,
+                'paintframe' => $frameId,
                 'paintdescription' => $paintDescription
 
             ];

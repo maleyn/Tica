@@ -7,7 +7,7 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-
+[![Maintainability](https://api.codeclimate.com/v1/badges/5801c40dbc2f93e6b1b8/maintainability)](https://codeclimate.com/github/maleyn/Tica/maintainability)
 
 
 
@@ -89,7 +89,9 @@ Modifiez ce fichier en changeant les différentes variables.
 
   https://getcomposer.org/doc/00-intro.md#installation-windows
 
-  
+- Dotenv
+
+  composer require vlucas/phpdotenv
 
 ### Installation
 
@@ -99,11 +101,20 @@ Dans un terminal et dans le dossier de votre choix
    ```sh
    git clone https://github.com/maleyn/Tica.git
    ```
+
 2. Installer les paquets NPM
    ```sh
    npm install
    ```
-3. Mettre à jour composer
+
+3. Installer Dotenv
+
+   composer require vlucas/phpdotenv
+
+   
+
+4. Mettre à jour composer
+
    ```js
    composer update
    ```
@@ -161,7 +172,6 @@ Renaud Maleyran - maleyran.ren@hotmail.fr
 Lien du projet: [https://github.com/maleyn/Tica](https://github.com/maleyn/Tica)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 

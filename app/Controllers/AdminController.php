@@ -169,6 +169,7 @@ class AdminController
     {
         $galerie = new \Projet\Models\FrontModel();
         $mail = new \Projet\Models\ContactModel();
+        $paintsupdate = $galerie->UpdatePaints($dataPaint);
         $paints = $galerie->getGalerie();
         $mailCount = $mail->getMailsCount();
 
@@ -185,5 +186,14 @@ class AdminController
 
         return $galerieDataUrl;
     }
+
+    function idView($table, $name)
+    {
+        $data = new \Projet\Models\FrontModel();
+        $idData = $data->getIdTable($table, $name);
+
+        return $idData;
+    }
+    
  
 }
