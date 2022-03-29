@@ -2,7 +2,7 @@
 
 <main class="container" id="mailsolo">
 <div class="padding-top20" id="mailviewsolo">
-    <div>
+    <div class="messagecont">
         <?php 
             $date = date_create($mailSolo['date']);           
         ?>
@@ -13,7 +13,7 @@
         <p><span>Message : </span><?= htmlspecialchars($mailSolo['message'])?></p>
     </div>
 </div>
-<!-- Boutton trigger modal -->
+<!-- Bouton trigger modal -->
 <button type="button" class="button_submit btn-modal">
   Supprimer
 </button>
@@ -39,7 +39,7 @@
 </div>
 </form>
 </main>
-<script src="app/Public/Admin/js/modal.js"></script>
+<script src="app/Public/Admin/js/deleteSoloModal.js"></script>
 <?php $mainContent = ob_get_clean();
 require 'templates/template.php';
 ?>

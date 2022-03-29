@@ -5,7 +5,7 @@
 
     <h1>Ajout/Modification d'un tableau</h1>
     <form class="grid" action='indexAdmin.php?action=paintUpdate' method="post" enctype="multipart/form-data">
-    <div>
+        <div>
             <label for="paintid" hidden>Id du tableau : </label>
             <input type="text" name="paintid" value="<?php if(!empty($paint)) { echo $paint['paintid']; }; ?>" hidden>
         </div>
@@ -78,12 +78,12 @@
             <textarea class="form-text width75 margin-top10" name="description" rows="5" required><?php if(!empty($paint)) { echo $paint['description']; };?></textarea>
         </div>
         <div class="padding-top20 margin-bottom40">
-            <input class="button_submit" type="submit" value="<?php if(!empty($paint)) { echo 'Mettre à jour'; } else { echo 'Ajouter'; }; ?>" class="button_submit">
+            <input class="button_submit" type="submit" value="<?php if(!empty($paint)) { echo 'Mettre à jour'; } else { echo 'Ajouter'; }; ?>">
             <?php if(!empty($paint)) {; ?>
             <button type="button" class="button_submit btn-modal">Supprimer</button>
             <?php }; ?>
         </div>
-       
+    </form>
         
 <!-- Modal -->
 <form action="indexAdmin.php?action=paintDelete&id=<?= $paint['paintid'] ?>" method="post">
@@ -104,9 +104,9 @@
         </div>
    
 </div>
-    </form>
+</form>
 </main>
-<script src="app/Public/Admin/js/modal.js"></script>
+<script src="app/Public/Admin/js/deleteSoloModal.js"></script>
 <?php $mainContent = ob_get_clean(); 
 require 'templates/template.php';
 ?>

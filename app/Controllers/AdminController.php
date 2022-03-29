@@ -183,7 +183,6 @@ class AdminController
         $galerieUrl = new \Projet\Models\FrontModel();
         $galerieDataUrl = $galerieUrl->getGalerieUrl();
 
-
         return $galerieDataUrl;
     }
 
@@ -194,6 +193,12 @@ class AdminController
 
         return $idData;
     }
-    
+
+    function paintDelete($idPaint)
+    {
+        $data = new \Projet\Models\AdminModel();
+        $data->deletePaint($idPaint);
+
+    }
  
 }

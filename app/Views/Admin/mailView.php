@@ -19,14 +19,15 @@
     <?php foreach($allContactMail as $contactMail) { ?>
     
         <tr>
-            <td><?= $count; ?></td>
+            <td class="idelement" hidden><?= htmlspecialchars($contactMail['id']); ?></td>
+            <td><?= $count ?></td>
             <td><?= htmlspecialchars($contactMail['nom']); ?></td>
             <td><?= htmlspecialchars($contactMail['prenom']); ?></td>
             <td><?= htmlspecialchars($contactMail['email']); ?></td>
             <td><?= htmlspecialchars($contactMail['objet']); ?></td>
-            <td><?= $contactMail['date']; ?></td>
+            <td><?= htmlspecialchars($contactMail['date']); ?></td>
             <td class="icones-flex">
-                <a title="Suppression du mail" href="indexAdmin.php?action=mailDelete&id=<?= $contactMail['id'] ?>">
+                <a title="Suppression du mail" class="btn-modal btnid<?= $count ?>">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                     </svg>
@@ -42,8 +43,34 @@
     <?php $count++; }; ?>
     </tbody>
 </table>
+<span class="nbtotal" hidden data-nbtotal="<?= $count ?>"></span>
+
+<!-- Modal -->
+
+<form class="modalform" action="indexAdmin.php?action=mailDelete&id=" method="post">
+    <div class="modal-off modaljs" id="modalid">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="button-close1">&times;</span>
+                <p class="modal-title">Suppression du mail</p>
+            </div>
+            <div class="modal-body">
+                <p class="text-danger">Etes vous sûr de vouloir supprimer ce mail ?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="button_submit">Supprimer</button>
+                <button type="button" class="button_submit button-close2">Annuler</button>
+            </div>
+        </div>
+   
+    </div>
+</form>
 
 </main>
+
+<script src="app/Public/Admin/js/deleteModal.js"></script>
+
 <?php $mainContent = ob_get_clean();
 require 'templates/template.php';
 ?>

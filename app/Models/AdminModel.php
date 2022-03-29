@@ -62,5 +62,16 @@ class AdminModel extends Manager
 
     }
 
+    public function deletePaint($idPaint)
+    {
+
+        $bdd = $this->dbConnection();
+        $req = $bdd->prepare('DELETE FROM paints WHERE id = :idpaint');
+        $req->execute(array(':idpaint' => $idPaint));
+
+        return $req;
+
+    }
+
     
 }

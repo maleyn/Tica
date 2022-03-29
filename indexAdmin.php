@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+use Projet\Controllers\AdminController;
 
 session_start();
 
@@ -168,7 +170,7 @@ try {
         } elseif ($_GET[$action] == 'paintUpdate')
 
         {
-            
+        
             $uploadController = new \Projet\Controllers\UploadController();
            
             $paintId = htmlspecialchars($_POST['paintid']);
@@ -222,6 +224,15 @@ try {
             ];
 
             $adminController->paintUpdate($dataPaint);
+
+        } elseif ($_GET[$action] == 'paintDelete')
+
+        {
+       
+            $idPaint = $_GET['id'];
+            $adminController->paintDelete($idPaint);
+            
+            $adminController->galerieView();
 
         }
 
