@@ -175,6 +175,12 @@ a:hover {
 
 }
 
+.vertic-align-mid {
+
+    vertical-align: middle;
+
+}
+
 .grid {
 
     display: grid;
@@ -258,6 +264,7 @@ a:hover {
     position: sticky;
     top: 0;
     background-color: white;
+    z-index: 2000;
 }
 
 #flex-nav-dash {
@@ -328,34 +335,34 @@ a:hover {
 }
 
 
-/* GaleriePage */
+/* GaleriePage, PainterPage */
 
-#galerie h1 {
+.cardpage h1 {
 
     font-size: 2.5rem;
 
 }
-#galerie .button_submit {
+.cardpage .button_submit {
 
     margin-left: 30px;
 
 }
 
-#galerie #flex-galerie {
+.cardpage .flex-card {
     display: flex;
     flex-wrap: wrap;
 }
-#galerie #flex-galerie div {
+.cardpage .flex-card .flex-item {
 
     padding: 2%;
 
 }
-#galerie #flex-galerie div:hover {
+.cardpage .flex-card .flex-item:hover {
 
     scale: 1.1;
 
 }
-#galerie #flex-galerie div img {
+.cardpage .flex-card div img {
 
     height: 250px;
     width: 350px;
@@ -364,7 +371,7 @@ a:hover {
 }
 
 
-#galerie .btnsup {
+.cardpage .btnsup {
 
     display: none;
     text-align: center;
@@ -374,25 +381,25 @@ a:hover {
     width: 350px;
 }
 
-#galerie .paintitem:hover .btnsup {
+.cardpage .flex-item:hover .btnsup {
    display: block;
    
 }
 
 /* PaintPage */
 
-#paintpage h1 {
+.soloModPage h1 {
     
-    font-size: 2.5rem;
+    font-size: 2.6rem;
 
 }
 
-#paintpage .grid-2 {
+.soloModPage .grid-2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
 
-#paintpage #photo-paint img{
+.soloModPage .photo-solomod img{
 
     max-width: 400px;
     object-fit: contain;

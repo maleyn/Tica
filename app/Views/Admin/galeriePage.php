@@ -1,16 +1,16 @@
 <?php ob_start(); ?>
 
 
-<main class="container padding-top20" id="galerie">
+<main class="container padding-top20 cardpage">
 
     <h1>Ajout/Personnalisation de la galerie</h1>
     <h2 class="text-green padding-top10 margin-bottom40 center"><?php if(isset($confirmUpdate)){ echo $confirmUpdate; }; ?></h2>
     <h2 class="text-green center"><?php if(isset($confirmDelete)){ echo $confirmDelete; }; ?></h2>
     <a href="indexAdmin.php?action=paintView" class="button_submit">Ajouter tableau</a>
-        <section class="padding-top20" id="flex-galerie">
+        <section class="padding-top20 flex-card">
         <?php $count = 1 ?>
         <?php foreach($paints as $paint) { ?>
-            <div class="paintitem">
+            <div class="flex-item">
                 <a class="paintlink" href="indexAdmin.php?action=paintView&id=<?= $paint['id'] ?>">
                     <span class="idelement" hidden><?=$paint['id'] ?></span>
                     <p><?=$count . ' - ' . $paint['name'] ?></p>

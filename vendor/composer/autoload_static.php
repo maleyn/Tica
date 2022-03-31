@@ -61,8 +61,7 @@ class ComposerStaticInit537abfa3b672a80713051ff114070585
         ),
         'Dotenv\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
-            1 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
+            0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
         ),
     );
 

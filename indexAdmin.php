@@ -94,7 +94,7 @@ try {
         } elseif ($_GET[$action] == 'homeUpdate')
 
         {
-            echo "<div class='mt-5'></div>";
+            
             $uploadController = new \Projet\Controllers\UploadController();
             
             $sliderAlt = htmlspecialchars($_POST['sliderAlt']);
@@ -200,10 +200,12 @@ try {
 
             if(!empty($_FILES['painturl']['name']))
             {
+            var_dump($_FILES['painturl']['name']);
             $paintUrl = $uploadController->uploadimg('painturl');
             } else {
-            $dataUrl = $adminController->galerieViewUrl();
+            $dataUrl = $adminController->galerieViewUrl($paintId);
             $paintUrl = $dataUrl['img-url'];
+            var_dump($paintUrl);
             }
             
             // array regroupant les variables
@@ -234,6 +236,72 @@ try {
             
             $adminController->galerieView();
 
+        } elseif ($_GET[$action] == 'paintersView')
+        
+        {
+            $adminController->paintersView();
+ 
+        } elseif ($_GET[$action] == 'painterSoloView')
+        
+        {
+            if(!empty($_GET['id'])) {
+
+                $idPainter = $_GET['id'];
+
+            } else {
+                $idPainter = null;
+            }
+            $adminController->painterSoloView($idPainter);
+
+        } elseif ($_GET[$action] == 'painterUpdate')
+
+        {
+     
+            $uploadController = new \Projet\Controllers\UploadController();
+        
+            $painterId = htmlspecialchars($_POST['painterid']);
+            $painterName = htmlspecialchars($_POST['paintername']);
+            $paintPainter = htmlspecialchars($_POST['painter']);
+            $painterShort = htmlspecialchars($_POST['shortres']);
+            $painterLong = htmlspecialchars($_POST['longres']);
+            
+            // récupérer l'id des différentes tables
+
+            if(!empty($_POST['paintid']))
+            {
+                $painterId = htmlspecialchars($_POST['painterid']);
+            } else {
+                $painterId = null;
+            }
+           
+
+            if(!empty($_FILES['painturl']['name']))
+            {
+            $paintUrl = $uploadController->uploadimg('painturl');
+            
+            } else {
+            $dataUrl = $adminController->galerieViewUrl();
+            $paintUrl = $dataUrl['img-url'];
+            }
+            
+            // array regroupant les variables
+
+            $dataPaint = [
+
+                'paintid' => $paintId,
+                'painturl' => $paintUrl,
+                'paintname' => $paintName,
+                'paintheight' => $paintDimH,
+                'paintwidth' => $paintDimL,
+                'paintpainter' => $painterId,
+                'painttype' => $typeId,
+                'paintstyle' => $styleId,
+                'paintframe' => $frameId,
+                'paintdescription' => $paintDescription
+
+            ];
+
+            $adminController->paintUpdate($dataPaint);
         }
 
     } else {

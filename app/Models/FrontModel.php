@@ -142,6 +142,7 @@ class FrontModel extends Manager
         }
 
         $data->execute(array(
+
             'paintname' => $dataPaint['paintname'],
             'paintdescription' => $dataPaint['paintdescription'],
             'imgurl' => $dataPaint['painturl'],
@@ -157,12 +158,14 @@ class FrontModel extends Manager
     }   
     
 
-    public function getGalerieUrl()
+    public function getGalerieUrl($paintId)
     {
 
         $bdd = $this->dbConnection();
-        $data = $bdd->query('SELECT `img-url` FROM `paints`');
+        $data = $bdd->prepare('SELECT `img-url` FROM `paints` WHERE id = :paintid');
         
+        $data->execute(array('paintid' => $paintId));
+
         return $data->fetch();
 
     } 
@@ -178,4 +181,69 @@ class FrontModel extends Manager
 
         return $data->fetch();
     }
+
+    public function getPaintersInfos()
+    {
+        $bdd = $this->dbConnection();
+        $data = $bdd->query("SELECT id, name, `photo-url` FROM painters");
+
+        return $data->fetchAll();
+        
+    }
+    
+    public function getPainterFullInfos($idPainter)
+    {
+        $bdd = $this->dbConnection();
+        $data = $bdd->prepare("SELECT painters.id as idpainter, painters.name as namepainter, `photo-url` as photopainter,
+                            smallcontent, fullcontent FROM painters
+                            WHERE painters.id = :painter ORDER BY painters.id DESC");
+
+        $data->execute(array('painter' => $idPainter));
+
+        return $data->fetch();
+
+    }
+    public function getPainterStyle($idPainter) 
+    {
+        $bdd = $this->dbConnection();
+        $data = $bdd->prepare("SELECT styles.name as namestyle FROM styles, painterstyle, painters
+                                WHERE styles.id = painterstyle.idstyle
+                                AND painters.id = painterstyle.idpainter
+                                AND painters.id = :painter");
+
+        $data->execute(array('painter' => $idPainter));
+
+        return $data->fetchAll();
+    }
+    public function UpdatePainter($dataPaint)
+
+    {
+        $bdd = $this->dbConnection();
+        // si il y'a un id alors faire un update selon cette id sinon un insert
+        if($dataPaint['paintid'] != null) {
+            $data = $bdd->prepare('UPDATE painters SET `name` = :paintername, smallcontent = :paintersmall, fullcontent = :painterfull,
+                                        `photo-url` = :photourl
+                                   WHERE id =' . $dataPaint['paintid']);
+        } else {
+            $data = $bdd->prepare('INSERT INTO paints (name, description, `img-url`, dimensionH, dimensionL,
+                                        PaintsFrames, PaintsPainters, PaintsStyle, PaintsType)
+                                        VALUE (:paintname, :paintdescription, :imgurl, :dimensionH, :dimensionL,
+                                        :frameId, :painterId, :styleId, :typeId)');
+        }
+
+        $data->execute(array(
+
+            'paintname' => $dataPaint['paintname'],
+            'paintdescription' => $dataPaint['paintdescription'],
+            'imgurl' => $dataPaint['painturl'],
+            'dimensionH' => $dataPaint['paintheight'],
+            'dimensionL' => $dataPaint['paintwidth'],
+            'frameId' => $dataPaint['paintframe'],
+            'painterId' => $dataPaint['paintpainter'],
+            'styleId' => $dataPaint['paintstyle'],
+            'typeId' => $dataPaint['painttype']
+            
+        ));
+
+    }   
 }

@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
 
 
-<main class="container padding-top20" id="paintpage">
+<main class="container padding-top20 soloModPage">
 
     <h1>Ajout/Modification d'un tableau</h1>
     <form class="grid" action='indexAdmin.php?action=paintUpdate' method="post" enctype="multipart/form-data">
@@ -9,7 +9,7 @@
             <label for="paintid" hidden>Id du tableau : </label>
             <input type="text" name="paintid" value="<?php if(!empty($paint)) { echo $paint['paintid']; }; ?>" hidden>
         </div>
-        <div class="grid padding-top20" id="photo-paint">
+        <div class="grid padding-top20 photo-solomod">
             <label class="text-blue" for="painturl">Image du tableau (taille max : 2.5Mo) : </label>
             <input type="file" name="painturl" accept=".jpeg, .jpg, .png">
             <p class="text-blue padding-top10">Image actuelle : </p>

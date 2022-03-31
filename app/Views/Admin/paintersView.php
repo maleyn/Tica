@@ -1,19 +1,19 @@
 <?php ob_start(); ?>
 
-<main class="container padding-top20" id="galerie">
+<main class="container padding-top20 cardpage">
 
     <h1>Ajout/Personnalisation des artistes</h1>
     <h2 class="text-green padding-top10 margin-bottom40 center"><?php if(isset($confirmUpdate)){ echo $confirmUpdate; }; ?></h2>
     <h2 class="text-green center"><?php if(isset($confirmDelete)){ echo $confirmDelete; }; ?></h2>
     <a href="indexAdmin.php?action=paintView" class="button_submit">Ajouter artistes</a>
-        <section class="padding-top20" id="flex-galerie">
+        <section class="padding-top20 flex-card">
         <?php $count = 1 ?>
-        <?php foreach($paints as $paint) { ?>
-            <div class="paintitem">
-                <a class="paintlink" href="indexAdmin.php?action=paintView&id=<?= $paint['id'] ?>">
+        <?php foreach($dataPainter as $painter) { ?>
+            <div class="flex-item">
+                <a class="paintlink" href="indexAdmin.php?action=painterSoloView&id=<?= $painter['id'] ?>">
                     <span class="idelement" hidden><?=$paint['id'] ?></span>
-                    <p><?=$count . ' - ' . $paint['name'] ?></p>
-                    <img src="<?= $paint['img-url'] ?>" alt="<?= $paint['name'] ?>">
+                    <p><?=$count . ' - ' . $painter['name'] ?></p>
+                    <img src="<?= $painter['photo-url'] ?>" alt="<?= $painter['name'] ?>">
                 </a>
                 <button class="btn-modal btnsup button_submit btnid<?= $count ?>">Supprimer</button>
             </div>
@@ -29,10 +29,10 @@
         <div class="modal-content">
             <div class="modal-header">
                 <span class="button-close1">&times;</span>
-                <p class="modal-title">Suppression du tableau</p>
+                <p class="modal-title">Suppression de l'artiste</p>
             </div>
             <div class="modal-body">
-                <p class="text-danger">Etes vous sûr de vouloir supprimer ce tableau ?</p>
+                <p class="text-danger">Etes vous sûr de vouloir supprimer cet artiste de la base de donnée ?</p>
             </div>
             <div class="modal-footer">
                 <button type="submit" class="button_submit">Supprimer</button>

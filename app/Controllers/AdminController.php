@@ -178,10 +178,10 @@ class AdminController
         require 'app/Views/Admin/galeriePage.php';
     }
 
-    function galerieViewUrl()
+    function galerieViewUrl($paintId)
     {
         $galerieUrl = new \Projet\Models\FrontModel();
-        $galerieDataUrl = $galerieUrl->getGalerieUrl();
+        $galerieDataUrl = $galerieUrl->getGalerieUrl($paintId);
 
         return $galerieDataUrl;
     }
@@ -199,6 +199,32 @@ class AdminController
         $data = new \Projet\Models\AdminModel();
         $data->deletePaint($idPaint);
 
+    }
+
+/* ----------- Affichage et modification de la page Artistes ----------- */
+
+    function paintersView()
+    
+    {
+        $data = new \Projet\Models\FrontModel();
+        $mail = new \Projet\Models\ContactModel();
+        $mailCount = $mail->getMailsCount();
+        $dataPainter = $data->getPaintersInfos();
+
+        require 'app/Views/Admin/paintersView.php';
+    }
+    
+    function painterSoloView($idPainter)
+    
+    {
+        $data = new \Projet\Models\FrontModel();
+        $mail = new \Projet\Models\ContactModel();
+        $mailCount = $mail->getMailsCount();
+        $paintersStyle = $data->getPainterStyle($idPainter);
+        $styles = $data->getStyles();
+        $dataPainter = $data->getPainterFullInfos($idPainter);
+        
+        require 'app/Views/Admin/painterPage.php';
     }
  
 }

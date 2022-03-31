@@ -25,7 +25,7 @@
                         <a href="indexAdmin.php?action=homeView">Accueil</a>
                         <a href="#tab3Id">Blog</a>
                         <a href="indexAdmin.php?action=galeriePage">Galerie</a>
-                        <a href="#tab4Id">Artistes</a>
+                        <a href="indexAdmin.php?action=paintersView">Artistes</a>
                     </div>
                 </li>
                 <li>
