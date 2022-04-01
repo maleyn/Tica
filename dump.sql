@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 30 mars 2022 à 17:48
+-- Généré le : ven. 01 avr. 2022 à 16:45
 -- Version du serveur : 10.4.21-MariaDB
 -- Version de PHP : 8.0.12
 
@@ -118,19 +118,38 @@ INSERT INTO `homepage` (`id`, `present-alt`, `present-url`, `present-text1`, `pr
 CREATE TABLE `painters` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `img-url` varchar(255) NOT NULL,
+  `photo-url` varchar(255) NOT NULL,
   `smallContent` text NOT NULL,
-  `fullContent` longtext NOT NULL,
-  `style` varchar(255) NOT NULL,
-  `type` varchar(255) NOT NULL
+  `fullContent` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `painters`
 --
 
-INSERT INTO `painters` (`id`, `name`, `img-url`, `smallContent`, `fullContent`, `style`, `type`) VALUES
-(1, 'Tica', '', 'Lorem ipsum dolor sit amet. Et soluta alias ut unde accusantium qui quidem quaerat.', 'Hic molestiae eligendi et voluptas molestias sit doloribus voluptatum sit ducimus assumenda qui similique facilis ut voluptatum rerum 33 laborum veritatis. Et omnis tempora vel blanditiis eligendi sed fuga maxime sed labore neque 33 ipsa dolores et pariatur consequatur ex velit repudiandae. ', 'Réalisme, Abstrait ', 'Accrylique, Huile');
+INSERT INTO `painters` (`id`, `name`, `photo-url`, `smallContent`, `fullContent`) VALUES
+(1, 'Tica', 'app/Public/Front/img/Photo_de_tica.png', 'Lorem ipsum dolor sit amet. Et soluta alias ut unde accusantium qui quidem quaerat. ', 'Hic molestiae eligendi et voluptas molestias sit doloribus voluptatum sit ducimus assumenda qui similique facilis ut voluptatum rerum 33 laborum veritatis. Et omnis tempora vel blanditiis eligendi sed fuga maxime sed labore neque 33 ipsa dolores et pariatur consequatur ex velit repudiandae. '),
+(4, 'Garasa', 'app/Public/Front/img/Peintre_Garasa.png', 'Lorem ipsum dolor sit amet. Ea quia delectus qui dolor facere ut corporis ipsam id repudiandae voluptatum', 'Ea omnis sint et consequatur fugiat est voluptatum expedita ut magni modi et earum nesciunt. Est dolores deserunt eum fugiat quis et odio sint ut rerum quas est quia reprehenderit. Et laborum expedita qui sunt nihil id inventore rerum a temporibus voluptas et eius fugiat. '),
+(5, 'Marta', 'app/Public/Front/img/Peintre_marta.png', 'Lorem ipsum dolor sit amet. Ea quia delectus qui dolor facere ut corporis ipsam id repudiandae voluptatum', 'Ea omnis sint et consequatur fugiat est voluptatum expedita ut magni modi et earum nesciunt. Est dolores deserunt eum fugiat quis et odio sint ut rerum quas est quia reprehenderit. Et laborum expedita qui sunt nihil id inventore rerum a temporibus voluptas et eius fugiat. ');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `painterstyle`
+--
+
+CREATE TABLE `painterstyle` (
+  `idstyle` int(11) NOT NULL,
+  `idpainter` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `painterstyle`
+--
+
+INSERT INTO `painterstyle` (`idstyle`, `idpainter`) VALUES
+(2, 1),
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -156,7 +175,7 @@ CREATE TABLE `paints` (
 --
 
 INSERT INTO `paints` (`id`, `name`, `description`, `img-url`, `dimensionH`, `dimensionL`, `PaintsFrames`, `PaintsPainters`, `PaintsStyle`, `PaintsType`) VALUES
-(6, 'Maison de campagne', 'descriptiongfh', 'app\\Public\\Front\\img\\maison_de_campagne.jpg', 80, 120, 1, 1, 1, 1),
+(6, 'Maison de campagne', 'description', 'app\\Public\\Front\\img\\maison_de_campagne.jpg', 80, 120, 1, 1, 1, 1),
 (8, 'grand tableau coloré', 'beau tableau', 'app/Public/Front/img/grand_tableau_colore.jpg', 100, 60, 1, 1, 1, 2),
 (9, 'tableau couple embrassade', 'Tableau d\'un couple qui s\'embrasse', 'app/Public/Front/img/tableau_couple_embrassage.jpg', 110, 80, 1, 1, 1, 2),
 (10, 'tableau d\'arbre rose', 'tableau d\'un arbre rose', 'app/Public/Front/img/tableau_arbre_rose.jpg', 130, 80, 1, 1, 1, 1),
@@ -278,6 +297,13 @@ ALTER TABLE `painters`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `painterstyle`
+--
+ALTER TABLE `painterstyle`
+  ADD KEY `FK__styles` (`idstyle`),
+  ADD KEY `FK__painters` (`idpainter`);
+
+--
 -- Index pour la table `paints`
 --
 ALTER TABLE `paints`
@@ -344,7 +370,7 @@ ALTER TABLE `homepage`
 -- AUTO_INCREMENT pour la table `painters`
 --
 ALTER TABLE `painters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `paints`
@@ -385,6 +411,13 @@ ALTER TABLE `users`
 --
 ALTER TABLE `articles`
   ADD CONSTRAINT `Articles_fk0` FOREIGN KEY (`ArticlesUsers`) REFERENCES `users` (`id`);
+
+--
+-- Contraintes pour la table `painterstyle`
+--
+ALTER TABLE `painterstyle`
+  ADD CONSTRAINT `FK__painters` FOREIGN KEY (`idpainter`) REFERENCES `painters` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK__styles` FOREIGN KEY (`idstyle`) REFERENCES `styles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Contraintes pour la table `paints`
