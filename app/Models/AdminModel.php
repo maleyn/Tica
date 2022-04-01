@@ -73,5 +73,139 @@ class AdminModel extends Manager
 
     }
 
-    
+    public function deletePainter($idPainter)
+    {
+
+        $bdd = $this->dbConnection();
+        $req = $bdd->prepare('DELETE FROM painters WHERE id = :idpainter');
+        $req->execute(array(':idpainter' => $idPainter));
+
+        return $req;
+
+    }
+
+    // Modifie ou ajoute un tableau dans la bdd
+
+    public function updatePaints($dataPaint)
+
+    {
+        $bdd = $this->dbConnection();
+        // si il y'a un id alors faire un update selon cette id sinon un insert
+        if($dataPaint['paintid'] != null) {
+            $data = $bdd->prepare('UPDATE paints SET `name` = :paintname, description = :paintdescription, `img-url` = :imgurl, 
+                                        dimensionH = :dimensionH, dimensionL = :dimensionL, PaintsFrames = :frameId,
+                                        PaintsPainters = :painterId, PaintsStyle = :styleId, PaintsType = :typeId
+                                        WHERE id =' . $dataPaint['paintid']);
+        } else {
+            $data = $bdd->prepare('INSERT INTO paints (name, description, `img-url`, dimensionH, dimensionL,
+                                        PaintsFrames, PaintsPainters, PaintsStyle, PaintsType)
+                                        VALUE (:paintname, :paintdescription, :imgurl, :dimensionH, :dimensionL,
+                                        :frameId, :painterId, :styleId, :typeId)');
+        }
+
+        $data->execute(array(
+
+            'paintname' => $dataPaint['paintname'],
+            'paintdescription' => $dataPaint['paintdescription'],
+            'imgurl' => $dataPaint['painturl'],
+            'dimensionH' => $dataPaint['paintheight'],
+            'dimensionL' => $dataPaint['paintwidth'],
+            'frameId' => $dataPaint['paintframe'],
+            'painterId' => $dataPaint['paintpainter'],
+            'styleId' => $dataPaint['paintstyle'],
+            'typeId' => $dataPaint['painttype']
+            
+        ));
+
+    }   
+
+    public function getGalerie()
+    {
+
+        $bdd = $this->dbConnection();
+        $data = $bdd->query('SELECT id , name , `img-url`
+                            FROM paints ORDER BY id DESC');
+        
+        return $data->fetchAll();
+
+    } 
+
+// Modifie ou ajoute un artiste dans la bdd
+
+public function updatePainter($dataPainter)
+
+    {
+        $bdd = $this->dbConnection();
+        // si il y'a un id alors faire un update selon cette id sinon un insert
+        if($dataPainter['painterid'] != null) {
+            $data = $bdd->prepare('UPDATE painters SET `name` = :paintername, smallcontent = :paintersmall, fullcontent = :painterfull,
+                                        `photo-url` = :painterurl
+                                   WHERE id =' . $dataPainter['painterid']);
+        } else {
+            $data = $bdd->prepare('INSERT INTO painters (name, `photo-url`, smallcontent, fullcontent)
+                                        VALUE (:paintername, :painterurl, :paintersmall, :painterfull)');
+        }
+
+        $data->execute(array(
+
+            'paintername' => $dataPainter['paintername'],
+            'paintersmall' => $dataPainter['paintershort'],
+            'painterfull' => $dataPainter['painterlong'],
+            'painterurl' => $dataPainter['painterurl']
+
+      
+        ));
+
+    }   
+
+    public function getPaintersInfos()
+    {
+        $bdd = $this->dbConnection();
+        $data = $bdd->query("SELECT id, name, `photo-url` FROM painters");
+
+        return $data->fetchAll();
+        
+    }
+
+    // récupérer l'url de la photo de l'artiste
+
+    public function getPainterUrl($painterId)
+    {
+
+        $bdd = $this->dbConnection();
+        $data = $bdd->prepare('SELECT `photo-url` FROM `painters` WHERE id = :painterid');
+        
+        $data->execute(array('painterid' => $painterId));
+
+        return $data->fetch();
+
+    }
+
+    // récupérer l'url de la photo du tableau
+
+    public function getGalerieUrl($paintId)
+    {
+
+        $bdd = $this->dbConnection();
+        $data = $bdd->prepare('SELECT `img-url` FROM `paints` WHERE id = :paintid');
+        
+        $data->execute(array('paintid' => $paintId));
+
+        return $data->fetch();
+
+    } 
+
+       // récuperer une id grace au nom et table
+
+    public function getIdTable($table, $name)
+    {
+        $bdd = $this->dbConnection();
+        $data = $bdd->prepare("SELECT id FROM `" .$table. "`WHERE name = :name");
+   
+        $data->execute(array('name' => $name,));
+   
+        return $data->fetch();
+    }
+   
+
 }

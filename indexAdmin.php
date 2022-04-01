@@ -261,13 +261,11 @@ try {
         
             $painterId = htmlspecialchars($_POST['painterid']);
             $painterName = htmlspecialchars($_POST['paintername']);
-            $paintPainter = htmlspecialchars($_POST['painter']);
             $painterShort = htmlspecialchars($_POST['shortres']);
             $painterLong = htmlspecialchars($_POST['longres']);
             
-            // récupérer l'id des différentes tables
-
-            if(!empty($_POST['paintid']))
+            
+            if(!empty($_POST['painterid']))
             {
                 $painterId = htmlspecialchars($_POST['painterid']);
             } else {
@@ -275,34 +273,40 @@ try {
             }
            
 
-            if(!empty($_FILES['painturl']['name']))
+            if(!empty($_FILES['painterurl']['name']))
             {
-            $paintUrl = $uploadController->uploadimg('painturl');
+            $painterUrl = $uploadController->uploadimg('painterurl');
             
             } else {
-            $dataUrl = $adminController->galerieViewUrl();
-            $paintUrl = $dataUrl['img-url'];
+            $dataUrl = $adminController->painterViewUrl($painterId);
+            $painterUrl = $dataUrl['photo-url'];
             }
             
             // array regroupant les variables
 
-            $dataPaint = [
+            $dataPainter = [
 
-                'paintid' => $paintId,
-                'painturl' => $paintUrl,
-                'paintname' => $paintName,
-                'paintheight' => $paintDimH,
-                'paintwidth' => $paintDimL,
-                'paintpainter' => $painterId,
-                'painttype' => $typeId,
-                'paintstyle' => $styleId,
-                'paintframe' => $frameId,
-                'paintdescription' => $paintDescription
+                'painterid' => $painterId,
+                'painterurl' => $painterUrl,
+                'paintername' => $painterName,
+                'paintershort' => $painterShort,
+                'painterlong' => $painterLong
 
             ];
 
-            $adminController->paintUpdate($dataPaint);
+            $adminController->painterUpdate($dataPainter);
+
+        } elseif ($_GET[$action] == 'painterDelete')
+
+        {
+       
+            $idPainter = $_GET['id'];
+            $adminController->painterDelete($idPainter);
+            
+            $adminController->paintersView();
+
         }
+
 
     } else {
 

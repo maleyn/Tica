@@ -58,16 +58,6 @@ class FrontModel extends Manager
 
     } 
     
-    public function getGalerie()
-    {
-
-        $bdd = $this->dbConnection();
-        $data = $bdd->query('SELECT id , name , `img-url`
-                            FROM paints ORDER BY id DESC');
-        
-        return $data->fetchAll();
-
-    } 
 
     public function getGaleriePaint($idpaint)
     {
@@ -122,74 +112,7 @@ class FrontModel extends Manager
         return $data->fetchAll();
 
     }
-    // Modifie ou ajoute un tableau dans la bdd
 
-    public function UpdatePaints($dataPaint)
-
-    {
-        $bdd = $this->dbConnection();
-        // si il y'a un id alors faire un update selon cette id sinon un insert
-        if($dataPaint['paintid'] != null) {
-            $data = $bdd->prepare('UPDATE paints SET `name` = :paintname, description = :paintdescription, `img-url` = :imgurl, 
-                                        dimensionH = :dimensionH, dimensionL = :dimensionL, PaintsFrames = :frameId,
-                                        PaintsPainters = :painterId, PaintsStyle = :styleId, PaintsType = :typeId
-                                        WHERE id =' . $dataPaint['paintid']);
-        } else {
-            $data = $bdd->prepare('INSERT INTO paints (name, description, `img-url`, dimensionH, dimensionL,
-                                        PaintsFrames, PaintsPainters, PaintsStyle, PaintsType)
-                                        VALUE (:paintname, :paintdescription, :imgurl, :dimensionH, :dimensionL,
-                                        :frameId, :painterId, :styleId, :typeId)');
-        }
-
-        $data->execute(array(
-
-            'paintname' => $dataPaint['paintname'],
-            'paintdescription' => $dataPaint['paintdescription'],
-            'imgurl' => $dataPaint['painturl'],
-            'dimensionH' => $dataPaint['paintheight'],
-            'dimensionL' => $dataPaint['paintwidth'],
-            'frameId' => $dataPaint['paintframe'],
-            'painterId' => $dataPaint['paintpainter'],
-            'styleId' => $dataPaint['paintstyle'],
-            'typeId' => $dataPaint['painttype']
-            
-        ));
-
-    }   
-    
-
-    public function getGalerieUrl($paintId)
-    {
-
-        $bdd = $this->dbConnection();
-        $data = $bdd->prepare('SELECT `img-url` FROM `paints` WHERE id = :paintid');
-        
-        $data->execute(array('paintid' => $paintId));
-
-        return $data->fetch();
-
-    } 
-
-    // récuperer une id grace au nom et table
-
-    public function getIdTable($table, $name)
-    {
-        $bdd = $this->dbConnection();
-        $data = $bdd->prepare("SELECT id FROM `" .$table. "`WHERE name = :name");
-
-        $data->execute(array('name' => $name,));
-
-        return $data->fetch();
-    }
-
-    public function getPaintersInfos()
-    {
-        $bdd = $this->dbConnection();
-        $data = $bdd->query("SELECT id, name, `photo-url` FROM painters");
-
-        return $data->fetchAll();
-        
-    }
     
     public function getPainterFullInfos($idPainter)
     {
@@ -215,35 +138,7 @@ class FrontModel extends Manager
 
         return $data->fetchAll();
     }
-    public function UpdatePainter($dataPaint)
+    
+    
 
-    {
-        $bdd = $this->dbConnection();
-        // si il y'a un id alors faire un update selon cette id sinon un insert
-        if($dataPaint['paintid'] != null) {
-            $data = $bdd->prepare('UPDATE painters SET `name` = :paintername, smallcontent = :paintersmall, fullcontent = :painterfull,
-                                        `photo-url` = :photourl
-                                   WHERE id =' . $dataPaint['paintid']);
-        } else {
-            $data = $bdd->prepare('INSERT INTO paints (name, description, `img-url`, dimensionH, dimensionL,
-                                        PaintsFrames, PaintsPainters, PaintsStyle, PaintsType)
-                                        VALUE (:paintname, :paintdescription, :imgurl, :dimensionH, :dimensionL,
-                                        :frameId, :painterId, :styleId, :typeId)');
-        }
-
-        $data->execute(array(
-
-            'paintname' => $dataPaint['paintname'],
-            'paintdescription' => $dataPaint['paintdescription'],
-            'imgurl' => $dataPaint['painturl'],
-            'dimensionH' => $dataPaint['paintheight'],
-            'dimensionL' => $dataPaint['paintwidth'],
-            'frameId' => $dataPaint['paintframe'],
-            'painterId' => $dataPaint['paintpainter'],
-            'styleId' => $dataPaint['paintstyle'],
-            'typeId' => $dataPaint['painttype']
-            
-        ));
-
-    }   
 }

@@ -143,7 +143,7 @@ class AdminController
 
     function galerieView()
     {
-        $galerie = new \Projet\Models\FrontModel();
+        $galerie = new \Projet\Models\AdminModel();
         $mail = new \Projet\Models\ContactModel();
         $paints = $galerie->getGalerie();
         $mailCount = $mail->getMailsCount();
@@ -167,9 +167,9 @@ class AdminController
 
     function paintUpdate($dataPaint)
     {
-        $galerie = new \Projet\Models\FrontModel();
+        $galerie = new \Projet\Models\AdminModel();
         $mail = new \Projet\Models\ContactModel();
-        $paintsupdate = $galerie->UpdatePaints($dataPaint);
+        $paintsupdate = $galerie->updatePaints($dataPaint);
         $paints = $galerie->getGalerie();
         $mailCount = $mail->getMailsCount();
 
@@ -180,7 +180,7 @@ class AdminController
 
     function galerieViewUrl($paintId)
     {
-        $galerieUrl = new \Projet\Models\FrontModel();
+        $galerieUrl = new \Projet\Models\AdminModel();
         $galerieDataUrl = $galerieUrl->getGalerieUrl($paintId);
 
         return $galerieDataUrl;
@@ -188,7 +188,7 @@ class AdminController
 
     function idView($table, $name)
     {
-        $data = new \Projet\Models\FrontModel();
+        $data = new \Projet\Models\AdminModel();
         $idData = $data->getIdTable($table, $name);
 
         return $idData;
@@ -206,7 +206,7 @@ class AdminController
     function paintersView()
     
     {
-        $data = new \Projet\Models\FrontModel();
+        $data = new \Projet\Models\AdminModel();
         $mail = new \Projet\Models\ContactModel();
         $mailCount = $mail->getMailsCount();
         $dataPainter = $data->getPaintersInfos();
@@ -226,5 +226,33 @@ class AdminController
         
         require 'app/Views/Admin/painterPage.php';
     }
+
+    function painterViewUrl($painterId)
+    {
+        $painterUrl = new \Projet\Models\AdminModel();
+        $painterDataUrl = $painterUrl->getPainterUrl($painterId);
+      
+        return $painterDataUrl;
+    }
+
+    function painterUpdate($dataPainter)
+    {
+        $painters = new \Projet\Models\AdminModel();
+        $mail = new \Projet\Models\ContactModel();
+        $painterupdate = $painters->updatePainter($dataPainter);
+        $dataPainter = $painters->getPaintersInfos();
+        $mailCount = $mail->getMailsCount();
+
+        $confirmUpdate = "Mise à jour / Ajout effectué";
+
+        require 'app/Views/Admin/paintersView.php';
+    }
  
+    function painterDelete($idPainter)
+    {
+        $data = new \Projet\Models\AdminModel();
+        $data->deletePainter($idPainter);
+
+    }
+
 }

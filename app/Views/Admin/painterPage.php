@@ -7,7 +7,7 @@
     <h1>Ajout/Modification d'un Artiste</h1>
     <form class="grid" action='indexAdmin.php?action=painterUpdate' method="post" enctype="multipart/form-data">
         <div>
-            <label for="painterid" hidden>Id du tableau : </label>
+            <label for="painterid" hidden>Id dz l'artiste : </label>
             <input type="text" name="painterid" value="<?php if(!empty($dataPainter)) { echo $dataPainter['idpainter']; }; ?>" hidden>
         </div>
         <div class="grid padding-top20" id="photo-artiste">
@@ -61,16 +61,16 @@
     </form>
         
 <!-- Modal -->
-<form action="indexAdmin.php?action=paintDelete&id=<?= $dataPainter['idpainter'] ?>" method="post">
+<form action="indexAdmin.php?action=painterDelete&id=<?= $dataPainter['idpainter'] ?>" method="post">
 <div class="modal-off modaljs">
 
         <div class="modal-content">
             <div class="modal-header">
                 <span class="button-close1">&times;</span>
-                <p class="modal-title">Suppression du tableau</p>
+                <p class="modal-title">Suppression de l'artiste</p>
             </div>
             <div class="modal-body">
-                <p class="text-danger">Etes vous sûr de vouloir supprimer ce tableau ?</p>
+                <p class="text-danger">Etes vous sûr de vouloir supprimer cet artiste de la base de données ?</p>
             </div>
             <div class="modal-footer">
                 <button type="submit" class="button_submit">Supprimer</button>
