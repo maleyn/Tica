@@ -362,7 +362,7 @@ a:hover {
     scale: 1.1;
 
 }
-.cardpage .flex-card div img {
+.cardpage .flex-card article img {
 
     height: 250px;
     width: 350px;

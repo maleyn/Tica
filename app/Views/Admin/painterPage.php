@@ -10,7 +10,7 @@
             <label for="painterid" hidden>Id dz l'artiste : </label>
             <input type="text" name="painterid" value="<?php if(!empty($dataPainter)) { echo $dataPainter['idpainter']; }; ?>" hidden>
         </div>
-        <div class="grid padding-top20" id="photo-artiste">
+        <div class="grid padding-top20 photo-solomod">
             <label class="text-blue" for="painterurl">Photo de l'artiste (taille max : 2.5Mo) : </label>
             <input type="file" name="painterurl" accept=".jpeg, .jpg, .png">
             <p class="text-blue padding-top10">Photo actuelle : </p>

@@ -9,14 +9,14 @@
         <section class="padding-top20 flex-card">
         <?php $count = 1 ?>
         <?php foreach($dataPainter as $painter) { ?>
-            <div class="flex-item">
+            <article class="flex-item">
                 <a class="paintlink" href="indexAdmin.php?action=painterSoloView&id=<?= $painter['id'] ?>">
                     <span class="idelement" hidden><?=$painter['id'] ?></span>
                     <p><?=$count . ' - ' . $painter['name'] ?></p>
                     <img src="<?= $painter['photo-url'] ?>" alt="<?= $painter['name'] ?>">
                 </a>
                 <button class="btn-modal btnsup button_submit btnid<?= $count ?>">Supprimer</button>
-            </div>
+            </article>
         <?php $count++ ; } ?>
         </section>
 

@@ -259,27 +259,43 @@ try {
      
             $uploadController = new \Projet\Controllers\UploadController();
         
+
             $painterId = htmlspecialchars($_POST['painterid']);
             $painterName = htmlspecialchars($_POST['paintername']);
             $painterShort = htmlspecialchars($_POST['shortres']);
             $painterLong = htmlspecialchars($_POST['longres']);
+
+            $stylesId = [];
+            $styles = $adminController->getStyle();
+          
+            foreach($styles as $style) {
+                if(!empty($_POST[$style['name']]))
+                {
+                    array_push($stylesId, $style['id']);
+                }
+            }
+
+            $adminController->painterStyleUpdate($stylesId);
             
-            
+
             if(!empty($_POST['painterid']))
             {
                 $painterId = htmlspecialchars($_POST['painterid']);
             } else {
                 $painterId = null;
             }
-           
+            
 
             if(!empty($_FILES['painterurl']['name']))
             {
+                
             $painterUrl = $uploadController->uploadimg('painterurl');
             
             } else {
+
             $dataUrl = $adminController->painterViewUrl($painterId);
             $painterUrl = $dataUrl['photo-url'];
+
             }
             
             // array regroupant les variables
@@ -290,7 +306,8 @@ try {
                 'painterurl' => $painterUrl,
                 'paintername' => $painterName,
                 'paintershort' => $painterShort,
-                'painterlong' => $painterLong
+                'painterlong' => $painterLong,
+                'painterstyles' => $styleChecked
 
             ];
 
@@ -305,8 +322,73 @@ try {
             
             $adminController->paintersView();
 
-        }
+        } elseif ($_GET[$action] == 'blogPage')
 
+        {
+            $adminController->blogView();
+
+        } elseif ($_GET[$action] == 'articleView')
+
+        {
+            if(!empty($_GET['id'])) {
+
+                $idArticle = $_GET['id'];
+
+            } else {
+                $idArticle = null;
+            }
+            $adminController->articleView($idArticle);
+
+        } elseif ($_GET[$action] == 'articleUpdate')
+
+        {
+     
+            $uploadController = new \Projet\Controllers\UploadController();
+        
+            $articleId = htmlspecialchars($_POST['articleid']);
+            $articleTitle = htmlspecialchars($_POST['title']);
+            $articleContent = htmlspecialchars($_POST['content']);
+            $articleAuteur = htmlspecialchars($_POST['auteur']);
+            
+            
+            if(!empty($_POST['articleid']))
+            {
+                $painterId = htmlspecialchars($_POST['articleid']);
+            } else {
+                $painterId = null;
+            }
+           
+            if(!empty($_FILES['articleurl']['name']))
+            {
+            $articleUrl = $uploadController->uploadimg('articleurl');
+            
+            } else {
+            $dataUrl = $adminController->articleViewUrl($articleId);
+            $articleUrl = $dataUrl['image-url'];
+            }
+            
+            // array regroupant les variables
+
+            $dataArticle = [
+
+                'articleid' => $articleId,
+                'articleurl' => $articleUrl,
+                'articletitle' => $articleTitle,
+                'articlecontent' => $articleContent,
+                'articleauteur' => $articleAuteur
+
+            ];
+
+            $adminController->articleUpdate($dataArticle);
+
+        } elseif ($_GET[$action] == 'articleDelete')
+
+        {
+            $idArticle = $_GET['id'];
+            $adminController->articleDelete($idArticle);
+            
+            $adminController->blogView();
+        }
 
     } else {
 

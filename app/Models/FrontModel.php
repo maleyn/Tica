@@ -139,6 +139,27 @@ class FrontModel extends Manager
         return $data->fetchAll();
     }
     
-    
+    public function getArticleFull($idArticle) 
+    {
+        $bdd = $this->dbConnection();
+        $data = $bdd->prepare("SELECT articles.id as idarticle, title, content, `image-url`, `create-date`,
+                               users.firstname, users.lastname, ArticlesUsers 
+                               FROM articles, users
+                               WHERE users.id = articles.ArticlesUsers
+                               AND articles.id = :article");
+
+        $data->execute(array('article' => $idArticle));
+
+        return $data->fetch();
+    }
+
+    public function getUserArticle()
+    {
+
+        $bdd = $this->dbConnection();
+        $data = $bdd->query('SELECT id, firstname, lastname FROM users');
+        
+        return $data->fetchAll();
+    } 
 
 }

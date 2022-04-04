@@ -247,7 +247,13 @@ class AdminController
 
         require 'app/Views/Admin/paintersView.php';
     }
- 
+
+    function painterStyleUpdate($stylesId)
+    {
+        $styles = new \Projet\Models\AdminModel();
+        $stylesupdate = $styles->updateStyle($stylesId);
+    } 
+    
     function painterDelete($idPainter)
     {
         $data = new \Projet\Models\AdminModel();
@@ -255,4 +261,63 @@ class AdminController
 
     }
 
+    function getStyle()
+    {
+        $data = new \Projet\Models\FrontModel();
+        $styles = $data->getStyles();
+
+        return $styles;
+    }
+
+    function blogView()
+    
+    {
+        $data = new \Projet\Models\AdminModel();
+        $mail = new \Projet\Models\ContactModel();
+        $mailCount = $mail->getMailsCount();
+        $dataArticle = $data->getArticleBasic();
+
+        require 'app/Views/Admin/blogPage.php';
+    }
+    
+    function articleView($idArticle)
+
+    {
+        $data = new \Projet\Models\FrontModel();
+        $mail = new \Projet\Models\ContactModel();
+        $mailCount = $mail->getMailsCount();
+        $users = $data->getUserArticle();
+        $dataArticle = $data->getArticleFull($idArticle);
+
+        require 'app/Views/Admin/articlePage.php';
+    }
+
+    function articleUpdate($dataArticle)
+    {
+        $article = new \Projet\Models\AdminModel();
+        $mail = new \Projet\Models\ContactModel();
+        $articleUpdate = $article->updateArticle($dataArticle);
+        
+        $dataArticle = $article->getArticleBasic();
+        $mailCount = $mail->getMailsCount();
+
+        $confirmUpdate = "Mise à jour / Ajout effectué";
+
+        require 'app/Views/Admin/blogPage.php';
+    }
+
+    function articleViewUrl($articleId)
+    {
+        $articleUrl = new \Projet\Models\AdminModel();
+        $articleDataUrl = $articleUrl->getArticleUrl($articleId);
+      
+        return $articleDataUrl;
+    }
+ 
+    function articleDelete($idArticle)
+    {
+        $data = new \Projet\Models\AdminModel();
+        $data->deleteArticle($idArticle);
+
+    }
 }

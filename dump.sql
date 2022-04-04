@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le : ven. 01 avr. 2022 à 16:45
--- Version du serveur : 10.4.21-MariaDB
--- Version de PHP : 8.0.12
+-- Host: 127.0.0.1
+-- Generation Time: Apr 04, 2022 at 04:26 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,30 +18,36 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `tica`
+-- Database: `tica`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `articles`
+-- Table structure for table `articles`
 --
 
 CREATE TABLE `articles` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `small-content` text NOT NULL,
-  `full-content` longtext NOT NULL,
-  `img-url` varchar(255) NOT NULL,
-  `img-alt` varchar(255) NOT NULL,
-  `date` datetime NOT NULL,
+  `content` longtext NOT NULL,
+  `image-url` varchar(255) NOT NULL,
+  `create-date` datetime NOT NULL,
+  `mod-date` datetime DEFAULT NULL,
   `ArticlesUsers` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `articles`
+--
+
+INSERT INTO `articles` (`id`, `title`, `content`, `image-url`, `create-date`, `mod-date`, `ArticlesUsers`) VALUES
+(5, 'Article 1', 'Lorem ipsum dolor sit amet. Et adipisci omnis aut enim ullam qui assumenda eius nam voluptatem quia qui exercitationem magni ut recusandae modi sit maxime veritatis. test test2', 'app/Public/Front/img/palette_peintre_sd.jpg', '2022-04-04 15:01:27', '2022-04-04 15:07:05', 4);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `contacts`
+-- Table structure for table `contacts`
 --
 
 CREATE TABLE `contacts` (
@@ -55,7 +61,7 @@ CREATE TABLE `contacts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `contacts`
+-- Dumping data for table `contacts`
 --
 
 INSERT INTO `contacts` (`id`, `nom`, `prenom`, `email`, `objet`, `message`, `date`) VALUES
@@ -65,7 +71,7 @@ INSERT INTO `contacts` (`id`, `nom`, `prenom`, `email`, `objet`, `message`, `dat
 -- --------------------------------------------------------
 
 --
--- Structure de la table `frames`
+-- Table structure for table `frames`
 --
 
 CREATE TABLE `frames` (
@@ -74,7 +80,7 @@ CREATE TABLE `frames` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `frames`
+-- Dumping data for table `frames`
 --
 
 INSERT INTO `frames` (`id`, `name`) VALUES
@@ -83,7 +89,7 @@ INSERT INTO `frames` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `homepage`
+-- Table structure for table `homepage`
 --
 
 CREATE TABLE `homepage` (
@@ -103,7 +109,7 @@ CREATE TABLE `homepage` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `homepage`
+-- Dumping data for table `homepage`
 --
 
 INSERT INTO `homepage` (`id`, `present-alt`, `present-url`, `present-text1`, `present-text2`, `present-text3`, `present-title`, `slider-alt`, `slider-url`, `slider-text1`, `slider-text2`, `intro-title`, `intro-content`) VALUES
@@ -112,7 +118,7 @@ INSERT INTO `homepage` (`id`, `present-alt`, `present-url`, `present-text1`, `pr
 -- --------------------------------------------------------
 
 --
--- Structure de la table `painters`
+-- Table structure for table `painters`
 --
 
 CREATE TABLE `painters` (
@@ -124,18 +130,17 @@ CREATE TABLE `painters` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `painters`
+-- Dumping data for table `painters`
 --
 
 INSERT INTO `painters` (`id`, `name`, `photo-url`, `smallContent`, `fullContent`) VALUES
-(1, 'Tica', 'app/Public/Front/img/Photo_de_tica.png', 'Lorem ipsum dolor sit amet. Et soluta alias ut unde accusantium qui quidem quaerat. ', 'Hic molestiae eligendi et voluptas molestias sit doloribus voluptatum sit ducimus assumenda qui similique facilis ut voluptatum rerum 33 laborum veritatis. Et omnis tempora vel blanditiis eligendi sed fuga maxime sed labore neque 33 ipsa dolores et pariatur consequatur ex velit repudiandae. '),
-(4, 'Garasa', 'app/Public/Front/img/Peintre_Garasa.png', 'Lorem ipsum dolor sit amet. Ea quia delectus qui dolor facere ut corporis ipsam id repudiandae voluptatum', 'Ea omnis sint et consequatur fugiat est voluptatum expedita ut magni modi et earum nesciunt. Est dolores deserunt eum fugiat quis et odio sint ut rerum quas est quia reprehenderit. Et laborum expedita qui sunt nihil id inventore rerum a temporibus voluptas et eius fugiat. '),
+(1, 'Tica', 'app/Public/Front/img/Photo_de_tica.png', 'Lorem ipsum dolor sit amet. Et soluta alias ut unde accusantium qui quidem quaerat. ', 'Hic molestiae eligendi et voluptas molestias sit doloribus voluptatum sit ducimus assumenda qui similique facilis ut voluptatum rerum 33 laborum veritatis. Et omnis tempora vel blanditiis eligendi sed fuga maxime sed labore neque 33 ipsa dolores et pariatur consequatur ex velit repudiandae.'),
 (5, 'Marta', 'app/Public/Front/img/Peintre_marta.png', 'Lorem ipsum dolor sit amet. Ea quia delectus qui dolor facere ut corporis ipsam id repudiandae voluptatum', 'Ea omnis sint et consequatur fugiat est voluptatum expedita ut magni modi et earum nesciunt. Est dolores deserunt eum fugiat quis et odio sint ut rerum quas est quia reprehenderit. Et laborum expedita qui sunt nihil id inventore rerum a temporibus voluptas et eius fugiat. ');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `painterstyle`
+-- Table structure for table `painterstyle`
 --
 
 CREATE TABLE `painterstyle` (
@@ -144,7 +149,7 @@ CREATE TABLE `painterstyle` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `painterstyle`
+-- Dumping data for table `painterstyle`
 --
 
 INSERT INTO `painterstyle` (`idstyle`, `idpainter`) VALUES
@@ -154,7 +159,7 @@ INSERT INTO `painterstyle` (`idstyle`, `idpainter`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `paints`
+-- Table structure for table `paints`
 --
 
 CREATE TABLE `paints` (
@@ -171,7 +176,7 @@ CREATE TABLE `paints` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `paints`
+-- Dumping data for table `paints`
 --
 
 INSERT INTO `paints` (`id`, `name`, `description`, `img-url`, `dimensionH`, `dimensionL`, `PaintsFrames`, `PaintsPainters`, `PaintsStyle`, `PaintsType`) VALUES
@@ -184,7 +189,7 @@ INSERT INTO `paints` (`id`, `name`, `description`, `img-url`, `dimensionH`, `dim
 -- --------------------------------------------------------
 
 --
--- Structure de la table `roles`
+-- Table structure for table `roles`
 --
 
 CREATE TABLE `roles` (
@@ -193,7 +198,7 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `roles`
+-- Dumping data for table `roles`
 --
 
 INSERT INTO `roles` (`id`, `role`) VALUES
@@ -203,7 +208,7 @@ INSERT INTO `roles` (`id`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `styles`
+-- Table structure for table `styles`
 --
 
 CREATE TABLE `styles` (
@@ -212,7 +217,7 @@ CREATE TABLE `styles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `styles`
+-- Dumping data for table `styles`
 --
 
 INSERT INTO `styles` (`id`, `name`) VALUES
@@ -222,7 +227,7 @@ INSERT INTO `styles` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `types`
+-- Table structure for table `types`
 --
 
 CREATE TABLE `types` (
@@ -231,7 +236,7 @@ CREATE TABLE `types` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `types`
+-- Dumping data for table `types`
 --
 
 INSERT INTO `types` (`id`, `name`) VALUES
@@ -241,7 +246,7 @@ INSERT INTO `types` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -254,7 +259,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `mail`, `password`, `UsersRoles`) VALUES
@@ -262,49 +267,49 @@ INSERT INTO `users` (`id`, `firstname`, `lastname`, `mail`, `password`, `UsersRo
 (25, 'editeur', 'editeur', 'editeur@hotmail.fr', '$2y$10$pBpm5UucCH4f2tuBtVe/Kehei2jzVWlmpxKLmrHDU51omCWrI8EhW', 4);
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `articles`
+-- Indexes for table `articles`
 --
 ALTER TABLE `articles`
   ADD PRIMARY KEY (`id`),
   ADD KEY `Articles_fk0` (`ArticlesUsers`);
 
 --
--- Index pour la table `contacts`
+-- Indexes for table `contacts`
 --
 ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `frames`
+-- Indexes for table `frames`
 --
 ALTER TABLE `frames`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `homepage`
+-- Indexes for table `homepage`
 --
 ALTER TABLE `homepage`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `painters`
+-- Indexes for table `painters`
 --
 ALTER TABLE `painters`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `painterstyle`
+-- Indexes for table `painterstyle`
 --
 ALTER TABLE `painterstyle`
   ADD KEY `FK__styles` (`idstyle`),
   ADD KEY `FK__painters` (`idpainter`);
 
 --
--- Index pour la table `paints`
+-- Indexes for table `paints`
 --
 ALTER TABLE `paints`
   ADD PRIMARY KEY (`id`),
@@ -314,113 +319,113 @@ ALTER TABLE `paints`
   ADD KEY `PaintsType` (`PaintsType`);
 
 --
--- Index pour la table `roles`
+-- Indexes for table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `styles`
+-- Indexes for table `styles`
 --
 ALTER TABLE `styles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `types`
+-- Indexes for table `types`
 --
 ALTER TABLE `types`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD KEY `Users_fk0` (`UsersRoles`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `articles`
+-- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT pour la table `contacts`
+-- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT pour la table `frames`
+-- AUTO_INCREMENT for table `frames`
 --
 ALTER TABLE `frames`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pour la table `homepage`
+-- AUTO_INCREMENT for table `homepage`
 --
 ALTER TABLE `homepage`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pour la table `painters`
+-- AUTO_INCREMENT for table `painters`
 --
 ALTER TABLE `painters`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT pour la table `paints`
+-- AUTO_INCREMENT for table `paints`
 --
 ALTER TABLE `paints`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT pour la table `roles`
+-- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT pour la table `styles`
+-- AUTO_INCREMENT for table `styles`
 --
 ALTER TABLE `styles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT pour la table `types`
+-- AUTO_INCREMENT for table `types`
 --
 ALTER TABLE `types`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT pour la table `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `articles`
+-- Constraints for table `articles`
 --
 ALTER TABLE `articles`
   ADD CONSTRAINT `Articles_fk0` FOREIGN KEY (`ArticlesUsers`) REFERENCES `users` (`id`);
 
 --
--- Contraintes pour la table `painterstyle`
+-- Constraints for table `painterstyle`
 --
 ALTER TABLE `painterstyle`
   ADD CONSTRAINT `FK__painters` FOREIGN KEY (`idpainter`) REFERENCES `painters` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK__styles` FOREIGN KEY (`idstyle`) REFERENCES `styles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `paints`
+-- Constraints for table `paints`
 --
 ALTER TABLE `paints`
   ADD CONSTRAINT `FK_paints_styles` FOREIGN KEY (`PaintsStyle`) REFERENCES `styles` (`id`),
@@ -429,7 +434,7 @@ ALTER TABLE `paints`
   ADD CONSTRAINT `Paints_fk1` FOREIGN KEY (`PaintsPainters`) REFERENCES `painters` (`id`);
 
 --
--- Contraintes pour la table `users`
+-- Constraints for table `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `FK_users_roles` FOREIGN KEY (`UsersRoles`) REFERENCES `roles` (`id`);

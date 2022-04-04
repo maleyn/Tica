@@ -19,11 +19,10 @@
                     <a href="indexAdmin.php?action=dashboard">Tableau de bord</a>
                 </li>
                 <li class="subnav">
-                    <a class="subnav-btn" href="#" role="button" aria-haspopup="true"
-                        aria-expanded="false">Pages du site</a>
+                    <a class="subnav-btn" href="#" role="button">Pages du site</a>
                     <div class="subnav-content">
                         <a href="indexAdmin.php?action=homeView">Accueil</a>
-                        <a href="#tab3Id">Blog</a>
+                        <a href="indexAdmin.php?action=blogPage">Blog</a>
                         <a href="indexAdmin.php?action=galeriePage">Galerie</a>
                         <a href="indexAdmin.php?action=paintersView">Artistes</a>
                     </div>

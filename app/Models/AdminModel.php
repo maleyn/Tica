@@ -132,16 +132,16 @@ class AdminModel extends Manager
 
 // Modifie ou ajoute un artiste dans la bdd
 
-public function updatePainter($dataPainter)
+    public function updatePainter($dataPainter) 
 
     {
         $bdd = $this->dbConnection();
         // si il y'a un id alors faire un update selon cette id sinon un insert
         if($dataPainter['painterid'] != null) {
-            $data = $bdd->prepare('UPDATE painters SET `name` = :paintername, smallcontent = :paintersmall, fullcontent = :painterfull,
+            $data = $bdd->prepare('UPDATE painters, painterstyle SET `name` = :paintername, smallcontent = :paintersmall, fullcontent = :painterfull,
                                         `photo-url` = :painterurl
                                    WHERE id =' . $dataPainter['painterid']);
-        } else {
+        } else {                    
             $data = $bdd->prepare('INSERT INTO painters (name, `photo-url`, smallcontent, fullcontent)
                                         VALUE (:paintername, :painterurl, :paintersmall, :painterfull)');
         }
@@ -151,13 +151,29 @@ public function updatePainter($dataPainter)
             'paintername' => $dataPainter['paintername'],
             'paintersmall' => $dataPainter['paintershort'],
             'painterfull' => $dataPainter['painterlong'],
-            'painterurl' => $dataPainter['painterurl']
-
-      
+            'painterurl' => $dataPainter['painterurl'],
+            
         ));
 
     }   
 
+    public function updateStyle($stylesId, $dataPainter)
+    {
+        $bdd = $this->dbConnection();
+        foreach($stylesId as $style)
+        {
+            if($dataPainter['painterid'] != null) {
+                $data = $bdd->prepare('UPDATE painters, painterstyle SET `name` = :paintername, smallcontent = :paintersmall, fullcontent = :painterfull,
+                                            `photo-url` = :painterurl
+                                       WHERE id =' . $dataPainter['painterid']);
+            } else {                    
+                $data = $bdd->prepare('INSERT INTO painters (name, `photo-url`, smallcontent, fullcontent)
+                                            VALUE (:paintername, :painterurl, :paintersmall, :painterfull)');
+
+            }
+
+        }
+    }
     public function getPaintersInfos()
     {
         $bdd = $this->dbConnection();
@@ -207,5 +223,65 @@ public function updatePainter($dataPainter)
         return $data->fetch();
     }
    
+    public function getArticleBasic()
+    {
 
+        $bdd = $this->dbConnection();
+        $data = $bdd->query('SELECT id , title , `image-url`
+                            FROM articles ORDER BY id DESC');
+        
+        return $data->fetchAll();
+
+    } 
+    // Modifie ou ajoute un artiste dans la bdd
+
+    public function updateArticle($dataArticle)
+
+    {
+    
+    $bdd = $this->dbConnection();
+    // si il y'a un id alors faire un update selon cette id sinon un insert
+
+    if($dataArticle['articleid'] != null) {
+        $data = $bdd->prepare('UPDATE articles SET title = :title, content = :content, `image-url` = :imageurl,
+                               `mod-date` = :date, ArticlesUsers = :auteur
+                               WHERE id =' . $dataArticle['articleid']);
+    } else {
+        $data = $bdd->prepare('INSERT INTO articles (title, content, `image-url`, `create-date`, ArticlesUsers)
+                                    VALUE (:title, :content, :imageurl, :date, :auteur)');
+    }
+   
+    $data->execute(array(
+
+        'title' => $dataArticle['articletitle'],
+        'content' => $dataArticle['articlecontent'],
+        'imageurl' => $dataArticle['articleurl'],
+        'date' => date("Y-m-d H:i:s"),
+        'auteur' => $dataArticle['articleauteur']
+
+    ));
+
+    }   
+    public function getArticleUrl($articleId)
+
+    {
+        $bdd = $this->dbConnection();
+        $data = $bdd->prepare('SELECT `image-url` FROM articles WHERE id = :articleid');
+        
+        $data->execute(array('articleid' => $articleId));
+
+        return $data->fetch();
+
+    }
+
+    public function deleteArticle($idArticle)
+    {
+
+        $bdd = $this->dbConnection();
+        $req = $bdd->prepare('DELETE FROM articles WHERE id = :idarticle');
+        $req->execute(array(':idarticle' => $idArticle));
+
+        return $req;
+
+    }
 }
