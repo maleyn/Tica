@@ -6,6 +6,7 @@ use JetBrains\PhpStorm\Internal\ReturnTypeContract;
 
 class ContactModel extends Manager
 {
+    // ajoute les données du mail envoyé dans la bdd
 
     public function mailSubmit($contactMess)
     {
@@ -22,6 +23,9 @@ class ContactModel extends Manager
         ));
 
     }
+
+    // récupération du nombre de mail actuellement dans la bdd
+
     public function getMailsCount()
     {
         $bdd = $this->dbConnection();
@@ -30,6 +34,8 @@ class ContactModel extends Manager
         return $req->fetch();
 
     }
+
+    // récupération des infos de tout les mails reçu
 
     public function getContactMails()
     {
@@ -41,6 +47,8 @@ class ContactModel extends Manager
 
     }
 
+    // récupération des infos d'un mail en fonction de son id
+
     public function getMail($idMail)
     {
         $bdd = $this->dbConnection();
@@ -51,6 +59,8 @@ class ContactModel extends Manager
         return $req->fetch();
 
     }
+    
+    // suppression d'un mail en fonction de son id
 
     public function deleteMail($idMail)
     {

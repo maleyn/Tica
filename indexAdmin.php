@@ -12,6 +12,9 @@ $dotenv->load();
 try {
 
     $adminController = new \Projet\Controllers\AdminController();
+    $paintController = new \Projet\Controllers\PaintController();
+    $painterController = new \Projet\Controllers\PainterController();
+    $blogController = new \Projet\Controllers\BlogController();
     $action = 'action';
 
     if (isset($_GET['action'])) 
@@ -148,7 +151,7 @@ try {
         } elseif ($_GET[$action] == 'galeriePage')
 
         {
-            $adminController->galerieView();
+            $paintController->galerieView();
 
         // Affichage de paintPage gérant un tableau de la galerie
 
@@ -163,7 +166,7 @@ try {
                 $idpaint = null;
             }
             
-            $adminController->paintView($idpaint);
+            $paintController->paintView($idpaint);
 
         // Mise à jour ou ajout d'un tableau 
         
@@ -203,7 +206,7 @@ try {
             var_dump($_FILES['painturl']['name']);
             $paintUrl = $uploadController->uploadimg('painturl');
             } else {
-            $dataUrl = $adminController->galerieViewUrl($paintId);
+            $dataUrl = $paintController->galerieViewUrl($paintId);
             $paintUrl = $dataUrl['img-url'];
             var_dump($paintUrl);
             }
@@ -225,21 +228,21 @@ try {
 
             ];
 
-            $adminController->paintUpdate($dataPaint);
+            $paintController->paintUpdate($dataPaint);
 
         } elseif ($_GET[$action] == 'paintDelete')
 
         {
        
             $idPaint = $_GET['id'];
-            $adminController->paintDelete($idPaint);
+            $paintController->paintDelete($idPaint);
             
-            $adminController->galerieView();
+            $paintController->galerieView();
 
         } elseif ($_GET[$action] == 'paintersView')
         
         {
-            $adminController->paintersView();
+            $painterController->paintersView();
  
         } elseif ($_GET[$action] == 'painterSoloView')
         
@@ -251,7 +254,7 @@ try {
             } else {
                 $idPainter = null;
             }
-            $adminController->painterSoloView($idPainter);
+            $painterController->painterSoloView($idPainter);
 
         } elseif ($_GET[$action] == 'painterUpdate')
 
@@ -266,7 +269,7 @@ try {
             $painterLong = htmlspecialchars($_POST['longres']);
 
             $stylesId = [];
-            $styles = $adminController->getStyle();
+            $styles = $painterController->getStyle();
           
             foreach($styles as $style) {
                 if(!empty($_POST[$style['name']]))
@@ -275,9 +278,7 @@ try {
                 }
             }
 
-            $adminController->painterStyleUpdate($stylesId);
             
-
             if(!empty($_POST['painterid']))
             {
                 $painterId = htmlspecialchars($_POST['painterid']);
@@ -293,7 +294,7 @@ try {
             
             } else {
 
-            $dataUrl = $adminController->painterViewUrl($painterId);
+            $dataUrl = $painterController->painterViewUrl($painterId);
             $painterUrl = $dataUrl['photo-url'];
 
             }
@@ -306,26 +307,26 @@ try {
                 'painterurl' => $painterUrl,
                 'paintername' => $painterName,
                 'paintershort' => $painterShort,
-                'painterlong' => $painterLong,
-                'painterstyles' => $styleChecked
-
+                'painterlong' => $painterLong
+                
             ];
 
-            $adminController->painterUpdate($dataPainter);
+            $painterController->painterStyleUpdate($stylesId, $painterId);
+            $painterController->painterUpdate($dataPainter);
 
         } elseif ($_GET[$action] == 'painterDelete')
 
         {
        
             $idPainter = $_GET['id'];
-            $adminController->painterDelete($idPainter);
+            $painterController->painterDelete($idPainter);
             
-            $adminController->paintersView();
+            $painterController->paintersView();
 
         } elseif ($_GET[$action] == 'blogPage')
 
         {
-            $adminController->blogView();
+            $blogController->blogView();
 
         } elseif ($_GET[$action] == 'articleView')
 
@@ -337,7 +338,7 @@ try {
             } else {
                 $idArticle = null;
             }
-            $adminController->articleView($idArticle);
+            $blogController->articleView($idArticle);
 
         } elseif ($_GET[$action] == 'articleUpdate')
 
@@ -363,7 +364,7 @@ try {
             $articleUrl = $uploadController->uploadimg('articleurl');
             
             } else {
-            $dataUrl = $adminController->articleViewUrl($articleId);
+            $dataUrl = $blogController->articleViewUrl($articleId);
             $articleUrl = $dataUrl['image-url'];
             }
             
@@ -379,15 +380,15 @@ try {
 
             ];
 
-            $adminController->articleUpdate($dataArticle);
+            $blogController->articleUpdate($dataArticle);
 
         } elseif ($_GET[$action] == 'articleDelete')
 
         {
             $idArticle = $_GET['id'];
-            $adminController->articleDelete($idArticle);
+            $blogController->articleDelete($idArticle);
             
-            $adminController->blogView();
+            $blogController->blogView();
         }
 
     } else {

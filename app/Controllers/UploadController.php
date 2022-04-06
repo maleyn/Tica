@@ -4,6 +4,7 @@ namespace Projet\Controllers;
 
 class UploadController
 {
+  /* ----------- Controller gérant l'upload des images ----------- */
 
   public function uploadimg($img) 
   {

@@ -4,7 +4,7 @@ namespace Projet\Models;
 
 class FrontModel extends Manager
 {
-    // récupération des éléments de la page front home
+    // récupération des éléments de la page d'accueil
 
     public function getFront()
     {
@@ -18,6 +18,8 @@ class FrontModel extends Manager
         return $data->fetch();
 
     } 
+
+    // Modifie ou ajoute des éléments de la page d'accueil dans la bdd
 
     public function updateFront($dataFront)
     {
@@ -48,6 +50,8 @@ class FrontModel extends Manager
 
     } 
 
+    // récupération des l'urls des images actuelle de la page d'accueil
+
     public function getFrontUrl()
     {
 
@@ -56,110 +60,6 @@ class FrontModel extends Manager
         
         return $data->fetch();
 
-    } 
-    
-
-    public function getGaleriePaint($idpaint)
-    {
-
-        $bdd = $this->dbConnection();
-        $data = $bdd->prepare('SELECT paints.id as paintid, paints.name as paintname, `img-url`, dimensionH,
-                            dimensionL, frames.name as framename, painters.name as paintername, description, 
-                            painters.smallContent, painters.fullContent, styles.name as stylename, 
-                            types.name as typename 
-                            FROM paints, painters, frames, styles, types
-                            WHERE PaintsFrames = frames.id AND PaintsPainters = painters.id
-                            AND PaintsStyle = styles.id AND PaintsType = types.id 
-                            AND paints.id = :idpaint ORDER BY paints.id DESC');
-
-        $data->execute(array('idpaint' => $idpaint));
-
-        return $data->fetch();
-
-    } 
-
-    public function getPaintersBasics() 
-    {
-        $bdd = $this->dbConnection();
-        $data = $bdd->query('SELECT id , name FROM painters ORDER BY name');
-        
-        return $data->fetchAll();
-
-    }
-    
-    public function getFrames() 
-    {
-        $bdd = $this->dbConnection();
-        $data = $bdd->query('SELECT id , name FROM frames ORDER BY name');
-        
-        return $data->fetchAll();
-
-    }
-
-    public function getStyles() 
-    {
-        $bdd = $this->dbConnection();
-        $data = $bdd->query('SELECT id , name FROM styles ORDER BY name');
-        
-        return $data->fetchAll();
-
-    }
-    public function getTypes() 
-    {
-        $bdd = $this->dbConnection();
-        $data = $bdd->query('SELECT id , name FROM types ORDER BY name');
-        
-        return $data->fetchAll();
-
-    }
-
-    
-    public function getPainterFullInfos($idPainter)
-    {
-        $bdd = $this->dbConnection();
-        $data = $bdd->prepare("SELECT painters.id as idpainter, painters.name as namepainter, `photo-url` as photopainter,
-                            smallcontent, fullcontent FROM painters
-                            WHERE painters.id = :painter ORDER BY painters.id DESC");
-
-        $data->execute(array('painter' => $idPainter));
-
-        return $data->fetch();
-
-    }
-    public function getPainterStyle($idPainter) 
-    {
-        $bdd = $this->dbConnection();
-        $data = $bdd->prepare("SELECT styles.name as namestyle FROM styles, painterstyle, painters
-                                WHERE styles.id = painterstyle.idstyle
-                                AND painters.id = painterstyle.idpainter
-                                AND painters.id = :painter");
-
-        $data->execute(array('painter' => $idPainter));
-
-        return $data->fetchAll();
-    }
-    
-    public function getArticleFull($idArticle) 
-    {
-        $bdd = $this->dbConnection();
-        $data = $bdd->prepare("SELECT articles.id as idarticle, title, content, `image-url`, `create-date`,
-                               users.firstname, users.lastname, ArticlesUsers 
-                               FROM articles, users
-                               WHERE users.id = articles.ArticlesUsers
-                               AND articles.id = :article");
-
-        $data->execute(array('article' => $idArticle));
-
-        return $data->fetch();
-    }
-
-    public function getUserArticle()
-    {
-
-        $bdd = $this->dbConnection();
-        $data = $bdd->query('SELECT id, firstname, lastname FROM users');
-        
-        return $data->fetchAll();
     } 
 
 }

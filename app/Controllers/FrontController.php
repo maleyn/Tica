@@ -4,7 +4,7 @@ namespace Projet\Controllers;
 
 class FrontController {
 
-    /* ------------------- envoi des divers éléments vers la page home ---------------------- */
+    /* ------------------- Affichage et modification de la page Front ---------------------- */
     
     public function home() {
 
