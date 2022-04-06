@@ -27,7 +27,7 @@ class PainterController
         $dataPaint = new \Projet\Models\PaintModel();
         $dataPainter = new \Projet\Models\PainterModel();
         $mail = new \Projet\Models\ContactModel();
-        
+
         $mailCount = $mail->getMailsCount();
         $paintersStyle = $dataPainter->getPainterStyle($idPainter);
         $styles = $dataPaint->getStyles();
@@ -62,12 +62,29 @@ class PainterController
     }
 
     // Injection dans le model des données du style d'un artiste 
-
+    // condition pour faire soit un insert, delete ou combinaison des deux
     function painterStyleUpdate($stylesId, $painterId)
     {
         $styles = new \Projet\Models\PainterModel();
         $stylesInfos = $styles->getPainterStyleInfos($painterId);
-        $stylesupdate = $styles->updateStyle($stylesId, $painterId, $stylesInfos);
+        $stylesInfosId = [];
+        foreach($stylesInfos as $styleInfo)
+        {
+            array_push($stylesInfosId, $styleInfo['idstyle']);
+        }
+        if(sizeof($stylesInfosId) < sizeof($stylesId))
+        {
+        $styles->insertStyle($stylesId, $painterId, $stylesInfosId);
+        
+        } elseif (sizeof($stylesInfosId) > sizeof($stylesId))
+        {
+        $styles->deleteStyle($stylesId, $painterId, $stylesInfosId);
+        } else 
+        {
+        $styles->insertStyle($stylesId, $painterId, $stylesInfosId);
+        $styles->deleteStyle($stylesId, $painterId, $stylesInfosId);
+        }
+
     }
     
     // Récupération de tout les styles de peinture

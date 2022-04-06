@@ -44,20 +44,6 @@ class PainterModel extends Manager
 
     }   
 
-       // Récupérer le idstyle de tout les styles de peinture d'un artiste
-
-    public function getPainterStyleInfos($idPainter)
-    {
-   
-        $bdd = $this->dbConnection();
-        $data = $bdd->prepare("SELECT idstyle FROM painterstyle WHERE idpainter = :painterid ORDER BY idstyle");
-   
-        $data->execute(array('painterid' => $idPainter));
-           
-        return $data->fetchAll();
-   
-    }
-       
     // Récupérer les infos basiques des artistes 
 
     public function getPaintersInfos()
@@ -70,7 +56,7 @@ class PainterModel extends Manager
     }
 
     // Récupérer les infos basiques des artistes 
-    
+
     public function getPaintersBasics() 
     {
         $bdd = $this->dbConnection();
@@ -122,24 +108,29 @@ class PainterModel extends Manager
 
         return $data->fetchAll();
     }
+    // Récupérer le idstyle de tout les styles de peinture d'un artiste
+
+    public function getPainterStyleInfos($idPainter)
+    {
+   
+        $bdd = $this->dbConnection();
+        $data = $bdd->prepare("SELECT idstyle FROM painterstyle WHERE idpainter = :painterid ORDER BY idstyle");
+   
+        $data->execute(array('painterid' => $idPainter));
+
+        return $data->fetchAll();
+   
+    }
    
 
-    // Ajoute ou supprime des styles pour l'artiste spécifié
+    // Ajoute des styles pour l'artiste spécifié
 
-    public function updateStyle($stylesId, $painterId, $stylesInfos)
+    public function insertStyle($stylesId, $painterId, $stylesInfosId)
     {
         
         sort($stylesId);
         $bdd = $this->dbConnection();
-        $stylesInfosId = [];
-
-        foreach($stylesInfos as $styleInfo)
-        {
-            array_push($stylesInfosId, $styleInfo['idstyle']);
-        }
-            
-        if($stylesInfosId <= $stylesId)
-        {
+    
             foreach($stylesId as $styleId)
             {
                 if(in_array($styleId, $stylesInfosId))
@@ -151,18 +142,25 @@ class PainterModel extends Manager
                   
                     $data = $bdd->prepare('INSERT INTO painterstyle (idstyle, idpainter)
                                             VALUE (:styleid, :painterid)');
+
+                    $data->execute(array(
+
+                        'styleid' => $styleId,
+                        'painterid' => $painterId
+
+                    ));
                 }
                 
-            $data->execute(array(
+            }   
+        
+    }
 
-                'styleid' => $styleId,
-                'painterid' => $painterId
+    // Supprime des styles pour l'artiste spécifié
 
-            ));
-            }
-        } elseif($stylesInfosId > $stylesId)
-        {
-            foreach($stylesInfosId as $styleInfoId)
+    public function deleteStyle($stylesId, $painterId, $stylesInfosId)
+    {
+        $bdd = $this->dbConnection();
+        foreach($stylesInfosId as $styleInfoId)
             {
                 if(in_array($styleInfoId, $stylesId))
                 {
@@ -179,9 +177,6 @@ class PainterModel extends Manager
                     ));
                 }
             }
-        }
-        
-        
     }
 
 }

@@ -55,6 +55,7 @@ class UploadController
     return $targetFile;
     }
   }
+  
   private static function checksize($img) 
   {
     
