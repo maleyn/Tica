@@ -1,15 +1,7 @@
-<?php require 'app/Views/Admin/head.php'; ?>
+<?php ob_start(); ?>
 
-    <title>Creation d'utilisateur</title>
-</head>
-<body class="form_back">
-    <div class="padding5">
-        <a href="index.php">Retour accueil du site</a>
-    </div>
-    <div class="padding5">
-        <a href="indexAdmin.php">page de connexion</a>
-    </div>
-    
+<main class="form_back">
+  
     <h1>Création d'utilisateur</h1>
 
     <form action="indexAdmin.php?action=create-user" method="post">
@@ -23,7 +15,7 @@
         </div>
         <div>
             <label for="email">E-mail</label>
-            <input class="input_text" type="text" placeholder="Votre e-mail" name="mail" required>
+            <input class="input_text" type="text" placeholder="E-mail de l'utilisateur" name="mail" required>
         </div>
         <div>
             <label for="role">Rôle</label>
@@ -36,14 +28,17 @@
         </div>
         <div>
             <label for="password">Mot de passe</label>
-            <input class="input_text" type="password" placeholder="Votre mot de passe" name="password" required>
+            <input class="input_text" type="password" placeholder="Mot de passe" name="password" required>
         </div>
         
-        <div class="center">
+        <div class="center padding-top20">
             <input type="submit" value="Créer" class="button_submit">
         </div>
         
     </form>
 
-</body>
-</html>
+</main>
+
+<?php $mainContent = ob_get_clean(); 
+require 'templates/template.php';
+?>

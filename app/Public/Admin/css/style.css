@@ -84,7 +84,7 @@ a:hover {
     background-color: rgb(54, 54, 54);
     color: rgb(202, 202, 202);
     border: none;
-    padding: 10px;
+    padding: 10px 0px;
     width: 250px;
     font-size: 1.2rem;
     
@@ -196,7 +196,7 @@ a:hover {
 
 .form_back form div{
 
-    width: 480px;
+    width: 580px;
     margin:0 auto;
 
 }
@@ -213,7 +213,7 @@ a:hover {
 
 .form_back form .input_text {
 
-    width: 250px;
+    width: 350px;
     padding: 5px;
     font-size: 1.1rem;
     
@@ -283,10 +283,23 @@ a:hover {
 
 }
 
+#flex-nav-dash #session_li {
+
+    border: none;
+
+}
+
 #flex-nav-dash a {
 
     color: rgb(37, 122, 192);
 
+}
+
+#flex-nav-dash #session_name {
+
+    position: absolute;
+    left: 10px;
+    
 }
 
 #flex-nav-dash a:hover {
@@ -406,42 +419,42 @@ a:hover {
 
 }
 
-/* MailView */
+/* MailView && usersView(gestion de compte)*/
 
-#mailview table {
+.template-table table {
 
     border-collapse: collapse;
     width: 100%;
 }
 
-#mailview td {
+.template-table td {
 
     border: 1px solid rgb(219, 219, 219);
     border-collapse: collapse;
     padding: 20px 10px;
 }
 
-#mailview tr:hover {
+.template-table tr:hover {
 
     background-color: rgb(236, 236, 236);
 
 }
 
-#mailview .icones-flex {
+.template-table .icones-flex {
 
     display: flex;
     justify-content: center;
     
 
 }
-#mailview .icones-flex a {
+.template-table .icones-flex a {
 
     padding: 0px 10px;
     color: rgb(49, 115, 177);
     width: 30px;
 }
 
-#mailview .icones-flex a:hover {
+.template-table .icones-flex a:hover {
 
     scale: 1.1;
     color: black;

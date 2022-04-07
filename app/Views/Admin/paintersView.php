@@ -24,7 +24,7 @@
 <span class="nbtotal" hidden data-nbtotal="<?= $count ?>"></span>
 
 <form class="modalform" action="indexAdmin.php?action=painterDelete&id=" method="post">
-    <div class="modal-off modaljs" id="modalid">
+    <div class="modal-off modaljs">
 
         <div class="modal-content">
             <div class="modal-header">

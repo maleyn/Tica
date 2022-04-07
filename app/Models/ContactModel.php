@@ -14,12 +14,12 @@ class ContactModel extends Manager
         $req = $bdd->prepare('INSERT INTO contacts ( nom, prenom, email, objet, date, message ) 
                               VALUE (:nom, :prenom, :email, :objet, :date, :message )');
         $req->execute(array(
-            ":nom" => $contactMess['nom'],
-            ":prenom" => $contactMess['prenom'],
-            ":email" => $contactMess['mail'],
-            ":objet" => $contactMess['objet'],
-            ":date" => date("Y-m-d H:i:s"),
-            ":message" => $contactMess['message'],
+            "nom" => $contactMess['nom'],
+            "prenom" => $contactMess['prenom'],
+            "email" => $contactMess['mail'],
+            "objet" => $contactMess['objet'],
+            "date" => date("Y-m-d H:i:s"),
+            "message" => $contactMess['message'],
         ));
 
     }
@@ -54,7 +54,7 @@ class ContactModel extends Manager
         $bdd = $this->dbConnection();
         $req = $bdd->prepare('SELECT id, nom, prenom, email, objet, date, message 
                             FROM contacts WHERE id = :id');
-        $req->execute(array(":id" => $idMail));
+        $req->execute(array("id" => $idMail));
 
         return $req->fetch();
 
@@ -66,7 +66,7 @@ class ContactModel extends Manager
     {
         $bdd = $this->dbConnection();
         $req = $bdd->prepare('DELETE FROM contacts WHERE id = :id');
-        $req->execute(array(":id" => $idMail));
+        $req->execute(array("id" => $idMail));
 
         return $req;
 

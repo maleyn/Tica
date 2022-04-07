@@ -21,7 +21,7 @@ class PainterController
 
     // Injection des infos de l'artiste spécifié dans la page painterPage
 
-    function painterSoloView($idPainter)
+    function painterSoloView($idPainter, $error)
     
     {
         $dataPaint = new \Projet\Models\PaintModel();

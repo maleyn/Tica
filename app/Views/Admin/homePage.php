@@ -3,8 +3,7 @@
 <main id="homepage-admin" class="container mt-5 pt-3">
     
     <h1>Personnalisation de la page Accueil</h1>
-    <p class="center"><?php if(isset($confirmUpdate)) { echo $confirmUpdate; } ?></p>
-
+    <h2 class="center text-green"><?php if(isset($confirmUpdate)) { echo $confirmUpdate; } ?></h2>
     <form action="indexAdmin.php?action=homeUpdate" method="post" enctype="multipart/form-data">
         <h2 class="text-gray">Première partie</h2>
         <div class="padding-top30">

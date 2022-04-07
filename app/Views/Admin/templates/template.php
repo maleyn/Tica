@@ -15,7 +15,11 @@
     <header id="header-fixed">
         <nav>
             <ul id="flex-nav-dash">
+                <li id="session_li">
+                    <p id="session_name">Bonjour <span class="text-green"><?= $_SESSION['firstname'] . ' ' . $_SESSION['lastname'] ?></span></p>
+                </li>
                 <li>
+                    
                     <a href="indexAdmin.php?action=dashboard">Tableau de bord</a>
                 </li>
                 <li class="subnav">
@@ -31,7 +35,10 @@
                     <a href="indexAdmin.php?action=mail"><span class="text-red"><?php if(isset($mailCount)){echo $mailCount[0];};?></span> Mails</a>
                 </li>
                 <li>
-                    <a href="">Mon compte</a>
+                    <a href="indexAdmin.php?action=account">Gestion de compte</a>
+                </li>
+                <li>
+                    <a href="indexAdmin.php?action=deconnect">Deconnexion</a>
                 </li>
             </ul>
         </nav>

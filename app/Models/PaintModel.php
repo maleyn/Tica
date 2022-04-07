@@ -12,7 +12,7 @@ class PaintModel extends Manager
 
         $bdd = $this->dbConnection();
         $req = $bdd->prepare('DELETE FROM paints WHERE id = :idpaint');
-        $req->execute(array(':idpaint' => $idPaint));
+        $req->execute(array('idpaint' => $idPaint));
 
         return $req;
 

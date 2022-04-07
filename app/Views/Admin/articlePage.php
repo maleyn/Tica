@@ -4,6 +4,14 @@
 <main class="container padding-top20 soloModPage">
 
     <h1>Ajout/Modification d'un article</h1>
+    <p>
+        <?php 
+            if(isset($error))
+            if(!str_contains($error, 'app')) {
+            echo $error;
+            }
+        ?>
+    </p>
     <form class="grid" action='indexAdmin.php?action=articleUpdate' method="post" enctype="multipart/form-data">
         <div>
             <label for="articleid" hidden>Id de l'article : </label>

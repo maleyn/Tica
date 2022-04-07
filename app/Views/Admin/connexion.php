@@ -21,9 +21,6 @@
         <div class="center padding-top10">
             <input type="submit" value="Connexion" class="button_submit">
         </div>
-        <div class="center">
-            <a href="indexAdmin.php?action=user-creation">Créer utilisateur</a>
-        </div>
     </form>
 
 </body>

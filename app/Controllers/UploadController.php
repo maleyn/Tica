@@ -8,22 +8,21 @@ class UploadController
 
   public function uploadimg($img) 
   {
-
+    
+    
     $targetDir = "app/Public/Front/img/";
     $targetFile = $targetDir . basename($_FILES["$img"]["name"]);
     $imageFileType = strtolower(pathinfo($targetFile,PATHINFO_EXTENSION));
     $upload = 1;
 
-// Vérifie si l'image n'est pas fausse 
-    if(isset($_POST["submit"])) {
-      $check = getimagesize($_FILES["$img"]["tmp_name"]);
-      if($check !== false) {
-        echo "le fichier est une image - " . $check["mime"] . ".";
-        $upload = 1;
-      } else {
-        echo "Le fichier n'est pas une image.";
-        $upload = 0;
-      }
+
+// Vérifie si l'image est valide
+    if(isset($_POST["submit"]) && self::checkvalid($img) == true) 
+    {
+      return "<span class='text-green'>le fichier est valide.";
+    } elseif (isset($_POST["submit"]) && self::checkvalid($img) == false)
+    {
+      return "<span class='text-red'>Le fichier n'est pas une image valide.";
     }
 
 
@@ -38,24 +37,26 @@ class UploadController
     if (self::checksize($img) == true)
     {
       $upload = 0;
-      return $error = "<span class='text-danger'>Désolé l'image est trop volumineuse (elle doit être inférieur à 2.5Mo)</span>";
+      return $error = "<span class='text-red'>Désolé l'image est trop volumineuse (elle doit être inférieur à 2.5Mo)</span>";
     }
 
-// Limitation des format de fichier
+// Limitation des formats de fichier
 
     if(self::checkformat($imageFileType) == true)
     {
       $upload = 0;
-      return $error = "<span class='text-danger'>Désolé, sont autorisés seulement les fichiers JPG, JPEG & PNG</span>";
+      return $error = "<span class='text-red'>Désolé, sont autorisés seulement les fichiers JPG, JPEG & PNG</span>";
     }
 
     if($upload == 1)
     {
     move_uploaded_file($_FILES["$img"]["tmp_name"], $targetFile);
     return $targetFile;
+
     }
+
   }
-  
+
   private static function checksize($img) 
   {
     
@@ -72,6 +73,22 @@ class UploadController
       return true;
     }
   }
+  private static function checkvalid($img)
+  {
+    
+    $check = getimagesize($_FILES["$img"]["tmp_name"]);
+
+      if($check !== false) {
+        $upload = 1;
+        return true;
+        
+      } else {
+        $upload = 0;
+        return false;
+        
+      }
+  }
+  
 }
 
 

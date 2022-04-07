@@ -5,6 +5,14 @@
 <main class="container padding-top20 soloModPage">
 
     <h1>Ajout/Modification d'un Artiste</h1>
+    <p>
+        <?php 
+            if(isset($error))
+            if(!str_contains($error, 'app')) {
+            echo $error;
+            }
+        ?>
+    </p>
     <form class="grid" action='indexAdmin.php?action=painterUpdate' method="post" enctype="multipart/form-data">
         <div>
             <label for="painterid" hidden>Id dz l'artiste : </label>

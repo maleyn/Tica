@@ -17,12 +17,12 @@ class BlogController
         $mailCount = $mail->getMailsCount();
         $dataArticle = $data->getArticleBasic();
 
-        require 'app/Views/Admin/blogPage.php';
+        require 'app/Views/Admin/articlesView.php';
     }
 
     // Injection des infos de l'article spécifié dans la page articlePage
 
-    function articleView($idArticle)
+    function articleView($idArticle, $error)
 
     {
         $data = new \Projet\Models\BlogModel();
@@ -47,7 +47,7 @@ class BlogController
 
         $confirmUpdate = "Mise à jour / Ajout effectué";
 
-        require 'app/Views/Admin/blogPage.php';
+        require 'app/Views/Admin/articleView.php';
     }
 
     // Récupération de l'url de l'image actuelle d'un article

@@ -59,7 +59,7 @@ class AdminController
             $mailNbr = new \Projet\Models\ContactModel();
             $mailCount = $mailNbr->getMailsCount();
 
-            require 'app/Views/Admin/tableauDeBord.php';
+            require 'app/Views/Admin/dashboard.php';
         }
 
         else {
@@ -83,7 +83,7 @@ class AdminController
         $mailNbr = new \Projet\Models\ContactModel();
         $mailCount = $mailNbr->getMailsCount();
 
-        require 'app/Views/Admin/tableauDeBord.php';
+        require 'app/Views/Admin/dashboard.php';
     }
 
     function mailSolo($idMail)
@@ -92,7 +92,7 @@ class AdminController
         $mailCount = $mail->getMailsCount();
         $mailSolo = $mail->getMail($idMail);
 
-        require 'app/Views/Admin/mailSolo.php';
+        require 'app/Views/Admin/mailPage.php';
     }
 
     function mailDelete($idMail)
@@ -104,6 +104,31 @@ class AdminController
 
         require 'app/Views/Admin/mailView.php';
     }
+    /* ---------------Affichage et modification des comptes ----------------------- */
+
+    function accountView($idaccount, $firstname, $lastname, $confirmUpdate)
+    {
+        $data = new \Projet\Models\AdminModel();
+        $mail = new \Projet\Models\ContactModel();
+
+        $allUsers = $data->getUsersInfos();
+        $roleUser = $data->getRoleUser($idaccount);
+        $mailCount = $mail->getMailsCount();
+
+        require 'app/Views/Admin/accountView.php';
+    }
+
+    function updateSelf($idaccount, $lastname, $firstname)
+    {
+        
+        $data = new \Projet\Models\AdminModel();
+        $data->updateSelfInfos($idaccount, $lastname, $firstname);
+
+        $confirmUpdate = "Mise à jour effectué";
+        return $confirmUpdate;
+        
+    }
+
 
     /* ---------------Affichage et modification de la page Accueil ----------------------- */
 

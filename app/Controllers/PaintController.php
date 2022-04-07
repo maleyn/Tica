@@ -15,17 +15,17 @@ class PaintController
         $paints = $galerie->getGalerie();
         $mailCount = $mail->getMailsCount();
 
-        require 'app/Views/Admin/galeriePage.php';
+        require 'app/Views/Admin/paintsView.php';
     }
 
     // Injection des infos de la peinture spécifié dans la page paintPage
 
-    function paintView($idpaint)
+    function paintView($idpaint, $error)
     {
         $galerie = new \Projet\Models\PaintModel();
         $paintersInfos = new \Projet\Models\PainterModel();
         $mail = new \Projet\Models\ContactModel();
-        
+
         $paint = $galerie->getGaleriePaint($idpaint);
         $painters = $paintersInfos->getPaintersBasics();
         $styles = $galerie->getStyles();
@@ -48,7 +48,7 @@ class PaintController
 
         $confirmUpdate = "Mise à jour / Ajout effectué";
 
-        require 'app/Views/Admin/galeriePage.php';
+        require 'app/Views/Admin/paintsView.php';
     }
 
     // Récupération de l'url de l'image actuelle d'une peinture

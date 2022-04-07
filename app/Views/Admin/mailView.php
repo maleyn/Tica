@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
 
-<main class="container" id="mailview">
+<main class="container template-table">
 <h1 class="center text-uppercase">Mails reçu</h1>
 <table>
     <thead>
@@ -48,7 +48,7 @@
 <!-- Modal -->
 
 <form class="modalform" action="indexAdmin.php?action=mailDelete&id=" method="post">
-    <div class="modal-off modaljs" id="modalid">
+    <div class="modal-off modaljs">
 
         <div class="modal-content">
             <div class="modal-header">

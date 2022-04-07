@@ -20,7 +20,7 @@
 
 <!-- Modal -->
 <form action="indexAdmin.php?action=mailDelete&id=<?= $mailSolo['id'] ?>" method="post">
-<div class="modal-off modaljs" id="modalid">
+<div class="modal-off modaljs">
 
         <div class="modal-content">
             <div class="modal-header">

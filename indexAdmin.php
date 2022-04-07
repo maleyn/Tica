@@ -58,6 +58,21 @@ try {
                 throw new Exception('Infos manquante');
             }
 
+        // Mettre à jour les infos utilisateur
+
+        } elseif ($_GET[$action] == 'update-user')
+
+        {
+
+            $idaccount = $_SESSION['id'];
+            $lastname = htmlspecialchars($_POST['lastname']);
+            $firstname = htmlspecialchars($_POST['firstname']);
+
+            $confirmUpdate = $adminController->updateSelf($idaccount, $lastname, $firstname);
+            $_SESSION['firstname'] = $firstname;
+            $_SESSION['lastname'] = $lastname;
+            $adminController->accountView($idaccount, $firstname, $lastname, $confirmUpdate);
+
         // Affichage des mails du tableau de bord
 
         } elseif ($_GET[$action] == 'mail')
@@ -92,6 +107,14 @@ try {
 
             $adminController->homeView();
 
+        // Affichage de la page de compte
+
+        } elseif ($_GET[$action] == 'account')
+
+        {
+            $confirmUpdate = '';
+            $adminController->accountView($_SESSION['id'], $_SESSION['firstname'], $_SESSION['lastname'], $confirmUpdate);
+        
         // Mise à jour des infos de la page d'accueil
 
         } elseif ($_GET[$action] == 'homeUpdate')
@@ -143,8 +166,9 @@ try {
                 'presentText3' => $presentText3
                 
             ];
-
-            $adminController->homeUpdate($dataFront);
+            
+            $adminController->homeUpdate($dataFront, $presentUrl);
+            
             
         // Affichage de la page galeriePage gérant la page galerie du site
 
@@ -156,8 +180,9 @@ try {
         // Affichage de paintPage gérant un tableau de la galerie
 
         } elseif ($_GET[$action] == 'paintView')
-
+            
         {
+            $error = "";
             if(!empty($_GET['id'])) {
 
                 $idpaint = $_GET['id'];
@@ -166,16 +191,17 @@ try {
                 $idpaint = null;
             }
             
-            $paintController->paintView($idpaint);
+            $paintController->paintView($idpaint, $error);
 
         // Mise à jour ou ajout d'un tableau 
         
         } elseif ($_GET[$action] == 'paintUpdate')
 
         {
-        
+            $error = 0;
+
             $uploadController = new \Projet\Controllers\UploadController();
-           
+
             $paintId = htmlspecialchars($_POST['paintid']);
             $paintName = htmlspecialchars($_POST['paintname']);
             $paintDimH = htmlspecialchars($_POST['paintheight']);
@@ -203,12 +229,15 @@ try {
 
             if(!empty($_FILES['painturl']['name']))
             {
-            var_dump($_FILES['painturl']['name']);
+            
             $paintUrl = $uploadController->uploadimg('painturl');
+                if(!str_contains($paintUrl, 'app')) {
+                $error = 1;
+                }
             } else {
             $dataUrl = $paintController->galerieViewUrl($paintId);
             $paintUrl = $dataUrl['img-url'];
-            var_dump($paintUrl);
+            
             }
             
             // array regroupant les variables
@@ -227,8 +256,12 @@ try {
                 'paintdescription' => $paintDescription
 
             ];
-
+            if($error == 0)
+            {
             $paintController->paintUpdate($dataPaint);
+            } else {
+            $paintController->paintView($paintId, $paintUrl);
+            }
 
         } elseif ($_GET[$action] == 'paintDelete')
 
@@ -246,7 +279,8 @@ try {
  
         } elseif ($_GET[$action] == 'painterSoloView')
         
-        {
+        {   
+            $error = "";
             if(!empty($_GET['id'])) {
 
                 $idPainter = $_GET['id'];
@@ -254,14 +288,14 @@ try {
             } else {
                 $idPainter = null;
             }
-            $painterController->painterSoloView($idPainter);
+            $painterController->painterSoloView($idPainter, $error);
 
         } elseif ($_GET[$action] == 'painterUpdate')
 
         {
      
             $uploadController = new \Projet\Controllers\UploadController();
-        
+            $error = 0;
 
             $painterId = htmlspecialchars($_POST['painterid']);
             $painterName = htmlspecialchars($_POST['paintername']);
@@ -291,7 +325,9 @@ try {
             {
                 
             $painterUrl = $uploadController->uploadimg('painterurl');
-            
+                if(!str_contains($painterUrl, 'app')) {
+                $error = 1;
+                }
             } else {
 
             $dataUrl = $painterController->painterViewUrl($painterId);
@@ -311,8 +347,14 @@ try {
                 
             ];
 
+            if($error == 0)
+            {
             $painterController->painterStyleUpdate($stylesId, $painterId);
             $painterController->painterUpdate($dataPainter);
+            } else {
+            $painterController->painterSoloView($painterId, $painterUrl);
+            }
+
 
         } elseif ($_GET[$action] == 'painterDelete')
 
@@ -331,6 +373,7 @@ try {
         } elseif ($_GET[$action] == 'articleView')
 
         {
+            $error = "";
             if(!empty($_GET['id'])) {
 
                 $idArticle = $_GET['id'];
@@ -338,12 +381,13 @@ try {
             } else {
                 $idArticle = null;
             }
-            $blogController->articleView($idArticle);
+            $blogController->articleView($idArticle, $error);
 
         } elseif ($_GET[$action] == 'articleUpdate')
 
         {
      
+            $error = 0;
             $uploadController = new \Projet\Controllers\UploadController();
         
             $articleId = htmlspecialchars($_POST['articleid']);
@@ -362,7 +406,9 @@ try {
             if(!empty($_FILES['articleurl']['name']))
             {
             $articleUrl = $uploadController->uploadimg('articleurl');
-            
+                if(!str_contains($articleUrl, 'app')) {
+                $error = 1;
+                }
             } else {
             $dataUrl = $blogController->articleViewUrl($articleId);
             $articleUrl = $dataUrl['image-url'];
@@ -379,8 +425,12 @@ try {
                 'articleauteur' => $articleAuteur
 
             ];
-
+            if($error == 0)
+            {
             $blogController->articleUpdate($dataArticle);
+            } else {
+            $blogController->articleView($articleId, $articleUrl);
+            }
 
         } elseif ($_GET[$action] == 'articleDelete')
 
@@ -401,6 +451,6 @@ try {
 
 } catch (Exception $e) {
 
-    die('Erreur : ' . $e->getMessage());// faire page erreur !!!!
+    die('Erreur : ' . $e->getMessage());
 
 }
