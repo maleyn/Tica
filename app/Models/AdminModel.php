@@ -4,6 +4,18 @@ namespace Projet\Models;
 
 class AdminModel extends Manager
 {
+    // récupération des stats administration
+
+    public function getCountTotal()
+    {
+        $bdd = $this->dbConnection();
+        $data = $bdd->query('SELECT (SELECT COUNT(users.id) FROM users) AS nbusers, 
+                            (SELECT COUNT(paints.id) FROM paints) AS nbpaints, 
+                            (SELECT COUNT(painters.id) FROM painters) AS nbpainters, 
+                            (SELECT COUNT(articles.id) FROM articles) AS nbarticles');
+
+        return $data->fetch();
+    }
 
     // Création d'utilisateurs dans la bdd
 
@@ -22,7 +34,6 @@ class AdminModel extends Manager
         )
         );
         
-        return $user;
     } 
 
     // récupération des infos de roles dans la bdd
@@ -89,6 +100,15 @@ class AdminModel extends Manager
 
     }
     
+    // supprimer un utilisateur d'administration de la bdd
+
+    public function deleteThisUser($idUser)
+    {
+        $bdd = $this->dbConnection();
+        $data = $bdd->prepare('DELETE FROM users WHERE id = :iduser');
+
+        $data->execute(array('iduser' => $idUser));
+    }
 
     // récuperer une id grace au nom et table
 
@@ -97,10 +117,12 @@ class AdminModel extends Manager
         $bdd = $this->dbConnection();
         $data = $bdd->prepare("SELECT id FROM `" .$table. "`WHERE name = :name");
    
-        $data->execute(array('name' => $name,));
+        $data->execute(array('name' => $name));
    
         return $data->fetch();
     }
+    
+    // récupérer les infos de tout les utilisateurs d'administration
 
     public function getUsersinfos()
     {
@@ -113,5 +135,36 @@ class AdminModel extends Manager
 
     }
    
+    // récupérer les infos d'un utilisateur en fonction de son id
+
+    public function getUserInfos($idUser)
+    {
+        $bdd = $this->dbConnection();
+        $data = $bdd->prepare("SELECT users.id, firstname, lastname, mail, role 
+                            FROM users, roles
+                            WHERE roles.id = users.UsersRoles AND users.id = :iduser");
+                    
+        $data->execute(array('iduser' => $idUser));
+        return $data->fetch();
+    }
+
+    // Mise à jour d'un utilisateur en fonction de son id
+
+    public function updateUserInfos($idUser, $lastname, $firstname, $roleid)
+    {
+        $bdd = $this->dbConnection();
+        $data = $bdd->prepare("UPDATE users SET firstname = :firstname, lastname = :lastname, UsersRoles = :roleid
+                               WHERE id = :iduser");
+                    
+        $data->execute(array(
+            'iduser' => $idUser,
+            'firstname' => $firstname,
+            'lastname' => $lastname,
+            'roleid' => $roleid['id']                   
+        ));
+
+    }
+
+    
     
 }

@@ -6,7 +6,7 @@
         <?php if(isset($confirmUpdate)) { ?>
         <h2 class="text-green"><?= $confirmUpdate ?></h2>
         <?php } ?>
-        <form class="grid" action="indexAdmin.php?action=update-user" method="post">
+        <form class="grid" action="indexAdmin.php?action=update-self" method="post">
             <div class="grid padding-top20">
                 <label class="text-blue" for="lastname">Nom</label>
                 <input class="form-text margin-top10 width50" type="text" placeholder="Nom de l'utilisateur"
@@ -23,7 +23,7 @@
             </div>
 
             <div class="padding-top20">
-                <input type="submit" value="Mise à jour" class="button_submit">
+                <input type="submit" value="Mettre à jour" class="button_submit">
                 <a class="button_submit inline-block center" href="indexAdmin.php?action=change-mdp">Réinitialiser mot de passe</a>
             </div>
         </form>

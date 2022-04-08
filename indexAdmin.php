@@ -43,7 +43,8 @@ try {
                     ];
 
             $adminController->createuser($userArray);
-
+            $confirmUpdate = 'Nouvel utilisateur créé';
+            $adminController->accountView($_SESSION['id'], $_SESSION['firstname'], $_SESSION['lastname'], $confirmUpdate);
 
         // Connexion au tableau de bord
        
@@ -60,7 +61,7 @@ try {
 
         // Mettre à jour les infos utilisateur
 
-        } elseif ($_GET[$action] == 'update-user')
+        } elseif ($_GET[$action] == 'update-self')
 
         {
 
@@ -72,6 +73,19 @@ try {
             $_SESSION['firstname'] = $firstname;
             $_SESSION['lastname'] = $lastname;
             $adminController->accountView($idaccount, $firstname, $lastname, $confirmUpdate);
+
+        // mise à jour des infos de l'utilisateur d'administration
+
+        } elseif ($_GET[$action] == 'update-user')
+
+        {
+            $idUser = htmlspecialchars($_POST['iduser']);
+            $lastname = htmlspecialchars($_POST['lastname']);
+            $firstname = htmlspecialchars($_POST['firstname']);
+            $role = htmlspecialchars($_POST['role']);
+    
+            $confirmUpdate = $adminController->updateUser($idUser, $lastname, $firstname, $role);
+            $adminController->userView($idUser, $confirmUpdate);
 
         // Affichage des mails du tableau de bord
 
@@ -114,6 +128,34 @@ try {
         {
             $confirmUpdate = '';
             $adminController->accountView($_SESSION['id'], $_SESSION['firstname'], $_SESSION['lastname'], $confirmUpdate);
+        
+
+        // Suppression d'un utilisateur
+
+        } elseif ($_GET[$action] == 'userDelete')
+
+        {
+            $confirmUpdate = 'Utilisateur supprimé';
+            $idUser = $_GET['id'];
+            $adminController->userDelete($idUser);
+            $adminController->accountView($_SESSION['id'], $_SESSION['firstname'], $_SESSION['lastname'], $confirmUpdate);
+
+        // Affichage de la page d'un utilisateur spécifique
+            
+        } elseif ($_GET[$action] == 'view-user')
+
+            
+        {
+            $idUser = $_GET['id'];
+            $confirmUpdate = '';
+            $adminController->userView($idUser, $confirmUpdate);
+
+
+        } elseif ($_GET[$action] == 'deconnect') 
+
+        {
+            session_destroy();
+            header('Location: indexAdmin.php');
         
         // Mise à jour des infos de la page d'accueil
 

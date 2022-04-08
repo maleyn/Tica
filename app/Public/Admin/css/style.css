@@ -84,7 +84,7 @@ a:hover {
     background-color: rgb(54, 54, 54);
     color: rgb(202, 202, 202);
     border: none;
-    padding: 10px 0px;
+    padding: 10px 10px;
     width: 250px;
     font-size: 1.2rem;
     
@@ -333,6 +333,45 @@ a:hover {
 
     display: flex;
   
+}
+
+#dashboard-flex {
+
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#dashboard-flex .dash-card {
+
+    width: 30%;
+    padding: 2%;
+    
+}
+
+#dashboard-flex .dash-card p, #dashboard-flex .dash-card h2 {
+
+    text-align: center;
+}
+#dashboard-flex .dash-card p {
+    font-size: 1.3rem;
+    color: rgb(26, 134, 154);
+    padding-bottom: 10px;
+}
+#dashboard-flex a {
+    
+    display: inline-block;
+    width: 100%;
+    padding: 10% 0%;
+    border: 1px solid rgb(210, 210, 210);
+    border-radius: 15px;
+
+}
+
+#dashboard-flex a:hover {
+    background-color: #e2e2e2;
 }
 
 /* HomePage */

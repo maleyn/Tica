@@ -33,16 +33,15 @@ class AdminController
         // remplace la valeur de role du tableau userarray par son id correspondante
         $userArrayMod = array_replace($userArray, $arrayId);
        
-        $user = $userManager->createUser($userArrayMod);
-
-        require 'app/views/Admin/createConfirm.php';
+        $userManager->createUser($userArrayMod);
 
     }
     /* -------------- Connexion au tableau de bord du site ------------- */
     function connexion($mail, $mdp)
     {
-        $users = new \Projet\Models\AdminModel();
-        $connexMdp = $users->getPass($mail);
+        $data = new \Projet\Models\AdminModel();
+        $connexMdp = $data->getPass($mail);
+        $stats = $data->getCountTotal();
 
         $result = $connexMdp->fetch();
 
@@ -68,6 +67,7 @@ class AdminController
 
         }
     }
+    
     /* -------------- Récupération des mails de contact ------------- */
 
     function mailContact()
@@ -80,8 +80,10 @@ class AdminController
 
     function dashboard()
     {
+        $data = new \Projet\Models\AdminModel();
         $mailNbr = new \Projet\Models\ContactModel();
         $mailCount = $mailNbr->getMailsCount();
+        $stats = $data->getCountTotal();
 
         require 'app/Views/Admin/dashboard.php';
     }
@@ -108,6 +110,7 @@ class AdminController
 
     function accountView($idaccount, $firstname, $lastname, $confirmUpdate)
     {
+
         $data = new \Projet\Models\AdminModel();
         $mail = new \Projet\Models\ContactModel();
 
@@ -128,7 +131,39 @@ class AdminController
         return $confirmUpdate;
         
     }
+    function userDelete($idUser)
+    {
+        $data = new \Projet\Models\AdminModel();
+        $mail = new \Projet\Models\ContactModel();
 
+        $data->deleteThisUser($idUser);
+
+    }
+
+    function userView($idUser, $confirmUpdate)
+    {
+        $data = new \Projet\Models\AdminModel();
+        $mail = new \Projet\Models\ContactModel();
+
+        $roles = $data->getRole();
+        $user = $data->getUserInfos($idUser);
+
+        require 'app/Views/Admin/accountPage.php';
+    }
+
+    function updateUser($idUser, $lastname, $firstname, $role)
+    {
+
+        $data = new \Projet\Models\AdminModel();
+        $mail = new \Projet\Models\ContactModel();
+
+        $roleid = $data->getRoleId($role);
+        
+        $data->updateUserInfos($idUser, $lastname, $firstname, $roleid);
+
+        $confirmUpdate = "Mise à jour effectué";
+        return $confirmUpdate;
+    }
 
     /* ---------------Affichage et modification de la page Accueil ----------------------- */
 

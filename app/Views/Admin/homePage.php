@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
 
-<main id="homepage-admin" class="container mt-5 pt-3">
+<main id="homepage-admin" class="container padding-top20">
     
     <h1>Personnalisation de la page Accueil</h1>
     <h2 class="center text-green"><?php if(isset($confirmUpdate)) { echo $confirmUpdate; } ?></h2>
