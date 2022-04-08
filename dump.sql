@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2022 at 04:26 PM
+-- Generation Time: Apr 08, 2022 at 04:06 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -84,7 +84,8 @@ CREATE TABLE `frames` (
 --
 
 INSERT INTO `frames` (`id`, `name`) VALUES
-(1, 'Bois');
+(1, 'Bois'),
+(2, 'Sans câdre');
 
 -- --------------------------------------------------------
 
@@ -222,7 +223,11 @@ CREATE TABLE `styles` (
 
 INSERT INTO `styles` (`id`, `name`) VALUES
 (1, 'Réalisme'),
-(2, 'Abstrait');
+(2, 'Abstrait'),
+(3, 'Contemporain'),
+(4, 'Expressionnisme'),
+(5, 'Pop art'),
+(6, 'Surréalisme');
 
 -- --------------------------------------------------------
 
@@ -241,7 +246,10 @@ CREATE TABLE `types` (
 
 INSERT INTO `types` (`id`, `name`) VALUES
 (1, 'Acrylique'),
-(2, 'Huile');
+(2, 'Huile'),
+(3, 'Aquarelle'),
+(4, 'Gouache'),
+(5, 'Crayons');
 
 -- --------------------------------------------------------
 
@@ -263,8 +271,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `mail`, `password`, `UsersRoles`) VALUES
-(4, 'maleyran', 'renaud', 'maleyran@hotmail.fr', '$2y$10$VpKwOy5lqtl0XTi3XqVhj.6CFW2WHWd5dl3juYGKF8M1Vor/mGXp2', 1),
-(25, 'editeur', 'editeur', 'editeur@hotmail.fr', '$2y$10$pBpm5UucCH4f2tuBtVe/Kehei2jzVWlmpxKLmrHDU51omCWrI8EhW', 4);
+(4, 'renaud', 'maleyran', 'maleyran@hotmail.fr', '$2y$10$VpKwOy5lqtl0XTi3XqVhj.6CFW2WHWd5dl3juYGKF8M1Vor/mGXp2', 1),
+(40, 'editeur', 'editeur', 'editeur@editeur.fr', '$2y$10$b9zjY7AJ51UoNM5Rq5MR2eRk7.zIFpsTv4Dw0/vbjt4W062opUXXK', 4);
 
 --
 -- Indexes for dumped tables
@@ -363,7 +371,7 @@ ALTER TABLE `contacts`
 -- AUTO_INCREMENT for table `frames`
 --
 ALTER TABLE `frames`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `homepage`
@@ -393,19 +401,19 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `styles`
 --
 ALTER TABLE `styles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `types`
 --
 ALTER TABLE `types`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- Constraints for dumped tables
