@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
 
 <main class="container padding-top20">
-    <h1>Chiffres du site</h1>
+    <h1>Statistiques du site</h1>
     <section id="dashboard-flex">
         <article class="dash-card">
             <a href="indexAdmin.php?action=galeriePage">
