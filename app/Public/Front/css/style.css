@@ -676,32 +676,56 @@ footer {
 
     margin-top: 100px;
     background-color: #2E2E2E;
-    height: 260px;
+    height: 170px;
     width: 100%;
     color: #cfcfcf;
-    padding-top: 45px;
+    padding-top: 35px;
     font-size: 1.2rem;
-
+    position: relative;
 
 }
+
 footer #footer_flex {
 
     display: flex;
     width: 100%;
    
-
 }
 
-footer .vertical_dot_line {
+footer aside p:first-child {
 
-    border-left: 2px dashed #B5B5B5;
-    height: 110px;
+    font-family: 'Stylish', sans-serif;
+    font-size: 2.8rem;
+    
 
 }
 
 footer aside {
 
-    width: 40%;
+    padding-left: 5%;
+    text-align: center;
+    margin: auto;
+}
+
+footer aside p:last-child {
+ 
+    font-family: 'Srisakdi', cursive;
+    line-height: 0.2rem;
+    font-weight: 700;
+}
+
+footer .vertical_dot_line {
+
+    border-left: 2px dashed #B5B5B5;
+    height: 100px;
+    margin-top: 5px;
+    
+
+}
+
+footer aside {
+
+    width: 30%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -712,23 +736,19 @@ footer aside {
 
 footer aside div {
 
-    width: 50%;
+    width: 30%;
     text-align: center;
 
 }
 
-footer aside .icon_payment {
-
-    padding: 60px 20px 0px 20px;
-    
-}
-
 footer #nav_link {
     
-    width: 40%;
+    width: 20%;
     margin-left: 10%;
     margin-right: 10%;
-
+    font-size: 1.3rem;
+    margin-top: 10px;
+    
 }
 
 footer #nav_link ul {
@@ -736,3 +756,35 @@ footer #nav_link ul {
     list-style: none;
     
 }
+
+footer #footer_menu {
+
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+    font-size: 1.6rem;
+    padding-left: 50px;
+    line-height: 110%;
+
+}
+
+footer #copy_foot {
+
+    position: absolute;
+    bottom: 5px;
+    left: 40%;
+    right: 40%;
+    text-align: center;
+    
+    
+}
+
+footer #copy_foot a {
+    
+    padding-top: 5px;
+    display: inline-block;
+}
+footer #copy_foot hr {
+    margin-top: 0px;
+}
+
