@@ -19,7 +19,7 @@ require 'app/Views/Front/header.php';
                     <p><?= $dataFront['slider-text2'] ?></p>
                 </div>
                 <div id="button_galerie">
-                <a id="button_galerie_home" class="button_light" href="#">Galerie</a>
+                    <a id="button_galerie_home" class="button_light" href="#">Galerie</a>
                 </div>
             </div>
         </div>
@@ -31,24 +31,14 @@ require 'app/Views/Front/header.php';
     </section>
     <section id="tica_present" class="container">
         <h1><?= $dataFront['present-title'] ?></h1>
-        <div id="flex_tica_frames">
-            <div id="frame_tica_black">
+            <div id="tica_text">
+                <figure>
+                    <img src="<?= $dataFront['present-url'] ?>" alt="<?= $dataFront['present-alt'] ?>">
+                </figure>
+                <p id="first_para_tica"><?= $dataFront['present-text1'] ?></p>
+                <p><?= $dataFront['present-text2'] ?></p>
+                <p><?= $dataFront['present-text3'] ?></p>
             </div>
-            <div id="tica_frames">
-                <article id="first_frame_tica" class="tica_frame">
-                    <p><?= $dataFront['present-text1'] ?></p>
-                </article>
-                <article id="second_frame_tica" class="tica_frame">
-                    <p><?= $dataFront['present-text2'] ?></p>
-                </article>
-                <article id="third_frame_tica" class="tica_frame">
-                    <p><?= $dataFront['present-text3'] ?></p>
-                </article>
-            </div>
-        </div>
-        <figure>
-            <img src="<?= $dataFront['present-url'] ?>" alt="<?= $dataFront['present-alt'] ?>">
-        </figure>
         <div id="button_artistes">
             <a href="#" class="button_dark">artistes</a>
         </div>

@@ -53,14 +53,14 @@ a {
 
 h1 {
 
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     color: #a08a3a;
 
 }
 
 hr {
 
-    width: 400px;
+    width: 270px;
     margin: auto;
     margin-top: 50px;
     color: #909090;
@@ -76,8 +76,8 @@ hr {
 
 .button_light {
 
-    padding: 10px 30px;
-    font-size: 1.6rem;
+    padding: 5px 20px;
+    font-size: 1.4rem;
     font-weight: 100;
     text-transform: uppercase;
     color:#6C6C6C;
@@ -135,6 +135,18 @@ hr {
 
 }
 
+.hidden {
+
+    display: none;
+
+}
+
+.show {
+
+    display: block;
+
+}
+
 /* HEADER */
 
 #headband {
@@ -142,8 +154,8 @@ hr {
     color: #c8c8c8;
     background-color: #2E2E2E;
     width: 100%;
-    height: 80px;
-    font-size: 1.6rem;
+    height: 70px;
+    font-size: 1.2rem;
     position: fixed;
     z-index: 20000;
 
@@ -174,7 +186,7 @@ hr {
 #headband #headband_items #headband_logo p:first-child {
 
     font-family: 'Stylish', sans-serif;
-    font-size: 2.8rem;
+    font-size: 2.4rem;
     
 
 }
@@ -182,18 +194,13 @@ hr {
 #headband #headband_items #headband_logo p:last-child {
  
     font-family: 'Srisakdi', cursive;
-    line-height: 0.2rem;
+    line-height: 0.1rem;
     font-weight: 700;
     
 }
-#main_menu {
-
+#main_menu { 
     
-    width: 30%;
-    display: flex;
-    list-style: none;
-    text-transform: uppercase;
-    margin-top: 24px;
+    display: none;
     
 }
 
@@ -205,8 +212,8 @@ hr {
 
 #headband #account_header {
 
-    width: 18%;
-    
+    width: 30%;
+    display: none;
 }
 
 #headband #account_header a{
@@ -214,24 +221,61 @@ hr {
     display: flex;
     align-items: center;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 10px;
 
 }
 
 #headband #account_header img {
 
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
 
 }
 
 #headband #account_header p {
 
-    width:155px;
+    width:250px;
     padding-left: 20px;
 
 }
+#headband #bouton_burger {
 
+    color: #c8c8c8;
+    padding-right: 18px;
+    padding-top: 15px;
+}
+
+#headband #bouton_burger:hover {
+
+    cursor: pointer;
+}
+
+#headband #menu_burger {
+
+    color: #c8c8c8;
+    position: absolute;
+    right: 0px;
+    top: 60px;
+    background-color: #2E2E2E;
+    width: 220px;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+#headband #menu_burger ul {
+
+    list-style: none;
+    
+}
+
+#headband #menu_burger ul a {
+
+    display: block;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px dashed white;
+}
+    
 /* HOME PAGE */
 
 /* première partie */
@@ -263,7 +307,7 @@ hr {
 
     position: absolute;
     top: 50px;
-    left: 100px;
+    left: 30px;
 
 }
 
@@ -271,33 +315,33 @@ hr {
 
     position: absolute;
     bottom: 90px;
-    left: 100px;
+    left: 30px;
 }
 
 #background_home #frame_header #frame_corner_rt {
 
     position: absolute;
     top: 50px;
-    right: 100px;
+    right: 30px;
 }
 
 #background_home #frame_header #frame_corner_rb {
 
     position: absolute;
     bottom: 90px;
-    right: 100px;
+    right: 30px;
 }
 
   
 #background_home #intro_home{
     
     position: absolute;
-    top: 150px;
-    left: 22%;
-    right: 22%;
+    top: 90px;
+    left: 20%;
+    right: 20%;
     color: #c8c8c8;
-    font-size: 1.9rem; 
-    padding: 40px 20px;
+    font-size: 1.5rem; 
+    padding: 17px 8px;
     vertical-align: middle;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.678);
@@ -308,11 +352,10 @@ hr {
 
   position: absolute;
   text-align: center;
-  margin: auto;
   bottom: -20px;
-  left: 20%;
-  right: 20%;
-  
+  left: 10%;
+  right: 10%;
+ 
 }
 
 /* Présentation */
@@ -321,7 +364,7 @@ hr {
     
     margin: 120px auto 0px auto;
     text-align: center;
-    width: 700px;
+    max-width: 700px;
     
 
 }
@@ -335,6 +378,7 @@ hr {
 #background_home #present_home p {
 
     margin-top: 45px;
+    padding: 10px;
 
 }
 
@@ -355,78 +399,33 @@ hr {
 
 }
 
-#tica_present #flex_tica_frames {
-
-    display: flex;
-    width: 800px;
-    margin: 50px auto;
-    
-    
-}
-
-#tica_present #tica_frames {
-
-    width: 50%;
-    
-} 
 
 #tica_present .tica_frame {
 
-    display: flex;
-    width: 380px;
-    height: 130px;
-    background-color: #E3D6A5;
-    border: 1px solid rgb(151, 151, 151);
-    box-shadow: 2px 2px 8px rgb(97, 97, 97);
+    
     padding:10px;
-    justify-content: center;
-    align-items: center;
 
 }
 
+#tica_present #tica_text {
 
-#tica_present #first_frame_tica {
+    position: relative;
+    left: 15%;
+    width: 800px;
+    margin-top: 50px;
 
-    border-radius: 0px 10px 0px 0px;
+}
+
+#tica_present #tica_text #first_para_tica {
+
+    left: -40px;
     
 }
 
-#tica_present #second_frame_tica p, #tica_present #third_frame_tica p{
-
-    padding-left: 90px;
-
-}
-
-#tica_present #third_frame_tica {
-
-    border-radius: 0px 0px 10px 0px;
-
-}
-
-#tica_present #frame_tica_black {
-
-    width: 400px;
-    height: 453px;
-    background-color: #2E2E2E;
-    border-radius: 10px 0px 0px 10px;
-    border: 1px solid rgb(151, 151, 151);
-    box-shadow: 2px 2px 8px rgb(97, 97, 97);
-
-}
-
-#tica_present figure img {
-    
-    position: absolute;
-    width: 370px;
-    object-fit: contain;
-    top: 120px;
-    left: 300px;
-
-}
 
 #tica_present #button_artistes {
 
-    margin-top: 60px;
+    margin-top: 40px;
     text-align: center;
 
 }
@@ -788,3 +787,223 @@ footer #copy_foot hr {
     margin-top: 0px;
 }
 
+@media screen and (min-width: 400px) {
+
+    /* Géneral */
+
+    hr {
+
+        width: 400px;
+        
+    }
+
+    /* Page Home */
+
+    #background_home #button_galerie {
+
+        left: 25%;
+        right: 25%;
+        
+      }
+
+    #background_home #intro_home{
+    
+        top: 120px;
+        font-size: 1.6rem; 
+        padding: 20px 12px;
+    
+    }
+
+    #tica_present #tica_text {
+
+        left: 0;
+        text-align: center;
+    }
+
+    #tica_present #tica_text figure {
+    }  
+
+    #tica_present #tica_text p {
+
+        position: relative;
+        left: 20px;
+        max-width: 70%;
+        padding: 20px;
+        font-size: 1.1rem;
+    
+    }
+
+
+    #tica_present figure img {
+        
+        float: none;
+        width: 300px;
+        object-fit: contain;
+        
+    }
+}
+
+@media screen and (min-width: 720px) {
+
+    /* Géneral */
+
+    h1 {
+
+        font-size: 2.5rem;
+    
+    }
+    
+    /* Header */
+
+    #headband {
+        
+        height: 80px;
+        font-size: 1.4rem;
+    
+    }
+
+    #headband #headband_items #headband_logo p:first-child {
+
+        font-size: 2.8rem;
+    
+    }
+    
+    #headband #headband_items #headband_logo p:last-child {
+     
+        line-height: 0.2rem;
+        font-weight: 700;
+    }
+
+    #background_home #frame_header #frame_corner_lt {
+
+        left: 100px;
+    
+    }
+    #background_home #frame_header #frame_corner_lb {
+
+        left: 100px;
+    }
+    
+    #background_home #frame_header #frame_corner_rt {
+    
+        right: 100px;
+    }
+    
+    #background_home #frame_header #frame_corner_rb {
+    
+        right: 100px;
+    }
+
+    #tica_present figure img {
+    
+        float: left;
+    
+    }
+
+
+    /* Menu */
+
+    #main_menu {
+
+    
+        width: 30%;
+        display: flex;
+        list-style: none;
+        text-transform: uppercase;
+        margin-top: 24px;
+        
+    }
+
+    #headband #account_header {
+
+        display: block;
+
+    }
+
+    #headband #bouton_burger {
+
+        display: none;
+
+    }
+    #headband #menu_burger {
+
+        display: none;
+
+    }
+
+    /* HOME PAGE */
+    /* première partie */
+
+    #background_home #intro_home{
+    
+        top: 150px;
+        font-size: 1.9rem; 
+        padding: 40px 20px;
+    
+    }
+
+    .button_light {
+
+        padding: 10px 30px;
+        font-size: 1.6rem;
+    
+    }
+
+    
+}
+
+@media screen and (min-width: 900px) {
+
+    #tica_present figure img {
+    
+        width: 370px;
+    
+    }
+
+    #tica_present #tica_text p {
+
+        
+        max-width: 90%;
+        font-size: 1.4rem;
+        
+    
+    }
+    
+
+}
+
+@media screen and (min-width: 1200px) {
+
+    #headband {
+        
+        font-size: 1.6rem;
+    
+    }
+
+    #headband #account_header img {
+
+        width: 30px;
+        height: 30px;
+    
+    }
+    
+    #headband #account_header p {
+    
+        width:155px;
+        padding-left: 20px;
+    
+    }
+
+    #headband #account_header a{
+
+        margin-top: 20px;
+    
+    }
+
+    #main_menu li {
+
+        padding:0 15px;
+    
+    }
+
+}
