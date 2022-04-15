@@ -15,12 +15,13 @@
                     <li><a href="">Rejoindre nos artistes</a></li>
                 </ul>
             </nav>
+        <hr>
         <div class="vertical_dot_line"></div>
             <nav id="footer_menu">
-                <a href="#">Accueil</a>
+                <a href="index.php">Accueil</a>
                 <a href="#">Blog</a>
                 <a href="#">Artistes</a>
-                <a href="index.php?action=galerie.php">Galerie</a>
+                <a href="index.php?action=galerie">Galerie</a>
             </nav>
     </div>
     <div id="copy_foot">

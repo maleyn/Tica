@@ -136,5 +136,23 @@ class PaintModel extends Manager
         return $data->fetch();
 
     } 
+
+    // récupération de toutes les infos de toutes les peintures (jointure de plusieurs tables)
+
+    public function getGalerieFront()
+    {
+
+        $bdd = $this->dbConnection();
+        $data = $bdd->query('SELECT paints.id as paintid, paints.name as paintname, `img-url`, dimensionH,
+                            dimensionL, frames.name as framename, painters.name as paintername, description, 
+                            styles.name as stylename, types.name as typename 
+                            FROM paints, painters, frames, styles, types
+                            WHERE PaintsFrames = frames.id AND PaintsPainters = painters.id
+                            AND PaintsStyle = styles.id AND PaintsType = types.id 
+                            ORDER BY paints.id DESC');
+
+        return $data->fetchAll();
+
+    } 
     
 }

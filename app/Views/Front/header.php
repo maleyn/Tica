@@ -39,11 +39,16 @@
                             <a href="#"><li>Mon compte</li></a>
                         </ul>   
                     </nav>
-                    <div id="bouton_burger">
-                        <svg viewBox="0 0 100 100" width="45" height="45" rx="8">
+                    <div>
+                        <svg id="bouton_burger_open" class="burger_btn" viewBox="0 0 100 100" width="45" height="45" xmlns="http://www.w3.org/2000/svg">
                             <rect fill="currentColor" width="100" height="15" rx="8"></rect>
                             <rect fill="currentColor" y="30" width="100" height="15" rx="8"></rect>
                             <rect fill="currentColor" y="60" width="100" height="15" rx="8"></rect>
+                        </svg>
+                        <svg id="bouton_burger_close" class="hidden burger_btn" viewBox="0 0 800 600" width="45" height="45" xmlns="http://www.w3.org/2000/svg">
+                            <line stroke-width="100" y2="589.00002" x2="786.99999" y1="11.99998" x1="12.00002" stroke="currentColor"/>
+                            <line y2="605" x2="-12" y1="603" x1="-12" stroke="currentColor"/>
+                            <path stroke-width="100" d="m14.86618,589.76842l767.26768,-578.53689" transform="rotate(0.357475, 398.5, 300.5)"  stroke="currentColor" fill="currentColor"/>
                         </svg>
                     </div>
                     <div id="account_header">

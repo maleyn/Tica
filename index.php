@@ -8,7 +8,9 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 try {
+
     $controllerFront = new \Projet\Controllers\FrontController();
+    $controllerPaint = new \Projet\Controllers\PaintController();
 
     if(isset($_GET['action'])) {
 
@@ -45,7 +47,8 @@ try {
             
         } elseif($_GET['action'] == 'galerie')
         {
-            require 'app/Views/Front/galerie.php';
+
+            $paints = $controllerPaint->galerieViewFront();
 
         }
 

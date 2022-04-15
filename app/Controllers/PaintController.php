@@ -11,8 +11,8 @@ class PaintController
     function galerieView()
     {
         $galerie = new \Projet\Models\PaintModel();
-        $mail = new \Projet\Models\ContactModel();
         $paints = $galerie->getGalerie();
+        $mail = new \Projet\Models\ContactModel();
         $mailCount = $mail->getMailsCount();
 
         require 'app/Views/Admin/paintsView.php';
@@ -68,5 +68,15 @@ class PaintController
         $data = new \Projet\Models\PaintModel();
         $data->deletePaint($idPaint);
 
+    }
+
+    // affichage des peintures vue front
+
+    function galerieViewFront()
+    {
+        $galerie = new \Projet\Models\PaintModel();
+        $paints = $galerie->getGalerieFront();
+        
+        require 'app/Views/Front/galerie.php';
     }
 }

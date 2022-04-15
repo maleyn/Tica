@@ -3,6 +3,7 @@
 /* font-family: 'Srisakdi', cursive; */
 /* font-family: 'Stylish', sans-serif; */
     
+/* Config générale */
 
 * {
 
@@ -34,7 +35,7 @@ body {
 
 .pagepadding-top {
 
-    padding-top: 150px;
+    padding-top: 120px;
 
 }
 
@@ -152,12 +153,14 @@ hr {
 #headband {
 
     color: #c8c8c8;
-    background-color: #2E2E2E;
+    background: rgb(46,46,46);
+    background: linear-gradient(0deg, rgba(46,46,46,1) 0%, rgba(69,69,69,1) 100%); 
     width: 100%;
     height: 70px;
     font-size: 1.2rem;
     position: fixed;
     z-index: 20000;
+    box-shadow: 0px 2px 5px rgb(48, 48, 48);
 
 }
 
@@ -198,6 +201,7 @@ hr {
     font-weight: 700;
     
 }
+
 #main_menu { 
     
     display: none;
@@ -206,7 +210,7 @@ hr {
 
 #main_menu li {
 
-    padding:0 15px;
+    padding:0 10px;
 
 }
 
@@ -220,8 +224,9 @@ hr {
 
     display: flex;
     align-items: center;
-    width: 100%;
+    width: 74%;
     margin-top: 10px;
+    text-transform: uppercase;
 
 }
 
@@ -238,14 +243,36 @@ hr {
     padding-left: 20px;
 
 }
-#headband #bouton_burger {
+
+/* menu Burger */
+
+#headband .burger_btn {
 
     color: #c8c8c8;
     padding-right: 18px;
     padding-top: 15px;
+    animation-name: burger_open;
+    animation-duration: 1s;
 }
 
-#headband #bouton_burger:hover {
+#headband #bouton_burger_close {
+    padding-top: 10px;
+    animation-name: burger_close;
+    animation-duration: 1s;
+    
+}
+
+@keyframes burger_open {
+    0% {opacity: 0;}
+    100% {opacity: 100%;}
+}
+
+@keyframes burger_close {
+    0% {opacity: 0;}
+    100% {opacity: 100%;}
+}
+
+#headband .burger_btn:hover {
 
     cursor: pointer;
 }
@@ -254,12 +281,20 @@ hr {
 
     color: #c8c8c8;
     position: absolute;
+    top: 70px;
     right: 0px;
-    top: 60px;
-    background-color: #2E2E2E;
+    background: rgb(46,46,46);
+    box-shadow: 0px 2px 5px rgb(48, 48, 48);
     width: 220px;
     font-size: 1.5rem;
     text-transform: uppercase;
+    animation-name: burger;
+    animation-duration: 1s;
+}
+
+@keyframes burger {
+    0% {opacity: 0; right: -220px;}
+    100% {opacity: 100%; right: 0px;}
 }
 
 #headband #menu_burger ul {
@@ -350,11 +385,11 @@ hr {
 
 #background_home #button_galerie {
 
-  position: absolute;
-  text-align: center;
-  bottom: -20px;
-  left: 10%;
-  right: 10%;
+    position: absolute;
+    text-align: center;
+    bottom: -20px;
+    left: 10%;
+    right: 10%;
  
 }
 
@@ -400,27 +435,28 @@ hr {
 }
 
 
-#tica_present .tica_frame {
-
-    
-    padding:10px;
-
-}
-
 #tica_present #tica_text {
 
-    position: relative;
-    left: 15%;
-    width: 800px;
-    margin-top: 50px;
+    text-align: center;
+    width: 100%;
+    margin-top: 30px;
 
 }
 
-#tica_present #tica_text #first_para_tica {
+#tica_present #tica_text p {
 
-    left: -40px;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 1.1rem;
+
+}
+
+#tica_present figure img {
     
-}
+    width: 300px;
+    object-fit: contain;
+
+  }
 
 
 #tica_present #button_artistes {
@@ -447,15 +483,22 @@ hr {
 
 #insta_blog .block_bottom {
 
-    background-color: #000000;
+    background: rgb(43,43,43);
+    background: linear-gradient(0deg, rgba(43,43,43,1) 0%, rgba(0,0,0,1) 100%); 
     width: 35%;
     max-width: 450px;
-    min-width: 450px;
-    height: 500px;
+    min-width: 300px;
+    height: 670px;
     margin: 10px;
     position: relative;
     
 
+}
+
+#insta_blog #block_blog {
+
+    height: 400px;
+    
 }
 
 #insta_blog #insta_blog_flex {
@@ -463,6 +506,8 @@ hr {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    width: 92%;
+    margin: auto;
     
 }
 
@@ -475,35 +520,35 @@ hr {
 #insta_blog  #frame_corner_lt {
 
     position: absolute;
-    top: -50px;
-    left: -50px;
-   
+    top: -40px;
+    left: -40px;
+    width: 50%;
 
 }
 
 #insta_blog  #frame_corner_lb {
 
     position: absolute;
-    bottom: -50px;
-    left: -50px;
-    
+    bottom: -460px;
+    left: -40px;
+    width: 50%;
 }
 
 #insta_blog  #frame_corner_rt {
 
     position: absolute;
-    top: -50px;
-    right: -50px;
-   
+    top: -730px;
+    right: -40px;
+    width: 50%;
 
 }
 
 #insta_blog  #frame_corner_rb {
 
     position: absolute;
-    bottom: -50px;
-    right: -50px;
-    
+    bottom: -40px;
+    right: -40px;
+    width: 50%;
 
 }
 #insta_blog_flex #block_instagram #instagram_cards {
@@ -541,7 +586,8 @@ hr {
     z-index: 2000;
     position: absolute;
     text-align: center;
-    margin: 20px auto;
+    margin: 15px auto;
+    font-size: 1rem;
     left: 25%;
     right: 25%;
 
@@ -558,9 +604,9 @@ hr {
 
 #insta_blog #block_blog .card_blog {
 
-    width: 45%;
+    width: 43%;
     padding: 10px;
-    height: 176px;
+    height: 133px;
     z-index: 2000;
     transition: 0.3s;
 
@@ -574,22 +620,137 @@ hr {
 
 #insta_blog #block_blog .card_blog p{
 
- font-size: 0.7rem;
+ font-size: 0.4rem;
 
 }
 
 #insta_blog #block_blog .card_blog h2{
 
-    font-size: 1rem;
+    font-size: 0.9rem;
    
    }
 
 #insta_blog #block_blog .card_blog img {
 
     border-radius: 8px;
-    max-width: 200px;
+    max-width: 130px;
 
 }
+/* PAGE GALERIE */
+
+.flex-template
+{
+    position: relative;
+    margin-top: 70px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    justify-content: center;
+    text-align: center;
+    /* padding-left: 14%;
+    padding-right: 14%; */
+   
+    
+}
+.flex-template .card-template {
+
+    min-width: 50%;
+    padding-bottom: 15px;
+    font-size: 0.9rem;
+    position: relative;
+    
+}
+
+.flex-template .card-template img{
+
+    width: 300px;
+    height: 250px;
+    object-fit: cover;
+    
+}
+
+.flex-template .card-template .infos-paint {
+
+    position: absolute;
+    bottom: 18px;
+    display: flex;
+    width: 300px;
+    justify-content: space-around;
+    text-align: left;
+    background-color: #2e2e2ece;
+    color: #cfcfcf;
+    padding: 2px 0 2px 0;
+    
+}
+.flex-template .card-template .infos-paint div {
+
+    width: 45%;
+
+}
+
+.flex-template .card-template .infos-paint-desc {
+
+    display: none;
+
+}
+.flex-template .card-template a {
+
+    display: inline-block;
+    width: 300px;
+    height: 250px;
+    background-color: #2E2E2E;
+    color: #333333;
+    box-shadow: 0px 2px 5px rgb(48, 48, 48);
+
+}
+.flex-template .frame_template_top, .flex-template .frame_template_bottom {
+
+    position: relative;
+}
+
+.flex-template .frame_template_top .frame_template_corner_lt {
+
+    position: absolute;
+    top:  -30px;
+    left: -30px;
+    max-width: 140px;
+}
+
+
+.flex-template .frame_template_top .frame_template_corner_rt {
+
+    position: absolute;
+    top:  -30px;
+    right: -330px;
+    max-width: 140px;
+}
+
+.flex-template .frame_template_bottom .frame_template_corner_rb {
+
+    position: absolute;
+    bottom: -20px;
+    right: -30px;
+    max-width: 140px;
+}
+
+.flex-template .frame_template_bottom .frame_template_corner_lb {
+
+    position: absolute;
+    bottom: -20px;
+    left: -330px;
+    max-width: 140px;
+}
+
+/* .flex-template .card-template a:hover .infos-paint {
+
+    display: block;
+
+} */
+
+/* .flex-template .card-template a:hover img {
+    display: none;
+} */
+
 
 /* PAGE DE CONTACT */
 
@@ -667,27 +828,28 @@ hr {
     color: #858585;
 }
 
-
-
 /* FOOTER */
 
 footer {
 
     margin-top: 100px;
-    background-color: #2E2E2E;
-    height: 170px;
+    height: 100%;
     width: 100%;
     color: #cfcfcf;
     padding-top: 35px;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     position: relative;
-
+    box-shadow: 0px -2px 5px rgb(48, 48, 48);
+    background: rgb(46,46,46);
+    background: linear-gradient(0deg, rgba(46,46,46,1) 0%, rgba(69,69,69,1) 100%); 
 }
 
 footer #footer_flex {
 
     display: flex;
+    flex-direction: column;
     width: 100%;
+    
    
 }
 
@@ -715,21 +877,14 @@ footer aside p:last-child {
 
 footer .vertical_dot_line {
 
-    border-left: 2px dashed #B5B5B5;
-    height: 100px;
-    margin-top: 5px;
+    display: none;
     
 
 }
 
 footer aside {
 
-    width: 30%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-left: 2%;
-    margin-right: 2%;
+    display: none;
 
 }
 
@@ -742,11 +897,9 @@ footer aside div {
 
 footer #nav_link {
     
-    width: 20%;
-    margin-left: 10%;
-    margin-right: 10%;
-    font-size: 1.3rem;
-    margin-top: 10px;
+    width: 100%;
+    margin-top: 0px;
+    text-align: center;
     
 }
 
@@ -756,26 +909,55 @@ footer #nav_link ul {
     
 }
 
+footer #nav_link ul li {
+   
+    padding: 5px;
+    width: 70%;
+    margin: auto;
+    border-bottom: 1px solid rgb(78, 78, 78);
+
+}
+footer #nav_link ul li a {
+
+    padding: 5px;
+    
+}
+
 footer #footer_menu {
 
     display: flex;
-    width: 25%;
+    width: 100%;
     flex-direction: column;
-    font-size: 1.6rem;
-    padding-left: 50px;
+    font-size: 2rem;
     line-height: 110%;
+    text-align: center;
+    margin-top: 20px;
+
+
+}
+footer #footer_menu a {
+   
+    padding: 5px;
+    border-bottom: 1px solid rgb(78, 78, 78);
+    width: 70%;
+    margin: auto;
+}
+#footer_flex hr {
+
+    display: block;
+    width: 99%;
+    border: 1px dashed #5e5e5e;
+    margin-top: 30px;
 
 }
 
 footer #copy_foot {
 
-    position: absolute;
-    bottom: 5px;
-    left: 40%;
-    right: 40%;
     text-align: center;
+    padding-top: 20px;
     
-    
+    font-size: 1.2rem;
+
 }
 
 footer #copy_foot a {
@@ -784,12 +966,15 @@ footer #copy_foot a {
     display: inline-block;
 }
 footer #copy_foot hr {
+
+    width: 99%;
     margin-top: 0px;
+    border: 1px dashed #5e5e5e;
 }
 
 @media screen and (min-width: 400px) {
 
-    /* Géneral */
+/* Géneral */
 
     hr {
 
@@ -797,7 +982,7 @@ footer #copy_foot hr {
         
     }
 
-    /* Page Home */
+/* Page Home */
 
     #background_home #button_galerie {
 
@@ -813,34 +998,100 @@ footer #copy_foot hr {
         padding: 20px 12px;
     
     }
-
-    #tica_present #tica_text {
-
-        left: 0;
-        text-align: center;
-    }
-
-    #tica_present #tica_text figure {
-    }  
+ 
 
     #tica_present #tica_text p {
 
-        position: relative;
-        left: 20px;
-        max-width: 70%;
-        padding: 20px;
-        font-size: 1.1rem;
+        
+        font-size: 1.2rem;
+        max-width: 86%;
+        margin: auto;
+
+    }
+
+
+}
+
+@media screen and (min-width: 580px) {
+
+/* Section Blog et instagram de home */
+
+
+#insta_blog .block_bottom {
+
+    min-width: 450px;
+    height: 500px;
+
+}
+
+#insta_blog #block_blog {
+
+    min-width: 450px;
+    height: 500px;
     
-    }
+}
 
+#insta_blog  #frame_corner_lt {
+  
+    top: -50px;
+    left: -50px;
 
-    #tica_present figure img {
-        
-        float: none;
-        width: 300px;
-        object-fit: contain;
-        
-    }
+}
+
+#insta_blog  #frame_corner_lb {
+   
+    bottom: -570px;
+    left: -50px;
+    
+}
+
+#insta_blog  #frame_corner_rt {
+ 
+    top: -570px;
+    right: -50px;
+    
+}
+
+#insta_blog  #frame_corner_rb {
+ 
+    bottom: -50px;
+    right: -50px;
+
+}
+
+#insta_blog .button_blog_insta {
+
+    margin: 15px auto;
+    font-size: 1.5rem;
+
+}
+
+#insta_blog #block_blog .card_blog {
+
+    width: 45%;
+    height: 176px;
+
+}
+
+#insta_blog #block_blog .card_blog img {
+
+    border-radius: 8px;
+    max-width: 200px;
+
+}
+
+#insta_blog #block_blog .card_blog p{
+
+    font-size: 0.7rem;
+   
+}
+   
+#insta_blog #block_blog .card_blog h2{
+   
+    font-size: 1rem;
+      
+}
+
 }
 
 @media screen and (min-width: 720px) {
@@ -920,7 +1171,7 @@ footer #copy_foot hr {
 
     }
 
-    #headband #bouton_burger {
+    #headband .burger_btn {
 
         display: none;
 
@@ -930,6 +1181,27 @@ footer #copy_foot hr {
         display: none;
 
     }
+    #headband {
+        
+        font-size: 1.3rem;
+    
+    }
+
+    #headband #account_header p {
+    
+        width:190px;
+        padding-left: 20px;
+    
+    }
+
+    #headband #account_header a{
+
+        margin-top: 23px;
+        padding-left: 20px;
+        width: 88%;
+        
+    }
+
 
     /* HOME PAGE */
     /* première partie */
@@ -949,10 +1221,145 @@ footer #copy_foot hr {
     
     }
 
+    /* deuxieme partie */
+
+    #tica_present #tica_text {
+
+        position: relative;
+        left: 7%;
+        width: 85%;
+        margin-top: 50px;
+        max-width: 800px;
+        min-width: 690px;
     
+    }
+
+    #tica_present #tica_text p {
+
+        margin-top: 10px;
+        font-size: 1.3rem;
+        max-width: 80%;
+        text-align: left;
+        position: relative;
+        left: 15px;
+    }
+
+    #tica_present #tica_text #first_para_tica {
+
+        position: relative;
+        left: -40px;
+        max-width: 90%;
+        
+    }
+
+    /* Footer */ 
+
+    footer {
+
+        font-size: 1.2rem;
+        
+    }
+    
+
+    footer #footer_flex {
+
+        flex-direction: row;
+       
+    }
+
+    footer aside {
+
+        width: 30%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-left: 2%;
+        margin-right: 2%;
+    
+    }
+
+    footer .vertical_dot_line {
+
+        display: block;
+        border-left: 2px dashed #5e5e5e;
+        height: 100px;
+        margin-top: 5px;
+        
+    }
+
+    footer #nav_link {
+    
+        width: 25%;
+        min-width: 220px;
+        margin-left: 12%;
+        margin-right: 12%;
+        font-size: 1.3rem;
+        margin-top: 10px;
+        text-align: left;
+        
+    }
+
+    footer #footer_menu {
+
+        
+        width: 28%;
+        padding-left: 50px;
+        padding-right: 20px;
+        font-size: 1.6rem;
+        margin-top: 0;
+    
+    }
+    #footer_flex hr {
+        display: none;
+    }
+    footer #footer_menu a {
+
+        border: none;
+        padding: 0;
+        margin: 0;
+
+    }
+
+    footer #nav_link ul li {
+        width: 100%;
+        margin: 0;
+        border: none;
+        padding: 0px;
+
+    }
+
+    footer #nav_link ul li a {
+
+        padding: 0px;
+        
+    }
 }
 
 @media screen and (min-width: 900px) {
+
+    /* Header */
+
+    #headband {
+        
+        font-size: 1.5rem;
+    
+    }
+
+    #headband #account_header a{
+
+        margin-top: 23px;
+        padding-left: 20px;
+        
+    }
+
+    #main_menu li {
+
+        padding: 0 18px;
+
+    }
+
+    /* HOME PAGE */
+    /* deuxième partie */
 
     #tica_present figure img {
     
@@ -965,10 +1372,41 @@ footer #copy_foot hr {
         
         max-width: 90%;
         font-size: 1.4rem;
-        
+        margin-top: 30px;
     
     }
+
+    #tica_present #tica_text {
+
+        
+        left: 15%;
     
+    }
+
+    
+
+}
+
+@media screen and (min-width: 1022px) {
+
+    /* HOME PAGE */
+    /* Section Blog et instagram de home */
+
+  
+    
+    #insta_blog  #frame_corner_lb {
+       
+        bottom: -50px;
+     
+    }
+    
+    #insta_blog  #frame_corner_rt {
+        
+        top: -50px;
+        
+    }
+    
+
 
 }
 
@@ -989,15 +1427,16 @@ footer #copy_foot hr {
     
     #headband #account_header p {
     
-        width:155px;
+        width:185px;
         padding-left: 20px;
     
     }
 
     #headband #account_header a{
 
-        margin-top: 20px;
-    
+        margin-top: 23px;
+        padding-left: 20px;
+        
     }
 
     #main_menu li {
