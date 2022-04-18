@@ -641,14 +641,15 @@ hr {
 .flex-template
 {
     position: relative;
-    margin-top: 70px;
     display: flex;
     flex-wrap: wrap;
-    max-width: 100%;
+    width: 100%;
+    max-width: 630px;
     justify-content: center;
     text-align: center;
     /* padding-left: 14%;
     padding-right: 14%; */
+    margin: 70px auto;
    
     
 }
@@ -1093,7 +1094,42 @@ footer #copy_foot hr {
 }
 
 }
+@media screen and (min-width: 600px) {
 
+    .flex-template .frame_template_top .frame_template_corner_lt {
+
+        position: absolute;
+        top:  -30px;
+        left: -25px;
+        max-width: 140px;
+    }
+    
+    
+    .flex-template .frame_template_top .frame_template_corner_rt {
+    
+        position: absolute;
+        top:  -30px;
+        left: 515px;
+        max-width: 140px;
+    }
+    
+    .flex-template .frame_template_bottom .frame_template_corner_rb {
+    
+        position: absolute;
+        bottom: -20px;
+        right: -30px;
+        max-width: 140px;
+    }
+    
+    .flex-template .frame_template_bottom .frame_template_corner_lb {
+    
+        position: absolute;
+        bottom: -20px;
+        left: -330px;
+        max-width: 140px;
+    }
+    
+}
 @media screen and (min-width: 720px) {
 
     /* Géneral */

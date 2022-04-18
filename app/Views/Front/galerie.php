@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 require 'app/Views/Front/header.php';
 
