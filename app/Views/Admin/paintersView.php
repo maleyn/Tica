@@ -11,11 +11,10 @@
         <?php foreach($dataPainter as $painter) { ?>
             <article class="flex-item">
                 <a class="paintlink" href="indexAdmin.php?action=painterSoloView&id=<?= $painter['id'] ?>">
-                    <span class="idelement" hidden><?=$painter['id'] ?></span>
                     <p><?=$count . ' - ' . $painter['name'] ?></p>
                     <img src="<?= $painter['photo-url'] ?>" alt="<?= $painter['name'] ?>">
+                    <a data-id="<?=$painter['id'] ?>" href="indexAdmin.php?action=painterDelete&id=<?=$painter['id'] ?>" class="btn-modal btnsup button_submit">Supprimer</a>
                 </a>
-                <button class="btn-modal btnsup button_submit btnid<?= $count ?>">Supprimer</button>
             </article>
         <?php $count++ ; } ?>
         </section>
@@ -25,7 +24,6 @@
 
 <form class="modalform" action="indexAdmin.php?action=painterDelete&id=" method="post">
     <div class="modal-off modaljs">
-
         <div class="modal-content">
             <div class="modal-header">
                 <span class="button-close1">&times;</span>
@@ -39,7 +37,6 @@
                 <button type="button" class="button_submit button-close2">Annuler</button>
             </div>
         </div>
-   
     </div>
 </form>
 

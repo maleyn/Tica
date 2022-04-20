@@ -1,6 +1,5 @@
 <?php ob_start(); ?>
 
-
 <main class="container padding-top20 cardpage">
 
     <h1>Ajout/Personnalisation de la galerie</h1>
@@ -12,16 +11,16 @@
         <?php foreach($paints as $paint) { ?>
             <article class="flex-item">
                 <a class="paintlink" href="indexAdmin.php?action=paintView&id=<?= $paint['id'] ?>">
-                    <span class="idelement" hidden><?=$paint['id'] ?></span>
                     <p><?=$count . ' - ' . $paint['name'] ?></p>
                     <img src="<?= $paint['img-url'] ?>" alt="<?= $paint['name'] ?>">
+                    <a data-id="<?=$paint['id'] ?>" href="indexAdmin.php?action=paintDelete&id=<?= $paint['id'] ?>" class="btn-modal btnsup button_submit"> Supprimer</button>
                 </a>
-                <button class="btn-modal btnsup button_submit btnid<?= $count ?>">Supprimer</button>
             </article>
         <?php $count++ ; } ?>
         </section>
 
 <!-- Modal -->
+
 <span class="nbtotal" hidden data-nbtotal="<?= $count ?>"></span>
 
 <form class="modalform" action="indexAdmin.php?action=paintDelete&id=" method="post">

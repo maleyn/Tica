@@ -423,17 +423,17 @@ a:hover {
 }
 
 
-.cardpage .btnsup {
+.cardpage .btn-modal {
 
     display: none;
     text-align: center;
     position: absolute;
     bottom: 15px;
     margin: auto;
-    width: 350px;
+    width: 330px;
 }
 
-.cardpage .flex-item:hover .btnsup {
+.cardpage .flex-item:hover .btn-modal {
    display: block;
    
 }
@@ -535,7 +535,7 @@ a:hover {
     display: none;
 
 }
-.modal-on {
+form #yaaa.modal-on {
 
     display: block;
 

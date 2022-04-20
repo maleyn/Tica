@@ -44,7 +44,7 @@ class ContactModel extends Manager
                             FROM contacts ORDER BY id DESC');
 
         return $req;
-
+        
     }
 
     // récupération des infos d'un mail en fonction de son id
@@ -64,6 +64,7 @@ class ContactModel extends Manager
 
     public function deleteMail($idMail)
     {
+        
         $bdd = $this->dbConnection();
         $req = $bdd->prepare('DELETE FROM contacts WHERE id = :id');
         $req->execute(array("id" => $idMail));

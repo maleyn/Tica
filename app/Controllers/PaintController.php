@@ -76,6 +76,7 @@ class PaintController
     {
         $galerie = new \Projet\Models\PaintModel();
         $paints = $galerie->getGalerieFront();
+        $nbTotal = $galerie->getPaintsTotal();
         
         require 'app/Views/Front/galerie.php';
     }

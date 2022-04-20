@@ -19,7 +19,6 @@
     <?php foreach($allContactMail as $contactMail) { ?>
     
         <tr>
-            <td class="idelement" hidden><?= htmlspecialchars($contactMail['id']); ?></td>
             <td><?= $count ?></td>
             <td><?= htmlspecialchars($contactMail['nom']); ?></td>
             <td><?= htmlspecialchars($contactMail['prenom']); ?></td>
@@ -27,7 +26,7 @@
             <td><?= htmlspecialchars($contactMail['objet']); ?></td>
             <td><?= htmlspecialchars($contactMail['date']); ?></td>
             <td class="icones-flex">
-                <a title="Suppression du mail" class="btn-modal btnid<?= $count ?>">
+                <a href="indexAdmin.php?action=mailDelete&id=<?= $contactMail['id'] ?>" title="Suppression du mail" class="btn-modal">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                     </svg>

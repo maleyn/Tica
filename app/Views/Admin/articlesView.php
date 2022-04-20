@@ -12,11 +12,10 @@
         <?php foreach($dataArticle as $article) { ?>
             <article class="flex-item">
                 <a class="paintlink" href="indexAdmin.php?action=articleView&id=<?= $article['id'] ?>">
-                    <span class="idelement" hidden><?=$article['id'] ?></span>
                     <p><?=$count . ' - ' . $article['title'] ?></p>
                     <img src="<?= $article['image-url'] ?>" alt="<?= $article['title'] ?>">
-                </a>
-                <button class="btn-modal btnsup button_submit btnid<?= $count ?>">Supprimer</button>
+                    <a data-id="<?=$article['id'] ?>" href="indexAdmin.php?action=articleDelete&id=<?=$article['id'] ?>" class="btn-modal btnsup button_submit">Supprimer</button>
+                    </a>
             </article>
         <?php $count++ ; } ?>
         </section>

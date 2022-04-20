@@ -84,7 +84,7 @@ class PaintModel extends Manager
                             AND paints.id = :idpaint ORDER BY paints.id DESC');
 
         $data->execute(array('idpaint' => $idpaint));
-
+        
         return $data->fetch();
 
     } 
@@ -154,5 +154,17 @@ class PaintModel extends Manager
         return $data->fetchAll();
 
     } 
+
+    // Récupération du nombres de peintures total
+
+    public function getPaintsTotal()
+
+    {
+    $bdd = $this->dbConnection();
+    $data = $bdd->query('SELECT COUNT(id) as nbpaints FROM paints');
+
+    return $data->fetch();
+    
+    }
     
 }

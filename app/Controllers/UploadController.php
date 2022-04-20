@@ -31,6 +31,7 @@ class UploadController
     {
       
       return $targetFile;
+      
     }
 
 // Vérifie la taille de l'image

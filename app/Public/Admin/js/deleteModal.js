@@ -1,39 +1,38 @@
 let nbtotal = document.getElementsByClassName('nbtotal')[0].getAttribute('data-nbtotal');
 let modal = document.getElementsByClassName("modaljs")[0];
 let btnmodal = document.getElementsByClassName("btn-modal");
-let closemodal1 = document.getElementsByClassName('button-close1')[0]; 
+let closemodal1 = document.getElementsByClassName('button-close1')[0];
 let closemodal2 = document.getElementsByClassName('button-close2')[0];
 let action = '';
-let idelement = '';
 
-for (let i = 1; i < nbtotal; i++) {
-    
-    this['btn' + i] = document.getElementsByClassName('btnid' + i)[0];
-    this['btn' + i].addEventListener("click", function() {
+    let btnsup = document.querySelectorAll('.btn-modal');
 
-    action = document.getElementsByClassName('modalform')[0].action;
-    idelement = document.getElementsByClassName('idelement')[i-1].innerHTML;
-    
-    btnmodal[i-1].onclick = modon(idelement);
-    
+    btnsup.forEach(del => {
+        del.addEventListener("click", function(e) {
+            e.preventDefault();
+            action = document.querySelector('.modalform').action;
+            btnmodal.onclick = modon(del.dataset.id); 
+
+    })
     }); 
 
-}
-
 [closemodal1,closemodal2].forEach((element)=>{
-    element.onclick = modoff;
+    element.addEventListener('click', function(e) {
+        
+        element.onclick = modoff();
+    })
+    
 });
 
-function modon(idelement) {
-
+function modon(id) {
     modal.classList.add('modal-on');
     modal.classList.remove('modal-off');
-    document.getElementsByClassName('modalform')[0].action = action + idelement;
-    
+    document.getElementsByClassName('modalform')[0].action = action + id;
 }
 
 function modoff() {
     modal.classList.add('modal-off');
     modal.classList.remove('modal-on');
+    document.getElementsByClassName('modalform')[0].action = action;
 }
 

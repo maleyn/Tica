@@ -36,6 +36,10 @@ require 'app/Views/Front/header.php';
         </article>
 
     <?php } ?> 
+        <?php if($nbTotal['nbpaints']%2 == 1) {?>
+        <article class="card-template card-empty">
+        </article>
+        <?php } ?>
         <div class="frame_template_bottom">
             <img class="frame_template_corner_lb" src="app/Public/Front/img/Frame_corner_LB.svg" alt="cadre coin bas gauche">
             <img class="frame_template_corner_rb" src="app/Public/Front/img/Frame_corner_RB.svg" alt="cadre coin bas droite">

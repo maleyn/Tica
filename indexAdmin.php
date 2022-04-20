@@ -8,8 +8,16 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
+function restrictedAccess() 
+{
+    if(empty($_SESSION))
+    {
+        throw new Exception ("Vous n'avez pas l'accés", 401);
+    }
+}
 
 try {
+
 
     $adminController = new \Projet\Controllers\AdminController();
     $paintController = new \Projet\Controllers\PaintController();
@@ -98,6 +106,7 @@ try {
 
         {
 
+            restrictedAccess();
             $adminController->dashboard();
         
 
@@ -244,7 +253,7 @@ try {
 
             $uploadController = new \Projet\Controllers\UploadController();
 
-            $paintId = htmlspecialchars($_POST['paintid']);
+            $paintId = htmlspecialchars($_POST['paintid']) ?? null;
             $paintName = htmlspecialchars($_POST['paintname']);
             $paintDimH = htmlspecialchars($_POST['paintheight']);
             $paintDimL = htmlspecialchars($_POST['paintwidth']);
@@ -261,12 +270,12 @@ try {
             $styleId = $adminController->idView('styles', $paintStyle)['id'];
             $frameId = $adminController->idView('frames', $paintFrame)['id'];
 
-            if(!empty($_POST['paintid']))
-            {
-                $paintId = htmlspecialchars($_POST['paintid']);
-            } else {
-                $paintId = null;
-            }
+            // if(!empty($_POST['paintid']))
+            // {
+            //     $paintId = htmlspecialchars($_POST['paintid']);
+            // } else {
+            //     $paintId = null;
+            // }
            
 
             if(!empty($_FILES['painturl']['name']))
@@ -495,4 +504,8 @@ try {
 
     die('Erreur : ' . $e->getMessage());
 
-}
+} catch (Error $e) {
+
+    die('Erreur : ' . $e->getMessage());
+
+} 
