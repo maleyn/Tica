@@ -72,12 +72,23 @@ class PaintController
 
     // affichage des peintures vue front
 
-    function galerieViewFront()
+    function galerieViewFront($currentPage)
     {
         $galerie = new \Projet\Models\PaintModel();
-        $paints = $galerie->getGalerieFront();
+        $pagination = new \Projet\Controllers\Pagination();
+
+        $tempArticle = '';
+        $parPage = 8;
+
         $nbTotal = $galerie->getPaintsTotal();
-        
+        $first = $pagination->paginate($parPage, $currentPage);    
+        $pages = $pagination->nbPagesTotal($nbTotal[0], $parPage);
+        $paints = $galerie->getGalerieFront($first, $parPage);
+        // ajoute un article vide sur la dernière page si il y'a un nombre impairs d'article
+        if($nbTotal['nbpaints']%2 == 1 && $currentPage == $pages){
+            $tempArticle = 1;
+        };
+
         require 'app/Views/Front/galerie.php';
     }
 }

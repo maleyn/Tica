@@ -29,5 +29,6 @@
         <a href="#">Copyright Maleyran - all right reserved</a>
     </div>
 </footer>
-</body>    
+</body>
+<script src="app/Public/Front/js/burgerMenu.js"></script>   
 </html>

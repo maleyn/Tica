@@ -25,11 +25,11 @@ class PainterModel extends Manager
         $bdd = $this->dbConnection();
         // si il y'a un id alors faire un update selon cette id sinon un insert
         if($dataPainter['painterid'] != null) {
-            $data = $bdd->prepare('UPDATE painters SET `name` = :paintername, smallcontent = :paintersmall, fullcontent = :painterfull,
+            $data = $bdd->prepare('UPDATE painters SET `name` = :paintername, content = :paintercontent,
                                     `photo-url` = :painterurl
                                WHERE id =' . $dataPainter['painterid']);
         } else {                    
-            $data = $bdd->prepare('INSERT INTO painters (name, `photo-url`, smallcontent, fullcontent)
+            $data = $bdd->prepare('INSERT INTO painters (name, `photo-url`, content)
                                     VALUE (:paintername, :painterurl, :paintersmall, :painterfull)');
         }
 
@@ -37,7 +37,7 @@ class PainterModel extends Manager
 
             'paintername' => $dataPainter['paintername'],
             'paintersmall' => $dataPainter['paintershort'],
-            'painterfull' => $dataPainter['painterlong'],
+            'paintercontent' => $dataPainter['paintercontent'],
             'painterurl' => $dataPainter['painterurl'],
         
         ));
@@ -86,7 +86,7 @@ class PainterModel extends Manager
     {
         $bdd = $this->dbConnection();
         $data = $bdd->prepare("SELECT painters.id as idpainter, painters.name as namepainter, `photo-url` as photopainter,
-                            smallcontent, fullcontent FROM painters
+                            content FROM painters
                             WHERE painters.id = :painter ORDER BY painters.id DESC");
 
         $data->execute(array('painter' => $idPainter));
@@ -177,6 +177,33 @@ class PainterModel extends Manager
                     ));
                 }
             }
+    }
+
+    public function getPaintersInfosFront()
+    {
+
+        $bdd = $this->dbConnection();
+        $data = $bdd->query("SELECT id, name,`photo-url` FROM painters");
+        
+        return $data->fetchAll();
+        
+    }
+
+    public function getPaintersTotal()
+
+    {
+    $bdd = $this->dbConnection();
+    $data = $bdd->query('SELECT COUNT(id) as nbpainters FROM painters');
+
+    return $data->fetch();
+    
+    }
+
+    public function getAllStyles()
+    {
+        $bdd = $this->dbConnection();
+        $data = $bdd->query('SELECT styles.name as namestyle FROM painters, styles, painterstyle
+                            WHERE styles.id = painterstyle.idstyle AND painters.id = painterstyle.idpainter');
     }
 
 }

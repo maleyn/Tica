@@ -147,6 +147,43 @@ hr {
     display: block;
 
 }
+/* PAGINATION */
+
+.pagination {
+
+    text-align: center;
+    display: flex;
+    list-style: none;
+    font-size: 1.2rem;
+    justify-content: center;
+    
+}
+.pagination li a{
+
+    color: black;
+    padding: 7px;
+    vertical-align: middle;
+    
+}
+
+.numberPage {
+
+    background-color: #898989;
+    margin: 3px;
+    vertical-align: middle;
+
+ }
+ .pagination li .page-item-dis {
+    color: rgb(162, 162, 162);
+}
+
+.active_pag, .numberPage:hover {
+    background-color: #E3D6A5;
+}
+
+.active_menu {
+    text-decoration: underline;
+}
 
 /* HEADER */
 
@@ -1151,6 +1188,12 @@ footer #copy_foot hr {
 
         font-size: 2.5rem;
     
+    }
+
+    .pagination {
+
+        font-size: 1.5rem;
+        
     }
     
     /* Header */

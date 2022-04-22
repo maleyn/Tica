@@ -44,10 +44,11 @@ class AdminController
         $stats = $data->getCountTotal();
 
         $result = $connexMdp->fetch();
-
+        if(!empty($result)) {
+            
         $passVerify = password_verify($mdp, $result['password']);
 
-        if ($passVerify) 
+        if ($passVerify)
         {
             $_SESSION['mail'] = $result['mail'];
             $_SESSION['mdp'] = $result['password'];
@@ -59,6 +60,10 @@ class AdminController
             $mailCount = $mailNbr->getMailsCount();
 
             require 'app/Views/Admin/dashboard.php';
+        } else {
+
+            echo "Votre mot de passe n'est pas dans notre base de données";
+        }
         }
 
         else {

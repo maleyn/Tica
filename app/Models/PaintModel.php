@@ -1,6 +1,7 @@
 <?php 
 
 namespace Projet\Models;
+use PDO;
 
 class PaintModel extends Manager
 {
@@ -139,17 +140,23 @@ class PaintModel extends Manager
 
     // récupération de toutes les infos de toutes les peintures (jointure de plusieurs tables)
 
-    public function getGalerieFront()
+    public function getGalerieFront($first, $parPage)
     {
 
+
         $bdd = $this->dbConnection();
-        $data = $bdd->query('SELECT paints.id as paintid, paints.name as paintname, `img-url`, dimensionH,
+        $data = $bdd->prepare('SELECT paints.id as paintid, paints.name as paintname, `img-url`, dimensionH,
                             dimensionL, frames.name as framename, painters.name as paintername, description, 
                             styles.name as stylename, types.name as typename 
                             FROM paints, painters, frames, styles, types
                             WHERE PaintsFrames = frames.id AND PaintsPainters = painters.id
                             AND PaintsStyle = styles.id AND PaintsType = types.id 
-                            ORDER BY paints.id DESC');
+                            ORDER BY paints.id DESC LIMIT :premier, :parpage');
+
+        $data->bindValue(':premier', $first, PDO::PARAM_INT);
+        $data->bindValue(':parpage', $parPage, PDO::PARAM_INT);
+
+        $data->execute();
 
         return $data->fetchAll();
 
@@ -166,5 +173,6 @@ class PaintModel extends Manager
     return $data->fetch();
     
     }
+  
     
 }

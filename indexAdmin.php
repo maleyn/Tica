@@ -8,6 +8,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
+
 function restrictedAccess() 
 {
     if(empty($_SESSION))
@@ -188,6 +189,7 @@ try {
             if(!empty($_FILES['sliderUrl']['name']))
             {
             $sliderUrl = $uploadController->uploadimg('sliderUrl');
+            
             } else {
             $dataUrl = $adminController->homeViewUrl();
             $sliderUrl = $dataUrl['slider-url'];
@@ -350,8 +352,7 @@ try {
 
             $painterId = htmlspecialchars($_POST['painterid']);
             $painterName = htmlspecialchars($_POST['paintername']);
-            $painterShort = htmlspecialchars($_POST['shortres']);
-            $painterLong = htmlspecialchars($_POST['longres']);
+            $painterContent = htmlspecialchars($_POST['content']);
 
             $stylesId = [];
             $styles = $painterController->getStyle();
@@ -393,8 +394,7 @@ try {
                 'painterid' => $painterId,
                 'painterurl' => $painterUrl,
                 'paintername' => $painterName,
-                'paintershort' => $painterShort,
-                'painterlong' => $painterLong
+                'paintercontent' => $painterContent
                 
             ];
 

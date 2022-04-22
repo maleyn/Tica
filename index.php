@@ -11,6 +11,7 @@ try {
 
     $controllerFront = new \Projet\Controllers\FrontController();
     $controllerPaint = new \Projet\Controllers\PaintController();
+    $controllerPainter = new \Projet\Controllers\PainterController();
 
     if(isset($_GET['action'])) {
 
@@ -48,9 +49,28 @@ try {
         } elseif($_GET['action'] == 'galerie')
         {
 
-            $paints = $controllerPaint->galerieViewFront();
+            if(isset($_GET['page']) && !empty($_GET['page'])){
+                $currentPage = (int) strip_tags($_GET['page']);
+            }else{
+                $currentPage = 1;
+            }
+            
+            $paints = $controllerPaint->galerieViewFront($currentPage);
+
+        } elseif($_GET['action'] == 'artistes')
+        {
+
+            if(isset($_GET['page']) && !empty($_GET['page'])){
+                $currentPage = (int) strip_tags($_GET['page']);
+            }else{
+                $currentPage = 1;
+            }
+            
+            $paints = $controllerPainter->paintersViewFront($currentPage);
 
         }
+
+        
 
 } else {
 

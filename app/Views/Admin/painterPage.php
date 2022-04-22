@@ -53,12 +53,8 @@
             </div>
         </div>
         <div class="grid padding-top20">
-            <label class="text-blue" for="shortres">résumé court de l'artiste (~100 caractères) : </label>
-            <textarea class="form-text width75 margin-top10" name="shortres" rows="3" required><?php if(!empty($dataPainter)) { echo $dataPainter['smallcontent']; };?></textarea>
-        </div>
-        <div class="grid padding-top20">
-            <label class="text-blue" for="longres">résumé de l'artiste (pas de limite de caractères) : </label>
-            <textarea class="form-text width75 margin-top10" name="longres" rows="6" required><?php if(!empty($dataPainter)) { echo $dataPainter['fullcontent']; };?></textarea>
+            <label class="text-blue" for="content">résumé de l'artiste : </label>
+            <textarea class="form-text width75 margin-top10" name="content" rows="6" required><?php if(!empty($dataPainter)) { echo $dataPainter['content']; };?></textarea>
         </div>
         <div class="padding-top20 margin-bottom40">
             <input class="button_submit" type="submit" value="<?php if(!empty($dataPainter)) { echo 'Mettre à jour'; } else { echo 'Ajouter'; }; ?>">

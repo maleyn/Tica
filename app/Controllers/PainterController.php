@@ -106,6 +106,33 @@ class PainterController
 
     }
 
+    function paintersViewFront($currentPage)
+    {
+        $paintersData = new \Projet\Models\PainterModel();
+        $pagination = new \Projet\Controllers\Pagination();
+
+        $tempArticle = '';
+        $parPage = 4;
+
+        $nbTotal = $paintersData->getPaintersTotal();
+        $first = $pagination->paginate($parPage, $currentPage);    
+        $pages = $pagination->nbPagesTotal($nbTotal[0], $parPage);
+        $painters = $paintersData->getPaintersInfosFront();
+        foreach ($painters as $painter) {
+            var_dump($painter['id']);
+            $styles = $paintersData->getPainterStyle($painter['id']);
+        }
+        
+        
+        
+        // ajoute un article vide sur la dernière page si il y'a un nombre impairs d'article
+        if($nbTotal['nbpainters']%2 == 1 && $currentPage == $pages){
+            $tempArticle = 1;
+        };
+
+        require 'app/Views/Front/artistes.php';
+    }
+
     
 
 

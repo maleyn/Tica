@@ -9,7 +9,6 @@ class UploadController
   public function uploadimg($img) 
   {
     
-    
     $targetDir = "app/Public/Front/img/";
     $targetFile = $targetDir . basename($_FILES["$img"]["name"]);
     $imageFileType = strtolower(pathinfo($targetFile,PATHINFO_EXTENSION));
@@ -51,6 +50,7 @@ class UploadController
 
     if($upload == 1)
     {
+      
     move_uploaded_file($_FILES["$img"]["tmp_name"], $targetFile);
     return $targetFile;
 
