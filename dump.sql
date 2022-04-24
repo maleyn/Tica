@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 22 avr. 2022 à 16:29
+-- Généré le : dim. 24 avr. 2022 à 18:47
 -- Version du serveur : 10.4.21-MariaDB
 -- Version de PHP : 8.0.12
 
@@ -134,7 +134,10 @@ CREATE TABLE `painters` (
 
 INSERT INTO `painters` (`id`, `name`, `photo-url`, `Content`) VALUES
 (1, 'Tica', 'app/Public/Front/img/Photo_de_tica.png', 'Hic molestiae eligendi et voluptas molestias sit doloribus voluptatum sit ducimus assumenda qui similique facilis ut voluptatum rerum 33 laborum veritatis. Et omnis tempora vel blanditiis eligendi sed fuga maxime sed labore neque 33 ipsa dolores et pariatur consequatur ex velit repudiandae.'),
-(5, 'Marta', 'app/Public/Front/img/Peintre_marta.png', 'Ea omnis sint et consequatur fugiat est voluptatum expedita ut magni modi et earum nesciunt. Est dolores deserunt eum fugiat quis et odio sint ut rerum quas est quia reprehenderit. Et laborum expedita qui sunt nihil id inventore rerum a temporibus voluptas et eius fugiat. ');
+(5, 'Marta', 'app/Public/Front/img/Peintre_marta.png', 'Ea omnis sint et consequatur fugiat est voluptatum expedita ut magni modi et earum nesciunt. Est dolores deserunt eum fugiat quis et odio sint ut rerum quas est quia reprehenderit. Et laborum expedita qui sunt nihil id inventore rerum a temporibus voluptas et eius fugiat. '),
+(6, 'Garasa', 'app/Public/Front/img/Garasa.jpg', 'Lorem ipsum dolor sit amet. In natus iste quo alias fugiat qui temporibus voluptatum At nobis voluptas. Et officiis quia nam harum suscipit aut tempore nulla et accusantium enim. Non sint neque non rerum odio eos quaerat molestias voluptatum debitis eum distinctio iusto vel officia sint. Est alias quia vel voluptatem quia 33 explicabo molestiae non mollitia fugit et dolorem error. '),
+(7, 'Vettese', 'app/Public/Front/img/Vettese.jpg', 'Lorem ipsum dolor sit amet. Aut laborum maiores est molestiae rerum ab cumque veniam. Eum magni rerum aut sunt ipsa id aliquid quia.\r\n\r\nUt recusandae omnis qui exercitationem magnam et esse autem aut consectetur consequatur. Et tenetur consequatur vel aliquid nisi et nihil vero ea deserunt debitis eum culpa explicabo est numquam dolorum. '),
+(17, 'Paulo', 'app/Public/Front/img/Paulo-min.jpg', 'Lorem ipsum dolor sit amet. Eos galisum cupiditate hic quos vitae 33 neque praesentium et ipsa consequatur et repellendus tempore dolorem sint. Id Quis reiciendis ab deleniti nisi in perferendis reiciendis eos voluptatum optio qui fugit natus et illum vitae. Quo consequuntur tenetur eum aspernatur voluptas sed quia doloribus hic sint possimus ea ipsa beatae quo doloremque obcaecati et autem quod. ');
 
 -- --------------------------------------------------------
 
@@ -153,11 +156,21 @@ CREATE TABLE `painterstyle` (
 
 INSERT INTO `painterstyle` (`idstyle`, `idpainter`) VALUES
 (2, 1),
-(3, 1),
-(3, 5),
-(4, 5),
 (5, 5),
-(2, 5);
+(3, 1),
+(4, 1),
+(1, 5),
+(6, 5),
+(1, 1),
+(6, 1),
+(2, 6),
+(3, 6),
+(6, 6),
+(1, 17),
+(2, 17),
+(2, 7),
+(5, 7),
+(6, 7);
 
 -- --------------------------------------------------------
 
@@ -389,7 +402,7 @@ ALTER TABLE `homepage`
 -- AUTO_INCREMENT pour la table `painters`
 --
 ALTER TABLE `painters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT pour la table `paints`

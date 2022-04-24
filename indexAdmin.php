@@ -19,7 +19,6 @@ function restrictedAccess()
 
 try {
 
-
     $adminController = new \Projet\Controllers\AdminController();
     $paintController = new \Projet\Controllers\PaintController();
     $painterController = new \Projet\Controllers\PainterController();
@@ -271,15 +270,7 @@ try {
             $typeId = $adminController->idView('types', $paintType)['id'];
             $styleId = $adminController->idView('styles', $paintStyle)['id'];
             $frameId = $adminController->idView('frames', $paintFrame)['id'];
-
-            // if(!empty($_POST['paintid']))
-            // {
-            //     $paintId = htmlspecialchars($_POST['paintid']);
-            // } else {
-            //     $paintId = null;
-            // }
-           
-
+         
             if(!empty($_FILES['painturl']['name']))
             {
             
