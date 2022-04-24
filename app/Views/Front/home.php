@@ -19,7 +19,7 @@ require 'app/Views/Front/header.php';
                     <p><?= $dataFront['slider-text2'] ?></p>
                 </div>
                 <div id="button_galerie">
-                    <a id="button_galerie_home" class="button_light" href="#">Galerie</a>
+                    <a id="button_galerie_home" class="button_light" href="index.php?action=galerie">Galerie</a>
                 </div>
             </div>
         </div>
@@ -40,7 +40,7 @@ require 'app/Views/Front/header.php';
                 <p><?= $dataFront['present-text3'] ?></p>
             </div>
         <div id="button_artistes">
-            <a href="#" class="button_dark">artistes</a>
+            <a href="index.php?action=artistes" class="button_dark">artistes</a>
         </div>
         <hr>
     </section>

@@ -400,8 +400,12 @@ try {
 
             if($error == 0)
             {
-            $painterController->painterStyleUpdate($stylesId, $painterId);
             $painterController->painterUpdate($dataPainter);
+            if($painterId == null)
+            {
+            $painterId = $painterController->painterId($dataPainter['paintername'])[0];
+            }
+            $painterController->painterStyleUpdate($stylesId, $painterId);
             } else {
             $painterController->painterSoloView($painterId, $painterUrl);
             }

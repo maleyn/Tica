@@ -1,6 +1,7 @@
 <?php 
 
 namespace Projet\Models;
+use PDO;
 
 class PainterModel extends Manager
 {
@@ -23,6 +24,7 @@ class PainterModel extends Manager
     public function updatePainter($dataPainter) 
     {
         $bdd = $this->dbConnection();
+        
         // si il y'a un id alors faire un update selon cette id sinon un insert
         if($dataPainter['painterid'] != null) {
             $data = $bdd->prepare('UPDATE painters SET `name` = :paintername, content = :paintercontent,
@@ -30,13 +32,12 @@ class PainterModel extends Manager
                                WHERE id =' . $dataPainter['painterid']);
         } else {                    
             $data = $bdd->prepare('INSERT INTO painters (name, `photo-url`, content)
-                                    VALUE (:paintername, :painterurl, :paintersmall, :painterfull)');
+                                    VALUE (:paintername, :painterurl, :paintercontent)');
         }
 
         $data->execute(array(
 
             'paintername' => $dataPainter['paintername'],
-            'paintersmall' => $dataPainter['paintershort'],
             'paintercontent' => $dataPainter['paintercontent'],
             'painterurl' => $dataPainter['painterurl'],
         
@@ -53,6 +54,18 @@ class PainterModel extends Manager
    
         return $data->fetchAll();
            
+    }
+    
+    // Récupérer l'id d'un peintre avec son nom 
+
+    public function getPainterId($name)
+    {
+        $bdd = $this->dbConnection();
+        $data = $bdd->prepare('SELECT id FROM `painters` WHERE name = :paintername');
+            
+        $data->execute(array('paintername' => $name));
+    
+        return $data->fetch();
     }
 
     // Récupérer les infos basiques des artistes 
@@ -99,7 +112,7 @@ class PainterModel extends Manager
     public function getPainterStyle($idPainter) 
     {
         $bdd = $this->dbConnection();
-        $data = $bdd->prepare("SELECT styles.name as namestyle FROM styles, painterstyle, painters
+        $data = $bdd->prepare("SELECT styles.name as namestyle, painters.id FROM styles, painterstyle, painters
                                 WHERE styles.id = painterstyle.idstyle
                                 AND painters.id = painterstyle.idpainter
                                 AND painters.id = :painter");
@@ -179,11 +192,16 @@ class PainterModel extends Manager
             }
     }
 
-    public function getPaintersInfosFront()
+    public function getPaintersInfosFront($first, $parPage)
     {
 
         $bdd = $this->dbConnection();
-        $data = $bdd->query("SELECT id, name,`photo-url` FROM painters");
+        $data = $bdd->prepare('SELECT id, name,`photo-url`, content FROM painters ORDER BY id DESC LIMIT :premier, :parpage');
+
+        $data->bindValue('premier', $first, PDO::PARAM_INT);
+        $data->bindValue('parpage', $parPage, PDO::PARAM_INT);
+
+        $data->execute();
         
         return $data->fetchAll();
         
@@ -192,18 +210,30 @@ class PainterModel extends Manager
     public function getPaintersTotal()
 
     {
-    $bdd = $this->dbConnection();
-    $data = $bdd->query('SELECT COUNT(id) as nbpainters FROM painters');
+        $bdd = $this->dbConnection();
+        $data = $bdd->query('SELECT COUNT(id) as nbpainters FROM painters');
 
-    return $data->fetch();
+        return $data->fetch();
     
     }
 
     public function getAllStyles()
     {
         $bdd = $this->dbConnection();
-        $data = $bdd->query('SELECT styles.name as namestyle FROM painters, styles, painterstyle
-                            WHERE styles.id = painterstyle.idstyle AND painters.id = painterstyle.idpainter');
+        $data = $bdd->query("SELECT GROUP_CONCAT(styles.name SEPARATOR ', ') as namestyle, painters.id FROM painters, styles, painterstyle
+                            WHERE styles.id = painterstyle.idstyle AND painters.id = painterstyle.idpainter GROUP BY painters.id");
+
+        return $data->fetchAll();
+    }
+
+    public function getAlltypes()
+    {
+        $bdd = $this->dbConnection();
+        $data = $bdd->query("SELECT GROUP_CONCAT(DISTINCT types.name SEPARATOR ', ') as name, painters.id as id FROM types, painters, paints
+                            WHERE types.id = paints.PaintsType AND paints.PaintsPainters = painters.id GROUP BY painters.id");
+
+        return $data->fetchAll();
+
     }
 
 }

@@ -153,8 +153,8 @@ class PaintModel extends Manager
                             AND PaintsStyle = styles.id AND PaintsType = types.id 
                             ORDER BY paints.id DESC LIMIT :premier, :parpage');
 
-        $data->bindValue(':premier', $first, PDO::PARAM_INT);
-        $data->bindValue(':parpage', $parPage, PDO::PARAM_INT);
+        $data->bindValue('premier', $first, PDO::PARAM_INT);
+        $data->bindValue('parpage', $parPage, PDO::PARAM_INT);
 
         $data->execute();
 

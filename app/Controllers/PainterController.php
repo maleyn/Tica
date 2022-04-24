@@ -45,45 +45,58 @@ class PainterController
       
         return $painterDataUrl;
     }
+     
+    // Récupération de l'id d'un peintre grace à son nom
+
+    function painterId($name)
+    {
+        $painterId = new \Projet\Models\PainterModel();
+        return $painterId->getPainterId($name);
+        
+    }
 
     // Injection dans le model d'un artiste de nouvelles données du form 
 
     function painterUpdate($dataPainter)
     {
         $painters = new \Projet\Models\PainterModel();
-        $mail = new \Projet\Models\ContactModel();
+        
         $painterupdate = $painters->updatePainter($dataPainter);
-        $dataPainter = $painters->getPaintersInfos();
-        $mailCount = $mail->getMailsCount();
-
-        $confirmUpdate = "Mise à jour / Ajout effectué";
-
-        require 'app/Views/Admin/paintersView.php';
+        
+    
     }
 
     // Injection dans le model des données du style d'un artiste 
     // condition pour faire soit un insert, delete ou combinaison des deux
     function painterStyleUpdate($stylesId, $painterId)
     {
-        $styles = new \Projet\Models\PainterModel();
-        $stylesInfos = $styles->getPainterStyleInfos($painterId);
+        $data = new \Projet\Models\PainterModel();
+        $mail = new \Projet\Models\ContactModel();
+        $mailCount = $mail->getMailsCount();
+        $stylesInfos = $data->getPainterStyleInfos($painterId);
+        $dataPainter = $data->getPaintersInfos();
         $stylesInfosId = [];
+       
         foreach($stylesInfos as $styleInfo)
         {
             array_push($stylesInfosId, $styleInfo['idstyle']);
         }
         if(sizeof($stylesInfosId) < sizeof($stylesId))
         {
-        $styles->insertStyle($stylesId, $painterId, $stylesInfosId);
+        $data->insertStyle($stylesId, $painterId, $stylesInfosId);
         
         } elseif (sizeof($stylesInfosId) > sizeof($stylesId))
         {
-        $styles->deleteStyle($stylesId, $painterId, $stylesInfosId);
+        $data->deleteStyle($stylesId, $painterId, $stylesInfosId);
         } else 
         {
-        $styles->insertStyle($stylesId, $painterId, $stylesInfosId);
-        $styles->deleteStyle($stylesId, $painterId, $stylesInfosId);
+        $data->insertStyle($stylesId, $painterId, $stylesInfosId);
+        $data->deleteStyle($stylesId, $painterId, $stylesInfosId);
         }
+
+        $confirmUpdate = "Mise à jour / Ajout effectué";
+
+        require 'app/Views/Admin/paintersView.php';
 
     }
     
@@ -108,6 +121,7 @@ class PainterController
 
     function paintersViewFront($currentPage)
     {
+
         $paintersData = new \Projet\Models\PainterModel();
         $pagination = new \Projet\Controllers\Pagination();
 
@@ -117,15 +131,11 @@ class PainterController
         $nbTotal = $paintersData->getPaintersTotal();
         $first = $pagination->paginate($parPage, $currentPage);    
         $pages = $pagination->nbPagesTotal($nbTotal[0], $parPage);
-        $painters = $paintersData->getPaintersInfosFront();
-        foreach ($painters as $painter) {
-            var_dump($painter['id']);
-            $styles = $paintersData->getPainterStyle($painter['id']);
-        }
-        
-        
-        
-        // ajoute un article vide sur la dernière page si il y'a un nombre impairs d'article
+        $painters = $paintersData->getPaintersInfosFront($first, $parPage);
+        $styles = $paintersData->getAllStyles();
+        $types = $paintersData->getAlltypes();
+
+        // ajoute une division vide sur la dernière page si il y'a un nombre impairs d'artistes
         if($nbTotal['nbpainters']%2 == 1 && $currentPage == $pages){
             $tempArticle = 1;
         };
@@ -134,6 +144,4 @@ class PainterController
     }
 
     
-
-
 }

@@ -714,11 +714,6 @@ hr {
 
 }
 
-.flex-template .card-empty img {
-
-    display: none;
-
-}
 
 .flex-template .card-template .infos-paint {
 
@@ -758,12 +753,12 @@ hr {
 }
 
 
-.flex-template .frame_template_top, .flex-template .frame_template_bottom {
+.frame_template_top, .frame_template_bottom {
 
     position: relative;
 }
 
-.flex-template .frame_template_top .frame_template_corner_lt {
+.frame_template_top .frame_template_corner_lt {
 
     position: absolute;
     top:  -30px;
@@ -772,7 +767,7 @@ hr {
 }
 
 
-.flex-template .frame_template_top .frame_template_corner_rt {
+.frame_template_top .frame_template_corner_rt {
 
     position: absolute;
     top:  -30px;
@@ -780,7 +775,7 @@ hr {
     max-width: 140px;
 }
 
-.flex-template .frame_template_bottom .frame_template_corner_rb {
+.frame_template_bottom .frame_template_corner_rb {
 
     position: absolute;
     bottom: -20px;
@@ -788,12 +783,105 @@ hr {
     max-width: 140px;
 }
 
-.flex-template .frame_template_bottom .frame_template_corner_lb {
+.frame_template_bottom .frame_template_corner_lb {
 
     position: absolute;
     bottom: -20px;
     left: -330px;
     max-width: 140px;
+}
+
+/* PAGE ARTISTES */
+
+.flex-painter {
+    
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 630px;
+    justify-content: center;
+    text-align: center;
+    margin: 70px auto;
+   
+}
+
+.flex-painter .card-painter {
+
+    min-width: 50%;
+    padding-bottom: 15px;
+    font-size: 0.9rem;
+    position: relative;
+    
+}
+
+.flex-painter .card-painter img {
+
+    width: 300px;
+    height: 250px;
+    object-fit: cover;
+    transition: all 1s;
+    opacity: 100%;
+    filter: saturate(100%);
+    
+}
+
+.flex-painter .card-empty-painter {
+
+    display: none;
+
+}
+
+.flex-painter .card-painter a {
+
+    display: inline-block;
+    width: 300px;
+    height: 410px;
+    background-color: #E2DBD4;
+    color: #333333;
+    box-shadow: 0px 2px 5px rgb(48, 48, 48);
+    transition: all 1s;
+
+}
+
+.flex-painter .name-painter {
+
+    position: absolute;
+    top: 0;
+    display: flex;
+    width: 300px;
+    justify-content: center;
+    background-color: #2e2e2ebe;
+    color: #E3D6A5;
+    padding: 1% 0;
+    font-family: 'Stylish', sans-serif;
+    font-size: 1.5rem;
+
+}
+
+.flex-painter .infos-painter {
+    text-align: left;
+    padding-left: 5px;
+    font-size: 0.8rem;
+    margin-top: 5px;
+
+}
+.flex-painter .infos-painter span {
+    font-weight: 600;
+}
+
+.flex-painter .infos-painter-desc p {
+    text-align: left;
+    padding: 5px;
+    
+}
+
+.flex-painter .card-painter .infos-painter-desc hr {
+
+    width: 260px;
+    margin-top: 5px;
+    color: #E3D6A5;
+
 }
 
 
