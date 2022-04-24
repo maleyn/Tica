@@ -77,7 +77,7 @@ class PaintModel extends Manager
         $bdd = $this->dbConnection();
         $data = $bdd->prepare('SELECT paints.id as paintid, paints.name as paintname, `img-url`, dimensionH,
                             dimensionL, frames.name as framename, painters.name as paintername, description, 
-                            painters.smallContent, painters.fullContent, styles.name as stylename, 
+                             styles.name as stylename, 
                             types.name as typename 
                             FROM paints, painters, frames, styles, types
                             WHERE PaintsFrames = frames.id AND PaintsPainters = painters.id
