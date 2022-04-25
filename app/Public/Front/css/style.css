@@ -820,9 +820,6 @@ hr {
     width: 300px;
     height: 250px;
     object-fit: cover;
-    transition: all 1s;
-    opacity: 100%;
-    filter: saturate(100%);
     
 }
 
@@ -836,12 +833,15 @@ hr {
 
     display: inline-block;
     width: 300px;
-    height: 410px;
+    height: 100%;
     background-color: #E2DBD4;
     color: #333333;
     box-shadow: 0px 2px 5px rgb(48, 48, 48);
-    transition: all 1s;
-
+    transition: all 0.5s;
+}
+.flex-painter .card-painter a:hover {
+    scale: 105%;
+    transition: all 0.5s;
 }
 
 .flex-painter .name-painter {
@@ -1239,26 +1239,26 @@ footer #copy_foot hr {
 
     /* Cadres dorée */
 
-    .flex-template .frame_template_top .frame_template_corner_lt {
+    .frame_template_top .frame_template_corner_lt {
 
         left: -25px;
         
     }
     
     
-    .flex-template .frame_template_top .frame_template_corner_rt {
+    .frame_template_top .frame_template_corner_rt {
     
         left: 515px;
 
     }
     
-    .flex-template .frame_template_bottom .frame_template_corner_rb {
+    .frame_template_bottom .frame_template_corner_rb {
     
         bottom: -15px;
         right: -25px;
     }
     
-    .flex-template .frame_template_bottom .frame_template_corner_lb {
+    .frame_template_bottom .frame_template_corner_lb {
      
         bottom: -15px;
         left: -655px;
@@ -1686,13 +1686,13 @@ footer #copy_foot hr {
     }
 
 
-    .flex-template .frame_template_top .frame_template_corner_rt {
+    .frame_template_top .frame_template_corner_rt {
     
         left: 625px;
         
     }
     
-    .flex-template .frame_template_bottom .frame_template_corner_lb {
+    .frame_template_bottom .frame_template_corner_lb {
     
     
         left: -765px;
@@ -1712,7 +1712,65 @@ footer #copy_foot hr {
         
     }
 
+    /* ARTISTES */
+
+    .flex-painter
+    {   
+
+        max-width: 740px;
     
+    }
+
+    .flex-painter .name-painter {
+
+        width: 350px;
+        font-size: 1.6rem;
+    
+    }
+
+    .flex-painter .card-painter {
+
+        min-width: 50%;
+        padding-bottom: 15px;
+        font-size: 1.1rem;
+        position: relative;
+        
+    }
+    
+    .flex-painter .card-painter img {
+    
+        width: 350px;
+        height: 250px;
+        object-fit: cover;
+        
+    }
+      
+    .flex-painter .card-painter a {
+    
+        display: inline-block;
+        width: 350px;
+        height: 100%;
+        background-color: #E2DBD4;
+        color: #333333;
+        box-shadow: 0px 2px 5px rgb(48, 48, 48);
+    
+    
+    }
+
+    .flex-painter .card-painter .infos-painter-desc hr {
+
+        width: 330px;
+    
+    }
+
+    .flex-painter .infos-painter {
+
+        text-align: left;
+        padding-left: 5px;
+        font-size: 1rem;
+        margin-top: 5px;
+    
+    }
 
 }
 

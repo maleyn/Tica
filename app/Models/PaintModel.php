@@ -58,12 +58,17 @@ class PaintModel extends Manager
 
     // récupérer les infos basiques de tout les tableaux
     
-    public function getGalerie()
+    public function getGalerie($first, $parPage)
     {
 
         $bdd = $this->dbConnection();
-        $data = $bdd->query('SELECT id , name , `img-url`
-                            FROM paints ORDER BY id DESC');
+        $data = $bdd->prepare('SELECT id , name , `img-url`
+                            FROM paints ORDER BY id DESC LIMIT :premier, :parpage');
+        
+        $data->bindValue('premier', $first, PDO::PARAM_INT);
+        $data->bindValue('parpage', $parPage, PDO::PARAM_INT);
+
+        $data->execute();
         
         return $data->fetchAll();
 

@@ -31,7 +31,7 @@
         </div>
         <div class="grid padding-top20">
             <label class="text-blue" for="content">Contenu de l'article : </label>
-            <textarea class="form-text width75 margin-top10" name="content" rows="3" required><?php if(!empty($dataArticle)) { echo $dataArticle['content']; };?></textarea>
+            <textarea class="form-text width75 margin-top10" name="content" rows="10" required><?php if(!empty($dataArticle)) { echo $dataArticle['content']; };?></textarea>
         </div>
         <div class="grid">
                 <label class="text-blue" for="type">Choisissez l'auteur : </label>

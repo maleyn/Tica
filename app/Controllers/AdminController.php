@@ -60,14 +60,16 @@ class AdminController
             $mailCount = $mailNbr->getMailsCount();
 
             require 'app/Views/Admin/dashboard.php';
+
         } else {
 
-            echo "Votre mot de passe n'est pas dans notre base de données";
+            echo "<h2 class='center text-red'>Mot de passe invalide</h2>";
+            require 'app/Views/Admin/connexion.php';
         }
-        }
+            
+        } else {
 
-        else {
-
+            echo "<h2 class='center text-red'>E-mail invalide</h2>";
             require 'app/Views/Admin/connexion.php';
 
         }
@@ -83,6 +85,8 @@ class AdminController
         require 'app/Views/Admin/mailView.php';
     }
 
+    /* -------------- Affichage du tableau de bord  ------------- */
+
     function dashboard()
     {
         $data = new \Projet\Models\AdminModel();
@@ -93,6 +97,8 @@ class AdminController
         require 'app/Views/Admin/dashboard.php';
     }
 
+    /* -------------- Affichage de la page des mails  ------------- */
+
     function mailSolo($idMail)
     {
         $mail = new \Projet\Models\ContactModel();
@@ -101,6 +107,8 @@ class AdminController
 
         require 'app/Views/Admin/mailPage.php';
     }
+
+    /* -------------- Suppression d'un mail ----------------------- */
 
     function mailDelete($idMail)
     {
@@ -126,6 +134,8 @@ class AdminController
         require 'app/Views/Admin/accountView.php';
     }
 
+    /* ---------------Mise à jour du compte personnel ----------------------- */
+
     function updateSelf($idaccount, $lastname, $firstname)
     {
         
@@ -136,6 +146,9 @@ class AdminController
         return $confirmUpdate;
         
     }
+
+    /* ---------------Suppression d'un compte utilisateur  ----------------------- */
+
     function userDelete($idUser)
     {
         $data = new \Projet\Models\AdminModel();
@@ -144,6 +157,8 @@ class AdminController
         $data->deleteThisUser($idUser);
 
     }
+
+    /* ---------------vue d'un compte utilisateur  ----------------------- */
 
     function userView($idUser, $confirmUpdate)
     {
@@ -155,6 +170,8 @@ class AdminController
 
         require 'app/Views/Admin/accountPage.php';
     }
+
+     /* ---------------Mise à jour d'un compte utilisateur  ----------------------- */
 
     function updateUser($idUser, $lastname, $firstname, $role)
     {
@@ -182,6 +199,8 @@ class AdminController
         require 'app/Views/Admin/homePage.php';
     }
 
+    /* ---------------Mise à jour de la page Accueil ----------------------- */
+
     function homeUpdate($dataFront)
     {
         $front = new \Projet\Models\FrontModel();
@@ -194,6 +213,8 @@ class AdminController
 
         require 'app/Views/Admin/homePage.php';
     }
+
+    /* ---------------Récupération du chemin de l'image de la page d'acceuil ----------------------- */
 
     function homeViewUrl()
     {

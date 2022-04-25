@@ -3,7 +3,6 @@
     <title>Connexion</title>
 </head>
 <body class="form_back">
-    <a href="index.php">Retour accueil du site</a>
     <h1>Connexion</h1>
 
     <form action="indexAdmin.php?action=connexion" method="post">

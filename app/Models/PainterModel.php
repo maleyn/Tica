@@ -47,10 +47,15 @@ class PainterModel extends Manager
 
     // Récupérer les infos basiques des artistes 
 
-    public function getPaintersInfos()
+    public function getPaintersInfos($first, $parPage)
     {
         $bdd = $this->dbConnection();
-        $data = $bdd->query("SELECT id, name, `photo-url` FROM painters");
+        $data = $bdd->prepare("SELECT id, name, `photo-url` FROM painters ORDER BY id DESC LIMIT :premier, :parpage");
+
+        $data->bindValue('premier', $first, PDO::PARAM_INT);
+        $data->bindValue('parpage', $parPage, PDO::PARAM_INT);
+
+        $data->execute();
    
         return $data->fetchAll();
            

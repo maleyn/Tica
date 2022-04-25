@@ -227,7 +227,12 @@ try {
         } elseif ($_GET[$action] == 'galeriePage')
 
         {
-            $paintController->galerieView();
+            if(isset($_GET['page']) && !empty($_GET['page'])){
+                $currentPage = (int) strip_tags($_GET['page']);
+            }else{
+                $currentPage = 1;
+            }
+            $paintController->galerieView($currentPage, '');
 
         // Affichage de paintPage gérant un tableau de la galerie
 
@@ -313,13 +318,22 @@ try {
        
             $idPaint = $_GET['id'];
             $paintController->paintDelete($idPaint);
-            
-            $paintController->galerieView();
+            if(isset($_GET['page']) && !empty($_GET['page'])){
+                $currentPage = (int) strip_tags($_GET['page']);
+            }else{
+                $currentPage = 1;
+            }
+            $paintController->galerieView($currentPage, '');
 
         } elseif ($_GET[$action] == 'paintersView')
         
         {
-            $painterController->paintersView();
+            if(isset($_GET['page']) && !empty($_GET['page'])){
+                $currentPage = (int) strip_tags($_GET['page']);
+            }else{
+                $currentPage = 1;
+            }
+            $painterController->paintersView($currentPage, '');
  
         } elseif ($_GET[$action] == 'painterSoloView')
         
@@ -408,8 +422,12 @@ try {
        
             $idPainter = $_GET['id'];
             $painterController->painterDelete($idPainter);
-            
-            $painterController->paintersView();
+            if(isset($_GET['page']) && !empty($_GET['page'])){
+                $currentPage = (int) strip_tags($_GET['page']);
+            }else{
+                $currentPage = 1;
+            }
+            $painterController->paintersView($currentPage, '');
 
         } elseif ($_GET[$action] == 'blogPage')
 

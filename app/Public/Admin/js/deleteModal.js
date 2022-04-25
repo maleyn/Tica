@@ -11,17 +11,15 @@ let action = '';
         del.addEventListener("click", function(e) {
             e.preventDefault();
             action = document.querySelector('.modalform').action;
-            btnmodal.onclick = modon(del.dataset.id); 
-
+            btnmodal.onclick = modon(del.dataset.id);
     })
     }); 
 
 [closemodal1,closemodal2].forEach((element)=>{
     element.addEventListener('click', function(e) {
-        
+
         element.onclick = modoff();
     })
-    
 });
 
 function modon(id) {

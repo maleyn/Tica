@@ -30,16 +30,16 @@
                         <ul id="main_menu">
                             <li class="<?= (empty($_GET['action']) ? 'active_menu' : ""); ?>"><a href="index.php">Accueil</a></li>
                             <li><a href="#">Blog</a></li>
-                            <li><a href="index.php?action=artistes">Artistes</a></li>
-                            <li class="<?= (!empty($_GET['action']) == 'galerie' ? 'active_menu' : ""); ?>"><a href="index.php?action=galerie">Galerie</a></li>
+                            <li class="<?= !empty($_GET['action']) ? (($_GET['action']) == 'artistes' ? 'active_menu' : "") : ""; ?>"><a href="index.php?action=artistes">Artistes</a></li>
+                            <li class="<?= !empty($_GET['action']) ? (($_GET['action']) == 'galerie' ? 'active_menu' : "") : ""; ?>"><a href="index.php?action=galerie">Galerie</a></li>
                         </ul>
                     </nav>
                     <nav id="menu_burger" class="hidden menu_active_burger">
                         <ul id="burger_ul">
-                            <li><a class="<?= (empty($_GET['action']) ? 'active_menu' : ""); ?>" href="index.php">Accueil</a></li>
+                            <li><a class="<?= (empty($_GET['action']) ? 'active_menu' : " "); ?>" href="index.php">Accueil</a></li>
                             <li><a href="#">Blog</a></li>
-                            <li><a href="index.php?action=artistes">Artistes</a></li>
-                            <li class="<?= (!empty($_GET['action']) == 'galerie' ? 'active_menu' : ""); ?>"><a href="index.php?action=galerie">Galerie</a></li>
+                            <li class="<?= !empty($_GET['action']) ? (($_GET['action']) == 'artistes' ? 'active_menu' : "") : ""; ?>"><a href="index.php?action=artistes">Artistes</a></li>
+                            <li class="<?= !empty($_GET['action']) ? (($_GET['action']) == 'galerie' ? 'active_menu' : "") : ""; ?>"><a href="index.php?action=galerie">Galerie</a></li>
                         </ul>
                     </nav>
                     <div>

@@ -47,7 +47,7 @@ class BlogController
 
         $confirmUpdate = "Mise à jour / Ajout effectué";
 
-        require 'app/Views/Admin/articleView.php';
+        require 'app/Views/Admin/articlesView.php';
     }
 
     // Récupération de l'url de l'image actuelle d'un article

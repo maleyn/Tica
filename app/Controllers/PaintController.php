@@ -8,11 +8,18 @@ class PaintController
 
     // Injection des infos basiques de toutes les peintures dans la page galeriePage
 
-    function galerieView()
+    function galerieView($currentPage, $confirmUpdate)
     {
-        $galerie = new \Projet\Models\PaintModel();
-        $paints = $galerie->getGalerie();
+        $data = new \Projet\Models\PaintModel();
+        $pagination = new \Projet\Controllers\Pagination();
         $mail = new \Projet\Models\ContactModel();
+        $parPage = 9;
+
+        
+        $nbTotal = $data->getPaintsTotal();
+        $first = $pagination->paginate($parPage, $currentPage);    
+        $pages = $pagination->nbPagesTotal($nbTotal[0], $parPage);
+        $paints = $data->getGalerie($first, $parPage);
         $mailCount = $mail->getMailsCount();
 
         require 'app/Views/Admin/paintsView.php';
@@ -41,14 +48,17 @@ class PaintController
     function paintUpdate($dataPaint)
     {
         $galerie = new \Projet\Models\PaintModel();
-        $mail = new \Projet\Models\ContactModel();
-        $paintsupdate = $galerie->updatePaints($dataPaint);
-        $paints = $galerie->getGalerie();
-        $mailCount = $mail->getMailsCount();
-
+        $galerie->updatePaints($dataPaint);
+        
         $confirmUpdate = "Mise à jour / Ajout effectué";
 
-        require 'app/Views/Admin/paintsView.php';
+        if(isset($_GET['page']) && !empty($_GET['page'])){
+            $currentPage = (int) strip_tags($_GET['page']);
+        }else{
+            $currentPage = 1;
+        }
+        $this->galerieView($currentPage, $confirmUpdate);
+
     }
 
     // Récupération de l'url de l'image actuelle d'une peinture
