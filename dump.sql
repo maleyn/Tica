@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : dim. 24 avr. 2022 à 18:47
+-- Généré le : mar. 26 avr. 2022 à 16:15
 -- Version du serveur : 10.4.21-MariaDB
 -- Version de PHP : 8.0.12
 
@@ -42,7 +42,14 @@ CREATE TABLE `articles` (
 --
 
 INSERT INTO `articles` (`id`, `title`, `content`, `image-url`, `create-date`, `mod-date`, `ArticlesUsers`) VALUES
-(5, 'Article 1', 'Lorem ipsum dolor sit amet. Et adipisci omnis aut enim ullam qui assumenda eius nam voluptatem quia qui exercitationem magni ut recusandae modi sit maxime veritatis. test test2', 'app/Public/Front/img/palette_peintre_sd.jpg', '2022-04-04 15:01:27', '2022-04-04 15:07:05', 4);
+(5, 'Article 1', 'Lorem ipsum dolor sit amet. Et adipisci omnis aut enim ullam qui assumenda eius nam voluptatem quia qui exercitationem magni ut recusandae modi sit maxime veritatis. test test2', 'app/Public/Front/img/palette_peintre_sd.jpg', '2022-04-04 15:01:27', '2022-04-04 15:07:05', 4),
+(7, 'Nouveau livre de Tica', 'Lorem ipsum dolor sit amet. Aut impedit expedita sed repudiandae labore aut officia magni eum omnis dolorem et animi aut fugiat explicabo eos magni vitae! Sed officia accusamus ut harum mollitia eum quis autem. Aut adipisci harum At corporis explicabo ut consequuntur impedit.\r\n\r\nQui animi magni ut quisquam dolore et tempora tempore et architecto odit ex animi consequatur. Ea molestias molestiae eum odio praesentium eos consequuntur qui quibusdam aliquam At error voluptas id nobis labore sit placeat voluptatibus! Hic nostrum debitis ut harum aperiam ea autem molestias sit sunt tempora qui voluptas perspiciatis est voluptatibus sunt. ', 'app/Public/Front/img/La-peinture-a-l-huile.jpg', '2022-04-25 14:46:40', NULL, 4),
+(8, 'Apprendre les bases', 'Lorem ipsum dolor sit amet. Aut impedit expedita sed repudiandae labore aut officia magni eum omnis dolorem et animi aut fugiat explicabo eos magni vitae! Sed officia accusamus ut harum mollitia eum quis autem. Aut adipisci harum At corporis explicabo ut consequuntur impedit.\r\n\r\nQui animi magni ut quisquam dolore et tempora tempore et architecto odit ex animi consequatur. Ea molestias molestiae eum odio praesentium eos consequuntur qui quibusdam aliquam At error voluptas id nobis labore sit placeat voluptatibus! Hic nostrum debitis ut harum aperiam ea autem molestias sit sunt tempora qui voluptas perspiciatis est voluptatibus sunt. ', 'app/Public/Front/img/394313_813122.jpg', '2022-04-25 14:49:13', '2022-04-26 09:54:21', 4),
+(9, 'Ou acheter ses tubes de peinture', 'Lorem ipsum dolor sit amet. Aut impedit expedita sed repudiandae labore aut officia magni eum omnis dolorem et animi aut fugiat explicabo eos magni vitae! Sed officia accusamus ut harum mollitia eum quis autem. Aut adipisci harum At corporis explicabo ut consequuntur impedit.\r\n\r\nQui animi magni ut quisquam dolore et tempora tempore et architecto odit ex animi consequatur. Ea molestias molestiae eum odio praesentium eos consequuntur qui quibusdam aliquam At error voluptas id nobis labore sit placeat voluptatibus! Hic nostrum debitis ut harum aperiam ea autem molestias sit sunt tempora qui voluptas perspiciatis est voluptatibus sunt. ', 'app/Public/Front/img/tubes-of-acrylic-paint-in-different-colors-close-up-min.jpg', '2022-04-25 14:53:17', NULL, 4),
+(10, 'Comment peindre des visages', 'Lorem ipsum dolor sit amet. Aut impedit expedita sed repudiandae labore aut officia magni eum omnis dolorem et animi aut fugiat explicabo eos magni vitae! Sed officia accusamus ut harum mollitia eum quis autem. Aut adipisci harum At corporis explicabo ut consequuntur impedit.\r\n\r\nQui animi magni ut quisquam dolore et tempora tempore et architecto odit ex animi consequatur. Ea molestias molestiae eum odio praesentium eos consequuntur qui quibusdam aliquam At error voluptas id nobis labore sit placeat voluptatibus! Hic nostrum debitis ut harum aperiam ea autem molestias sit sunt tempora qui voluptas perspiciatis est voluptatibus sunt. ', 'app/Public/Front/img/peindre-un-portrait 1.jpg', '2022-04-25 14:54:06', NULL, 4),
+(11, 'Tout le matériel indispensable !', 'Lorem ipsum dolor sit amet. Aut impedit expedita sed repudiandae labore aut officia magni eum omnis dolorem et animi aut fugiat explicabo eos magni vitae! Sed officia accusamus ut harum mollitia eum quis autem. Aut adipisci harum At corporis explicabo ut consequuntur impedit.\r\n\r\nQui animi magni ut quisquam dolore et tempora tempore et architecto odit ex animi consequatur. Ea molestias molestiae eum odio praesentium eos consequuntur qui quibusdam aliquam At error voluptas id nobis labore sit placeat voluptatibus! Hic nostrum debitis ut harum aperiam ea autem molestias sit sunt tempora qui voluptas perspiciatis est voluptatibus sunt. ', 'app/Public/Front/img/dirty-coloured-palette-and-paint.jpg', '2022-04-25 14:56:12', NULL, 4),
+(12, 'Introduction au Pop art', 'Lorem ipsum dolor sit amet. Aut impedit expedita sed repudiandae labore aut officia magni eum omnis dolorem et animi aut fugiat explicabo eos magni vitae! Sed officia accusamus ut harum mollitia eum quis autem. Aut adipisci harum At corporis explicabo ut consequuntur impedit.\r\n\r\nQui animi magni ut quisquam dolore et tempora tempore et architecto odit ex animi consequatur. Ea molestias molestiae eum odio praesentium eos consequuntur qui quibusdam aliquam At error voluptas id nobis labore sit placeat voluptatibus! Hic nostrum debitis ut harum aperiam ea autem molestias sit sunt tempora qui voluptas perspiciatis est voluptatibus sunt. ', 'app/Public/Front/img/Marilyn-diptych-1009x1024.jpg', '2022-04-25 15:04:26', '2022-04-25 15:41:15', 4),
+(13, 'Le livre indispensable pour apprendre', 'Lorem ipsum dolor sit amet. Eum quas vero ut ipsa cumque ut itaque omnis ab aperiam beatae. Rem voluptatem illum aut ducimus quis ut accusamus beatae et sunt quos. Et aliquam dolores aut dolore temporibus qui minus repudiandae.\r\n\r\nNon nostrum fugiat ex earum enim qui quia incidunt At aliquam dignissimos cum unde maiores et omnis corrupti. Ut galisum omnis et molestiae nesciunt sed omnis voluptate et repellendus provident aut quod voluptatem et velit voluptatem? Est modi assumenda sed voluptatem galisum id voluptatem iure quo doloribus galisum sit ipsam sint. ', 'app/Public/Front/img/4faec5e96fd846c5eac5e7ef00e14ba58b7dc90c.jpg', '2022-04-26 09:56:22', '2022-04-26 09:57:51', 4);
 
 -- --------------------------------------------------------
 
@@ -162,7 +169,6 @@ INSERT INTO `painterstyle` (`idstyle`, `idpainter`) VALUES
 (1, 5),
 (6, 5),
 (1, 1),
-(6, 1),
 (2, 6),
 (3, 6),
 (6, 6),
@@ -170,7 +176,11 @@ INSERT INTO `painterstyle` (`idstyle`, `idpainter`) VALUES
 (2, 17),
 (2, 7),
 (5, 7),
-(6, 7);
+(5, 17),
+(4, 7),
+(5, 1),
+(3, 7),
+(5, 6);
 
 -- --------------------------------------------------------
 
@@ -204,7 +214,9 @@ INSERT INTO `paints` (`id`, `name`, `description`, `img-url`, `dimensionH`, `dim
 (20, 'Tableau de pérroquets et toucans', 'Lorem ipsum dolor sit amet. Ea voluptatum magnam est dicta deleniti sed quibusdam neque aut deserunt delectus ea dolorem vitae hic nemo quisquam qui veniam nobis.', 'app/Public/Front/img/tableau-animaux-perroquets-toucans-et-fleurs-5fe2360f0570a.jpg', 130, 110, 2, 1, 1, 3),
 (21, 'Tableau de couple qui s\'embrasse', 'Lorem ipsum dolor sit amet. Ea voluptatum magnam est dicta deleniti sed quibusdam neque aut deserunt delectus ea dolorem vitae hic nemo quisquam qui veniam nobis.', 'app/Public/Front/img/tableau_couple_embrassage.jpg', 140, 180, 1, 5, 5, 3),
 (22, 'Grand tableau coloré', 'Lorem ipsum dolor sit amet. Ea voluptatum magnam est dicta deleniti sed quibusdam neque aut deserunt delectus ea dolorem vitae hic nemo quisquam qui veniam nobis.', 'app/Public/Front/img/grand_tableau_colore.jpg', 180, 110, 1, 1, 2, 3),
-(23, 'Grand arbre rose', 'Lorem ipsum dolor sit amet. Ea voluptatum magnam est dicta deleniti sed quibusdam neque aut deserunt delectus ea dolorem vitae hic nemo quisquam qui veniam nobis.', 'app/Public/Front/img/tableau_arbre_rose.jpg', 120, 80, 1, 1, 6, 2);
+(23, 'Grand arbre rose', 'Lorem ipsum dolor sit amet. Ea voluptatum magnam est dicta deleniti sed quibusdam neque aut deserunt delectus ea dolorem vitae hic nemo quisquam qui veniam nobis.', 'app/Public/Front/img/tableau_arbre_rose.jpg', 120, 80, 1, 1, 6, 2),
+(25, 'Centre ville d\'Agen', 'Lorem ipsum dolor sit amet. Sit unde quidem non vitae autem est vitae temporibus. Et iusto consequatur eum reprehenderit fugiat non officia assumenda sit placeat necessitatibus.', 'app/Public/Front/img/e_80-x-80-cm-carre-d-artistes-80x80-front-0.jpg', 160, 160, 1, 1, 1, 5),
+(26, 'Campagne Aveyronnaise', 'Lorem ipsum dolor sit amet. Aut odio ipsa et voluptas porro in atque officia non perspiciatis deleniti vel molestiae doloribus aut voluptatem sunt. Qui veritatis enim qui sint minima qui mollitia natus. Hic impedit corporis non fugiat quia quo deleniti vitae ut voluptatum deserunt qui quia dolores. Aut quia voluptas aut quia dolorem ea dolorem maiores. ', 'app/Public/Front/img/images.jpg', 120, 110, 2, 17, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -291,7 +303,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `mail`, `password`, `UsersRoles`) VALUES
 (4, 'renaud', 'maleyran', 'maleyran@hotmail.fr', '$2y$10$VpKwOy5lqtl0XTi3XqVhj.6CFW2WHWd5dl3juYGKF8M1Vor/mGXp2', 1),
-(40, 'editeur', 'editeur', 'editeur@editeur.fr', '$2y$10$b9zjY7AJ51UoNM5Rq5MR2eRk7.zIFpsTv4Dw0/vbjt4W062opUXXK', 4);
+(40, 'editeur', 'editeur', 'editeur@editeur.fr', '$2y$10$b9zjY7AJ51UoNM5Rq5MR2eRk7.zIFpsTv4Dw0/vbjt4W062opUXXK', 4),
+(41, 'admin', 'admin', 'admin@admin.fr', '$2y$10$F3iOYqgB0V3JqjHHM4xgUeGE2lwBoSIzb543LsRhhCotqja2A2shG', 1);
 
 --
 -- Index pour les tables déchargées
@@ -378,7 +391,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT pour la table `contacts`
@@ -408,7 +421,7 @@ ALTER TABLE `painters`
 -- AUTO_INCREMENT pour la table `paints`
 --
 ALTER TABLE `paints`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT pour la table `roles`
@@ -432,7 +445,7 @@ ALTER TABLE `types`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- Contraintes pour les tables déchargées
