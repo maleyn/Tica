@@ -9,20 +9,28 @@ class BlogController
 
     // Injection des infos basiques de toutes les articles dans la page blogPage
 
-    function blogView()
+    public function blogView($currentPage, $confirmUpdate)
     
     {
         $data = new \Projet\Models\BlogModel();
         $mail = new \Projet\Models\ContactModel();
+        $pagination = new \Projet\Controllers\Pagination();
+
+        $parPage = 9;
+
+        $nbTotal = $data->getArticlesTotal();
+        $first = $pagination->paginate($parPage, $currentPage);    
+        $pages = $pagination->nbPagesTotal($nbTotal[0], $parPage);
+
         $mailCount = $mail->getMailsCount();
-        $dataArticle = $data->getArticleBasic();
+        $dataArticle = $data->getArticleBasic($first, $parPage);
 
         require 'app/Views/Admin/articlesView.php';
     }
 
     // Injection des infos de l'article spécifié dans la page articlePage
 
-    function articleView($idArticle, $error)
+    public function articleView($idArticle, $error)
 
     {
         $data = new \Projet\Models\BlogModel();
@@ -36,23 +44,25 @@ class BlogController
 
     // Injection dans le model d'un article de nouvelles données du form 
 
-    function articleUpdate($dataArticle)
+    public function articleUpdate($dataArticle)
     {
         $article = new \Projet\Models\BlogModel();
-        $mail = new \Projet\Models\ContactModel();
         $articleUpdate = $article->updateArticle($dataArticle);
-        
-        $dataArticle = $article->getArticleBasic();
-        $mailCount = $mail->getMailsCount();
+
+        if(isset($_GET['page']) && !empty($_GET['page'])){
+            $currentPage = (int) strip_tags($_GET['page']);
+        }else{
+            $currentPage = 1;
+        }
 
         $confirmUpdate = "Mise à jour / Ajout effectué";
+        $this->blogView($currentPage, $confirmUpdate);
 
-        require 'app/Views/Admin/articlesView.php';
     }
 
     // Récupération de l'url de l'image actuelle d'un article
 
-    function articleViewUrl($articleId)
+    public function articleViewUrl($articleId)
     {
         $articleUrl = new \Projet\Models\BlogModel();
         $articleDataUrl = $articleUrl->getArticleUrl($articleId);
@@ -62,10 +72,45 @@ class BlogController
 
     // Injection des données de suppression d'un article dans son model
 
-    function articleDelete($idArticle)
+    public function articleDelete($idArticle)
     {
         $data = new \Projet\Models\BlogModel();
         $data->deleteArticle($idArticle);
+
+    }
+
+    // affichage des articles vue front
+
+    public function articlesViewFront($currentPage)
+    {
+        $data = new \Projet\Models\BlogModel();
+        $pagination = new \Projet\Controllers\Pagination();
+        $sub = new \Projet\Helpers\Substring();
+
+        $tempArticle = '';
+        $parPage = 8;
+
+        $nbTotal = $data->getArticlesTotal();
+        $first = $pagination->paginate($parPage, $currentPage);    
+        $pages = $pagination->nbPagesTotal($nbTotal[0], $parPage);
+        $articles = $data->getArticlesFront($first, $parPage);
+
+        // limite les caractères à 270 pour le contenu
+
+        for ($i=0; $i < sizeof($articles); $i++) { 
+            if(strlen($articles[$i]['content']) > 270) {
+                $temp = $sub->paintersDescriptionSub($articles[$i]['content'], 270);
+                $articles[$i]['content'] = $temp;
+            }
+            $articles[$i]['create-date'] = date("d-m-Y", strtotime($articles[$i]['create-date']));  
+
+        }
+        // ajoute un article vide sur la dernière page si il y'a un nombre impairs d'article
+        if($nbTotal['nbarticles']%2 == 1 && $currentPage == $pages){
+            $tempArticle = 1;
+        };
+
+        require 'app/Views/Front/blog.php';
 
     }
 

@@ -673,7 +673,7 @@ hr {
     max-width: 130px;
 
 }
-/* PAGE GALERIE */
+/* PAGE GALERIE & BLOG*/
 
 .flex-template {
     
@@ -749,6 +749,7 @@ hr {
     color: #333333;
     box-shadow: 0px 2px 5px rgb(48, 48, 48);
     transition: all 1s;
+    
 
 }
 
@@ -764,6 +765,7 @@ hr {
     top:  -30px;
     left: -30px;
     max-width: 140px;
+  
 }
 
 
@@ -773,6 +775,7 @@ hr {
     top:  -30px;
     right: -330px;
     max-width: 140px;
+   
 }
 
 .frame_template_bottom .frame_template_corner_rb {
@@ -781,6 +784,7 @@ hr {
     bottom: -20px;
     right: -30px;
     max-width: 140px;
+    
 }
 
 .frame_template_bottom .frame_template_corner_lb {
@@ -789,6 +793,84 @@ hr {
     bottom: -20px;
     left: -330px;
     max-width: 140px;
+   
+}
+
+/* BLOG */
+
+.flex-template .card-blog {
+
+    min-width: 50%;
+    padding-bottom: 15px;
+    font-size: 0.9rem;
+    position: relative;
+    
+}
+
+.flex-template .card-blog .infos-blog {
+
+    width: 300px;
+    text-align: left;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    align-content: flex-end;
+    width: 100%;
+}
+
+
+.flex-template .card-blog img {
+
+    width: 300px;
+    height: 150px;
+    object-fit: cover; 
+}
+
+.flex-template .card-blog a {
+
+    display: inline-block;
+    width: 300px;
+    min-height: 330px;
+    height: auto;
+    background-color: #E2DBD4;
+    color: #333333;
+    box-shadow: 0px 2px 5px rgb(48, 48, 48);
+    transition: all 0.5s;
+    
+}
+
+.flex-template .card-blog hr{
+
+    margin-top: 5px;
+    width: 280px;
+    color: #E3D6A5;
+
+}
+
+.flex-template .card-blog h2 {
+
+    font-size: 1rem;
+    
+}
+.flex-template .card-blog .infos-auteur {
+    
+    align-self: flex-end;
+    align-content: flex-end;
+    width: 100%;
+    
+}
+
+.flex-template .card-blog .infos-auteur p{
+
+    padding-top: 3px;
+    font-size: 0.8rem;
+}
+
+.flex-template .card-blog .blog-content {
+
+    padding-top: 2px;
 }
 
 /* PAGE ARTISTES */
@@ -812,6 +894,7 @@ hr {
     padding-bottom: 15px;
     font-size: 0.9rem;
     position: relative;
+    z-index: 1000;
     
 }
 
@@ -1264,7 +1347,12 @@ footer #copy_foot hr {
         left: -655px;
 
     }
+    
+    .flex-painter .card-empty-painter {
 
+        display: block;
+
+    }
     
     
 }
@@ -1501,6 +1589,15 @@ footer #copy_foot hr {
 
     }
 
+    /* BLOG */
+
+    .flex-template .card-blog a:hover {
+
+        scale: 105%;
+        transition: all 0.5s;
+        
+    }
+ 
     /* Footer */ 
 
     footer {

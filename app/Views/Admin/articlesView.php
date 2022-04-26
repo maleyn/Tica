@@ -20,12 +20,36 @@
         <?php $count++ ; } ?>
         </section>
 
+        <!-- PAGINATION -->
+        <nav>
+            <ul class="pagination padding-top30 margin-bottom40">
+                <li class="page-item">
+                <?php if($currentPage == 1) { ?>
+                    <a class="page-item-dis">Précédente</a>
+                <?php } else { ?>
+                    <a href="indexAdmin.php?action=blogPage&page=<?= $currentPage - 1 ?>" class="page-link">Précédente</a>
+                    <?php } ?>
+                </li>
+                <?php for($page = 1; $page <= $pages; $page++): ?>
+                <li class="page-item <?= ($currentPage == $page) ? "active_pag" : "" ?> numberPage">
+                    <a href="indexAdmin.php?action=blogPage&page=<?= $page ?>" class="page-link"><?= $page ?></a>
+                </li>
+                <?php endfor ?>
+                <li class="page-item">
+                <?php if($currentPage == $pages) { ?>
+                    <a class="page-item-dis">Suivante</a>
+                    <?php } else { ?>
+                    <a href="indexAdmin.php?action=blogPage&page=<?= $currentPage + 1 ?>" class="page-link">Suivante</a>
+                    <?php } ?>
+                </li>
+            </ul>
+        </nav>
+
 <!-- Modal -->
 <span class="nbtotal" hidden data-nbtotal="<?= $count ?>"></span>
 
 <form class="modalform" action="indexAdmin.php?action=articleDelete&id=" method="post">
     <div class="modal-off modaljs">
-
         <div class="modal-content">
             <div class="modal-header">
                 <span class="button-close1">&times;</span>
@@ -39,7 +63,6 @@
                 <button type="button" class="button_submit button-close2">Annuler</button>
             </div>
         </div>
-   
     </div>
 </form>
 

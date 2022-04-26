@@ -22,7 +22,7 @@
             </a>
         </article>
         <article class="dash-card">
-            <a href="">
+            <a href="#">
             <p>Nombre Total d'utilisateurs</p>
             <h2><?= $stats['nbusers'] ?></h2>
             </a>

@@ -432,7 +432,12 @@ try {
         } elseif ($_GET[$action] == 'blogPage')
 
         {
-            $blogController->blogView();
+            if(isset($_GET['page']) && !empty($_GET['page'])){
+                $currentPage = (int) strip_tags($_GET['page']);
+            }else{
+                $currentPage = 1;
+            }
+            $blogController->blogView($currentPage, '');
 
         } elseif ($_GET[$action] == 'articleView')
 
@@ -501,8 +506,12 @@ try {
         {
             $idArticle = $_GET['id'];
             $blogController->articleDelete($idArticle);
-            
-            $blogController->blogView();
+            if(isset($_GET['page']) && !empty($_GET['page'])){
+                $currentPage = (int) strip_tags($_GET['page']);
+            }else{
+                $currentPage = 1;
+            }
+            $blogController->blogView($currentPage, '');
         }
 
     } else {

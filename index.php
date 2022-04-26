@@ -12,6 +12,7 @@ try {
     $controllerFront = new \Projet\Controllers\FrontController();
     $controllerPaint = new \Projet\Controllers\PaintController();
     $controllerPainter = new \Projet\Controllers\PainterController();
+    $controllerBlog = new \Projet\Controllers\BlogController();
 
     if(isset($_GET['action'])) {
 
@@ -68,9 +69,18 @@ try {
             
             $paints = $controllerPainter->paintersViewFront($currentPage);
 
-        }
+        } elseif($_GET['action'] == 'blog')
+        {
 
-        
+            if(isset($_GET['page']) && !empty($_GET['page'])){
+                $currentPage = (int) strip_tags($_GET['page']);
+            }else{
+                $currentPage = 1;
+            }
+            
+            $articles = $controllerBlog->articlesViewFront($currentPage);
+
+        }
 
 } else {
 

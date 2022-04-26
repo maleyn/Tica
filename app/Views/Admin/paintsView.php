@@ -20,7 +20,7 @@
         </section>
         <!-- PAGINATION -->
         <nav>
-            <ul class="pagination padding-top30">
+            <ul class="pagination padding-top30 margin-bottom40">
                 <li class="page-item">
                 <?php if($currentPage == 1) { ?>
                     <a class="page-item-dis">Précédente</a>

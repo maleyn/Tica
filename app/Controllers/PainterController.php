@@ -152,10 +152,10 @@ class PainterController
         // limite les caractères à 230 pour le contenu
 
         for ($i=0; $i < sizeof($painters); $i++) { 
-
+            if(strlen($painters[$i]['content']) > 230) {
             $temp = $sub->paintersDescriptionSub($painters[$i][3], 230);
             $painters[$i]['content'] = $temp;
-            
+            }
         }
     
         // ajoute une division vide sur la dernière page si il y'a un nombre impairs d'artistes

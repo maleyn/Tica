@@ -447,6 +447,11 @@ a:hover {
     padding: 2%;
 
 }
+.cardpage .flex-card .flex-item p {
+
+    width: 350px;
+
+}
 .cardpage .flex-card .flex-item:hover {
 
     scale: 1.1;

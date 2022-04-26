@@ -1,17 +1,23 @@
 <?php 
 
 namespace Projet\Models;
+use PDO;
 
 class BlogModel extends Manager
 {
     // Récuperer les infos basiques de tout les articles
 
-    public function getArticleBasic()
+    public function getArticleBasic($first, $parPage)
     {
 
         $bdd = $this->dbConnection();
-        $data = $bdd->query('SELECT id , title , `image-url`
-                            FROM articles ORDER BY id DESC');
+        $data = $bdd->prepare('SELECT id , title , `image-url`
+                            FROM articles ORDER BY id DESC LIMIT :premier, :parpage');
+
+        $data->bindValue('premier', $first, PDO::PARAM_INT);
+        $data->bindValue('parpage', $parPage, PDO::PARAM_INT);
+        
+        $data->execute();
         
         return $data->fetchAll();
 
@@ -100,5 +106,35 @@ class BlogModel extends Manager
         
         return $data->fetchAll();
     } 
+
+    // Récupération du nombres de peintures total
+
+    public function getArticlesTotal()
+
+    {
+    $bdd = $this->dbConnection();
+    $data = $bdd->query('SELECT COUNT(id) as nbarticles FROM articles');
+
+    return $data->fetch();
+    
+    }
+
+    public function getArticlesFront($first, $parPage) 
+    {
+
+        $bdd = $this->dbConnection();
+        $data = $bdd->prepare('SELECT articles.id , title , `image-url`, content, `create-date`, 
+                                users.firstname as firstname, users.lastname as lastname
+                                FROM articles, users WHERE articles.ArticlesUsers = users.id 
+                                ORDER BY id DESC LIMIT :premier, :parpage');
+
+        $data->bindValue('premier', $first, PDO::PARAM_INT);
+        $data->bindValue('parpage', $parPage, PDO::PARAM_INT);
+        
+        $data->execute();
+        
+        return $data->fetchAll();
+
+    }
 
 }
