@@ -147,7 +147,7 @@ class PainterController
         $pages = $pagination->nbPagesTotal($nbTotal[0], $parPage);
         $painters = $paintersData->getPaintersInfosFront($first, $parPage);
         $styles = $paintersData->getAllStyles();
-        $types = $paintersData->getAlltypes();
+        $types = $paintersData->getAllTypes();
 
         // limite les caractères à 230 pour le contenu
 
@@ -164,6 +164,20 @@ class PainterController
         };
 
         require 'app/Views/Front/artistes.php';
+    }
+
+    public function painterPageFront($idPainter)
+    {
+
+        $painterData = new \Projet\Models\PainterModel();
+
+        $painter = $painterData->getPainterFullInfos($idPainter);
+        $painterStyle = $painterData->getPainterStylesConcat($idPainter);
+        $painterType = $painterData->getPainterTypes($idPainter);
+
+
+        require 'app/Views/Front/artiste.php';
+
     }
 
     

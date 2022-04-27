@@ -105,7 +105,7 @@ class PainterModel extends Manager
         $bdd = $this->dbConnection();
         $data = $bdd->prepare("SELECT painters.id as idpainter, painters.name as namepainter, `photo-url` as photopainter,
                             content FROM painters
-                            WHERE painters.id = :painter ORDER BY painters.id DESC");
+                            WHERE painters.id = :painter");
 
         $data->execute(array('painter' => $idPainter));
 
@@ -197,6 +197,8 @@ class PainterModel extends Manager
             }
     }
 
+    // Récupère les infos des artistes pour la vue front
+
     public function getPaintersInfosFront($first, $parPage)
     {
 
@@ -212,6 +214,8 @@ class PainterModel extends Manager
         
     }
 
+    // Récupère le nombre total d'artistes 
+
     public function getPaintersTotal()
 
     {
@@ -222,6 +226,8 @@ class PainterModel extends Manager
     
     }
 
+    // Récupère tout les styles associé à l'id de l'artiste
+
     public function getAllStyles()
     {
         $bdd = $this->dbConnection();
@@ -231,7 +237,20 @@ class PainterModel extends Manager
         return $data->fetchAll();
     }
 
-    public function getAlltypes()
+    public function getPainterStylesConcat($idPainter)
+    {
+        $bdd = $this->dbConnection();
+        $data = $bdd->prepare("SELECT GROUP_CONCAT(styles.name SEPARATOR ', ') as namestyle, painters.id FROM painters, styles, painterstyle
+                            WHERE styles.id = painterstyle.idstyle AND painters.id = painterstyle.idpainter AND painters.id = :idpainter");
+
+        $data->execute(array('idpainter' => $idPainter));
+        return $data->fetch();
+    }
+
+
+    // Récupère tout les types associé à l'id de l'artiste
+
+    public function getAllTypes()
     {
         $bdd = $this->dbConnection();
         $data = $bdd->query("SELECT GROUP_CONCAT(DISTINCT types.name SEPARATOR ', ') as name, painters.id as id FROM types, painters, paints
@@ -240,5 +259,18 @@ class PainterModel extends Manager
         return $data->fetchAll();
 
     }
+
+    public function getPainterTypes($idPainter)
+    {
+        $bdd = $this->dbConnection();
+        $data = $bdd->prepare("SELECT GROUP_CONCAT(DISTINCT types.name SEPARATOR ', ') as name, painters.id as id FROM types, painters, paints
+                            WHERE types.id = paints.PaintsType AND paints.PaintsPainters = painters.id AND painters.id = :idpainter");
+
+        $data->execute(array('idpainter' => $idPainter));
+        return $data->fetch();
+
+    }
+
+
 
 }

@@ -15,6 +15,7 @@ require_once 'app/Views/Front/header.php';
         <article class="card-template">
             <a href="">
             <img src="<?= $paint['img-url'] ?>" alt="<?= $paint['paintname'] ?>">
+            <h2><?= $paint['paintname'] ?></h2>
             <div class="infos-paint">
                 <div>
                     <p>Cadre : <?= $paint['framename'] ?></p>
@@ -24,7 +25,6 @@ require_once 'app/Views/Front/header.php';
                 <div>
                     <p>Style : <?= $paint['stylename'] ?></p>
                     <p>Type : <?= $paint['typename'] ?></p>
-                    
                 </div>
             </div>
            

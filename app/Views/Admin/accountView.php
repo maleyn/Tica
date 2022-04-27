@@ -24,7 +24,6 @@
 
             <div class="padding-top20">
                 <input type="submit" value="Mettre à jour" class="button_submit">
-                <a class="button_submit inline-block center" href="indexAdmin.php?action=change-mdp">Réinitialiser mot de passe</a>
             </div>
         </form>
     </section>

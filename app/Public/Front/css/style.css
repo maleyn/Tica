@@ -697,6 +697,18 @@ hr {
     
 }
 
+.flex-template .card-template h2  {
+
+    font-family: 'Spartan', sans-serif;
+    position: relative;
+    bottom: 280px;
+    background: none;
+    color: #3b3b3b;
+    font-size: 0.8rem;
+    padding: 5px;
+    
+}
+
 .flex-template .card-template img {
 
     width: 300px;
@@ -718,7 +730,7 @@ hr {
 .flex-template .card-template .infos-paint {
 
     position: absolute;
-    bottom: 18px;
+    bottom: 39px;
     display: flex;
     width: 300px;
     justify-content: space-around;
@@ -745,7 +757,6 @@ hr {
     display: inline-block;
     width: 300px;
     height: 250px;
-    background-color: #929292;
     color: #333333;
     box-shadow: 0px 2px 5px rgb(48, 48, 48);
     transition: all 1s;
@@ -762,7 +773,7 @@ hr {
 .frame_template_top .frame_template_corner_lt {
 
     position: absolute;
-    top:  -30px;
+    top:  -40px;
     left: -30px;
     max-width: 140px;
   
@@ -772,7 +783,7 @@ hr {
 .frame_template_top .frame_template_corner_rt {
 
     position: absolute;
-    top:  -30px;
+    top:  -40px;
     right: -330px;
     max-width: 140px;
    
@@ -814,10 +825,9 @@ hr {
     padding: 5px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-start;
-    align-content: flex-end;
+    justify-content: space-between;
     width: 100%;
+    height: 190px;
 }
 
 
@@ -846,18 +856,17 @@ hr {
     margin-top: 5px;
     width: 280px;
     color: #E3D6A5;
+    text-align: center;
 
 }
 
 .flex-template .card-blog h2 {
 
-    font-size: 1rem;
+    font-size: 0.9rem;
     
 }
 .flex-template .card-blog .infos-auteur {
     
-    align-self: flex-end;
-    align-content: flex-end;
     width: 100%;
     
 }
@@ -967,7 +976,35 @@ hr {
 
 }
 
+/* PAGE ARTISTE SOLO */
 
+#page-artiste {
+
+    text-align: center;
+
+}
+
+#page-artiste #article-artiste img {
+
+    width: 800px;
+    height: 500px;
+    object-fit: cover;
+    margin-top: 10px;
+}
+
+#page-artiste #artiste-contenu {
+
+    text-align: left;
+    width: 800px;
+    margin: 10px auto;
+
+}
+
+#page-artiste #artiste-contenu #artiste-content {
+
+    margin-top: 10px;
+    
+}
 
 /* PAGE DE CONTACT */
 
@@ -1782,10 +1819,16 @@ footer #copy_foot hr {
         
     }
 
+    .frame_template_top .frame_template_corner_lt {
+
+        top: -45px;
+    }
+
 
     .frame_template_top .frame_template_corner_rt {
     
         left: 625px;
+        top: -45px;
         
     }
     
@@ -1808,6 +1851,14 @@ footer #copy_foot hr {
         font-size: 1rem;
         
     }
+
+    .flex-template .card-template h2  {
+
+        bottom: 332px;
+        font-size: 1rem;
+        
+    }
+    
 
     /* ARTISTES */
 
@@ -1868,6 +1919,52 @@ footer #copy_foot hr {
         margin-top: 5px;
     
     }
+
+    /* BLOG */
+
+    .flex-template .card-blog {
+
+        font-size: 1rem;
+
+    }
+    
+    .flex-template .card-blog .infos-blog {
+    
+        width: 350px;
+    }
+    
+    
+    .flex-template .card-blog img {
+    
+        width: 350px;
+        height: 170px;
+         
+    }
+    
+    .flex-template .card-blog a {
+   
+        width: 350px;
+        min-height: 375px;
+        
+    }
+    .flex-template .card-blog hr{
+
+        margin-top: 6px;
+        width: 325px;
+        
+    }
+    
+    .flex-template .card-blog h2 {
+    
+        font-size: 1.1rem;
+        
+    }
+    
+    .flex-template .card-blog .infos-auteur p{
+    
+        font-size: 0.9rem;
+    }
+    
 
 }
 

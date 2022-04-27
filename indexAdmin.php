@@ -39,7 +39,7 @@ try {
         } elseif ($_GET[$action] == 'create-user')
 
         { 
-            
+            restrictedAccess();
             $pass = $_POST['password'];
             $mdp = password_hash($pass, PASSWORD_DEFAULT);
             $userArray = [
@@ -100,6 +100,7 @@ try {
         } elseif ($_GET[$action] == 'mail')
 
         {
+            restrictedAccess();
             $adminController->mailContact();
 
         } elseif ($_GET[$action] == 'dashboard')
@@ -113,12 +114,14 @@ try {
         } elseif ($_GET[$action] == 'mailSolo')
 
         {
+            restrictedAccess();
             $idMail = $_GET['id'];
             $adminController->mailSolo($idMail);
 
         } elseif ($_GET[$action] == 'mailDelete')
 
         {
+            restrictedAccess();
             $idMail = $_GET['id'];
             $adminController->mailDelete($idMail);
 
@@ -127,7 +130,7 @@ try {
         } elseif ($_GET[$action] == 'homeView')
 
         {
-
+            restrictedAccess();
             $adminController->homeView();
 
         // Affichage de la page de compte
@@ -135,6 +138,7 @@ try {
         } elseif ($_GET[$action] == 'account')
 
         {
+            restrictedAccess();
             $confirmUpdate = '';
             $adminController->accountView($_SESSION['id'], $_SESSION['firstname'], $_SESSION['lastname'], $confirmUpdate);
         
@@ -171,7 +175,7 @@ try {
         } elseif ($_GET[$action] == 'homeUpdate')
 
         {
-            
+            restrictedAccess();
             $uploadController = new \Projet\Controllers\UploadController();
             
             $sliderAlt = htmlspecialchars($_POST['sliderAlt']);
@@ -227,6 +231,7 @@ try {
         } elseif ($_GET[$action] == 'galeriePage')
 
         {
+            restrictedAccess();
             if(isset($_GET['page']) && !empty($_GET['page'])){
                 $currentPage = (int) strip_tags($_GET['page']);
             }else{
@@ -239,6 +244,7 @@ try {
         } elseif ($_GET[$action] == 'paintView')
             
         {
+            restrictedAccess();
             $error = "";
             if(!empty($_GET['id'])) {
 
@@ -255,6 +261,7 @@ try {
         } elseif ($_GET[$action] == 'paintUpdate')
 
         {
+            restrictedAccess();
             $error = 0;
 
             $uploadController = new \Projet\Controllers\UploadController();
@@ -315,7 +322,7 @@ try {
         } elseif ($_GET[$action] == 'paintDelete')
 
         {
-       
+            restrictedAccess();
             $idPaint = $_GET['id'];
             $paintController->paintDelete($idPaint);
             if(isset($_GET['page']) && !empty($_GET['page'])){
@@ -328,6 +335,7 @@ try {
         } elseif ($_GET[$action] == 'paintersView')
         
         {
+            restrictedAccess();
             if(isset($_GET['page']) && !empty($_GET['page'])){
                 $currentPage = (int) strip_tags($_GET['page']);
             }else{
@@ -351,7 +359,7 @@ try {
         } elseif ($_GET[$action] == 'painterUpdate')
 
         {
-     
+            restrictedAccess();
             $uploadController = new \Projet\Controllers\UploadController();
             $error = 0;
 
@@ -419,7 +427,7 @@ try {
         } elseif ($_GET[$action] == 'painterDelete')
 
         {
-       
+            restrictedAccess();
             $idPainter = $_GET['id'];
             $painterController->painterDelete($idPainter);
             if(isset($_GET['page']) && !empty($_GET['page'])){
@@ -442,6 +450,7 @@ try {
         } elseif ($_GET[$action] == 'articleView')
 
         {
+            restrictedAccess();
             $error = "";
             if(!empty($_GET['id'])) {
 
@@ -455,7 +464,7 @@ try {
         } elseif ($_GET[$action] == 'articleUpdate')
 
         {
-     
+            restrictedAccess();
             $error = 0;
             $uploadController = new \Projet\Controllers\UploadController();
         
@@ -504,6 +513,7 @@ try {
         } elseif ($_GET[$action] == 'articleDelete')
 
         {
+            restrictedAccess();
             $idArticle = $_GET['id'];
             $blogController->articleDelete($idArticle);
             if(isset($_GET['page']) && !empty($_GET['page'])){

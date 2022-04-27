@@ -69,6 +69,12 @@ try {
             
             $paints = $controllerPainter->paintersViewFront($currentPage);
 
+        } elseif($_GET['action'] == 'artiste')
+
+        {
+            $idPainter = $_GET['id'];
+            $controllerPainter->painterPageFront($idPainter);
+        
         } elseif($_GET['action'] == 'blog')
         {
 
