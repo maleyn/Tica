@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
 
-
+<main class="container padding-top20 cardpage">
 
     <h1>Ajout/Personnalisation des articles du blog</h1>
     <h2 class="text-green padding-top10 margin-bottom40 center"><?php if(isset($confirmUpdate)){ echo $confirmUpdate; }; ?></h2>
