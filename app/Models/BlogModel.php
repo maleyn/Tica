@@ -137,4 +137,16 @@ class BlogModel extends Manager
 
     }
 
+    public function getArticlesHome()
+    {
+        $bdd = $this->dbConnection();
+        $data = $bdd->query('SELECT articles.id, title, `image-url`, `create-date`,
+                            users.firstname as firstname, users.lastname as lastname
+                            FROM articles, users WHERE articles.ArticlesUsers = users.id
+                            ORDER BY id DESC LIMIT 0, 4');
+
+        return $data->fetchAll();
+    }
+
+
 }

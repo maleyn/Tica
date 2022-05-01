@@ -1,7 +1,6 @@
 <?php ob_start(); ?>
 
 <main class="container padding-top20 cardpage">
-
     <h1>Ajout/Personnalisation de la galerie</h1>
     <h2 class="text-green padding-top10 margin-bottom40 center"><?php if(isset($confirmUpdate)){ echo $confirmUpdate; }; ?></h2>
     <h2 class="text-green center"><?php if(isset($confirmDelete)){ echo $confirmDelete; }; ?></h2>
@@ -46,7 +45,6 @@
 <span class="nbtotal" hidden data-nbtotal="<?= $count ?>"></span>
 <form class="modalform" action="indexAdmin.php?action=paintDelete&id=" method="post">
     <div class="modal-off modaljs">
-
         <div class="modal-content">
             <div class="modal-header">
                 <span class="button-close1">&times;</span>
@@ -63,7 +61,6 @@
    
     </div>
 </form>
-
 </main>
 <script src="app/Public/Admin/js/deleteModal.js"></script>
 <?php $mainContent = ob_get_clean();

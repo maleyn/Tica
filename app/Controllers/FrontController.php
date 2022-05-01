@@ -9,7 +9,15 @@ class FrontController {
     public function home() {
 
         $data = new \Projet\Models\FrontModel();
+        $articles = new \Projet\Models\BlogModel();
+
         $dataFront = $data->getFront();
+        $blogArticles = $articles->getArticlesHome();
+
+        for ($i=0; $i < sizeof($blogArticles); $i++) { 
+            $blogArticles[$i]['create-date'] = date("d-m-Y", strtotime($blogArticles[$i]['create-date']));  
+
+        }
         
         require 'app/Views/Front/home.php';
 

@@ -63,36 +63,17 @@ require 'app/Views/Front/header.php';
             </div>
             <div id="block_blog" class="block_bottom">
                 <div id="block_blog_flex">
+                    <?php foreach ($blogArticles as $article) { ?>
                     <article class="card_blog">
-                        <a href="#">
-                            <img src="app/Public/Front/img/peindre-un-portrait_sd.jpg" alt="peindre un portrait">
-                            <p>Par John Doe le 13 Novembre 2021</p>
-                            <h2>Comment peindre des visages</h2>
+                        <a href="index.php?action=blog&id=<?=$article['id']?>">
+                            <img src="<?= $article['image-url'] ?>" alt="<?= $article['title'] ?>">
+                            <p>Par <?= $article['firstname']; ?> <?= $article['lastname']; ?> le <?= $article['create-date'] ?></p>
+                            <h2><?= $article['title'] ?></h2>
                         </a>
                     </article>
-                    <article class="card_blog">
-                        <a href="#">
-                            <img src="app/Public/Front/img/tournesol_sd.jpg" alt="peinture tournesol">
-                            <p>Par John Doe le 5 Novembre 2021</p>
-                            <h2>Technique de peinture nature</h2>
-                        </a>
-                    </article>
-                    <article class="card_blog">
-                        <a href="#">
-                            <img src="app/Public/Front/img/palette_peintre_sd.jpg" alt="palette de peintre">
-                            <p>Par John Doe le 10 Octobre 2021</p> 
-                            <h2>Bien choisir son matériel</h2>
-                        </a>
-                    </article>
-                    <article class="card_blog">
-                        <a href="#">
-                            <img src="app/Public/Front/img/marin_sd.jpg" alt="peinture de marin sur une chaise">
-                            <p>Par John Doe le 25 Septembre 2021</p>
-                            <h2>La technique de Tica</h2>
-                        </a>
-                    </article>
+                    <?php } ?>
                 </div>
-                <a href="#" class="button_dark_gold button_blog_insta">blog</a>
+                <a href="index.php?action=blog" class="button_dark_gold button_blog_insta">blog</a>
                 <div class="frames_bottom">
                     <img id="frame_corner_rb" src="app/Public/Front/img/Framebottom_corner_RB.svg" alt="cadre coin bas droite">
                     <img id="frame_corner_rt" src="app/Public/Front/img/Framebottom_corner_RT.svg" alt="cadre coin haut droite">

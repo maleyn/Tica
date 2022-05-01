@@ -10,7 +10,6 @@
             <nav id="nav_link">
                 <ul>
                     <li><a href="">Mentions légales</a></li>
-                    <li><a href="">Mon compte</a></li>
                     <li><a href="index.php?action=contact">Contact</a></li>
                     <li><a href="">Rejoindre nos artistes</a></li>
                 </ul>
@@ -30,5 +29,5 @@
     </div>
 </footer>
 </body>
-<script src="app/Public/Front/js/burgerMenu.js"></script>   
+   
 </html>

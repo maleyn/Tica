@@ -158,18 +158,30 @@ hr {
     justify-content: center;
     
 }
+.pagination li:first-child {
+
+    padding-right: 10px;
+
+}
+
+.pagination li:last-child {
+
+    padding-left: 10px;
+}
+
+.pagination .lastpage {
+    margin: 2px 3px 0;
+}
+
 .pagination li a{
 
     color: black;
-    padding: 7px;
     vertical-align: middle;
     
 }
 
 .numberPage {
 
-    background-color: #898989;
-    margin: 3px;
     vertical-align: middle;
 
  }
@@ -177,8 +189,19 @@ hr {
     color: rgb(162, 162, 162);
 }
 
-.active_pag, .numberPage:hover {
-    background-color: #E3D6A5;
+.pagination li a:hover {
+
+    color: rgb(151, 139, 32);
+
+}
+.numberPage:hover {
+
+    color: rgb(151, 139, 32);
+    
+}
+
+.pagination .active_page a{
+    color: rgb(151, 139, 32);
 }
 
 .active_menu {
@@ -663,14 +686,16 @@ hr {
 
 #insta_blog #block_blog .card_blog h2{
 
-    font-size: 0.9rem;
+    font-size: 0.7rem;
    
    }
 
 #insta_blog #block_blog .card_blog img {
 
     border-radius: 8px;
-    max-width: 130px;
+    width: 130px;
+    height: 95px;
+    object-fit: cover;
 
 }
 /* PAGE GALERIE & BLOG*/
@@ -730,7 +755,7 @@ hr {
 .flex-template .card-template .infos-paint {
 
     position: absolute;
-    bottom: 39px;
+    bottom: 38px;
     display: flex;
     width: 300px;
     justify-content: space-around;
@@ -792,7 +817,7 @@ hr {
 .frame_template_bottom .frame_template_corner_rb {
 
     position: absolute;
-    bottom: -20px;
+    bottom: 0px;
     right: -30px;
     max-width: 140px;
     
@@ -801,10 +826,14 @@ hr {
 .frame_template_bottom .frame_template_corner_lb {
 
     position: absolute;
-    bottom: -20px;
+    bottom: 0px;
     left: -330px;
     max-width: 140px;
    
+}
+
+#frames_others_bottom .frame_template_corner_rb, #frames_others_bottom .frame_template_corner_lb {
+    bottom: -20px;
 }
 
 /* BLOG */
@@ -826,8 +855,12 @@ hr {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 100%;
     height: 190px;
+}
+.flex-template .card-blog .infos-blog p {
+
+    width: 290px;
+
 }
 
 
@@ -863,6 +896,7 @@ hr {
 .flex-template .card-blog h2 {
 
     font-size: 0.9rem;
+    width: 290px;
     
 }
 .flex-template .card-blog .infos-auteur {
@@ -976,34 +1010,58 @@ hr {
 
 }
 
-/* PAGE ARTISTE SOLO */
+/* PAGE SOLO (artiste, article, peinture)*/
 
-#page-artiste {
+#page-solo {
 
     text-align: center;
 
 }
+#page-solo h1 {
+    margin-bottom: 15px;
+}
 
-#page-artiste #article-artiste img {
+#page-solo #article-solo img {
 
-    width: 800px;
-    height: 500px;
+    max-width: 800px;
+    max-height: 500px;
     object-fit: cover;
     margin-top: 10px;
+    width: 95%;
 }
 
-#page-artiste #artiste-contenu {
+#page-solo #contenu-solo {
 
     text-align: left;
-    width: 800px;
+    max-width: 800px;
     margin: 10px auto;
+    width: 95%;
+
 
 }
+#page-solo #contenu-solo hr {
 
-#page-artiste #artiste-contenu #artiste-content {
+    width: 90%;
+    color: #E3D6A5;
+    margin-top: 20px;
+}
+
+#page-solo #contenu-solo #content-solo {
+
+    margin-top: 25px;
+    font-size: 1.2rem;
+    
+}
+#page-solo #infos-solo {
 
     margin-top: 10px;
-    
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+#page-solo #infos-solo span {
+    font-style: normal;
+    color: rgb(73, 73, 73);
 }
 
 /* PAGE DE CONTACT */
@@ -1330,7 +1388,8 @@ footer #copy_foot hr {
 #insta_blog #block_blog .card_blog img {
 
     border-radius: 8px;
-    max-width: 200px;
+    width: 200px;
+    height: 125px;
 
 }
 
@@ -1374,21 +1433,36 @@ footer #copy_foot hr {
     
     .frame_template_bottom .frame_template_corner_rb {
     
-        bottom: -15px;
+        bottom: 0px;
         right: -25px;
     }
     
     .frame_template_bottom .frame_template_corner_lb {
      
-        bottom: -15px;
+        bottom: 0px;
         left: -655px;
 
+    }
+
+    #frames_others_bottom .frame_template_corner_rb, #frames_others_bottom .frame_template_corner_lb {
+        bottom: -20px;
     }
     
     .flex-painter .card-empty-painter {
 
         display: block;
 
+    }
+
+    /* PAGE SOLO (artiste, article, peinture) */
+
+    #page-solo #contenu-solo #content-solo {
+
+        font-size: 1.4rem;
+    }
+    #page-solo #infos-solo {
+    
+        font-size: 1.4rem;
     }
     
     
@@ -1658,7 +1732,9 @@ footer #copy_foot hr {
         justify-content: center;
         margin-left: 2%;
         margin-right: 2%;
-    
+        margin-bottom: 35px;
+       
+
     }
 
     footer .vertical_dot_line {
@@ -1677,7 +1753,7 @@ footer #copy_foot hr {
         margin-left: 12%;
         margin-right: 12%;
         font-size: 1.3rem;
-        margin-top: 10px;
+        margin-top: 22px;
         text-align: left;
         
     }
@@ -1957,12 +2033,19 @@ footer #copy_foot hr {
     .flex-template .card-blog h2 {
     
         font-size: 1.1rem;
+        width: 340px;
         
     }
     
     .flex-template .card-blog .infos-auteur p{
     
         font-size: 0.9rem;
+    }
+
+    .flex-template .card-blog .infos-blog p {
+
+        width: 340px;
+    
     }
     
 

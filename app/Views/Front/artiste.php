@@ -4,16 +4,17 @@ require_once 'app/Views/Front/header.php';
 
 ?>
 
-<main id="page-artiste" class="container pagepadding-top">
-    <article id="article-artiste">
+<main id="page-solo" class="container pagepadding-top">
+    <article id="article-solo">
         <h1><?= $painter['namepainter']?></h1>
         <img src="<?= $painter['photopainter']?>" alt="<?= $painter['namepainter']?>">
-        <div id="artiste-contenu">
-            <div id="artiste-infos">
-                <p>Style : <?= $painterStyle['namestyle']?></p>
-                <p>Type : <?= $painterType['name']?></p>
+        <div id="contenu-solo">
+            <div id="infos-solo">
+                <p><span>Style : </span><?= $painterStyle['namestyle']?></p>
+                <p><span>Type : </span><?= $painterType['name']?></p>
             </div>
-            <div id="artiste-content">
+            <hr>
+            <div id="content-solo">
                 <p><?= $painter['content']?></p>
             </div>
         </div>

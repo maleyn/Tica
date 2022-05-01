@@ -86,6 +86,12 @@ try {
             
             $articles = $controllerBlog->articlesViewFront($currentPage);
 
+        } elseif($_GET['action'] == 'article')
+
+        {
+            $idArticle = $_GET['id'];
+            $controllerBlog->articlePageFront($idArticle);
+        
         }
 
 } else {

@@ -1,5 +1,5 @@
-let menuPrincipal = document.getElementById('menu_principal');
-let account = document.getElementById('account_header');
+// Menu burger de la partie Front
+
 let btn_burger_open = document.getElementById('bouton_burger_open');
 let btn_burger_close = document.getElementById('bouton_burger_close');
 let menuBurger = document.getElementById('menu_burger');

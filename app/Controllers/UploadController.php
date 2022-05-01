@@ -57,6 +57,7 @@ class UploadController
     }
 
   }
+  // verifie la taille de l'image
 
   private static function checksize($img) 
   {
@@ -67,6 +68,8 @@ class UploadController
     }
   }
 
+  // vérifie de format de l'image
+
   private static function checkformat($imageFileType)
   {
     if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg")
@@ -74,6 +77,8 @@ class UploadController
       return true;
     }
   }
+  //vérifie la validité de l'image
+  
   private static function checkvalid($img)
   {
     

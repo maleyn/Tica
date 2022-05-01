@@ -11,7 +11,7 @@ class PaintController
     function galerieView($currentPage, $confirmUpdate)
     {
         $data = new \Projet\Models\PaintModel();
-        $pagination = new \Projet\Controllers\Pagination();
+        $pagination = new \Projet\Helpers\Pagination();
         $mail = new \Projet\Models\ContactModel();
         $parPage = 9;
 
@@ -85,7 +85,7 @@ class PaintController
     function galerieViewFront($currentPage)
     {
         $galerie = new \Projet\Models\PaintModel();
-        $pagination = new \Projet\Controllers\Pagination();
+        $pagination = new \Projet\Helpers\Pagination();
         $sub = new \Projet\Helpers\Substring();
 
         $tempArticle = '';

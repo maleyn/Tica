@@ -37,10 +37,10 @@
                 <thead>
                     <tr class="text-blue">
                         <th>#</th>
-                        <th>Prénom</th>
+                        <th class="mobile-hidden">Prénom</th>
                         <th>Nom</th>
-                        <th>E-mail</th>
-                        <th>Rôle</th>
+                        <th class="mobile-hidden">E-mail</th>
+                        <th class="mobile-hidden">Rôle</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -51,10 +51,10 @@
                     <tr>
                         <td class="idelement" hidden><?= htmlspecialchars($user['id']); ?></td>
                         <td><?= $count ?></td>
-                        <td><?= htmlspecialchars($user['firstname']); ?></td>
+                        <td class="mobile-hidden"><?= htmlspecialchars($user['firstname']); ?></td>
                         <td><?= htmlspecialchars($user['lastname']); ?></td>
-                        <td><?= htmlspecialchars($user['mail']); ?></td>
-                        <td><?= htmlspecialchars($user['role']); ?></td>
+                        <td class="mobile-hidden"><?= htmlspecialchars($user['mail']); ?></td>
+                        <td class="mobile-hidden"><?= htmlspecialchars($user['role']); ?></td>
                         <td class="icones-flex">
                             <a title="Suppression de l'utilisateur" class="btn-modal btnid<?= $count ?>">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"

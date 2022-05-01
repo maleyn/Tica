@@ -8,9 +8,9 @@
             <th>#</th>
             <th>Nom</th>
             <th>Prénom</th>
-            <th>E-mail</th>
-            <th>Objet</th>
-            <th>Date</th>
+            <th class="mobile-hidden">E-mail</th>
+            <th class="mobile-hidden">Objet</th>
+            <th class="mobile-hidden">Date</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -22,9 +22,9 @@
             <td><?= $count ?></td>
             <td><?= htmlspecialchars($contactMail['nom']); ?></td>
             <td><?= htmlspecialchars($contactMail['prenom']); ?></td>
-            <td><?= htmlspecialchars($contactMail['email']); ?></td>
-            <td><?= htmlspecialchars($contactMail['objet']); ?></td>
-            <td><?= htmlspecialchars($contactMail['date']); ?></td>
+            <td class="mobile-hidden"><?= htmlspecialchars($contactMail['email']); ?></td>
+            <td class="mobile-hidden"><?= htmlspecialchars($contactMail['objet']); ?></td>
+            <td class="mobile-hidden"><?= htmlspecialchars($contactMail['date']); ?></td>
             <td class="icones-flex">
                 <a href="indexAdmin.php?action=mailDelete&id=<?= $contactMail['id'] ?>" title="Suppression du mail" class="btn-modal">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

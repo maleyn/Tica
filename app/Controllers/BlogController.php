@@ -14,7 +14,7 @@ class BlogController
     {
         $data = new \Projet\Models\BlogModel();
         $mail = new \Projet\Models\ContactModel();
-        $pagination = new \Projet\Controllers\Pagination();
+        $pagination = new \Projet\Helpers\Pagination();
 
         $parPage = 9;
 
@@ -84,8 +84,9 @@ class BlogController
     public function articlesViewFront($currentPage)
     {
         $data = new \Projet\Models\BlogModel();
-        $pagination = new \Projet\Controllers\Pagination();
+        $pagination = new \Projet\Helpers\Pagination();
         $sub = new \Projet\Helpers\Substring();
+        $date = new \Projet\Helpers\DateFormat();
 
         $tempArticle = '';
         $parPage = 8;
@@ -102,7 +103,9 @@ class BlogController
                 $temp = $sub->paintersDescriptionSub($articles[$i]['content'], 270);
                 $articles[$i]['content'] = $temp;
             }
-            $articles[$i]['create-date'] = date("d-m-Y", strtotime($articles[$i]['create-date']));  
+
+            // changement de format de la date
+            $articles[$i]['create-date'] = $date->FormatStandard($articles[$i]['create-date']);  
 
         }
         // ajoute un article vide sur la dernière page si il y'a un nombre impairs d'article
@@ -113,5 +116,17 @@ class BlogController
         require 'app/Views/Front/blog.php';
 
     }
+
+    public function articlePageFront($idArticle)
+    {
+        $data = new \Projet\Models\BlogModel();
+        $date = new \Projet\Helpers\DateFormat();
+        $article = $data->getArticleFull($idArticle);
+
+        $article['create-date'] = $date->FormatStandard($article['create-date']);
+        require 'app/Views/Front/article.php';
+    }
+
+    
 
 }

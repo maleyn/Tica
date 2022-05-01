@@ -55,10 +55,18 @@ require_once 'app/Views/Front/header.php';
                     <?php } ?>
                 </li>
                 <?php for($page = 1; $page <= $pages; $page++): ?>
-                <li class="page-item <?= ($currentPage == $page) ? "active_pag" : "" ?> numberPage">
+                <li class="page-item <?= ($currentPage == $page) ? "active_page" : "" ?> numberPage">
                     <a href="index.php?action=galerie&page=<?= $page ?>" class="page-link"><?= $page ?></a>
                 </li>
+                <?php if($page != $pages) { ?>
+                    <span>-</span>
+                <?php } ?>       
                 <?php endfor ?>
+                <?php if($pages > 1) { ?>
+                <span class="lastpage">/</span>
+                <li class="page-item numberPage">
+                <a href="index.php?action=galerie&page=<?= $pages ?>" class="page-link"><?=$pages?></a>
+                <?php } ?>
                 <li class="page-item">
                 <?php if($currentPage == $pages) { ?>
                     <a class="page-item-dis">Suivante</a>

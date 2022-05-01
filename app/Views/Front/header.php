@@ -11,10 +11,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Srisakdi&family=Stylish&family=Spartan&family=Raleway&display=swap"
         rel="stylesheet">
-
     <title>Tica</title>
 </head>
-
 <body>
     <header>
         <div id="headband">
@@ -34,7 +32,7 @@
                             <li class="<?= !empty($_GET['action']) ? (($_GET['action']) == 'galerie' ? 'active_menu' : "") : ""; ?>"><a href="index.php?action=galerie">Galerie</a></li>
                         </ul>
                     </nav>
-                    <nav id="menu_burger" class="hidden menu_active_burger">
+                    <nav id="menu_burger" class="hidden">
                         <ul id="burger_ul">
                             <li class="<?= (empty($_GET['action']) ? 'active_menu' : " "); ?>"><a  href="index.php">Accueil</a></li>
                             <li class="<?= !empty($_GET['action']) ? (($_GET['action']) == 'blog' ? 'active_menu' : "") : ""; ?>"><a href="index.php?action=blog">Blog</a></li>
@@ -62,3 +60,4 @@
             </div>
         </div>
     </header>
+    <script src="app/Public/Front/js/burgerMenu.js"></script>

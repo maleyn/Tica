@@ -12,7 +12,7 @@ class PainterController
     
     {
         $data = new \Projet\Models\PainterModel();
-        $pagination = new \Projet\Controllers\Pagination();
+        $pagination = new \Projet\Helpers\Pagination();
         $mail = new \Projet\Models\ContactModel();
 
         $parPage = 9;
@@ -136,7 +136,7 @@ class PainterController
     {
 
         $paintersData = new \Projet\Models\PainterModel();
-        $pagination = new \Projet\Controllers\Pagination();
+        $pagination = new \Projet\Helpers\Pagination();
         $sub = new \Projet\Helpers\Substring();
 
         $tempArticle = '';
