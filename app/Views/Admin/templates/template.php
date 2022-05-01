@@ -80,10 +80,17 @@
         </div>
     </header>
 
+    <?php if(!empty($_GET['action'])) {
+        if(($_GET['action']) == 'blogPage' || ($_GET['action']) == 'galeriePage' || ($_GET['action']) == 'paintersView') 
+        { ?>
+        <main class="container padding-top20 cardpage">
+        <?php }; } ?>
+
     <!-- Content -->
     <?php if(isset($mainContent)){ echo $mainContent;}; ?>
 
 </body>
+
 
 <script src="app/Public/Admin/js/burgerMenu.js"></script>
 </html>
