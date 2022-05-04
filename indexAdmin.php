@@ -23,6 +23,7 @@ try {
     $paintController = new \Projet\Controllers\PaintController();
     $painterController = new \Projet\Controllers\PainterController();
     $blogController = new \Projet\Controllers\BlogController();
+    $pageHelper = new \Projet\Helpers\Pagination();
     $action = 'action';
 
     if (isset($_GET['action'])) 
@@ -76,7 +77,6 @@ try {
             $idaccount = $_SESSION['id'];
             $lastname = htmlspecialchars($_POST['lastname']);
             $firstname = htmlspecialchars($_POST['firstname']);
-
             $confirmUpdate = $adminController->updateSelf($idaccount, $lastname, $firstname);
             $_SESSION['firstname'] = $firstname;
             $_SESSION['lastname'] = $lastname;
@@ -91,7 +91,6 @@ try {
             $lastname = htmlspecialchars($_POST['lastname']);
             $firstname = htmlspecialchars($_POST['firstname']);
             $role = htmlspecialchars($_POST['role']);
-    
             $confirmUpdate = $adminController->updateUser($idUser, $lastname, $firstname, $role);
             $adminController->userView($idUser, $confirmUpdate);
 
@@ -142,7 +141,6 @@ try {
             $confirmUpdate = '';
             $adminController->accountView($_SESSION['id'], $_SESSION['firstname'], $_SESSION['lastname'], $confirmUpdate);
         
-
         // Suppression d'un utilisateur
 
         } elseif ($_GET[$action] == 'userDelete')
@@ -232,11 +230,7 @@ try {
 
         {
             restrictedAccess();
-            if(isset($_GET['page']) && !empty($_GET['page'])){
-                $currentPage = (int) strip_tags($_GET['page']);
-            }else{
-                $currentPage = 1;
-            }
+            $currentPage = $pageHelper->currentPage((isset(($_GET['page'])) ? ((int) strip_tags($_GET['page'])) : null));
             $paintController->galerieView($currentPage, '');
 
         // Affichage de paintPage gérant un tableau de la galerie
@@ -246,15 +240,8 @@ try {
         {
             restrictedAccess();
             $error = "";
-            if(!empty($_GET['id'])) {
-
-                $idpaint = $_GET['id'];
-
-            } else {
-                $idpaint = null;
-            }
-            
-            $paintController->paintView($idpaint, $error);
+            $idPaint = !empty($_GET['id'])? htmlspecialchars($_GET['id']):null;     
+            $paintController->paintView($idPaint, $error);
 
         // Mise à jour ou ajout d'un tableau 
         
@@ -282,10 +269,9 @@ try {
             $typeId = $adminController->idView('types', $paintType)['id'];
             $styleId = $adminController->idView('styles', $paintStyle)['id'];
             $frameId = $adminController->idView('frames', $paintFrame)['id'];
-         
+
             if(!empty($_FILES['painturl']['name']))
             {
-            
             $paintUrl = $uploadController->uploadimg('painturl');
                 if(!str_contains($paintUrl, 'app')) {
                 $error = 1;
@@ -293,7 +279,6 @@ try {
             } else {
             $dataUrl = $paintController->galerieViewUrl($paintId);
             $paintUrl = $dataUrl['img-url'];
-            
             }
             
             // array regroupant les variables
@@ -311,7 +296,7 @@ try {
                 'paintframe' => $frameId,
                 'paintdescription' => $paintDescription
 
-            ];
+            ]; 
             if($error == 0)
             {
             $paintController->paintUpdate($dataPaint);
@@ -325,35 +310,21 @@ try {
             restrictedAccess();
             $idPaint = $_GET['id'];
             $paintController->paintDelete($idPaint);
-            if(isset($_GET['page']) && !empty($_GET['page'])){
-                $currentPage = (int) strip_tags($_GET['page']);
-            }else{
-                $currentPage = 1;
-            }
+            $currentPage = $pageHelper->currentPage((isset(($_GET['page'])) ? ((int) strip_tags($_GET['page'])) : null));
             $paintController->galerieView($currentPage, '');
 
         } elseif ($_GET[$action] == 'paintersView')
         
         {
             restrictedAccess();
-            if(isset($_GET['page']) && !empty($_GET['page'])){
-                $currentPage = (int) strip_tags($_GET['page']);
-            }else{
-                $currentPage = 1;
-            }
+            $currentPage = $pageHelper->currentPage((isset(($_GET['page'])) ? ((int) strip_tags($_GET['page'])) : null));
             $painterController->paintersView($currentPage, '');
  
         } elseif ($_GET[$action] == 'painterSoloView')
         
         {   
             $error = "";
-            if(!empty($_GET['id'])) {
-
-                $idPainter = $_GET['id'];
-
-            } else {
-                $idPainter = null;
-            }
+            $idPainter = isset($_GET['id'])? htmlspecialchars($_GET['id']):null; 
             $painterController->painterSoloView($idPainter, $error);
 
         } elseif ($_GET[$action] == 'painterUpdate')
@@ -362,8 +333,7 @@ try {
             restrictedAccess();
             $uploadController = new \Projet\Controllers\UploadController();
             $error = 0;
-
-            $painterId = htmlspecialchars($_POST['painterid']);
+            $painterId = htmlspecialchars($_POST['painterid']) ?? null;
             $painterName = htmlspecialchars($_POST['paintername']);
             $painterContent = htmlspecialchars($_POST['content']);
 
@@ -377,15 +347,6 @@ try {
                 }
             }
 
-            
-            if(!empty($_POST['painterid']))
-            {
-                $painterId = htmlspecialchars($_POST['painterid']);
-            } else {
-                $painterId = null;
-            }
-            
-
             if(!empty($_FILES['painterurl']['name']))
             {
                 
@@ -394,10 +355,8 @@ try {
                 $error = 1;
                 }
             } else {
-
             $dataUrl = $painterController->painterViewUrl($painterId);
             $painterUrl = $dataUrl['photo-url'];
-
             }
             
             // array regroupant les variables
@@ -423,28 +382,19 @@ try {
             $painterController->painterSoloView($painterId, $painterUrl);
             }
 
-
         } elseif ($_GET[$action] == 'painterDelete')
 
         {
             restrictedAccess();
             $idPainter = $_GET['id'];
             $painterController->painterDelete($idPainter);
-            if(isset($_GET['page']) && !empty($_GET['page'])){
-                $currentPage = (int) strip_tags($_GET['page']);
-            }else{
-                $currentPage = 1;
-            }
+            $currentPage = $pageHelper->currentPage((isset(($_GET['page'])) ? ((int) strip_tags($_GET['page'])) : null));
             $painterController->paintersView($currentPage, '');
 
         } elseif ($_GET[$action] == 'blogPage')
 
         {
-            if(isset($_GET['page']) && !empty($_GET['page'])){
-                $currentPage = (int) strip_tags($_GET['page']);
-            }else{
-                $currentPage = 1;
-            }
+            $currentPage = $pageHelper->currentPage((isset(($_GET['page'])) ? ((int) strip_tags($_GET['page'])) : null));
             $blogController->blogView($currentPage, '');
 
         } elseif ($_GET[$action] == 'articleView')
@@ -467,20 +417,14 @@ try {
             restrictedAccess();
             $error = 0;
             $uploadController = new \Projet\Controllers\UploadController();
-        
+
+            $painterId = htmlspecialchars($_POST['articleid']) ?? null;
             $articleId = htmlspecialchars($_POST['articleid']);
             $articleTitle = htmlspecialchars($_POST['title']);
             $articleContent = htmlspecialchars($_POST['content']);
             $articleAuteur = htmlspecialchars($_POST['auteur']);
             
             
-            if(!empty($_POST['articleid']))
-            {
-                $painterId = htmlspecialchars($_POST['articleid']);
-            } else {
-                $painterId = null;
-            }
-           
             if(!empty($_FILES['articleurl']['name']))
             {
             $articleUrl = $uploadController->uploadimg('articleurl');
@@ -516,11 +460,7 @@ try {
             restrictedAccess();
             $idArticle = $_GET['id'];
             $blogController->articleDelete($idArticle);
-            if(isset($_GET['page']) && !empty($_GET['page'])){
-                $currentPage = (int) strip_tags($_GET['page']);
-            }else{
-                $currentPage = 1;
-            }
+            $currentPage = $pageHelper->currentPage((isset(($_GET['page'])) ? ((int) strip_tags($_GET['page'])) : null));
             $blogController->blogView($currentPage, '');
         }
 
@@ -529,8 +469,6 @@ try {
         $adminController->connexionPage();
 
     }
-
-
 
 } catch (Exception $e) {
 
