@@ -259,6 +259,7 @@ class PainterModel extends Manager
         return $data->fetchAll();
 
     }
+    // Récupère les types de peinture associé à l'id de l'artiste
 
     public function getPainterTypes($idPainter)
     {
@@ -270,7 +271,5 @@ class PainterModel extends Manager
         return $data->fetch();
 
     }
-
-
 
 }

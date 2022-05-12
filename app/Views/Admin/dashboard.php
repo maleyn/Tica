@@ -4,7 +4,7 @@
     <h1>Statistiques du site</h1>
     <section id="dashboard-flex">
         <article class="dash-card">
-            <a href="indexAdmin.php?action=galeriePage">
+            <a href="indexAdmin.php?action=paintsView">
             <p>Nombre Total de tableaux</p>
             <h2><?= $stats['nbpaints'] ?></h2>
             </a>

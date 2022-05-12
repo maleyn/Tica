@@ -22,8 +22,9 @@
                     <div class="subnav-content">
                         <a href="indexAdmin.php?action=homeView">Accueil</a>
                         <a href="indexAdmin.php?action=blogPage">Blog</a>
-                        <a href="indexAdmin.php?action=galeriePage">Galerie</a>
+                        <a href="indexAdmin.php?action=paintsView">Galerie</a>
                         <a href="indexAdmin.php?action=paintersView">Artistes</a>
+                        <a href="indexAdmin.php?action=categoriesView">Catégories</a>
                     </div>
                 </li>
                 <li>
@@ -47,8 +48,9 @@
                     <div class="subnav-content">
                         <a href="indexAdmin.php?action=homeView">Accueil</a>
                         <a href="indexAdmin.php?action=blogPage">Blog</a>
-                        <a href="indexAdmin.php?action=galeriePage">Galerie</a>
+                        <a href="indexAdmin.php?action=paintsView">Galerie</a>
                         <a href="indexAdmin.php?action=paintersView">Artistes</a>
+                        <a href="indexAdmin.php?action=categoriesView">Catégories</a>
                     </div>
                 </li>
                 <li>

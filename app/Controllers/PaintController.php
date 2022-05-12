@@ -8,14 +8,13 @@ class PaintController
 
     // Injection des infos basiques de toutes les peintures dans la page galeriePage
 
-    function galerieView($currentPage, $confirmUpdate)
+    public function galerieView($currentPage, $confirmUpdate)
     {
         $data = new \Projet\Models\PaintModel();
         $pagination = new \Projet\Helpers\Pagination();
         $mail = new \Projet\Models\ContactModel();
         $parPage = 9;
 
-        
         $nbTotal = $data->getPaintsTotal();
         $first = $pagination->paginate($parPage, $currentPage);    
         $pages = $pagination->nbPagesTotal($nbTotal[0], $parPage);
@@ -27,7 +26,7 @@ class PaintController
 
     // Injection des infos de la peinture spécifié dans la page paintPage
 
-    function paintView($idpaint, $error)
+    public function paintView($idpaint, $error)
     {
         $galerie = new \Projet\Models\PaintModel();
         $paintersInfos = new \Projet\Models\PainterModel();
@@ -45,7 +44,7 @@ class PaintController
 
     // Injection dans le model d'une peinture de nouvelles données du form
 
-    function paintUpdate($dataPaint)
+    public function paintUpdate($dataPaint)
     {
         $galerie = new \Projet\Models\PaintModel();
         $galerie->updatePaints($dataPaint);
@@ -63,7 +62,7 @@ class PaintController
 
     // Récupération de l'url de l'image actuelle d'une peinture
 
-    function galerieViewUrl($paintId)
+    public function galerieViewUrl($paintId)
     {
         $galerieUrl = new \Projet\Models\PaintModel();
         $galerieDataUrl = $galerieUrl->getGalerieUrl($paintId);
@@ -73,7 +72,7 @@ class PaintController
 
     // Injection des données de suppression d'une peinture dans son model
 
-    function paintDelete($idPaint)
+    public function paintDelete($idPaint)
     {
         $data = new \Projet\Models\PaintModel();
         $data->deletePaint($idPaint);
@@ -82,7 +81,7 @@ class PaintController
 
     // affichage des peintures vue front
 
-    function galerieViewFront($currentPage)
+    public function galerieViewFront($currentPage)
     {
         $galerie = new \Projet\Models\PaintModel();
         $pagination = new \Projet\Helpers\Pagination();
@@ -95,7 +94,6 @@ class PaintController
         $first = $pagination->paginate($parPage, $currentPage);    
         $pages = $pagination->nbPagesTotal($nbTotal[0], $parPage);
         $paints = $galerie->getGalerieFront($first, $parPage);
-        
 
          // limite les caractères à 250 pour le contenu
 
@@ -113,4 +111,34 @@ class PaintController
 
         require 'app/Views/Front/galerie.php';
     }
+    public function peinturePageFront($idPaint)
+    {
+        $paintData = new \Projet\Models\PaintModel();
+        $paint = $paintData->getGaleriePaint($idPaint);
+
+        require 'app/Views/Front/peinture.php';
+    }
+    // 
+    public function galerieViewPainter($idPainter)
+    {
+        $data = new \Projet\Models\PaintModel();
+        $sub = new \Projet\Helpers\Substring();
+        $tempArticle = '';
+        $painterSolo = 1;
+
+        $nbTotal = $data->getPaintsTotalPainter($idPainter);
+        $paints = $data->getGaleriePainter($idPainter);
+        for ($i=0; $i < sizeof($paints); $i++) { 
+            if(strlen($paints[$i]['description']) > 250) {
+                $temp = $sub->paintersDescriptionSub($paints[$i]['description'], 250);
+                $paints[$i]['description'] = $temp;
+            }
+        }
+        if($nbTotal['nbpaints']%2 == 1){
+            $tempArticle = 1;
+        };
+        
+        require 'app/Views/Front/galerie.php';
+    }
+    
 }

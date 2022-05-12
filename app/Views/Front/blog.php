@@ -4,7 +4,7 @@ require_once 'app/Views/Front/header.php';
 
 ?>
 <main class="container pagepadding-top">
-    <h1 class="uppercase text-center">galerie</h1>
+    <h1 class="uppercase text-center">Blog</h1>
     <section class="flex-template">
         <div class="frame_template_top">
             <img class="frame_template_corner_lt" src="app/Public/Front/img/Frame_corner_LT.svg"
@@ -45,28 +45,35 @@ require_once 'app/Views/Front/header.php';
     </section>
     <!-- PAGINATION -->
     <nav>
-        <ul class="pagination">
-            <li class="page-item">
+    <ul class="pagination">
+                <li class="page-item">
                 <?php if($currentPage == 1) { ?>
-                <a class="page-item-dis">Précédente</a>
+                    <a class="page-item-dis">Précédente</a>
                 <?php } else { ?>
-                <a href="index.php?action=blog&page=<?= $currentPage - 1 ?>" class="page-link">Précédente</a>
+                    <a href="index.php?action=blog&page=<?= $currentPage - 1 ?>" class="page-link">Précédente</a>
+                    <?php } ?>
+                </li>
+                <?php for($page = 1; $page <= $pages; $page++): ?>
+                <li class="page-item <?= ($currentPage == $page) ? "active_page" : "" ?> numberPage">
+                    <a href="index.php?action=blog&page=<?= $page ?>" class="page-link"><?= $page ?></a>
+                </li>
+                <?php if($page != $pages) { ?>
+                    <span>-</span>
                 <?php } ?>
-            </li>
-            <?php for($page = 1; $page <= $pages; $page++): ?>
-            <li class="page-item <?= ($currentPage == $page) ? "active_pag" : "" ?> numberPage">
-                <a href="index.php?action=blog&page=<?= $page ?>" class="page-link"><?= $page ?></a>
-                <span>-</span>
-            </li>
-            <?php endfor ?>
-            <li class="page-item">
+                <?php endfor ?>
+                <?php if($pages > 1) { ?>
+                <span class="lastpage">/</span>
+                <li class="page-item numberPage">
+                <a href="index.php?action=blog&page=<?= $pages ?>" class="page-link"><?=$pages?></a>
+                <?php } ?>
+                <li class="page-item">
                 <?php if($currentPage == $pages) { ?>
-                <a class="page-item-dis">Suivante</a>
-                <?php } else { ?>
-                <a href="index.php?action=blog&page=<?= $currentPage + 1 ?>" class="page-link">Suivante</a>
-                <?php } ?>
-            </li>
-        </ul>
+                    <a class="page-item-dis">Suivante</a>
+                    <?php } else { ?>
+                    <a href="index.php?action=blog&page=<?= $currentPage + 1 ?>" class="page-link">Suivante</a>
+                    <?php } ?>
+                </li>
+            </ul>
     </nav>
 </main>
 

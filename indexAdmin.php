@@ -226,7 +226,7 @@ try {
             
         // Affichage de la page galeriePage gérant la page galerie du site
 
-        } elseif ($_GET[$action] == 'galeriePage')
+        } elseif ($_GET[$action] == 'paintsView')
 
         {
             restrictedAccess();
@@ -462,7 +462,50 @@ try {
             $blogController->articleDelete($idArticle);
             $currentPage = $pageHelper->currentPage((isset(($_GET['page'])) ? ((int) strip_tags($_GET['page'])) : null));
             $blogController->blogView($currentPage, '');
-        }
+
+        } elseif ($_GET[$action] == 'categoriesView')
+        {
+            restrictedAccess();
+            $confirmUpdate = '';
+            $error = '';
+            $adminController->getInfosCategories($confirmUpdate, $error);
+
+        } elseif ($_GET[$action] == 'styleDelete')
+        {
+            restrictedAccess();
+            $idStyle = $_POST['style'];
+            $adminController->styleDelete($idStyle);
+
+        } elseif ($_GET[$action] == 'styleAjout')
+        {
+            restrictedAccess();
+            $style = $_POST['styleAdd'];
+            $adminController->styleAjout($style);
+
+        } elseif ($_GET[$action] == 'typeAjout')
+        {
+            restrictedAccess();
+            $type = $_POST['typeAdd'];
+            $adminController->typeAjout($type);
+
+        } elseif ($_GET[$action] == 'typeDelete')
+        {
+            restrictedAccess();
+            $idType = $_POST['type'];
+            $adminController->typeDelete($idType);
+            
+        } elseif ($_GET[$action] == 'frameAjout')
+        {
+            restrictedAccess();
+            $type = $_POST['frameAdd'];
+            $adminController->frameAjout($type);
+
+        } elseif ($_GET[$action] == 'frameDelete')
+        {
+            restrictedAccess();
+            $idFrame = $_POST['frame'];
+            $adminController->frameDelete($idFrame);
+        } 
 
     } else {
 
@@ -472,9 +515,11 @@ try {
 
 } catch (Exception $e) {
 
-    die('Erreur : ' . $e->getMessage());
+    echo ('Erreur : ' . $e->getMessage());
+    
+} 
 
-} catch (Error $e) {
+catch (Error $e) {
 
     die('Erreur : ' . $e->getMessage());
 

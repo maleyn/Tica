@@ -1,11 +1,9 @@
  <?php
-
 require_once 'app/Views/Front/header.php';
-
 ?>
 
 <main class="container pagepadding-top">
-    <h1 class="uppercase text-center">galerie</h1>
+    <h1 class="uppercase text-center">galerie<?php if (isset($painterSolo)) { echo ' de ' . $paints[0]['paintername']; } ?></h1>
     <section class="flex-template">
         <div class="frame_template_top">
             <img class="frame_template_corner_lt" src="app/Public/Front/img/Frame_corner_LT.svg" alt="cadre coin haut gauche">
@@ -13,7 +11,7 @@ require_once 'app/Views/Front/header.php';
         </div>
     <?php foreach($paints as $paint) { ?>
         <article class="card-template">
-            <a href="">
+            <a href="index.php?action=peinture&id=<?= $paint['paintid'] ?>">
             <img src="<?= $paint['img-url'] ?>" alt="<?= $paint['paintname'] ?>">
             <h2><?= $paint['paintname'] ?></h2>
             <div class="infos-paint">
@@ -45,6 +43,7 @@ require_once 'app/Views/Front/header.php';
             <img class="frame_template_corner_rb" src="app/Public/Front/img/Frame_corner_RB.svg" alt="cadre coin bas droite">
         </div>
         </section>
+        <?php if(!isset($painterSolo)) { ?>
         <nav>
             <ul class="pagination">
                 <li class="page-item">
@@ -60,7 +59,7 @@ require_once 'app/Views/Front/header.php';
                 </li>
                 <?php if($page != $pages) { ?>
                     <span>-</span>
-                <?php } ?>       
+                <?php } ?>
                 <?php endfor ?>
                 <?php if($pages > 1) { ?>
                 <span class="lastpage">/</span>
@@ -76,10 +75,9 @@ require_once 'app/Views/Front/header.php';
                 </li>
             </ul>
         </nav>
+        <?php } ?>
 </main>
 <script src="app/Public/Front/js/active.js"></script> 
 <?php
-
 require_once 'app/Views/Front/footer.php'
-
 ?>

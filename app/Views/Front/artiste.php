@@ -18,6 +18,7 @@ require_once 'app/Views/Front/header.php';
                 <p><?= $painter['content']?></p>
             </div>
         </div>
+        <a class="button_dark_gold" href="index.php?action=peintureArtiste&id=<?= $painter['idpainter'] ?>">Voir toutes ses peintures</a>
     </article>
 </main>
 

@@ -77,9 +77,7 @@ Modifiez ce fichier en changeant les différentes variables.
 
   https://getcomposer.org/doc/00-intro.md#installation-windows
 
-- Dotenv
-
-  composer require vlucas/phpdotenv
+  
 
 ### Installation
 
@@ -97,15 +95,16 @@ Dans un terminal et dans le dossier de votre choix
 
 3. Installer Dotenv
 
+   ```sh
    composer require vlucas/phpdotenv
-
-   
+   ```
 
 4. Mettre à jour composer
 
-   ```js
+   ```sh
    composer update
    ```
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -117,35 +116,31 @@ Le dump de la base de donnée se situe à la raçine du projet
 
 Pour accéder à la partie administration : tica/indexAdmin.php
 
-Il y 'a la possiblité de créer un nouvel utilisateur sur cette page (éditeur, administrateur)
-
-Cette possiblité ne sera pas concerver pour une mise en ligne. (seul un administrateur pourra créer un nouvel utilisateur)
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
 ## Feuille de route
 
-- [ ] Administration du site
-    - [ ] Tableau de bord
+- [x] Administration du site
+    - [x] Tableau de bord
     - [x] Mails
     - [x] Page accueil
     - [x] Page Galerie
-    - [ ] Page Blog
-    - [ ] Page Artistes
-    - [ ] Compte
-
+    - [x] Page Blog
+    - [x] Page Artistes
+    
 - [ ] Partie Front
     - [x] Accueil
-    - [ ] Galerie
-        - [ ] Peintures
-
-    - [ ] Blog
-        - [ ] Commentaires
-
-    - [ ] Artistes
-    - [ ] Compte
+    
+    - [x] Galerie
+        - [x] Peintures
+    
+    - [x] Blog
+        
+    - [x] Artistes
+    
+        
 
 
 

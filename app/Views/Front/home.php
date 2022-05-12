@@ -65,7 +65,7 @@ require 'app/Views/Front/header.php';
                 <div id="block_blog_flex">
                     <?php foreach ($blogArticles as $article) { ?>
                     <article class="card_blog">
-                        <a href="index.php?action=blog&id=<?=$article['id']?>">
+                        <a href="index.php?action=article&id=<?=$article['id']?>">
                             <img src="<?= $article['image-url'] ?>" alt="<?= $article['title'] ?>">
                             <p>Par <?= $article['firstname']; ?> <?= $article['lastname']; ?> le <?= $article['create-date'] ?></p>
                             <h2><?= $article['title'] ?></h2>

@@ -151,6 +151,7 @@ hr {
 
 .pagination {
 
+    font-family: 'Spartan', sans-serif;
     text-align: center;
     display: flex;
     list-style: none;
@@ -220,7 +221,7 @@ hr {
     font-size: 1.2rem;
     position: fixed;
     z-index: 20000;
-    box-shadow: 0px 2px 5px rgb(48, 48, 48);
+    box-shadow: 0px 2px 3px rgb(48, 48, 48);
 
 }
 
@@ -344,7 +345,7 @@ hr {
     top: 70px;
     right: 0px;
     background: rgb(46,46,46);
-    box-shadow: 0px 2px 5px rgb(48, 48, 48);
+    box-shadow: 0px 2px 3px rgb(48, 48, 48);
     width: 220px;
     font-size: 1.5rem;
     text-transform: uppercase;
@@ -844,7 +845,8 @@ hr {
     padding-bottom: 15px;
     font-size: 0.9rem;
     position: relative;
-    
+    z-index: 2000;
+
 }
 
 .flex-template .card-blog .infos-blog {
@@ -1064,6 +1066,37 @@ hr {
     color: rgb(73, 73, 73);
 }
 
+#page-solo .button_dark_gold {
+    
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 1.1rem;
+        display: inline-block;
+      
+}
+
+/* PAGE PEINTURE */
+
+#page-solo #infos-solo-paint {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    margin-top: 10px;
+    font-size: 1.1rem;
+    font-style: italic;
+
+}
+
+#page-solo #infos-solo-paint span {
+    font-style: normal;
+    color: rgb(73, 73, 73);
+}
+
+#page-solo #infos-solo-paint p {
+    padding: 2px;
+
+}
+
 /* PAGE DE CONTACT */
 
 #contact {
@@ -1151,7 +1184,7 @@ footer {
     padding-top: 35px;
     font-size: 1.5rem;
     position: relative;
-    box-shadow: 0px -2px 5px rgb(48, 48, 48);
+    box-shadow: 0px -2px 3px rgb(48, 48, 48);
     background: rgb(46,46,46);
     background: linear-gradient(0deg, rgba(46,46,46,1) 0%, rgba(69,69,69,1) 100%); 
 }
@@ -1321,6 +1354,12 @@ footer #copy_foot hr {
 
     }
 
+    /* PAGE SOLO (peinture) */
+
+    #page-solo #infos-solo-paint {
+    
+        font-size: 1.3rem;
+    }
 
 }
 
@@ -1458,9 +1497,20 @@ footer #copy_foot hr {
 
     #page-solo #contenu-solo #content-solo {
 
-        font-size: 1.4rem;
+        font-size: 1.6rem;
     }
     #page-solo #infos-solo {
+    
+        font-size: 1.4rem;
+    }
+
+    #page-solo .button_dark_gold {
+    
+        font-size: 1.5rem;
+    }
+
+    /* PAGE SOLO (peinture) */
+    #page-solo #infos-solo-paint {
     
         font-size: 1.4rem;
     }

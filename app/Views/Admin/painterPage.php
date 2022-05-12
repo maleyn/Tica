@@ -67,7 +67,6 @@
 <!-- Modal -->
 <form action="indexAdmin.php?action=painterDelete&id=<?= $dataPainter['idpainter'] ?>" method="post">
 <div class="modal-off modaljs">
-
         <div class="modal-content">
             <div class="modal-header">
                 <span class="button-close1">&times;</span>
@@ -81,7 +80,6 @@
                 <button type="button" class="button_submit button-close2">Annuler</button>
             </div>
         </div>
-   
 </div>
 </form>
 </main>

@@ -2,6 +2,7 @@
 
 namespace Projet\Models;
 use PDO;
+use Error;
 
 class PaintModel extends Manager
 {
@@ -90,7 +91,6 @@ class PaintModel extends Manager
                             AND paints.id = :idpaint ORDER BY paints.id DESC');
 
         $data->execute(array('idpaint' => $idpaint));
-        
         return $data->fetch();
 
     } 
@@ -176,8 +176,124 @@ class PaintModel extends Manager
     $data = $bdd->query('SELECT COUNT(id) as nbpaints FROM paints');
 
     return $data->fetch();
-    
+        
     }
-  
+    // Récupération du nombres de peintures total d'un artiste spécifié
+
+    public function getPaintsTotalPainter($idPainter)
+
+    {
+    $bdd = $this->dbConnection();
+    $data = $bdd->prepare('SELECT COUNT(paints.id) as nbpaints FROM paints, painters 
+                            WHERE painters.id = paints.PaintsPainters
+                            AND painters.id = :idpainter');
+
+    $data->execute(array('idpainter' => $idPainter));
+    return $data->fetch();
+        
+    }
+    
+    // Ajoute un style de peinture
+
+    public function insertStyleBdd($style)
+    {
+       
+        $bdd = $this->dbConnection();
+        $data = $bdd->prepare("INSERT INTO styles (`name`)
+        VALUES (:style)");
+        $data->execute(array(
+
+            'style' => $style
+            
+        ));
+    }
+
+    // Supprime un style de la BDD
+
+    public function deleteStyleBdd($styleId)
+    {
+        $bdd = $this->dbConnection();
+        $data = $bdd->prepare("DELETE FROM styles WHERE id = :styleid");
+        $data->execute(array(
+
+            'styleid' => $styleId
+            
+        ));
+    }
+    // Ajoute un type de peinture dans la BDD
+
+    public function insertTypeBdd($type)
+    {
+        $bdd = $this->dbConnection();
+        $data = $bdd->prepare("INSERT INTO types (`name`)
+        VALUES (:type)");
+        $data->execute(array(
+
+            'type' => $type
+            
+        ));
+
+    }
+    // Supprime un type de peinture dans la BDD
+
+    public function deleteTypeBdd($typeId)
+    {
+        $bdd = $this->dbConnection();
+        $data = $bdd->prepare("DELETE FROM types WHERE id = :typeid");
+        $data->execute(array(
+
+            'typeid' => $typeId
+            
+        ));
+    }
+
+     // Ajoute un type de peinture dans la BDD
+
+    public function insertFrameBdd($frame)
+    {
+         $bdd = $this->dbConnection();
+         $data = $bdd->prepare("INSERT INTO frames (`name`)
+         VALUES (:frame)");
+         $data->execute(array(
+ 
+             'frame' => $frame
+             
+         ));
+ 
+    }
+
+     // Supprime un type de peinture dans la BDD
+ 
+    public function deleteFrameBdd($frameId)
+    {
+            $bdd = $this->dbConnection();
+            $data = $bdd->prepare("DELETE FROM frames WHERE id = :frameid");
+            $data->execute(array(
+ 
+             'frameid' => $frameId
+         ));
+         
+    }
+
+    public function getGaleriePainter($idPainter)
+    {
+
+        $bdd = $this->dbConnection();
+        $data = $bdd->prepare('SELECT paints.id as paintid, paints.name as paintname, `img-url`, dimensionH,
+                            dimensionL, frames.name as framename, painters.name as paintername, description, 
+                            styles.name as stylename, types.name as typename 
+                            FROM paints, painters, frames, styles, types
+                            WHERE PaintsFrames = frames.id AND PaintsPainters = painters.id
+                            AND PaintsStyle = styles.id AND PaintsType = types.id 
+                            AND painters.id = :idpainter
+                            ORDER BY paints.id DESC');
+
+        
+        $data->bindValue('idpainter', $idPainter, PDO::PARAM_INT);
+
+        $data->execute();
+        return $data->fetchAll();
+
+    } 
     
 }

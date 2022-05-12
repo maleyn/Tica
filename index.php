@@ -92,6 +92,18 @@ try {
             $idArticle = $_GET['id'];
             $controllerBlog->articlePageFront($idArticle);
         
+        } elseif($_GET['action'] == 'peinture')
+
+        {
+            $idPaint = $_GET['id'];
+            $controllerPaint->peinturePageFront($idPaint);
+        
+        } elseif($_GET['action'] == 'peintureArtiste')
+
+        {
+            $idPainter = $_GET['id'];
+            $controllerPaint->galerieViewPainter($idPainter);
+        
         }
 
 } else {

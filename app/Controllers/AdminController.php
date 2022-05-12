@@ -5,7 +5,7 @@ namespace Projet\Controllers;
 class AdminController
 {
     /* ------------- envoi vers la page de connexion admin ------------------ */
-    function connexionPage()
+    public function connexionPage()
     {
 
         require 'app/Views/Admin/connexion.php';
@@ -13,7 +13,7 @@ class AdminController
     }
 
     /* ------------- envoi des roles vers la page de création utilisateur ------------------ */
-    function usercreation()
+    public function usercreation()
     {
 
         $role = new \Projet\Models\AdminModel();
@@ -23,7 +23,7 @@ class AdminController
 
     }
     /* ------------ Création des utilisateurs d'administration du site ------------*/
-    function createuser($userArray)
+    public function createuser($userArray)
     {
 
         $userManager = new \Projet\Models\AdminModel();
@@ -37,7 +37,7 @@ class AdminController
 
     }
     /* -------------- Connexion au tableau de bord du site ------------- */
-    function connexion($mail, $mdp)
+    public function connexion($mail, $mdp)
     {
         $data = new \Projet\Models\AdminModel();
         $connexMdp = $data->getPass($mail);
@@ -77,7 +77,7 @@ class AdminController
     
     /* -------------- Récupération des mails de contact ------------- */
 
-    function mailContact()
+    public function mailContact()
     {
         $contactMail = new \Projet\Models\ContactModel();
         $allContactMail = $contactMail->getContactMails();
@@ -87,7 +87,7 @@ class AdminController
 
     /* -------------- Affichage du tableau de bord  ------------- */
 
-    function dashboard()
+    public function dashboard()
     {
         $data = new \Projet\Models\AdminModel();
         $mailNbr = new \Projet\Models\ContactModel();
@@ -99,7 +99,7 @@ class AdminController
 
     /* -------------- Affichage de la page des mails  ------------- */
 
-    function mailSolo($idMail)
+    public function mailSolo($idMail)
     {
         $mail = new \Projet\Models\ContactModel();
         $mailCount = $mail->getMailsCount();
@@ -110,7 +110,7 @@ class AdminController
 
     /* -------------- Suppression d'un mail ----------------------- */
 
-    function mailDelete($idMail)
+    public function mailDelete($idMail)
     {
         $mail = new \Projet\Models\ContactModel();
         $mail->deleteMail($idMail);
@@ -121,7 +121,7 @@ class AdminController
     }
     /* ---------------Affichage et modification des comptes ----------------------- */
 
-    function accountView($idaccount, $firstname, $lastname, $confirmUpdate)
+    public function accountView($idaccount, $firstname, $lastname, $confirmUpdate)
     {
 
         $data = new \Projet\Models\AdminModel();
@@ -136,7 +136,7 @@ class AdminController
 
     /* ---------------Mise à jour du compte personnel ----------------------- */
 
-    function updateSelf($idaccount, $lastname, $firstname)
+    public function updateSelf($idaccount, $lastname, $firstname)
     {
         
         $data = new \Projet\Models\AdminModel();
@@ -149,7 +149,7 @@ class AdminController
 
     /* ---------------Suppression d'un compte utilisateur  ----------------------- */
 
-    function userDelete($idUser)
+    public function userDelete($idUser)
     {
         $data = new \Projet\Models\AdminModel();
         $mail = new \Projet\Models\ContactModel();
@@ -160,7 +160,7 @@ class AdminController
 
     /* ---------------vue d'un compte utilisateur  ----------------------- */
 
-    function userView($idUser, $confirmUpdate)
+    public function userView($idUser, $confirmUpdate)
     {
         $data = new \Projet\Models\AdminModel();
         $mail = new \Projet\Models\ContactModel();
@@ -173,7 +173,7 @@ class AdminController
 
      /* ---------------Mise à jour d'un compte utilisateur  ----------------------- */
 
-    function updateUser($idUser, $lastname, $firstname, $role)
+    public function updateUser($idUser, $lastname, $firstname, $role)
     {
 
         $data = new \Projet\Models\AdminModel();
@@ -189,7 +189,7 @@ class AdminController
 
     /* ---------------Affichage et modification de la page Accueil ----------------------- */
 
-    function homeView()
+    public function homeView()
     {
         $getFront = new \Projet\Models\FrontModel();
         $mail = new \Projet\Models\ContactModel();
@@ -201,7 +201,7 @@ class AdminController
 
     /* ---------------Mise à jour de la page Accueil ----------------------- */
 
-    function homeUpdate($dataFront)
+    public function homeUpdate($dataFront)
     {
         $front = new \Projet\Models\FrontModel();
         $mail = new \Projet\Models\ContactModel();
@@ -216,7 +216,7 @@ class AdminController
 
     /* ---------------Récupération du chemin de l'image de la page d'acceuil ----------------------- */
 
-    function homeViewUrl()
+    public function homeViewUrl()
     {
         $frontUrl = new \Projet\Models\FrontModel();
         $frontDataUrl = $frontUrl->getFrontUrl();
@@ -227,13 +227,95 @@ class AdminController
 
     // récupération d'un id en fonction de sa table et nom
 
-    function idView($table, $name)
+    public function idView($table, $name)
     {
         $data = new \Projet\Models\AdminModel();
         $idData = $data->getIdTable($table, $name);
 
         return $idData;
     }
-    
 
+    // Personnalisation de la page catégories
+
+    // Récupère toutes les infos
+
+    public function getInfosCategories($confirmUpdate)
+    {
+        $data = new \Projet\Models\PaintModel();
+        $mail = new \Projet\Models\ContactModel();
+        
+        $styles = $data->getStyles();
+        $types = $data->getTypes();
+        $frames = $data->getFrames();
+        $mailCount = $mail->getMailsCount();
+
+        require 'app/Views/Admin/categoriesView.php';
+        
+    }
+
+    // Suppression d'un style de peinture
+
+    public function styleDelete($styleId)
+    {
+        $data = new \Projet\Models\PaintModel();
+        $data->deleteStyleBdd($styleId);
+        $confirmUpdate = "Suppression d'un style effectué";
+        $this->getInfosCategories($confirmUpdate);
+        
+    }
+
+    // Suppression d'un type de peinture
+
+    public function styleAjout($style)
+    {
+        $data = new \Projet\Models\PaintModel();
+        $data->insertStyleBdd($style);
+        $confirmUpdate = "Ajout d'un type effectué";
+        $this->getInfosCategories($confirmUpdate);
+    
+    }
+
+    // Suppression d'un type de peinture
+
+    public function typeDelete($typeId)
+    {
+        $data = new \Projet\Models\PaintModel();
+        $data->deleteTypeBdd($typeId);
+        $confirmUpdate = "Suppression d'un type effectué";
+        $this->getInfosCategories($confirmUpdate);
+        
+    }
+    
+    // Ajout d'un type de peinture
+
+    public function typeAjout($type)
+    {
+        $data = new \Projet\Models\PaintModel();
+        $data->insertTypeBdd($type);
+        $confirmUpdate = "Ajout d'un type effectué";
+        $this->getInfosCategories($confirmUpdate);
+
+    }
+
+    // Ajout d'un câdre de peinture 
+
+    public function frameAjout($frame)
+    {
+        $data = new \Projet\Models\PaintModel();
+        $data->insertFrameBdd($frame);
+        $confirmUpdate = "Ajout d'un câdre effectué";
+        $this->getInfosCategories($confirmUpdate);
+    }
+
+    // Suppresion d'un câdre de peinture
+
+    public function frameDelete($frameId)
+    {
+        
+        $data = new \Projet\Models\PaintModel();
+        $data->deleteFrameBdd($frameId);
+        $confirmUpdate = "Suppression d'un câdre effectué";
+        $this->getInfosCategories($confirmUpdate);
+        
+    }
 }
