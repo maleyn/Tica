@@ -10,7 +10,7 @@ require_once 'app/Views/Front/header.php';
         <img src="<?= $article['image-url']?>" alt="<?= $article['title']?>">
         <div id="contenu-solo">
             <div id="content-solo">
-                <p><?= $article['content']?></p>
+                <?= $article['content']?>
             </div>
             <hr>
             <div id="infos-solo">

@@ -85,7 +85,6 @@ class PaintController
     {
         $galerie = new \Projet\Models\PaintModel();
         $pagination = new \Projet\Helpers\Pagination();
-        $sub = new \Projet\Helpers\Substring();
 
         $tempArticle = '';
         $parPage = 8;
@@ -95,15 +94,6 @@ class PaintController
         $pages = $pagination->nbPagesTotal($nbTotal[0], $parPage);
         $paints = $galerie->getGalerieFront($first, $parPage);
 
-         // limite les caractères à 250 pour le contenu
-
-         for ($i=0; $i < sizeof($paints); $i++) { 
-            if(strlen($paints[$i]['description']) > 250) {
-                $temp = $sub->paintersDescriptionSub($paints[$i]['description'], 250);
-                $paints[$i]['description'] = $temp;
-            }
-            
-        }
         // ajoute un article vide sur la dernière page si il y'a un nombre impairs d'article
         if($nbTotal['nbpaints']%2 == 1 && $currentPage == $pages){
             $tempArticle = 1;
@@ -111,6 +101,8 @@ class PaintController
 
         require 'app/Views/Front/galerie.php';
     }
+    // Affichage d'une peinture d'un artiste
+
     public function peinturePageFront($idPaint)
     {
         $paintData = new \Projet\Models\PaintModel();
@@ -118,22 +110,17 @@ class PaintController
 
         require 'app/Views/Front/peinture.php';
     }
-    // 
+    // Affichage de toutes les peinture d'un seul artiste
+    
     public function galerieViewPainter($idPainter)
     {
         $data = new \Projet\Models\PaintModel();
-        $sub = new \Projet\Helpers\Substring();
         $tempArticle = '';
         $painterSolo = 1;
 
         $nbTotal = $data->getPaintsTotalPainter($idPainter);
         $paints = $data->getGaleriePainter($idPainter);
-        for ($i=0; $i < sizeof($paints); $i++) { 
-            if(strlen($paints[$i]['description']) > 250) {
-                $temp = $sub->paintersDescriptionSub($paints[$i]['description'], 250);
-                $paints[$i]['description'] = $temp;
-            }
-        }
+        
         if($nbTotal['nbpaints']%2 == 1){
             $tempArticle = 1;
         };

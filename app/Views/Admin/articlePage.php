@@ -1,7 +1,8 @@
 <?php ob_start(); ?>
 
 <main class="container padding-top20 soloModPage">
-
+<script src="node_modules/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="app/Public/Admin/js/tinyMCE.js"></script>
     <h1>Ajout/Modification d'un article</h1>
     <p>
         <?php 
@@ -28,13 +29,11 @@
             <label class="text-blue" for="title">Titre de l'article : </label>
             <input class="form-text margin-top10 width50" type="text" name="title" value="<?php if(!empty($dataArticle)) { echo $dataArticle['title']; }; ?>" required>
         </div>
-
         <div class="grid padding-top20">
             <label class="text-blue" for="content">Contenu de l'article : </label>
-            <textarea id="tiny-mce"class="form-text width75 margin-top10" name="content" rows="10" required><?php if(!empty($dataArticle)) { echo $dataArticle['content']; };?></textarea>
+            <textarea id="mytextarea" name="content" rows="10" required><?php if(!empty($dataArticle)) { echo $dataArticle['content']; };?></textarea>
         </div>
         <div class="grid">
-
                 <label  class="text-blue" for="type">Choisissez l'auteur : </label>
                 <select class="form-text width50 margin-top10" name="auteur" required>
                     <option value="">Choisissez l'auteur</option>
@@ -52,11 +51,9 @@
             <?php }; ?>
         </div>
     </form>
-        
 <!-- Modal -->
 <form action="indexAdmin.php?action=articleDelete&id=<?= $dataArticle['idarticle'] ?>" method="post">
 <div class="modal-off modaljs">
-
         <div class="modal-content">
             <div class="modal-header">
                 <span class="button-close1">&times;</span>
@@ -70,7 +67,6 @@
                 <button type="button" class="button_submit button-close2">Annuler</button>
             </div>
         </div>
-   
 </div>
 </form>
 </main>

@@ -137,26 +137,16 @@ class PainterController
 
         $paintersData = new \Projet\Models\PainterModel();
         $pagination = new \Projet\Helpers\Pagination();
-        $sub = new \Projet\Helpers\Substring();
 
         $tempArticle = '';
         $parPage = 4;
 
         $nbTotal = $paintersData->getPaintersTotal();
-        $first = $pagination->paginate($parPage, $currentPage);    
+        $first = $pagination->paginate($parPage, $currentPage);
         $pages = $pagination->nbPagesTotal($nbTotal[0], $parPage);
         $painters = $paintersData->getPaintersInfosFront($first, $parPage);
         $styles = $paintersData->getAllStyles();
         $types = $paintersData->getAllTypes();
-
-        // limite les caractères à 230 pour le contenu
-
-        for ($i=0; $i < sizeof($painters); $i++) { 
-            if(strlen($painters[$i]['content']) > 230) {
-            $temp = $sub->paintersDescriptionSub($painters[$i][3], 230);
-            $painters[$i]['content'] = $temp;
-            }
-        }
     
         // ajoute une division vide sur la dernière page si il y'a un nombre impairs d'artistes
         if($nbTotal['nbpainters']%2 == 1 && $currentPage == $pages){

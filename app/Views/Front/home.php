@@ -25,7 +25,7 @@ require 'app/Views/Front/header.php';
         </div>
         <div id="present_home">
             <h1><?= $dataFront['intro-title'] ?></h1>
-            <p><?= $dataFront['intro-content'] ?></p>
+            <?= $dataFront['intro-content'] ?>
         </div>
         <hr>
     </section>
@@ -35,9 +35,9 @@ require 'app/Views/Front/header.php';
                 <figure>
                     <img src="<?= $dataFront['present-url'] ?>" alt="<?= $dataFront['present-alt'] ?>">
                 </figure>
-                <p id="first_para_tica"><?= $dataFront['present-text1'] ?></p>
-                <p><?= $dataFront['present-text2'] ?></p>
-                <p><?= $dataFront['present-text3'] ?></p>
+                <?= $dataFront['present-text1'] ?>
+                <?= $dataFront['present-text2'] ?>
+                <?= $dataFront['present-text3'] ?>
             </div>
         <div id="button_artistes">
             <a href="index.php?action=artistes" class="button_dark">artistes</a>

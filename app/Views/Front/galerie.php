@@ -28,7 +28,7 @@ require_once 'app/Views/Front/header.php';
            
             <div class="infos-paint-desc">
                 <hr>
-                <p><?= $paint['description'] ?></p>
+                <?= $paint['description'] ?>
             </div>
             </a>
         </article>

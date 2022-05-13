@@ -180,12 +180,12 @@ try {
             $sliderText1 = htmlspecialchars($_POST['sliderText1']);
             $sliderText2 = htmlspecialchars($_POST['sliderText2']);
             $introTitle = htmlspecialchars($_POST['introTitle']);
-            $introContent = htmlspecialchars($_POST['introContent']);
+            $introContent = $_POST['introContent'];
             $presentAlt = htmlspecialchars($_POST['presentAlt']);
             $presentTitle = htmlspecialchars($_POST['presentTitle']);
-            $presentText1 = htmlspecialchars($_POST['presentText1']);
-            $presentText2 = htmlspecialchars($_POST['presentText2']);
-            $presentText3 = htmlspecialchars($_POST['presentText3']);
+            $presentText1 = $_POST['presentText1'];
+            $presentText2 = $_POST['presentText2'];
+            $presentText3 = $_POST['presentText3'];
 
             if(!empty($_FILES['sliderUrl']['name']))
             {
@@ -261,7 +261,7 @@ try {
             $paintType = htmlspecialchars($_POST['type']);
             $paintStyle = htmlspecialchars($_POST['style']);
             $paintFrame = htmlspecialchars($_POST['frame']);
-            $paintDescription = htmlspecialchars($_POST['description']);
+            $paintDescription = $_POST['description'];
 
             // récupérer l'id des différentes tables
 
@@ -335,7 +335,7 @@ try {
             $error = 0;
             $painterId = htmlspecialchars($_POST['painterid']) ?? null;
             $painterName = htmlspecialchars($_POST['paintername']);
-            $painterContent = htmlspecialchars($_POST['content']);
+            $painterContent = $_POST['content'];
 
             $stylesId = [];
             $styles = $painterController->getStyle();
@@ -421,7 +421,7 @@ try {
             $painterId = htmlspecialchars($_POST['articleid']) ?? null;
             $articleId = htmlspecialchars($_POST['articleid']);
             $articleTitle = htmlspecialchars($_POST['title']);
-            $articleContent = htmlspecialchars($_POST['content']);
+            $articleContent = $_POST['content'];
             $articleAuteur = htmlspecialchars($_POST['auteur']);
             
             

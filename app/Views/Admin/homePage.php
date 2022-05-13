@@ -1,7 +1,9 @@
 <?php ob_start(); ?>
 
 <main id="homepage-admin" class="container padding-top20">
-    
+<script src="node_modules/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="app/Public/Admin/js/tinyMCE.js"></script>
+
     <h1>Personnalisation de la page Accueil</h1>
     <h2 class="center text-green"><?php if(isset($confirmUpdate)) { echo $confirmUpdate; } ?></h2>
     <form action="indexAdmin.php?action=homeUpdate" method="post" enctype="multipart/form-data">
@@ -33,7 +35,7 @@
         </div>
         <div class="padding-top20 grid">
             <label class="text-blue vertic-align-top" for="introContent">Texte Introduction : </label>
-            <textarea class="form-text width75 margin-top10" name="introContent" rows="6"><?= $frontView['intro-content']; ?></textarea>
+            <textarea id="mytextarealight" name="introContent"><?= $frontView['intro-content']; ?></textarea>
         </div>
         <h2 class="text-gray padding-top20">Troisième partie</h2>
         <div class="padding-top20 grid">
@@ -54,15 +56,15 @@
         </div>
         <div class="padding-top20 grid">
             <label class="text-blue vertic-align-top" for="presentText1">premier paragraphe de texte : </label>
-            <textarea class="form-text width75 margin-top10" name="presentText1" rows="4"><?= $frontView['present-text1']; ?></textarea>
+            <textarea id="mytextarealight" name="presentText1"><?= $frontView['present-text1']; ?></textarea>
         </div>
         <div class="padding-top20 grid">
             <label class="text-blue vertic-align-top" for="presentText2">Deuxième paragraphe de texte : </label>
-            <textarea class="form-text width75 margin-top10" name="presentText2" rows="4"><?= $frontView['present-text2']; ?></textarea>
+            <textarea id="mytextarealight" name="presentText2"><?= $frontView['present-text2']; ?></textarea>
         </div>
         <div class="padding-top20 grid">
             <label class="text-blue vertic-align-top" for="presentText3">Troisième paragraphe de texte : </label>
-            <textarea class="form-text width75 margin-top10" name="presentText3" rows="4"><?= $frontView['present-text3']; ?></textarea>
+            <textarea id="mytextarealight" name="presentText3"><?= $frontView['present-text3']; ?></textarea>
         </div>
         <div class="padding-top30 margin-bottom40">
             <input class="button_submit" type="submit" value="Mettre à jour" class="button_submit">

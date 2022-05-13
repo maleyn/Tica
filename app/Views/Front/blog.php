@@ -22,7 +22,7 @@ require_once 'app/Views/Front/header.php';
                         <hr>
                     </div>
                     <div class="blog-content">
-                        <p><?= $article['content'] ?></p>
+                        <?= $article['content'] ?>
                     </div>
                     <div class="infos-auteur">
                         <hr>

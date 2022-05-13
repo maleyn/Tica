@@ -20,7 +20,7 @@ require_once 'app/Views/Front/header.php';
             </div>
             <hr>
             <div id="content-solo">
-                <p><?= $paint['description']?></p>
+                <?= $paint['description']?>
             </div>
         </div>
     </article>

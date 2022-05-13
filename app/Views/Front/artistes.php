@@ -32,7 +32,7 @@ require_once 'app/Views/Front/header.php';
             </div>
             <div class="infos-painter-desc">
                 <hr>
-                <p><?= $painter['content'] ?></p>
+                <?= $painter['content'] ?>
             </div>
             </a>
         </article>

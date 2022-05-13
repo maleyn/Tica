@@ -85,7 +85,6 @@ class BlogController
     {
         $data = new \Projet\Models\BlogModel();
         $pagination = new \Projet\Helpers\Pagination();
-        $sub = new \Projet\Helpers\Substring();
         $date = new \Projet\Helpers\DateFormat();
 
         $tempArticle = '';
@@ -96,18 +95,7 @@ class BlogController
         $pages = $pagination->nbPagesTotal($nbTotal[0], $parPage);
         $articles = $data->getArticlesFront($first, $parPage);
 
-        // limite les caractères à 270 pour le contenu
-
-        for ($i=0; $i < sizeof($articles); $i++) { 
-            if(strlen($articles[$i]['content']) > 270) {
-                $temp = $sub->paintersDescriptionSub($articles[$i]['content'], 270);
-                $articles[$i]['content'] = $temp;
-            }
-
-            // changement de format de la date
-            $articles[$i]['create-date'] = $date->FormatStandard($articles[$i]['create-date']);  
-
-        }
+        
         // ajoute un article vide sur la dernière page si il y'a un nombre impairs d'article
         if($nbTotal['nbarticles']%2 == 1 && $currentPage == $pages){
             $tempArticle = 1;

@@ -776,6 +776,8 @@ hr {
 .flex-template .card-template .infos-paint-desc {
 
     display: none;
+    overflow: hidden;
+    height: 141px;
 
 }
 .flex-template .card-template a {
@@ -857,7 +859,7 @@ hr {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 190px;
+    height: 185px;
 }
 .flex-template .card-blog .infos-blog p {
 
@@ -915,6 +917,7 @@ hr {
 
 .flex-template .card-blog .blog-content {
 
+    overflow: hidden;
     padding-top: 2px;
 }
 
@@ -994,11 +997,22 @@ hr {
     margin-top: 5px;
 
 }
+
 .flex-painter .infos-painter span {
+
     font-weight: 600;
+
+}
+
+.card-painter .infos-painter-desc {
+
+    overflow: hidden;
+    height: 148px;
+
 }
 
 .flex-painter .infos-painter-desc p {
+
     text-align: left;
     padding: 5px;
     
@@ -1019,8 +1033,11 @@ hr {
     text-align: center;
 
 }
+
 #page-solo h1 {
+
     margin-bottom: 15px;
+
 }
 
 #page-solo #article-solo img {
@@ -1171,6 +1188,35 @@ hr {
 
 ::placeholder {
     color: #858585;
+}
+/* PAGE 404 */
+
+#page404 h1 {
+
+   margin-top: 50px;
+   font-size: 3.5rem;
+
+}
+
+#page404 h2 {
+
+    font-size: 1.6rem;
+
+}
+
+#page404 a {
+
+    margin-top: 20px;
+    display: inline-block;
+  
+ }
+
+#page404 img {
+
+     margin-top: 10px;
+     max-width: 850px;
+     width: 100%;
+
 }
 
 /* FOOTER */
@@ -1673,7 +1719,7 @@ footer #copy_foot hr {
         left: 15px;
     }
 
-    #tica_present #tica_text #first_para_tica {
+    #tica_present #tica_text p:first-of-type {
 
         position: relative;
         left: -40px;
@@ -1942,6 +1988,7 @@ footer #copy_foot hr {
         width: 350px;
         position: absolute;
         top: 60px;
+        height: 230px;
         
     }
 
@@ -2030,6 +2077,9 @@ footer #copy_foot hr {
     
     
     }
+    .flex-painter .card-painter .infos-painter-desc {
+        height: 160px;;
+    }
 
     .flex-painter .card-painter .infos-painter-desc hr {
 
@@ -2057,6 +2107,8 @@ footer #copy_foot hr {
     .flex-template .card-blog .infos-blog {
     
         width: 350px;
+        height: 190px;
+
     }
     
     
@@ -2080,6 +2132,7 @@ footer #copy_foot hr {
         
     }
     
+    
     .flex-template .card-blog h2 {
     
         font-size: 1.1rem;
@@ -2091,6 +2144,7 @@ footer #copy_foot hr {
     
         font-size: 0.9rem;
     }
+ 
 
     .flex-template .card-blog .infos-blog p {
 

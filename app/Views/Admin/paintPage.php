@@ -2,6 +2,8 @@
 
 
 <main class="container padding-top20 soloModPage">
+<script src="node_modules/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="app/Public/Admin/js/tinyMCE.js"></script>
 
     <h1>Ajout/Modification d'un tableau</h1>
     <p>
@@ -83,7 +85,7 @@
         </div>
         <div class="grid padding-top20">
             <label class="text-blue" for="description">Description du tableau : </label>
-            <textarea class="form-text width75 margin-top10" name="description" rows="5" required><?php if(!empty($paint)) { echo $paint['description']; };?></textarea>
+            <textarea id="mytextarealight" name="description" required><?php if(!empty($paint)) { echo $paint['description']; };?></textarea>
         </div>
         <div class="padding-top20 margin-bottom40">
             <input class="button_submit" type="submit" value="<?php if(!empty($paint)) { echo 'Mettre à jour'; } else { echo 'Ajouter'; }; ?>">
