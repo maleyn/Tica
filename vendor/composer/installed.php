@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '6a89d8764416dccbc617f8c78dcc630858275afe',
+        'reference' => '139ceec99e3329ca5daa0c32663c77d2884f9b50',
         'name' => 'kercode/tica',
         'dev' => true,
     ),
@@ -25,7 +25,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '6a89d8764416dccbc617f8c78dcc630858275afe',
+            'reference' => '139ceec99e3329ca5daa0c32663c77d2884f9b50',
             'dev_requirement' => false,
         ),
         'phpoption/phpoption' => array(

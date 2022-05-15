@@ -95,13 +95,21 @@ Dans un terminal et dans le dossier de votre choix
 
 3. Installer Dotenv
 
-   ```sh
+   ```shell
    composer require vlucas/phpdotenv
    ```
 
-4. Mettre à jour composer
+4. Installer TinyMCE
 
-   ```sh
+   ```shell
+   npm install tinymce@^6
+   ```
+
+   
+
+5. Mettre à jour composer
+
+   ```shell
    composer update
    ```
 
@@ -137,7 +145,7 @@ Pour accéder à la partie administration : tica/indexAdmin.php
         - [x] Peintures
     
     - [x] Blog
-        
+      
     - [x] Artistes
     
         
