@@ -86,7 +86,7 @@ class BlogController
         $data = new \Projet\Models\BlogModel();
         $pagination = new \Projet\Helpers\Pagination();
         $date = new \Projet\Helpers\DateFormat();
-
+        $sub = new \Projet\Helpers\Substring();
         $tempArticle = '';
         $parPage = 8;
 
@@ -95,6 +95,12 @@ class BlogController
         $pages = $pagination->nbPagesTotal($nbTotal[0], $parPage);
         $articles = $data->getArticlesFront($first, $parPage);
 
+        for ($i=0; $i < sizeof($articles); $i++) { 
+
+            // changement de format de la date
+            $articles[$i]['create-date'] = $date->FormatStandard($articles[$i]['create-date']);  
+
+        }
         
         // ajoute un article vide sur la dernière page si il y'a un nombre impairs d'article
         if($nbTotal['nbarticles']%2 == 1 && $currentPage == $pages){

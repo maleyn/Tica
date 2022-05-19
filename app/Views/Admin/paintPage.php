@@ -90,13 +90,13 @@
         <div class="padding-top20 margin-bottom40">
             <input class="button_submit" type="submit" value="<?php if(!empty($paint)) { echo 'Mettre à jour'; } else { echo 'Ajouter'; }; ?>">
             <?php if(!empty($paint)) {; ?>
-            <button type="button" class="button_submit btn-modal">Supprimer</button>
+            <a data-id="<?=$paint['paintid'] ?>" href="indexAdmin.php?action=paintDelete&id=<?=$paint['paintid'] ?>" class="btn-modal btnsup button_submit">Supprimer</a>
             <?php }; ?>
         </div>
     </form>
         
 <!-- Modal -->
-<form action="indexAdmin.php?action=paintDelete&id=<?= $paint['paintid'] ?>" method="post">
+<form action="indexAdmin.php?action=paintDelete&id=<?php if(isset($paint['paintid'])) { echo $paint['paintid']; }; ?>" method="post">
 <div class="modal-off modaljs">
 
         <div class="modal-content">

@@ -3,6 +3,9 @@ require_once 'app/Views/Front/header.php';
 ?>
 
 <main id="page-solo" class="container pagepadding-top">
+    <div class="breadcrumb">
+        <a href="index.php?action=galerie">Retour Galerie</a>
+    </div>
     <article id="article-solo">
         <h1><?= $paint['paintname']?></h1>
         <img src="<?= $paint['img-url']?>" alt="<?= $paint['paintname']?>">

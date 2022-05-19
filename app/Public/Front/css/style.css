@@ -1,7 +1,34 @@
-/* font-family: 'Raleway', sans-serif; */
-/* font-family: 'Spartan', sans-serif; */
-/* font-family: 'Srisakdi', cursive; */
-/* font-family: 'Stylish', sans-serif; */
+/* SOMMAIRE 
+
+    33   - Config Générale
+    177  - Pagination
+    239  - Header
+    335  - Menu Burger
+    403  - Menu Burger (sans js)
+    425  - Page Accueil
+    427     - Première partie
+    445     - Cadre dorée
+    508     - Présentation
+    533     - Deuxième partie
+    587     - Section Blog et instagram
+    759  - Page Galerie & Blog
+    899  - Page Blog
+    981  - Page Artistes
+    1089 - Page Solo (artiste, article, peinture)
+    1155 - Page Peinture
+    1177 - Page Contact
+    1252 - Page 404
+    1282 - Footer
+    1426 - media screen 400
+    1472 - media screen 580
+    1554 - media screen 600
+    1626 - media screen 720
+    1956 - media screen 900
+    2221 - media screen 1022
+    2244 - media screen 1200 
+
+*/
+
     
 /* Config générale */
 
@@ -147,7 +174,26 @@ hr {
     display: block;
 
 }
-/* PAGINATION */
+
+.breadcrumb {
+
+    text-align: left;
+    font-family: 'Spartan', sans-serif;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    
+}
+.breadcrumb a {
+    color: #2E2E2E;
+}
+
+.breadcrumb a:hover {
+    color: #7b7b7b;
+}
+
+/* Pagination */
 
 .pagination {
 
@@ -209,7 +255,7 @@ hr {
     text-decoration: underline;
 }
 
-/* HEADER */
+/* Header */
 
 #headband {
 
@@ -310,14 +356,16 @@ hr {
 #headband .burger_btn {
 
     color: #c8c8c8;
-    padding-right: 18px;
-    padding-top: 15px;
     animation-name: burger_open;
     animation-duration: 1s;
+    margin-right: 15px;
+    margin-top: 17px;
+  
 }
 
 #headband #bouton_burger_close {
-    padding-top: 10px;
+    
+    margin-top: 12px;
     animation-name: burger_close;
     animation-duration: 1s;
     
@@ -371,10 +419,32 @@ hr {
     text-align: center;
     border-bottom: 1px dashed white;
 }
+/* MENU BURGER (sans js) */
+
+#burger-nojs {
+
+    font-size: 2.2em;
+    text-align: center;
+}
+#burger-nojs li {
+
+    padding: 10px;
+}
+#burger-nojs li a {
+
+    display: block;
+    color: black;
+    background-color: rgb(212, 212, 212);
+    padding: 10px;
+    width: 250px;
+    margin: auto;
+
+}
     
-/* HOME PAGE */
+/* Page Accueil */
 
 /* première partie */
+
 #background_home #background_galerie {
 
     position: relative;
@@ -391,7 +461,7 @@ hr {
 
 }
 
-/* cadre dorée */
+/* Cadre dorée */
 
 #background_home #frame_header img {
 
@@ -479,7 +549,7 @@ hr {
 }
 
 
-/* deuxième partie */
+/* Deuxième partie */
 
 #tica_present {
 
@@ -533,7 +603,7 @@ hr {
 
 }
 
-/* Section Blog et instagram de home */
+/* Section Blog et instagram de la page accueil */
 
 #insta_blog {
 
@@ -631,7 +701,10 @@ hr {
 
 #insta_blog_flex #block_instagram #instagram_cards a:hover {
 
-    scale: 1.05;
+    -webkit-transform: scale(105%);
+    -moz-transform: scale(105%);
+    -o-transform: scale(105%);
+    transform: scale(105%);
     transition: 0.3s;
      
 }
@@ -674,7 +747,10 @@ hr {
 }
 #insta_blog #block_blog .card_blog:hover {
 
-    scale: 1.05;
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.05);
     transition: 0.3s;
 
 }
@@ -906,7 +982,8 @@ hr {
 .flex-template .card-blog .infos-auteur {
     
     width: 100%;
-    
+    text-transform: capitalize;
+
 }
 
 .flex-template .card-blog .infos-auteur p{
@@ -971,7 +1048,10 @@ hr {
     transition: all 0.5s;
 }
 .flex-painter .card-painter a:hover {
-    scale: 105%;
+    -webkit-transform: scale(105%);
+    -moz-transform: scale(105%);
+    -o-transform: scale(105%);
+    transform: scale(105%);
     transition: all 0.5s;
 }
 
@@ -1076,6 +1156,7 @@ hr {
     margin-top: 10px;
     font-size: 1.2rem;
     font-style: italic;
+    text-transform: capitalize;
 }
 
 #page-solo #infos-solo span {
@@ -1114,7 +1195,7 @@ hr {
 
 }
 
-/* PAGE DE CONTACT */
+/* PAGE CONTACT */
 
 #contact {
 
@@ -1218,6 +1299,51 @@ hr {
      width: 100%;
 
 }
+/* PAGE REJOINDRE ARTISTES */
+
+#page-rejoindre {
+    padding-left: 10px;
+}
+
+#page-rejoindre p {
+    margin-top: 10px;
+}
+#page-rejoindre a {
+
+    display: block;
+    text-align: center;
+    margin: 30px auto;
+    width: 30%;
+    min-width: 150px;
+
+}
+
+/* MENTIONS LEGALES / COPYRIGHT */
+
+.Mentions-copyright {
+    
+    padding-left: 10px;
+
+}
+
+.Mentions-copyright a {
+    color: rgb(3, 41, 130);
+}
+.Mentions-copyright h2 {
+ 
+    margin: 15px 5px 10px;
+    font-size: 1.7rem;
+}
+.Mentions-copyright p {
+    
+    margin-top: 10px;
+}
+
+.Mentions-copyright span {
+    color: rgb(0, 0, 0);
+    font-weight: 800;
+}
+
 
 /* FOOTER */
 
@@ -1351,10 +1477,10 @@ footer #copy_foot {
 
 }
 
-footer #copy_foot a {
+footer #copy_foot p {
     
     padding-top: 5px;
-    display: inline-block;
+    
 }
 footer #copy_foot hr {
 
@@ -1800,7 +1926,10 @@ footer #copy_foot hr {
 
     .flex-template .card-blog a:hover {
 
-        scale: 105%;
+        -webkit-transform: scale(105%);
+        -moz-transform: scale(105%);
+        -o-transform: scale(105%);
+        transform: scale(105%);
         transition: all 0.5s;
         
     }

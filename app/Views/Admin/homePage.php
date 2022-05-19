@@ -3,7 +3,6 @@
 <main id="homepage-admin" class="container padding-top20">
 <script src="node_modules/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="app/Public/Admin/js/tinyMCE.js"></script>
-
     <h1>Personnalisation de la page Accueil</h1>
     <h2 class="center text-green"><?php if(isset($confirmUpdate)) { echo $confirmUpdate; } ?></h2>
     <form action="indexAdmin.php?action=homeUpdate" method="post" enctype="multipart/form-data">
@@ -55,24 +54,14 @@
             <input class="form-text width75 margin-top10" type="text" name="presentAlt" value="<?= $frontView['present-alt']; ?>">
         </div>
         <div class="padding-top20 grid">
-            <label class="text-blue vertic-align-top" for="presentText1">premier paragraphe de texte : </label>
-            <textarea id="mytextarealight" name="presentText1"><?= $frontView['present-text1']; ?></textarea>
-        </div>
-        <div class="padding-top20 grid">
-            <label class="text-blue vertic-align-top" for="presentText2">Deuxième paragraphe de texte : </label>
-            <textarea id="mytextarealight" name="presentText2"><?= $frontView['present-text2']; ?></textarea>
-        </div>
-        <div class="padding-top20 grid">
-            <label class="text-blue vertic-align-top" for="presentText3">Troisième paragraphe de texte : </label>
-            <textarea id="mytextarealight" name="presentText3"><?= $frontView['present-text3']; ?></textarea>
+            <label class="text-blue vertic-align-top" for="presentText1">paragraphe de présentation : </label>
+            <textarea id="mytextarealight" name="presentText1"><?= $frontView['present-text']; ?></textarea>
         </div>
         <div class="padding-top30 margin-bottom40">
             <input class="button_submit" type="submit" value="Mettre à jour" class="button_submit">
         </div>
     </form>
-
 </main>
-
 <?php $mainContent = ob_get_clean(); 
 require 'templates/template.php';
 ?>

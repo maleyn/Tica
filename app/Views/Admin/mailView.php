@@ -4,7 +4,7 @@
 <h1 class="center text-uppercase">Mails reçu</h1>
 <table>
     <thead>
-        <tr class="text-blue"> 
+        <tr class="text-blue">
             <th>#</th>
             <th>Nom</th>
             <th>Prénom</th>
@@ -17,7 +17,6 @@
     <tbody>
     <?php $count = 1; ?> 
     <?php foreach($allContactMail as $contactMail) { ?>
-    
         <tr>
             <td><?= $count ?></td>
             <td><?= htmlspecialchars($contactMail['nom']); ?></td>
@@ -26,7 +25,7 @@
             <td class="mobile-hidden"><?= htmlspecialchars($contactMail['objet']); ?></td>
             <td class="mobile-hidden"><?= htmlspecialchars($contactMail['date']); ?></td>
             <td class="icones-flex">
-                <a href="indexAdmin.php?action=mailDelete&id=<?= $contactMail['id'] ?>" title="Suppression du mail" class="btn-modal">
+                <a data-id="<?=$contactMail['id'] ?>" href="indexAdmin.php?action=mailDelete&id=<?= $contactMail['id'] ?>" title="Suppression du mail" class="btn-modal">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                     </svg>
@@ -48,7 +47,6 @@
 
 <form class="modalform" action="indexAdmin.php?action=mailDelete&id=" method="post">
     <div class="modal-off modaljs">
-
         <div class="modal-content">
             <div class="modal-header">
                 <span class="button-close1">&times;</span>

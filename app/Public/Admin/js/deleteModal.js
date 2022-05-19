@@ -1,19 +1,17 @@
 let nbtotal = document.getElementsByClassName('nbtotal')[0].getAttribute('data-nbtotal');
 let modal = document.getElementsByClassName("modaljs")[0];
-let btnmodal = document.getElementsByClassName("btn-modal");
+let btnsup = document.querySelectorAll('.btn-modal');
 let closemodal1 = document.getElementsByClassName('button-close1')[0];
 let closemodal2 = document.getElementsByClassName('button-close2')[0];
 let action = '';
 
-    let btnsup = document.querySelectorAll('.btn-modal');
-
-    btnsup.forEach(del => {
-        del.addEventListener("click", function(e) {
-            e.preventDefault();
-            action = document.querySelector('.modalform').action;
-            btnmodal.onclick = modon(del.dataset.id);
+btnsup.forEach(del => {
+    del.addEventListener("click", function(e) {
+        e.preventDefault();
+        action = document.querySelector('.modalform').action;
+        btnsup.onclick = modon(del.dataset.id);
     })
-    }); 
+});
 
 [closemodal1,closemodal2].forEach((element)=>{
     element.addEventListener('click', function(e) {

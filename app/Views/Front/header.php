@@ -11,7 +11,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Srisakdi&family=Stylish&family=Spartan&family=Raleway&display=swap"
         rel="stylesheet">
-    <title>Tica</title>
+    <title>Tica Peinture</title>
 </head>
 <body>
     <header>
@@ -40,7 +40,7 @@
                             <li class="<?= !empty($_GET['action']) ? (($_GET['action']) == 'galerie' ? 'active_menu' : "") : ""; ?>"><a href="index.php?action=galerie">Galerie</a></li>
                         </ul>
                     </nav>
-                    <div>
+                    <a href="index.php?action=burger">
                         <svg id="bouton_burger_open" class="burger_btn" viewBox="0 0 100 100" width="45" height="45"
                             xmlns="http://www.w3.org/2000/svg">
                             <rect fill="currentColor" width="100" height="15" rx="8"></rect>
@@ -55,7 +55,7 @@
                             <path stroke-width="100" d="m14.86618,589.76842l767.26768,-578.53689"
                                 transform="rotate(0.357475, 398.5, 300.5)" stroke="currentColor" fill="currentColor" />
                         </svg>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>

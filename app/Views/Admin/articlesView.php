@@ -1,7 +1,5 @@
 <?php ob_start(); ?>
-
 <main class="container padding-top20 cardpage">
-
     <h1>Ajout/Personnalisation des articles du blog</h1>
     <h2 class="text-green padding-top10 margin-bottom40 center"><?php if(isset($confirmUpdate)){ echo $confirmUpdate; }; ?></h2>
     <h2 class="text-green center"><?php if(isset($confirmDelete)){ echo $confirmDelete; }; ?></h2>
@@ -18,7 +16,6 @@
             </article>
         <?php $count++ ; } ?>
         </section>
-
         <!-- PAGINATION -->
         <nav>
             <ul class="pagination padding-top30 margin-bottom40">
@@ -43,10 +40,8 @@
                 </li>
             </ul>
         </nav>
-
 <!-- Modal -->
 <span class="nbtotal" hidden data-nbtotal="<?= $count ?>"></span>
-
 <form class="modalform" action="indexAdmin.php?action=articleDelete&id=" method="post">
     <div class="modal-off modaljs">
         <div class="modal-content">
@@ -64,7 +59,6 @@
         </div>
     </div>
 </form>
-
 </main>
 <script src="app/Public/Admin/js/deleteModal.js"></script>
 <?php $mainContent = ob_get_clean();

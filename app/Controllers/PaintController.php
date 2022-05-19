@@ -85,6 +85,7 @@ class PaintController
     {
         $galerie = new \Projet\Models\PaintModel();
         $pagination = new \Projet\Helpers\Pagination();
+        $sub = new \Projet\Helpers\Substring();
 
         $tempArticle = '';
         $parPage = 8;
@@ -93,7 +94,13 @@ class PaintController
         $first = $pagination->paginate($parPage, $currentPage);    
         $pages = $pagination->nbPagesTotal($nbTotal[0], $parPage);
         $paints = $galerie->getGalerieFront($first, $parPage);
-
+        
+        for ($i=0; $i < sizeof($paints); $i++) { 
+            if(strlen($paints[$i]['paintname']) > 38) {
+                $temp = $sub->limitText($paints[$i]['paintname'], 37);
+                $paints[$i]['paintname'] = $temp;
+            }
+        }
         // ajoute un article vide sur la dernière page si il y'a un nombre impairs d'article
         if($nbTotal['nbpaints']%2 == 1 && $currentPage == $pages){
             $tempArticle = 1;

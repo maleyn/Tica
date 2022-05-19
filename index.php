@@ -56,6 +56,7 @@ try {
                 $currentPage = 1;
             }
             
+            
             $paints = $controllerPaint->galerieViewFront($currentPage);
 
         } elseif($_GET['action'] == 'artistes')
@@ -104,7 +105,26 @@ try {
             $idPainter = $_GET['id'];
             $controllerPaint->galerieViewPainter($idPainter);
         
+        } elseif($_GET['action'] == 'burger')
+
+        {
+            
+            include_once "app/Views/Front/burger.php";
+        
+        } elseif($_GET['action'] == 'mentions')
+
+        {
+            
+            $controllerFront->mentionsLegales();
+        
+        } elseif($_GET['action'] == 'rejoindre')
+
+        {
+            
+            $controllerFront->rejoindre();
+        
         }
+
 
 } else {
 

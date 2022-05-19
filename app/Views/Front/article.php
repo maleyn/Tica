@@ -5,6 +5,9 @@ require_once 'app/Views/Front/header.php';
 ?>
 
 <main id="page-solo" class="container pagepadding-top">
+    <div class="breadcrumb">
+        <a href="index.php?action=blog">Retour Blog</a>
+    </div>
     <article id="article-solo">
         <h1><?= $article['title']?></h1>
         <img src="<?= $article['image-url']?>" alt="<?= $article['title']?>">

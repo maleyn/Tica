@@ -4,7 +4,7 @@ namespace Projet\Controllers;
 
 class FrontController {
 
-    /* ------------------- Affichage et modification de la page Front ---------------------- */
+    /* ------------------- Affichage et modification de la page d'accueil ---------------------- */
     
     public function home() {
 
@@ -23,6 +23,8 @@ class FrontController {
 
     }
 
+/* ------------------- Envoie du formulaire de contact ---------------------- */
+
     public function contactSubmit($contactMess) {
 
         $mailSubmit = new \Projet\Models\ContactModel();
@@ -35,6 +37,18 @@ class FrontController {
             echo "L'e-mail n'est pas valide";
         }
 
-}
+}/* ------------------- Affichage de la page des mentions légales ---------------------- */
+
+    public function mentionsLegales() {
+
+        require 'app/Views/Front/mentionslegales.php';
+
+    }
+/* ------------------- Affichage de la page rejoindre ---------------------- */
+
+    public function rejoindre() {
+
+        require 'app/Views/Front/rejoindre.php';
+    }
 
 }

@@ -61,7 +61,7 @@
         <div class="padding-top20 margin-bottom40">
             <input class="button_submit" type="submit" value="<?php if(!empty($dataPainter)) { echo 'Mettre à jour'; } else { echo 'Ajouter'; }; ?>">
             <?php if(!empty($dataPainter)) {; ?>
-            <button type="button" class="button_submit btn-modal">Supprimer</button>
+                <a data-id="<?=$dataPainter['idpainter'] ?>" href="indexAdmin.php?action=painterDelete&id=<?=$dataPainter['idpainter'] ?>" class="btn-modal btnsup button_submit">Supprimer</a>
             <?php }; ?>
         </div>
     </form>

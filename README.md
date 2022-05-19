@@ -12,9 +12,9 @@
   <summary>Sommaire</summary>
   <ol>
     <li>
-      <a href="#apropos">A propos du projet</a>
+      <a href="#A propos du projet">A propos du projet</a>
       <ul>
-        <li><a href="#langages utilises">langages utilisés</a></li>
+        <li><a href="#Langages utilisés">langages utilisés</a></li>
       </ul>
     </li>
     <li>
@@ -40,13 +40,16 @@
 
 Site de partage d'oeuvres de différents artistes avec une page galerie regroupant les peintures , page de blog avec des tutos et des infos sur la peinture, page artistes avec les infos des différents artistes partenaire.
 
-Evolution possible en un site de vente de tableaux.
+Evolution :
+
+- Ajout de compte utilisateur permettant de laisser des commentaires
+- Ajout d'une partie vente de tableaux.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
-### Langages utilisés
+#### Langages utilisés
 
 * PHP
 * HTML
@@ -55,7 +58,9 @@ Evolution possible en un site de vente de tableaux.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+#### Utilitaires / Plugins utilisés
 
+[TinyMCE](https://www.tiny.cloud/) pour la partie administration du site
 
 ## Commencer
 
@@ -63,9 +68,11 @@ Renommez le fichier **.env.example** situé à la raçine du projet en **.env**
 
 Modifiez ce fichier en changeant les différentes variables.
 
+Importer la base de donnée "dump.sql" à la raçine avec *phpmyadmin* par exemple
 
 
-### Prerequis
+
+#### Prerequis
 
 * npm
   
@@ -79,7 +86,7 @@ Modifiez ce fichier en changeant les différentes variables.
 
   
 
-### Installation
+#### Installation
 
 Dans un terminal et dans le dossier de votre choix
 
@@ -120,9 +127,7 @@ Dans un terminal et dans le dossier de votre choix
 
 ## Utilisation
 
-Le dump de la base de donnée se situe à la raçine du projet
-
-Pour accéder à la partie administration : tica/indexAdmin.php
+Pour accéder à la partie administration tapez dans l'url : localhost/tica/indexAdmin.php
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -137,8 +142,10 @@ Pour accéder à la partie administration : tica/indexAdmin.php
     - [x] Page Galerie
     - [x] Page Blog
     - [x] Page Artistes
+    - [x] Catégories
+    - [x] Gestion de compte
     
-- [ ] Partie Front
+- [x] Partie Front
     - [x] Accueil
     
     - [x] Galerie
@@ -146,11 +153,19 @@ Pour accéder à la partie administration : tica/indexAdmin.php
     
     - [x] Blog
       
+      - [x] Article
+      
     - [x] Artistes
     
+        - [x] Artiste
+    
+    - [x] Contact
+    
+    - [x] Rejoindre nos artistes
+    
+    - [x] Mentions Légales
+    
         
-
-
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>

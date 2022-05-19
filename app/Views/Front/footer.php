@@ -9,23 +9,23 @@
         <div class="vertical_dot_line"></div>
             <nav id="nav_link">
                 <ul>
-                    <li><a href="">Mentions légales</a></li>
+                    <li><a href="index.php?action=mentions">Mentions légales</a></li>
                     <li><a href="index.php?action=contact">Contact</a></li>
-                    <li><a href="">Rejoindre nos artistes</a></li>
+                    <li><a href="index.php?action=rejoindre">Rejoindre nos artistes</a></li>
                 </ul>
             </nav>
         <hr>
         <div class="vertical_dot_line"></div>
             <nav id="footer_menu">
                 <a href="index.php">Accueil</a>
-                <a href="#">Blog</a>
-                <a href="#">Artistes</a>
+                <a href="index.php?action=blog">Blog</a>
+                <a href="index.php?action=artistes">Artistes</a>
                 <a href="index.php?action=galerie">Galerie</a>
             </nav>
     </div>
     <div id="copy_foot">
         <hr>
-        <a href="#">Copyright Maleyran - all right reserved</a>
+        <p>Copyright Maleyran - all right reserved</p>
     </div>
 </footer>
 </body>

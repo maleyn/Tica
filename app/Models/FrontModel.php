@@ -11,7 +11,7 @@ class FrontModel extends Manager
 
         $bdd = $this->dbConnection();
         $data = $bdd->prepare('SELECT `slider-alt`, `slider-url`, `slider-text1`, `slider-text2`, `intro-title`, `intro-content`, 
-                                        `present-alt`, `present-url`, `present-title`, `present-text1`, `present-text2`, `present-text3`
+                                        `present-alt`, `present-url`, `present-title`, `present-text`
                                             FROM `homepage`');
         $data->execute(array());
 
@@ -28,7 +28,7 @@ class FrontModel extends Manager
         $data = $bdd->prepare('UPDATE `homepage` SET `slider-alt` = :sliderAlt, `slider-url` = :sliderUrl, `slider-text1` = :sliderText1, 
                                         `slider-text2` = :sliderText2, `intro-title` = :introTitle, `intro-content` = :introContent, 
                                         `present-alt` = :presentAlt, `present-url` = :presentUrl, `present-title` = :presentTitle, 
-                                        `present-text1` = :presentText1, `present-text2` = :presentText2, `present-text3` = :presentText3
+                                        `present-text` = :presentText
                                         WHERE id=1');
 
         $data->execute(array(
@@ -41,9 +41,8 @@ class FrontModel extends Manager
             'presentAlt' => $dataFront['presentAlt'],
             'presentUrl' => $dataFront['presentUrl'],
             'presentTitle' => $dataFront['presentTitle'],
-            'presentText1' => $dataFront['presentText1'],
-            'presentText2' => $dataFront['presentText2'],
-            'presentText3' => $dataFront['presentText3']
+            'presentText' => $dataFront['presentText'],
+            
         ));
 
         return $data->fetch();

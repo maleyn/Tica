@@ -110,6 +110,13 @@ try {
             $adminController->dashboard();
         
 
+        } elseif ($_GET[$action] == 'burger')
+
+        {
+
+            include_once "app/Views/Admin/burger.php";
+            
+
         } elseif ($_GET[$action] == 'mailSolo')
 
         {
@@ -183,9 +190,7 @@ try {
             $introContent = $_POST['introContent'];
             $presentAlt = htmlspecialchars($_POST['presentAlt']);
             $presentTitle = htmlspecialchars($_POST['presentTitle']);
-            $presentText1 = $_POST['presentText1'];
-            $presentText2 = $_POST['presentText2'];
-            $presentText3 = $_POST['presentText3'];
+            $presentText1 = $_POST['presentText'];
 
             if(!empty($_FILES['sliderUrl']['name']))
             {
@@ -215,9 +220,7 @@ try {
                 'presentAlt' => $presentAlt,
                 'presentUrl' => $presentUrl,
                 'presentTitle' => $presentTitle,
-                'presentText1' => $presentText1,
-                'presentText2' => $presentText2,
-                'presentText3' => $presentText3
+                'presentText' => $presentText1
                 
             ];
             
@@ -336,6 +339,8 @@ try {
             $painterId = htmlspecialchars($_POST['painterid']) ?? null;
             $painterName = htmlspecialchars($_POST['paintername']);
             $painterContent = $_POST['content'];
+            
+
 
             $stylesId = [];
             $styles = $painterController->getStyle();

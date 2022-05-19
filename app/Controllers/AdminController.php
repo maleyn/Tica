@@ -114,6 +114,7 @@ class AdminController
     {
         $mail = new \Projet\Models\ContactModel();
         $mail->deleteMail($idMail);
+
         $mailCount = $mail->getMailsCount();
         $allContactMail = $mail->getContactMails();
 

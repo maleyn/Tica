@@ -7,7 +7,11 @@ require 'app/Views/Front/header.php';
 <section id="contact-form" class="pagepadding-top container-med">
     <form id="contact" action="index.php?action=submit-contact" method="post">
         <h1>Nous Contacter</h1>
-        
+        <?php
+        if(isset($confirmMess)){
+        echo "<h2 class='text-center'>$confirmMess</h2>";
+        }
+        ?>
         <div>
             <label for="lastname">Votre Nom</label>
             <input type="text" name="lastname" placeholder="Dupont" required autofocus>
@@ -32,12 +36,7 @@ require 'app/Views/Front/header.php';
             <input id="bouton_form_contact" type="submit" value="Envoyer" class="button_dark_gold">
         </div>
     </form>
-    <?php
-    if(isset($confirmMess)){
-        
-        echo "<h2 class='text-center'>$confirmMess</h2>";
-    }
-        ?>
+    
 </section>
 
 <?php

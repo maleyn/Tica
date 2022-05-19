@@ -63,11 +63,8 @@
         </div>
     </div>
 </form>
-
 </main>
 <script src="app/Public/Admin/js/deleteModal.js"></script>
-
-
 <?php $mainContent = ob_get_clean(); 
 require 'templates/template.php';
 ?>

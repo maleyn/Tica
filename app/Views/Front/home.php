@@ -1,9 +1,6 @@
 <?php
-
 require 'app/Views/Front/header.php';
-
 ?>
-
     <section id="background_home" class="container">
         <div id="background_galerie">
             <img id="background_img" src="<?= $dataFront['slider-url'] ?>" alt="<?= $dataFront['slider-alt'] ?>">
@@ -35,9 +32,7 @@ require 'app/Views/Front/header.php';
                 <figure>
                     <img src="<?= $dataFront['present-url'] ?>" alt="<?= $dataFront['present-alt'] ?>">
                 </figure>
-                <?= $dataFront['present-text1'] ?>
-                <?= $dataFront['present-text2'] ?>
-                <?= $dataFront['present-text3'] ?>
+                <?= $dataFront['present-text'] ?>
             </div>
         <div id="button_artistes">
             <a href="index.php?action=artistes" class="button_dark">artistes</a>
@@ -82,10 +77,7 @@ require 'app/Views/Front/header.php';
             </div>
         </div>
     </section>
-
 <?php
-
 require 'app/Views/Front/footer.php'
-
 ?>
 

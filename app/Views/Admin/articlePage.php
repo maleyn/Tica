@@ -3,6 +3,7 @@
 <main class="container padding-top20 soloModPage">
 <script src="node_modules/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="app/Public/Admin/js/tinyMCE.js"></script>
+
     <h1>Ajout/Modification d'un article</h1>
     <p>
         <?php 
@@ -12,7 +13,7 @@
             }
         ?>
     </p>
-    <form class="grid" action='indexAdmin.php?action=articleUpdate' method="post" enctype="multipart/form-data">
+    <form class="grid" action='indexAdmin.php?action=articleUpdate' method="POST" enctype="multipart/form-data">
         <div>
             <label for="articleid" hidden>Id de l'article : </label>
             <input type="text" name="articleid" value="<?php if(!empty($dataArticle)) { echo $dataArticle['idarticle']; }; ?>" hidden>
@@ -31,14 +32,13 @@
         </div>
         <div class="grid padding-top20">
             <label class="text-blue" for="content">Contenu de l'article : </label>
-            <textarea id="mytextarea" name="content" rows="10" required><?php if(!empty($dataArticle)) { echo $dataArticle['content']; };?></textarea>
+            <textarea id="mytextarea" name="content" required><?php if(!empty($dataArticle)) { echo $dataArticle['content']; };?></textarea>
         </div>
         <div class="grid">
                 <label  class="text-blue" for="type">Choisissez l'auteur : </label>
                 <select class="form-text width50 margin-top10" name="auteur" required>
                     <option value="">Choisissez l'auteur</option>
                         <?php foreach($users as $user) { ?>
-                            
                             <option value="<?= $user['id'] ?>"><?=$user['firstname'] . ' ' . $user['lastname']?></option>
                         <?php } ?>
                         <option value="<?php if(!empty($dataArticle)) { echo $dataArticle['ArticlesUsers']; } ?>" <?php if(!empty($dataArticle)) { echo 'selected'; };?> hidden><?php if(!empty($dataArticle)) { echo $dataArticle['firstname'] . ' ' . $dataArticle['lastname']; };?></option>
@@ -47,12 +47,12 @@
         <div class="padding-top20 margin-bottom40">
             <input class="button_submit" type="submit" value="<?php if(!empty($dataArticle)) { echo 'Mettre à jour'; } else { echo 'Ajouter'; }; ?>">
             <?php if(!empty($dataArticle)) {; ?>
-            <button type="button" class="button_submit btn-modal">Supprimer</button>
+                <a data-id="<?=$dataArticle['idarticle'] ?>" href="indexAdmin.php?action=articleDelete&id=<?=$dataArticle['idarticle'] ?>" class="btn-modal btnsup button_submit">Supprimer</button>
             <?php }; ?>
         </div>
     </form>
 <!-- Modal -->
-<form action="indexAdmin.php?action=articleDelete&id=<?= $dataArticle['idarticle'] ?>" method="post">
+<form action="indexAdmin.php?action=articleDelete&id=<?php if(isset($dataArticle['idarticle'])) echo $dataArticle['idarticle'] ?>" method="post">
 <div class="modal-off modaljs">
         <div class="modal-content">
             <div class="modal-header">
