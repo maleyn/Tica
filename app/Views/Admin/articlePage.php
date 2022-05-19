@@ -47,7 +47,7 @@
         <div class="padding-top20 margin-bottom40">
             <input class="button_submit" type="submit" value="<?php if(!empty($dataArticle)) { echo 'Mettre à jour'; } else { echo 'Ajouter'; }; ?>">
             <?php if(!empty($dataArticle)) {; ?>
-                <a data-id="<?=$dataArticle['idarticle'] ?>" href="indexAdmin.php?action=articleDelete&id=<?=$dataArticle['idarticle'] ?>" class="btn-modal btnsup button_submit">Supprimer</button>
+                <a data-id="<?=$dataArticle['idarticle'] ?>" href="indexAdmin.php?action=articleDelete&id=<?=$dataArticle['idarticle'] ?>" class="btn-modal btnsup button_submit">Supprimer</a>
             <?php }; ?>
         </div>
     </form>

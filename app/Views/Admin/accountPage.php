@@ -31,7 +31,9 @@
 
             <div class="padding-top20">
                 <input type="submit" value="Mettre à jour" class="button_submit">
+                <?php if($_SESSION['id'] !== $user['id']) { ?>
                 <button type="button" class="button_submit btn-modal">Supprimer l'utilisateur</button>
+                <?php } ?>
             </div>
         </form>
 

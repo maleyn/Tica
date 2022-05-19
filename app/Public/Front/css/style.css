@@ -1213,7 +1213,7 @@ hr {
 
 #contact div {
 
-    width: 100%;
+    width: 90%;
     padding: 15px;
     
 }
@@ -1228,7 +1228,8 @@ hr {
 
 #contact input {
 
-    width: 290px;
+    width: 50%;
+    min-width: 270px;
     padding: 5px;
     font-size: 1.3rem;
     outline: none;
@@ -1237,8 +1238,8 @@ hr {
 
 #contact textarea {
 
-    width: 290px;
-    padding: 5px;
+    width: 51%;
+    min-width: 270px;
     font-size: 1.2rem;
     height: 170px;
     font-family: "Raleway";
