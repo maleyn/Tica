@@ -573,7 +573,7 @@ a:hover {
 .cardpage .flex-card .flex-item p {
 
     min-width: 250px;
-    width: 100%;
+    width: 280px;
 
 }
 .cardpage .flex-card .flex-item:hover {
@@ -581,10 +581,11 @@ a:hover {
     scale: 1.1;
 
 }
-.cardpage .flex-card article img {
+.cardpage .flex-card article a img {
 
+    
     height: 250px;
-    width: 100%;
+    width: 280px;
     object-fit: cover;
 
 }
@@ -596,7 +597,7 @@ a:hover {
     position: relative;
     bottom: 13px;
     margin: auto;
-    min-width: 250px;
+    min-width: 260px;
     
 }
 

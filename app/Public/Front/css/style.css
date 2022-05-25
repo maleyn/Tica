@@ -469,7 +469,7 @@ hr {
     width: 26%;
 }
 
-#background_home #frame_header #frame_corner_lt {
+#background_home #frame_header #frameTop_corner_lt {
 
     position: absolute;
     top: 50px;
@@ -477,21 +477,21 @@ hr {
 
 }
 
-#background_home #frame_header #frame_corner_lb {
+#background_home #frame_header #frameTop_corner_lb {
 
     position: absolute;
     bottom: 90px;
     left: 30px;
 }
 
-#background_home #frame_header #frame_corner_rt {
+#background_home #frame_header #frameTop_corner_rt {
 
     position: absolute;
     top: 50px;
     right: 30px;
 }
 
-#background_home #frame_header #frame_corner_rb {
+#background_home #frame_header #frameTop_corner_rb {
 
     position: absolute;
     bottom: 90px;

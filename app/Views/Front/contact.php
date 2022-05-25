@@ -14,23 +14,23 @@ require 'app/Views/Front/header.php';
         ?>
         <div>
             <label for="lastname">Votre Nom</label>
-            <input type="text" name="lastname" placeholder="Dupont" required autofocus>
+            <input id="lastname" type="text" name="lastname" placeholder="Dupont" required>
         </div>
         <div>
             <label for="firstname">Votre Prénom</label>
-            <input type="text" name="firstname" placeholder="jean" required autofocus>
+            <input id="firstname" type="text" name="firstname" placeholder="jean" required>
         </div>
         <div>
             <label for="mail">Votre E-mail</label>
-            <input type="email" name="mail" placeholder="jean.dupont@gmail.com" required autofocus>
+            <input id="mail" type="email" name="mail" placeholder="jean.dupont@gmail.com" required>
         </div>
         <div>
             <label for="objet">Objet</label>
-            <input type="text" name="objet" placeholder="Vous rejoindre" required autofocus>
+            <input id="objet" type="text" name="objet" placeholder="Vous rejoindre" required>
         </div>
         <div>
             <label for="message" id="label-textarea">Votre Message</label>
-            <textarea name="message" placeholder="Votre message ici !" required autofocus></textarea >
+            <textarea id="message" name="message" placeholder="Votre message ici !" required></textarea >
         </div>
         <div>
             <input id="bouton_form_contact" type="submit" value="Envoyer" class="button_dark_gold">

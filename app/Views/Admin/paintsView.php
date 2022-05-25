@@ -10,11 +10,9 @@
         <?php $count = 1 ?>
         <?php foreach($paints as $paint) { ?>
             <article class="flex-item">
-                <a class="paintlink" href="indexAdmin.php?action=paintView&id=<?= $paint['id'] ?>">
                     <p><?=$count . ' - ' . $paint['name'] ?></p>
-                    <img src="<?= $paint['img-url'] ?>" alt="<?= $paint['name'] ?>">
-                    <a data-id="<?=$paint['id'] ?>" href="indexAdmin.php?action=paintDelete&id=<?= $paint['id'] ?>" class="btn-modal btnsup button_submit"> Supprimer</button>
-                </a>
+                    <a class="paintlink" href="indexAdmin.php?action=paintView&id=<?= $paint['id'] ?>"><img src="<?= $paint['img-url'] ?>" alt="<?= $paint['name'] ?>"></a>
+                    <a data-id="<?=$paint['id'] ?>" href="indexAdmin.php?action=paintDelete&id=<?= $paint['id'] ?>" class="btn-modal btnsup button_submit"> Supprimer</a>
             </article>
         <?php $count++ ; } ?>
         </section>

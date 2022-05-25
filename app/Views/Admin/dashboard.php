@@ -8,13 +8,13 @@
             <p>Nombre Total de tableaux</p>
             <h2><?= $stats['nbpaints'] ?></h2>
             </a>
-        </article>  
+        </article>
         <article class="dash-card">
             <a href="indexAdmin.php?action=paintersView">
             <p>Nombre Total d'artistes</p>
             <h2><?= $stats['nbpainters'] ?></h2>
             </a>
-        </article>  
+        </article>
         <article class="dash-card">
             <a href="indexAdmin.php?action=blogPage">
             <p>Nombre Total d'articles</p>

@@ -10,11 +10,9 @@
         <?php $count = 1 ?>
         <?php foreach($dataPainter as $painter) { ?>
             <article class="flex-item">
-                <a class="paintlink" href="indexAdmin.php?action=painterSoloView&id=<?= $painter['id'] ?>">
                     <p><?=$count . ' - ' . $painter['name'] ?></p>
-                    <img src="<?= $painter['photo-url'] ?>" alt="<?= $painter['name'] ?>">
+                    <a class="paintlink" href="indexAdmin.php?action=painterSoloView&id=<?= $painter['id'] ?>"><img src="<?= $painter['photo-url'] ?>" alt="<?= $painter['name'] ?>"></a>
                     <a data-id="<?=$painter['id'] ?>" href="indexAdmin.php?action=painterDelete&id=<?=$painter['id'] ?>" class="btn-modal btnsup button_submit">Supprimer</a>
-                </a>
             </article>
         <?php $count++ ; } ?>
         </section>

@@ -8,11 +8,9 @@
         <?php $count = 1 ?>
         <?php foreach($dataArticle as $article) { ?>
             <article class="flex-item">
-                <a class="paintlink" href="indexAdmin.php?action=articleView&id=<?= $article['id'] ?>">
                     <p><?=$count . ' - ' . $article['title'] ?></p>
-                    <img src="<?= $article['image-url'] ?>" alt="<?= $article['title'] ?>">
+                    <a class="paintlink" href="indexAdmin.php?action=articleView&id=<?= $article['id'] ?>"><img src="<?= $article['image-url'] ?>" alt="<?= $article['title'] ?>"></a>
                     <a data-id="<?=$article['id'] ?>" href="indexAdmin.php?action=articleDelete&id=<?=$article['id'] ?>" class="btn-modal btnsup button_submit">Supprimer</a>
-                    </a>
             </article>
         <?php $count++ ; } ?>
         </section>

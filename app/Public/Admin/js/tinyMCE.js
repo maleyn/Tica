@@ -1,5 +1,5 @@
 tinymce.init({
-    selector: '#mytextarealight',
+    selector: '.mytextarealight',
     toolbar: 'undo redo | bold italic',
     menubar: '',
     height: 250,

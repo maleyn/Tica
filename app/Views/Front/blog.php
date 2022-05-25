@@ -56,14 +56,14 @@ require_once 'app/Views/Front/header.php';
                 <?php for($page = 1; $page <= $pages; $page++): ?>
                 <li class="page-item <?= ($currentPage == $page) ? "active_page" : "" ?> numberPage">
                     <a href="index.php?action=blog&page=<?= $page ?>" class="page-link"><?= $page ?></a>
-                </li>
-                <?php if($page != $pages) { ?>
+                    <?php if($page != $pages) { ?>
                     <span>-</span>
-                <?php } ?>
+                    <?php } ?>
+                </li>
                 <?php endfor ?>
                 <?php if($pages > 1) { ?>
-                <span class="lastpage">/</span>
                 <li class="page-item numberPage">
+                <span class="lastpage">/</span>
                 <a href="index.php?action=blog&page=<?= $pages ?>" class="page-link"><?=$pages?></a>
                 <?php } ?>
                 <li class="page-item">

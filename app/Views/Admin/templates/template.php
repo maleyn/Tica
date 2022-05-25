@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="app/Public/Admin/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet"> 
 </head>
-<body> 
+<body>
     <header id="header-fixed">
         <nav id="menu-principal">
             <ul id="flex-nav-dash">
@@ -40,11 +40,11 @@
         </nav>
         <nav id="menu_burger" class="hidden_burger hidden-show">
             <ul id="flex-nav-burger">
-                <li> 
+                <li>
                     <a href="indexAdmin.php?action=dashboard">Tableau de bord</a>
-                </li> 
+                </li>
                 <li class="subnav">
-                    <a class="subnav-btn" href="#" role="button">< Pages du site</a>
+                    <a class="subnav-btn" href="#" role="button">Pages du site</a>
                     <div class="subnav-content">
                         <a href="indexAdmin.php?action=homeView">Accueil</a>
                         <a href="indexAdmin.php?action=blogPage">Blog</a>
@@ -86,9 +86,6 @@
 
     <!-- Content -->
     <?php if(isset($mainContent)){ echo $mainContent;}; ?>
-
-</body>
-
-
 <script src="app/Public/Admin/js/burgerMenu.js"></script>
+</body>
 </html>

@@ -5,10 +5,10 @@ require 'app/Views/Front/header.php';
         <div id="background_galerie">
             <img id="background_img" src="<?= $dataFront['slider-url'] ?>" alt="<?= $dataFront['slider-alt'] ?>">
             <div id="frame_header">
-                <img id="frame_corner_lt" src="app/Public/Front/img/Frame_corner_LT.svg" alt="cadre coin haut gauche">
-                <img id="frame_corner_lb" src="app/Public/Front/img/Frame_corner_LB.svg" alt="cadre coin bas gauche">
-                <img id="frame_corner_rb" src="app/Public/Front/img/Frame_corner_RB.svg" alt="cadre coin bas droite">
-                <img id="frame_corner_rt" src="app/Public/Front/img/Frame_corner_RT.svg" alt="cadre coin haut droite">
+                <img id="frameTop_corner_lt" src="app/Public/Front/img/Frame_corner_LT.svg" alt="cadre coin haut gauche">
+                <img id="frameTop_corner_lb" src="app/Public/Front/img/Frame_corner_LB.svg" alt="cadre coin bas gauche">
+                <img id="frameTop_corner_rb" src="app/Public/Front/img/Frame_corner_RB.svg" alt="cadre coin bas droite">
+                <img id="frameTop_corner_rt" src="app/Public/Front/img/Frame_corner_RT.svg" alt="cadre coin haut droite">
             </div>
             <div id="intro_home">
                 <div>
@@ -44,7 +44,7 @@ require 'app/Views/Front/header.php';
             <div id="block_instagram" class="block_bottom">
                 <div id="instagram_cards">
                     <?php foreach ($dataInsta as $data) { ?>
-                    <a href="<?= $data->media_url ?>"><img src="<?= $data->media_url ?>" alt=""></a>
+                    <a href="<?= $data->media_url ?>"><img src="<?= $data->media_url ?>" alt="<?= $data->caption ?>"></a>
                     
                     <?php } ?>
                 </div>
