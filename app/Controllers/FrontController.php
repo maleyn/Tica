@@ -18,7 +18,8 @@ class FrontController {
             $blogArticles[$i]['create-date'] = date("d-m-Y", strtotime($blogArticles[$i]['create-date']));  
 
         }
-        
+
+        require_once 'app/Helpers/InstagramApi.php';
         require 'app/Views/Front/home.php';
 
     }

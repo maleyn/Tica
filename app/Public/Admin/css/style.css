@@ -360,7 +360,8 @@ a:hover {
 
 .form_back form div{
 
-    width: 580px;
+    max-width: 480px;
+    width: 80%;
     margin:0 auto;
 
 }
@@ -370,28 +371,17 @@ a:hover {
     display: inline-block;
     width: 170px;
     text-align: left;
-    padding-bottom: 20px;
+    padding: 15px 0 5px;
 
 }
 
 .form_back form .input_text {
 
-    width: 350px;
+    min-width: 200px;
+    width: 60%;
     padding: 5px;
     font-size: 1.1rem;
     
-}
-
-.form_back form a {
-
-    color: black;
-    
-}
-
-.form_back form a:hover {
-
-    color: rgb(31, 57, 177);
-
 }
 
 .form_back form input:focus {
@@ -401,24 +391,11 @@ a:hover {
 
 }
 
-.form_back form div:last-child a {
-
-    margin-top: 10px;
-    display: inline-block;
-    width: 250px;
-    background-color: rgb(54, 54, 54);
-    color: rgb(202, 202, 202);
-    padding: 10px 0;
-    font-size: 1.2rem;
-
+.form_back .button_submit {
+    width: 70%;
 }
 
-.form_back form div:last-child a:hover {
 
-    background-color: rgb(202, 202, 202);
-    color: rgb(54, 54, 54);
-
-}
 
 /* Dashboard */
 
@@ -560,7 +537,7 @@ a:hover {
     
 }
 
-/* Page Galerie, Page Artistes */
+/* Page Galerie, Page Artistes, Page Blog */
 
 .cardpage h1 {
 
@@ -585,9 +562,18 @@ a:hover {
     padding: 2%;
 
 }
+
+.cardpage .flex-card .flex-item a:first-child {
+
+    width: 270px;
+    display: block;
+
+}
+
 .cardpage .flex-card .flex-item p {
 
-    width: 350px;
+    min-width: 250px;
+    width: 100%;
 
 }
 .cardpage .flex-card .flex-item:hover {
@@ -598,7 +584,7 @@ a:hover {
 .cardpage .flex-card article img {
 
     height: 250px;
-    width: 350px;
+    width: 100%;
     object-fit: cover;
 
 }
@@ -610,8 +596,8 @@ a:hover {
     position: relative;
     bottom: 13px;
     margin: auto;
-    width: 330px;
-
+    min-width: 250px;
+    
 }
 
 .cardpage .flex-item:hover .btn-modal {
@@ -642,7 +628,34 @@ a:hover {
 
     max-width: 400px;
     object-fit: contain;
+    width: 100%;
 
+
+} 
+
+.soloModPage .flex_style {
+
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+
+}
+
+.soloModPage .flex_style div{
+
+    width: 220px;
+    
+}
+.soloModPage #button_div a {
+
+    margin-top: 10px;
+    margin-top: 5px;
+    display: inline-block;
+    width: 130px;
+    text-align: center;
+       
 }
 
 /* Page Categories */
@@ -898,6 +911,8 @@ a:hover {
         
     }
 
+    /* Page Galerie, Page Artistes, Page Blog */
+
     .cardpage .btn-modal {
 
         display: block;
@@ -908,9 +923,15 @@ a:hover {
     
     .cardpage h1 {
 
-        font-size: 1.8rem;
+        font-size: 1.5rem;
 
       }
+
+    .cardpage .flex-card .flex-item:hover {
+
+        scale: 1;
+    
+    }
 
       #homepage-admin h1 {
         font-size: 1.8rem;
@@ -919,4 +940,33 @@ a:hover {
       .soloModPage h1 {
         font-size: 1.8rem;
       }
+
+
+      
+} 
+
+@media screen and (max-width: 400px) {
+
+    #menu_burger {
+
+        width: 170px;
+        font-size: 0.7rem;
+   
+
+    }
+
+    .subnav-content {
+
+        width: 120px;
+     
+    }
+
+    .subnav-content a {
+        
+        left: -120px;
+        background: rgb(231, 231, 231);
+        top: -39px
+
+    }
+
 }

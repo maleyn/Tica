@@ -5,7 +5,7 @@ require_once 'app/Views/Front/header.php';
 <main class="container pagepadding-top">
     <h1 class="uppercase text-center">galerie<?php if (isset($painterSolo)) { echo ' de ' . $paints[0]['paintername']; } ?></h1>
     <section class="flex-template">
-        <div class="frame_template_top">
+        <div id="frame_galerie_top" class="frame_template_top">
             <img class="frame_template_corner_lt" src="app/Public/Front/img/Frame_corner_LT.svg" alt="cadre coin haut gauche">
             <img class="frame_template_corner_rt" src="app/Public/Front/img/Frame_corner_RT.svg" alt="cadre coin haut droite">
         </div>

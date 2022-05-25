@@ -129,6 +129,7 @@ try {
 } else {
 
     $controllerFront->home();
+    
 }
  
 } catch (Exception $e) {

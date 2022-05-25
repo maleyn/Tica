@@ -11,7 +11,7 @@
                 <a class="paintlink" href="indexAdmin.php?action=articleView&id=<?= $article['id'] ?>">
                     <p><?=$count . ' - ' . $article['title'] ?></p>
                     <img src="<?= $article['image-url'] ?>" alt="<?= $article['title'] ?>">
-                    <a data-id="<?=$article['id'] ?>" href="indexAdmin.php?action=articleDelete&id=<?=$article['id'] ?>" class="btn-modal btnsup button_submit">Supprimer</button>
+                    <a data-id="<?=$article['id'] ?>" href="indexAdmin.php?action=articleDelete&id=<?=$article['id'] ?>" class="btn-modal btnsup button_submit">Supprimer</a>
                     </a>
             </article>
         <?php $count++ ; } ?>

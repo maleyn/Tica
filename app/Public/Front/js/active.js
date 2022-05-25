@@ -1,7 +1,6 @@
 // classe active pour la pagination
 
 let btnPage = document.querySelectorAll('.page-item');
-console.log(btnPage[0]);
 
 for (let i = 0; i < btnPage.length; i++) {
     btnPage[i].addEventListener('click', function() {

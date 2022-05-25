@@ -43,14 +43,12 @@ require 'app/Views/Front/header.php';
         <div id="insta_blog_flex">
             <div id="block_instagram" class="block_bottom">
                 <div id="instagram_cards">
-                    <a href="#"><img src="app/Public/Front/img/grand_tableau_colore.jpg" alt="Grand tableau colorée"></a>
-                    <a href="#"><img src="app/Public/Front/img/palette_de_peintre.jpg" alt="palette de peintre"></a>
-                    <a href="#"><img src="app/Public/Front/img/peinture_acryliques.jpg" alt="Tube de peinture acryliques"></a>
-                    <a href="#"><img src="app/Public/Front/img/tableau_africa.jpg" alt="tableau africa"></a>
-                    <a href="#"><img src="app/Public/Front/img/tableau_arbre_rose.jpg" alt="tableau d'arbre rose"></a>
-                    <a href="#"><img src="app/Public/Front/img/tableau_couple_embrassage.jpg" alt="tableau de couple embrassage"></a>
+                    <?php foreach ($dataInsta as $data) { ?>
+                    <a href="<?= $data->media_url ?>"><img src="<?= $data->media_url ?>" alt=""></a>
+                    
+                    <?php } ?>
                 </div>
-                <a href="#" class="button_dark_gold button_blog_insta">instagram</a>
+                <a href="https://www.instagram.com/kti_peinture/?hl=fr" target="_blank" class="button_dark_gold button_blog_insta">instagram</a>
                 <div class="frames_bottom">
                     <img id="frame_corner_lt" src="app/Public/Front/img/Framebottom_corner_LT.svg" alt="cadre coin haut gauche">
                     <img id="frame_corner_lb" src="app/Public/Front/img/Framebottom_corner_LB.svg" alt="cadre coin bas gauche">
@@ -73,7 +71,6 @@ require 'app/Views/Front/header.php';
                     <img id="frame_corner_rb" src="app/Public/Front/img/Framebottom_corner_RB.svg" alt="cadre coin bas droite">
                     <img id="frame_corner_rt" src="app/Public/Front/img/Framebottom_corner_RT.svg" alt="cadre coin haut droite">
                 </div>
-                
             </div>
         </div>
     </section>

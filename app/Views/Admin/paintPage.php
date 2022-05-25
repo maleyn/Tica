@@ -87,7 +87,7 @@
             <label class="text-blue" for="description">Description du tableau : </label>
             <textarea id="mytextarealight" name="description" required><?php if(!empty($paint)) { echo $paint['description']; };?></textarea>
         </div>
-        <div class="padding-top20 margin-bottom40">
+        <div id="button_div" class="padding-top20 margin-bottom40">
             <input class="button_submit" type="submit" value="<?php if(!empty($paint)) { echo 'Mettre à jour'; } else { echo 'Ajouter'; }; ?>">
             <?php if(!empty($paint)) {; ?>
             <a data-id="<?=$paint['paintid'] ?>" href="indexAdmin.php?action=paintDelete&id=<?=$paint['paintid'] ?>" class="btn-modal btnsup button_submit">Supprimer</a>

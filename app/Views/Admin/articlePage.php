@@ -44,7 +44,7 @@
                         <option value="<?php if(!empty($dataArticle)) { echo $dataArticle['ArticlesUsers']; } ?>" <?php if(!empty($dataArticle)) { echo 'selected'; };?> hidden><?php if(!empty($dataArticle)) { echo $dataArticle['firstname'] . ' ' . $dataArticle['lastname']; };?></option>
                 </select>
             </div>
-        <div class="padding-top20 margin-bottom40">
+        <div id="button_div" class="padding-top20 margin-bottom40">
             <input class="button_submit" type="submit" value="<?php if(!empty($dataArticle)) { echo 'Mettre à jour'; } else { echo 'Ajouter'; }; ?>">
             <?php if(!empty($dataArticle)) {; ?>
                 <a data-id="<?=$dataArticle['idarticle'] ?>" href="indexAdmin.php?action=articleDelete&id=<?=$dataArticle['idarticle'] ?>" class="btn-modal btnsup button_submit">Supprimer</a>

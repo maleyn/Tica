@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le : dim. 15 mai 2022 à 12:56
--- Version du serveur : 10.4.24-MariaDB
--- Version de PHP : 7.4.29
+-- Hôte : 127.0.0.1:3306
+-- Généré le : mer. 25 mai 2022 à 12:22
+-- Version du serveur : 10.3.31-MariaDB
+-- Version de PHP : 7.3.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `tica`
+-- Base de données : `dyrshyxc_tica`
 --
 
 -- --------------------------------------------------------
@@ -42,14 +42,16 @@ CREATE TABLE `articles` (
 --
 
 INSERT INTO `articles` (`id`, `title`, `content`, `image-url`, `create-date`, `mod-date`, `ArticlesUsers`) VALUES
-(5, 'La peinture, c&#039;est super !', '<p>Lorem ipsum dolor sit amet.</p>\r\n<p>&nbsp;</p>\r\n<p>A distinctio maiores in <em>facere dolorem</em> ut consequatur aliquid cum soluta delectus sit placeat rerum qui labore necessitatibus. Et amet dolores est magni neque et accusantium commodi in velit consequatur non blanditiis voluptate sed dolor ipsam. 33 cupiditate voluptatum id laudantium nobis ex possimus quibusdam.</p>\r\n<p>&nbsp;</p>\r\n<p>Sit voluptatem consequuntur ut aperiam ipsa aut voluptas veniam sit culpa dignissimos est porro dolorem. A eveniet expedita ut obcaecati incidunt ea ipsa quidem sed autem enim sit voluptatem deleniti aut omnis libero ad distinctio cumque? Qui enim voluptatem quo internos galisum aut laboriosam consequatur in voluptatem unde ut quia dolorem quo neque omnis eum incidunt iusto. <strong>Est molestiae</strong> dolores ab aliquid iste qui perspiciatis reprehenderit non facilis adipisci.</p>\r\n<p>&nbsp;</p>\r\n<p>Eum dolores aliquid At internos ipsam ut <em>facilis earum</em> est sequi numquam qui pariatur consequatur.</p>', 'app/Public/Front/img/palette_peintre_sd.jpg', '2022-04-04 15:01:27', '2022-05-13 13:16:48', 4),
-(7, 'Nouveau livre de Tica', '<p>Lorem ipsum dolor sit amet.</p>\r\n<p>Aut impedit expedita sed repudiandae labore aut officia magni eum omnis dolorem et animi aut fugiat explicabo eos magni vitae! Sed officia accusamus ut harum mollitia eum quis autem. Aut adipisci harum <strong>At corporis</strong> explicabo ut consequuntur impedit. <em>Qui animi</em> magni ut quisquam dolore et tempora tempore et architecto odit ex animi consequatur. Ea molestias molestiae eum odio praesentium eos <em>consequuntur qui</em> quibusdam aliquam At error voluptas id nobis labore sit placeat voluptatibus! Hic nostrum debitis ut harum aperiam ea <strong>autem</strong> molestias sit sunt tempora qui voluptas perspiciatis est voluptatibus sunt.</p>\r\n<p>&nbsp;</p>\r\n<p>Et voluptatem voluptatibus qui minima animi sit molestiae possimus vel <strong>voluptatem</strong> voluptatem. Et repellendus fugiat ut nobis exercitationem ut molestiae consequatur qui ullam galisum quo omnis molestias.</p>', 'app/Public/Front/img/La-peinture-a-l-huile.jpg', '2022-04-25 14:46:40', '2022-05-13 13:15:58', 4),
-(8, 'Apprendre les bases', '<p>Lorem ipsum dolor sit amet. <strong>Aut impedit</strong> expedita sed repudiandae labore aut officia magni eum omnis dolorem et animi aut fugiat explicabo eos magni vitae!</p>\r\n<p>&nbsp;</p>\r\n<p>Sed officia accusamus ut harum mollitia eum quis autem. Aut adipisci <em>harum At corporis</em> explicabo ut consequuntur impedit. Qui animi magni ut quisquam dolore et tempora tempore et architecto <em>odit ex animi consequatur</em>. Ea molestias molestiae eum odio praesentium eos consequuntur qui quibusdam aliquam At error voluptas id nobis labore sit placeat voluptatibus!</p>\r\n<p>&nbsp;</p>\r\n<p>Hic nostrum debitis ut harum <strong>aperiam</strong> ea autem molestias sit sunt tempora qui voluptas perspiciatis est voluptatibus sunt.</p>', 'app/Public/Front/img/394313_813122.jpg', '2022-04-25 14:49:13', '2022-05-13 13:14:57', 4),
-(9, 'Ou acheter ses tubes de peinture', '<p>Lorem ipsum dolor sit amet. <strong>Aut impedit</strong> expedita sed repudiandae labore aut officia magni eum omnis <em>dolorem</em> et animi aut fugiat explicabo eos magni vitae! Sed officia accusamus ut harum mollitia eum quis autem. Aut adipisci harum <em>At corporis explicabo ut consequuntur impedit</em>.</p>\r\n<p>&nbsp;</p>\r\n<p>Qui animi magni ut quisquam dolore et tempora tempore et architecto odit ex animi consequatur. <em>Ea molestias molestiae</em> eum odio praesentium eos consequuntur qui quibusdam aliquam At error voluptas id nobis labore sit placeat voluptatibus! Hic nostrum debitis ut harum aperiam ea autem molestias sit sunt tempora qui voluptas perspiciatis est voluptatibus sunt.</p>', 'app/Public/Front/img/tubes-of-acrylic-paint-in-different-colors-close-up-min.jpg', '2022-04-25 14:53:17', '2022-05-13 13:14:18', 4),
-(10, 'Comment peindre des visages', '<p>Lorem ipsum dolor sit amet. <strong>Aut impedit </strong>expedita sed repudiandae labore aut officia magni eum omnis dolorem et <strong>animi </strong>aut fugiat explicabo eos magni vitae! Sed officia accusamus ut harum mollitia eum quis autem. <em>Aut adipisci</em> harum At corporis explicabo ut consequuntur impedit.</p>\r\n<p>&nbsp;</p>\r\n<p>Qui animi magni ut quisquam dolore et tempora tempore et architecto odit ex animi consequatur. Ea molestias molestiae eum odio praesentium eos consequuntur qui quibusdam aliquam At error voluptas id nobis labore sit placeat voluptatibus! Hic <strong>nostrum</strong> debitis ut harum aperiam ea autem molestias sit sunt tempora qui voluptas perspiciatis est voluptatibus sunt.</p>', 'app/Public/Front/img/peindre-un-portrait 1.jpg', '2022-04-25 14:54:06', '2022-05-13 11:56:56', 4),
-(11, 'Tout le matériel indispensable !', '<p>Lorem ipsum dolor sit amet. Aut impedit expedita sed <strong>repudiandae</strong> labore aut officia magni eum omnis dolorem et animi aut fugiat explicabo eos magni vitae! Sed officia accusamus ut harum mollitia eum quis autem. Aut adipisci harum At corporis explicabo ut <em>consequuntur impedit</em>. Qui animi magni ut quisquam dolore et tempora tempore et architecto odit ex animi consequatur.</p>\r\n<p>&nbsp;</p>\r\n<p><strong>Ea molestias</strong> molestiae eum odio praesentium eos consequuntur qui quibusdam aliquam At error voluptas id nobis labore sit placeat voluptatibus! Hic nostrum debitis ut harum aperiam ea autem molestias sit sunt tempora qui voluptas perspiciatis est voluptatibus sunt.</p>', 'app/Public/Front/img/dirty-coloured-palette-and-paint.jpg', '2022-04-25 14:56:12', '2022-05-13 11:44:09', 4),
-(12, 'Introduction au Pop art', '<p><strong>Lorem ipsum dolor sit amet</strong>. Aut impedit expedita sed repudiandae labore aut officia magni eum omnis dolorem et animi aut fugiat explicabo eos magni vitae! Sed officia accusamus ut harum mollitia eum quis autem.</p>\r\n<p>&nbsp;</p>\r\n<p>Aut adipisci harum At corporis explicabo ut <strong>consequuntur impedit</strong>. Qui animi magni ut quisquam dolore et tempora tempore et architecto odit ex animi consequatur. Ea molestias molestiae eum odio praesentium eos consequuntur qui quibusdam aliquam <em>At error</em> voluptas id nobis labore sit placeat voluptatibus! Hic nostrum debitis ut harum aperiam ea autem molestias sit sunt tempora qui voluptas perspiciatis est voluptatibus sunt.</p>', 'app/Public/Front/img/Marilyn-diptych-1009x1024.jpg', '2022-04-25 15:04:26', '2022-05-13 11:57:29', 4),
-(13, 'Le livre indispensable pour apprendre', '<p><strong>Lorem ipsum dolor sit amet</strong>. Eum quas vero ut ipsa cumque ut itaque omnis ab aperiam beatae. Rem voluptatem illum aut ducimus quis ut accusamus beatae et sunt quos. Et aliquam dolores aut dolore temporibus qui minus repudiandae. <em>Non nostrum fugiat</em> ex earum enim qui quia incidunt At aliquam dignissimos cum unde maiores et omnis corrupti. Ut galisum omnis et molestiae nesciunt sed omnis voluptate et repellendus provident aut quod voluptatem et velit voluptatem?</p>\r\n<p>&nbsp;</p>\r\n<p>Est modi assumenda sed voluptatem galisum id voluptatem iure quo doloribus galisum sit ipsam sint.</p>', 'app/Public/Front/img/4faec5e96fd846c5eac5e7ef00e14ba58b7dc90c.jpg', '2022-04-26 09:56:22', '2022-05-13 11:42:24', 4);
+(5, 'La peinture, c\'est super !', '<p>Lorem ipsum dolor sit amet.</p>\r\n<p>&nbsp;</p>\r\n<p>A distinctio maiores in <em>facere dolorem</em> ut consequatur aliquid cum soluta delectus sit placeat rerum qui labore necessitatibus. Et amet dolores est magni neque et accusantium commodi in velit consequatur non blanditiis voluptate sed dolor ipsam. 33 cupiditate voluptatum id laudantium nobis ex possimus quibusdam.</p>\r\n<p>&nbsp;</p>\r\n<p>Sit voluptatem consequuntur ut aperiam ipsa aut voluptas veniam sit culpa dignissimos est porro dolorem. A eveniet expedita ut obcaecati incidunt ea ipsa quidem sed autem enim sit voluptatem deleniti aut omnis libero ad distinctio cumque? Qui enim voluptatem quo internos galisum aut laboriosam consequatur in voluptatem unde ut quia dolorem quo neque omnis eum incidunt iusto. <strong>Est molestiae</strong> dolores ab aliquid iste qui perspiciatis reprehenderit non facilis adipisci.</p>\r\n<p>&nbsp;</p>\r\n<p>Eum dolores aliquid At internos ipsam ut <em>facilis earum</em> est sequi numquam qui pariatur consequatur.</p>', 'app/Public/Front/img/palette_peintre_sd.jpg', '2022-04-04 15:01:27', '2022-05-19 21:57:33', 44),
+(7, 'Nouveau livre de Tica', '<p>Lorem ipsum dolor sit amet.</p>\r\n<p>Aut impedit expedita sed repudiandae labore aut officia magni eum omnis dolorem et animi aut fugiat explicabo eos magni vitae! Sed officia accusamus ut harum mollitia eum quis autem. Aut adipisci harum <strong>At corporis</strong> explicabo ut consequuntur impedit. <em>Qui animi</em> magni ut quisquam dolore et tempora tempore et architecto odit ex animi consequatur. Ea molestias molestiae eum odio praesentium eos <em>consequuntur qui</em> quibusdam aliquam At error voluptas id nobis labore sit placeat voluptatibus! Hic nostrum debitis ut harum aperiam ea <strong>autem</strong> molestias sit sunt tempora qui voluptas perspiciatis est voluptatibus sunt.</p>\r\n<p>&nbsp;</p>\r\n<p>Et voluptatem voluptatibus qui minima animi sit molestiae possimus vel <strong>voluptatem</strong> voluptatem. Et repellendus fugiat ut nobis exercitationem ut molestiae consequatur qui ullam galisum quo omnis molestias.</p>', 'app/Public/Front/img/La-peinture-a-l-huile.jpg', '2022-04-25 14:46:40', '2022-05-19 21:57:28', 44),
+(8, 'Apprendre les bases', '<p>Lorem ipsum dolor sit amet. <strong>Aut impedit</strong> expedita sed repudiandae labore aut officia magni eum omnis dolorem et animi aut fugiat explicabo eos magni vitae!</p>\r\n<p>&nbsp;</p>\r\n<p>Sed officia accusamus ut harum mollitia eum quis autem. Aut adipisci <em>harum At corporis</em> explicabo ut consequuntur impedit. Qui animi magni ut quisquam dolore et tempora tempore et architecto <em>odit ex animi consequatur</em>. Ea molestias molestiae eum odio praesentium eos consequuntur qui quibusdam aliquam At error voluptas id nobis labore sit placeat voluptatibus!</p>\r\n<p>&nbsp;</p>\r\n<p>Hic nostrum debitis ut harum <strong>aperiam</strong> ea autem molestias sit sunt tempora qui voluptas perspiciatis est voluptatibus sunt.</p>', 'app/Public/Front/img/394313_813122.jpg', '2022-04-25 14:49:13', '2022-05-19 21:57:23', 44),
+(9, 'Ou acheter ses tubes de peinture', '<p>Lorem ipsum dolor sit amet. <strong>Aut impedit</strong> expedita sed repudiandae labore aut officia magni eum omnis <em>dolorem</em> et animi aut fugiat explicabo eos magni vitae! Sed officia accusamus ut harum mollitia eum quis autem. Aut adipisci harum <em>At corporis explicabo ut consequuntur impedit</em>.</p>\r\n<p>&nbsp;</p>\r\n<p>Qui animi magni ut quisquam dolore et tempora tempore et architecto odit ex animi consequatur. <em>Ea molestias molestiae</em> eum odio praesentium eos consequuntur qui quibusdam aliquam At error voluptas id nobis labore sit placeat voluptatibus! Hic nostrum debitis ut harum aperiam ea autem molestias sit sunt tempora qui voluptas perspiciatis est voluptatibus sunt.</p>', 'app/Public/Front/img/tubes-of-acrylic-paint-in-different-colors-close-up-min.jpg', '2022-04-25 14:53:17', '2022-05-19 21:57:17', 44),
+(10, 'Comment peindre des visages', '<p>Lorem ipsum dolor sit amet. <strong>Aut impedit </strong>expedita sed repudiandae labore aut officia magni eum omnis dolorem et <strong>animi </strong>aut fugiat explicabo eos magni vitae! Sed officia accusamus ut harum mollitia eum quis autem. <em>Aut adipisci</em> harum At corporis explicabo ut consequuntur impedit.</p>\r\n<p>&nbsp;</p>\r\n<p>Qui animi magni ut quisquam dolore et tempora tempore et architecto odit ex animi consequatur. Ea molestias molestiae eum odio praesentium eos consequuntur qui quibusdam aliquam At error voluptas id nobis labore sit placeat voluptatibus! Hic <strong>nostrum</strong> debitis ut harum aperiam ea autem molestias sit sunt tempora qui voluptas perspiciatis est voluptatibus sunt.</p>', 'app/Public/Front/img/peindre-un-portrait 1.jpg', '2022-04-25 14:54:06', '2022-05-19 21:57:13', 44),
+(11, 'Tout le matériel indispensable !', '<p>Lorem ipsum dolor sit amet. Aut impedit expedita sed <strong>repudiandae</strong> labore aut officia magni eum omnis dolorem et animi aut fugiat explicabo eos magni vitae! Sed officia accusamus ut harum mollitia eum quis autem. Aut adipisci harum At corporis explicabo ut <em>consequuntur impedit</em>. Qui animi magni ut quisquam dolore et tempora tempore et architecto odit ex animi consequatur.</p>\r\n<p>&nbsp;</p>\r\n<p><strong>Ea molestias</strong> molestiae eum odio praesentium eos consequuntur qui quibusdam aliquam At error voluptas id nobis labore sit placeat voluptatibus! Hic nostrum debitis ut harum aperiam ea autem molestias sit sunt tempora qui voluptas perspiciatis est voluptatibus sunt.</p>', 'app/Public/Front/img/dirty-coloured-palette-and-paint.jpg', '2022-04-25 14:56:12', '2022-05-19 21:57:07', 44),
+(12, 'Introduction au Pop art', '<p><strong>Lorem ipsum dolor sit amet</strong>. Aut impedit expedita sed repudiandae labore aut officia magni eum omnis dolorem et animi aut fugiat explicabo eos magni vitae! Sed officia accusamus ut harum mollitia eum quis autem.</p>\r\n<p>&nbsp;</p>\r\n<p>Aut adipisci harum At corporis explicabo ut <strong>consequuntur impedit</strong>. Qui animi magni ut quisquam dolore et tempora tempore et architecto odit ex animi consequatur. Ea molestias molestiae eum odio praesentium eos consequuntur qui quibusdam aliquam <em>At error</em> voluptas id nobis labore sit placeat voluptatibus! Hic nostrum debitis ut harum aperiam ea autem molestias sit sunt tempora qui voluptas perspiciatis est voluptatibus sunt.</p>', 'app/Public/Front/img/Marilyn-diptych-1009x1024.jpg', '2022-04-25 15:04:26', '2022-05-19 21:57:03', 44),
+(13, 'Le livre indispensable pour apprendre', '<p><strong>Lorem ipsum dolor sit amet</strong>. Eum quas vero ut ipsa cumque ut itaque omnis ab aperiam beatae. Rem voluptatem illum aut ducimus quis ut accusamus beatae et sunt quos. Et aliquam dolores aut dolore temporibus qui minus repudiandae. <em>Non nostrum fugiat</em> ex earum enim qui quia incidunt At aliquam dignissimos cum unde maiores et omnis corrupti. Ut galisum omnis et molestiae nesciunt sed omnis voluptate et repellendus provident aut quod voluptatem et velit voluptatem?</p>\r\n<p>&nbsp;</p>\r\n<p>Est modi assumenda sed voluptatem galisum id voluptatem iure quo doloribus galisum sit ipsam sint.</p>', 'app/Public/Front/img/4faec5e96fd846c5eac5e7ef00e14ba58b7dc90c.jpg', '2022-04-26 09:56:22', '2022-05-19 21:56:57', 44),
+(20, 'Réussir le mélange des couleurs', '<p>Vel atque nemo non labore dicta sed omnis minima in ipsa iure. <strong>Est ipsa dolores hic iure deserunt</strong> et tenetur totam et perferendis repudiandae eos eligendi quidem qui optio facilis. Aut galisum doloremque et <em>aliquid quibusdam qui error vitae sit dolore</em> labore est temporibus omnis? Ea voluptas earum sed magni dolorem qui unde repellat id magni nulla est fugit possimus.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p><strong>Ut enim illo eum nobis architecto</strong> quo natus vero qui consequatur sunt in provident deserunt eos obcaecati quos ab animi dolorum. Ea eligendi deserunt est corrupti <em>voluptatem et soluta</em> asperiores 33 quidem facilis id impedit porro At facere dolores.&nbsp;</p>', 'app/Public/Front/img/sidarh.jpg', '2022-05-25 11:53:05', NULL, 44),
+(21, 'Découverte de J\'ean Marc alias Marco', '<p><strong>Ex aliquam magnam</strong> sed vitae suscipit rem inventore ipsam. Sit autem error sed aliquid repellendus non nemo rerum. In quos maxime cum tenetur aliquam libero debitis eum totam deleniti aut tenetur?&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Ea dicta nesciunt et modi unde et commodi <strong>enim ut soluta voluptates</strong> id quas blanditiis eum dolores voluptate est atque voluptates. <em>Ut officiis omnis </em>aut praesentium distinctio eos molestiae voluptas ut laudantium temporibus.&nbsp;</p>', 'app/Public/Front/img/artiste-jean-marc.jpg', '2022-05-25 11:55:44', NULL, 44);
 
 -- --------------------------------------------------------
 
@@ -72,7 +74,8 @@ CREATE TABLE `contacts` (
 --
 
 INSERT INTO `contacts` (`id`, `nom`, `prenom`, `email`, `objet`, `message`, `date`) VALUES
-(25, 'Laurent', 'Josianne', 'josianne.laurent@yahoo.fr', 'Bonjour', 'Bonjour,\r\n\r\nAvez vous reçu ce message ?', '2022-03-29 15:02:55');
+(25, 'Laurent', 'Josianne', 'josianne.laurent@yahoo.fr', 'Bonjour', 'Bonjour,\r\n\r\nAvez vous reçu ce message ?', '2022-03-29 15:02:55'),
+(32, 'Bob', 'Bill', 'bill.bob@hotmail.fr', 'Test portable', 'Test envoie avec portable sur site en ligne', '2022-05-20 08:19:51');
 
 -- --------------------------------------------------------
 
@@ -104,9 +107,7 @@ CREATE TABLE `homepage` (
   `id` int(11) NOT NULL,
   `present-alt` varchar(150) NOT NULL,
   `present-url` varchar(255) NOT NULL,
-  `present-text1` text NOT NULL,
-  `present-text2` text NOT NULL,
-  `present-text3` text NOT NULL,
+  `present-text` text NOT NULL,
   `present-title` varchar(255) NOT NULL,
   `slider-alt` varchar(255) NOT NULL,
   `slider-url` varchar(255) NOT NULL,
@@ -120,8 +121,8 @@ CREATE TABLE `homepage` (
 -- Déchargement des données de la table `homepage`
 --
 
-INSERT INTO `homepage` (`id`, `present-alt`, `present-url`, `present-text1`, `present-text2`, `present-text3`, `present-title`, `slider-alt`, `slider-url`, `slider-text1`, `slider-text2`, `intro-title`, `intro-content`) VALUES
-(1, 'Photo de tica', 'app/Public/Front/img/Photo_de_tica.png', '<p>Lorem Ipsum is simply dummy text of the printing and <strong>typesetting</strong> industry. Lorem Ipsum has been the industry\'s <em>standard dummy</em> text ever since the 1500s</p>', '<p>It is a long <strong>established</strong> fact that a reader will be distracted by the <em>readable</em> content of a page</p>', '<p>Contrary to <strong>popular belief</strong>, Lorem Ipsum is not <em>simply random</em> text. It has roots in a piece</p>', 'tica', 'tableau de marin', 'app/Public/Front/img/image_fond_header.png', 'TICA vous propose ses meilleures oeuvres ', 'ainsi que celles de plusieurs autres artistes ', 'Présentation', '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. <strong>Earum</strong> debitis distinctio, quidem hic dolores atque dolorum fugit quaerat quasi, dolore magni facilis et aliquam reprehenderit, quae <em>laboriosam aperiam</em> officia libero?</p>');
+INSERT INTO `homepage` (`id`, `present-alt`, `present-url`, `present-text`, `present-title`, `slider-alt`, `slider-url`, `slider-text1`, `slider-text2`, `intro-title`, `intro-content`) VALUES
+(1, 'Photo de tica', 'app/Public/Front/img/Photo_de_tica.png', '<p>Lorem Ipsum is simply dummy text of the printing and <strong>typesetting</strong> industry. Lorem Ipsum has been the industry\'s <em>standard dummy</em> text ever since the 1500s</p>\r\n<p>It is a long <strong>established</strong> fact that a reader will be distracted by the <em>readable</em> content of a page</p>\r\n<p>Contrary to <strong>popular belief</strong>, Lorem Ipsum is not <em>simply random</em> text. It has roots in a piece</p>', 'tica', 'tableau de marin', 'app/Public/Front/img/image_fond_header.png', 'TICA vous propose ses meilleures oeuvres ', 'ainsi que celles de plusieurs autres artistes ', 'Présentation', '<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. <strong>Earum</strong> debitis distinctio, quidem hic dolores atque dolorum fugit quaerat quasi, dolore magni facilis et aliquam reprehenderit, quae <em>laboriosam aperiam</em> officia libero?</p>');
 
 -- --------------------------------------------------------
 
@@ -164,9 +165,7 @@ CREATE TABLE `painterstyle` (
 --
 
 INSERT INTO `painterstyle` (`idstyle`, `idpainter`) VALUES
-(2, 1),
 (5, 5),
-(3, 1),
 (4, 1),
 (1, 5),
 (6, 5),
@@ -183,7 +182,6 @@ INSERT INTO `painterstyle` (`idstyle`, `idpainter`) VALUES
 (5, 1),
 (3, 7),
 (5, 6),
-(6, 1),
 (3, 18),
 (6, 18);
 
@@ -211,16 +209,18 @@ CREATE TABLE `paints` (
 --
 
 INSERT INTO `paints` (`id`, `name`, `description`, `img-url`, `dimensionH`, `dimensionL`, `PaintsFrames`, `PaintsPainters`, `PaintsStyle`, `PaintsType`) VALUES
-(13, 'Village français', '<p><strong>Lorem ipsum</strong> dolor sit amet. Est expedita accusamus <em>in perferendis</em> nemo facere distinctio eum impedit culpa et galisum veniam.</p>', 'app/Public/Front/img/120332-80X120.jpg', 130, 90, 1, 1, 1, 4),
-(14, 'Tableau de voilier et planche à voile', '<p><strong>Rem dolorem saepe ut voluptate</strong> laboriosam ex blanditiis eius! <em>Est quibusdam</em> unde aut deserunt ratione qui repellat ipsa non necessitatibus vitae non dolorem quia et molestiae dolor. <em>In praesentium nihil</em> et perferendis rerum At optio dolores in optio sint At doloribus omnis ut debitis reprehenderit ad eaque reprehenderit.</p>', 'app/Public/Front/img/André-Hambourg-tableau-estimation-prix-1024x810.jpg', 90, 100, 1, 17, 1, 1),
-(15, 'Tableau d&#039;éléphant coloré', '<p><strong>Qui molestias nostrum id dolor quod</strong> qui accusamus nemo in totam quas. <em>Rem reiciendis neque</em> eos autem aliquam qui natus labore est enim laudantium et rerum sed officia quibusdam. <em>Vel molestiae expedita</em> et minima quos quo autem quis non harum quidem.</p>', 'app/Public/Front/img/BO671-119.jpg', 120, 120, 2, 5, 5, 2),
-(16, 'Tableau de lion coloré', '<p><strong>Lorem ipsum dolor sit amet</strong>. Aut voluptas nostrum qui porro consequuntur ut excepturi corporis et aspernatur quam non laboriosam quod. Ut sint omnis et consequuntur repudiandae non soluta doloribus non architecto <em>facere est inventore</em> voluptatem eos quos tenetur non aliquid neque. Aut reiciendis dolores qui <strong>sapiente deleniti sed totam magnam</strong> ea dolorem error sed laudantium minus ut nulla totam est numquam voluptatem.</p>', 'app/Public/Front/img/BO671-140.jpg', 90, 110, 1, 1, 5, 2),
+(13, 'Village français', '<p><strong>Lorem ipsum</strong> dolor sit amet. Est expedita accusamus <em>in perferendis</em> nemo facere distinctio eum impedit culpa et galisum veniam.</p>\r\n<p>&nbsp;</p>\r\n<p>Vel nesciunt iure et magni et laudantium ipsa et Quis porro. <strong>Ea dolorem</strong> veritatis qui <em>assumenda</em> nihil in temporibus molestias est unde et neque aliquid. Et rerum quam sit accusamus nisi <em>est repellat nobis</em> sit sunt natus qui libero consectetur aut porro reiciendis.&nbsp;</p>', 'app/Public/Front/img/120332-80X120.jpg', 130, 90, 1, 1, 1, 4),
+(14, 'Tableau de voilier et planche à voile', '<p><strong>Rem dolorem saepe ut voluptate</strong> laboriosam ex blanditiis eius! <em>Est quibusdam</em> unde aut deserunt ratione qui repellat ipsa non necessitatibus vitae non dolorem quia et molestiae dolor. <em>In praesentium nihil</em> et perferendis rerum At optio dolores in optio sint At doloribus omnis ut debitis reprehenderit ad eaque reprehenderit.</p>\r\n<p>&nbsp;</p>\r\n<p>Nam alias ullam id internos excepturi ad dolore totam. <em>Id esse earum</em> ut voluptatibus eaque aut eligendi omnis?&nbsp;</p>', 'app/Public/Front/img/André-Hambourg-tableau-estimation-prix-1024x810.jpg', 90, 100, 1, 17, 1, 1),
+(15, 'Tableau d\'éléphant coloré', '<p><strong>Qui molestias nostrum id dolor quod</strong> qui accusamus nemo in totam quas. <em>Rem reiciendis neque</em> eos autem aliquam qui natus labore est enim laudantium et rerum sed officia quibusdam. <em>Vel molestiae expedita</em> et minima quos quo autem quis non harum quidem.</p>\r\n<p>&nbsp;</p>\r\n<p>Vel nesciunt iure et magni et laudantium ipsa et Quis porro. <strong>Ea dolorem</strong> veritatis qui assumenda nihil in temporibus molestias est unde et neque aliquid.</p>', 'app/Public/Front/img/BO671-119.jpg', 120, 120, 2, 5, 5, 2),
+(16, 'Tableau de lion coloré', '<p><strong>Lorem ipsum dolor sit amet</strong>. Aut voluptas nostrum qui porro consequuntur ut excepturi corporis et aspernatur quam non laboriosam quod. Ut sint omnis et consequuntur repudiandae non soluta doloribus non architecto <em>facere est inventore</em> voluptatem eos quos tenetur non aliquid neque. Aut reiciendis dolores qui <strong>sapiente deleniti sed totam magnam</strong> ea dolorem error sed laudantium minus ut nulla totam est numquam voluptatem.</p>\r\n<p>&nbsp;</p>\r\n<p>Lorem ipsum dolor sit amet. In minus architecto est magni saepe ex voluptas odit! Hic consectetur</p>', 'app/Public/Front/img/BO671-140.jpg', 90, 110, 1, 1, 5, 2),
 (19, 'Tableau de maison de campagne', '<p><strong>Est nihil omnis qui sequi</strong> enim ut distinctio aliquam vel omnis porro? Ut iure quae non <em>perferendis nisi sed</em> natus quia qui facilis eveniet vel earum illum! Cum amet asperiores qui quia dolorem eos corrupti <strong>ducimus sunt laboriosam</strong>. Ut tempora aspernatur a nihil magni nam reiciendis neque ut repellendus labore At suscipit omnis sed temporibus ipsam.</p>', 'app/Public/Front/img/maison_de_campagne.JPG', 100, 80, 1, 7, 1, 1),
-(20, 'Tableau de pérroquets et toucans', '<p>Est nihil omnis qui sequi enim ut <strong>distinctio aliquam</strong> vel omnis porro? Ut iure quae <em>non perferendis</em> nisi sed natus quia qui facilis eveniet vel earum illum! Cum amet <strong>asperiores qui quia dolorem</strong> eos corrupti ducimus sunt laboriosam. Ut tempora aspernatur a nihil magni nam reiciendis neque ut repellendus labore At suscipit omnis sed temporibus ipsam.</p>', 'app/Public/Front/img/tableau-animaux-perroquets-toucans-et-fleurs-5fe2360f0570a.jpg', 130, 110, 2, 1, 1, 3),
-(21, 'Tableau de couple qui s&#039;embrasse', '<p>Quo natus eveniet non velit voluptatem aut incidunt <strong>nulla aut commodi</strong> laborum sit omnis tempore ab consequuntur dolores. Sit nisi repellendus aut placeat quos qui autem fuga est nostrum impedit maiores dolores. Vel iusto iusto aut nemo nemo est <strong>voluptatem</strong> internos non quasi internos. Ex eaque quas eum excepturi quasi ut obcaecati <em>necessitatibus</em> est eveniet sapiente ut dolores aperiam.</p>', 'app/Public/Front/img/tableau_couple_embrassage.jpg', 140, 180, 1, 5, 5, 3),
-(22, 'Grand tableau coloré', '<p><strong>Aut quia dolorem</strong> id eveniet sunt aut nihil nulla ab quaerat illum. <strong>Quo doloremque</strong> enim ut esse harum et reprehenderit consequatur ea odio voluptates id quos temporibus. Hic tempora animi ea dicta excepturi est debitis illum ut <em>consequatur galisum</em> et recusandae atque dicta internos. Vel nostrum provident sed officiis eius ea veniam dolore qui commodi delectus <strong>non accusantium</strong> nisi rem porro facere.</p>', 'app/Public/Front/img/grand_tableau_colore.jpg', 180, 110, 1, 18, 2, 3),
-(23, 'Grand arbre rose', '<p><strong>Lorem ipsum</strong> dolor sit amet. Sit veritatis corporis et ullam veritatis sit asperiores officiis et cupiditate saepe in suscipit numquam. Et beatae nesciunt vel animi alias ab voluptas enim qui laudantium fuga <em>cum odio numquam</em>. Id ullam omnis est magnam sunt sit nobis vitae.</p>', 'app/Public/Front/img/tableau_arbre_rose.jpg', 120, 80, 9, 6, 6, 2),
-(27, 'Campagne Aveyronnaise', '<p><strong>Lorem ipsum dolor sit amet</strong>. Aut illum voluptatibus ea galisum quidem vel laborum fugiat. Sit sint voluptatum est tempora architecto eum magnam placeat id provident pariatur et enim debitis. <em>Qui laboriosam voluptatem</em> eum explicabo rerum et tenetur eveniet est unde culpa in odio voluptates et obcaecati quia aut quia distinctio. <strong>Et nihil recusandae</strong> cum quae quaerat eos aperiam dolorem vel animi omnis ut sint error ut iure impedit.</p>', 'app/Public/Front/img/images.jpg', 130, 120, 9, 6, 1, 4);
+(28, 'Tableau modern antalya', '<p><strong>Lorem ipsum dolor sit amet</strong>. Hic autem consectetur et galisum quas quo provident consequuntur ab repellendus odio et omnis aliquid ab quia harum. Non doloribus odio vel iure ipsam hic ipsum consequatur. <strong>Aut molestiae vero</strong> vel sapiente nihil et doloremque suscipit est asperiores magni est omnis autem sit ullam nemo. Ut asperiores doloremque qui quam commodi vel tempore labore ea accusantium ipsa eum minus neque.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Non minima molestiae ad distinctio eaque ab voluptate minima <em>33 sunt praesentium</em>. Quo error fuga et omnis numquam qui sint esse vel itaque explicabo qui quidem Quis.</p>', 'app/Public/Front/img/tableau-moderne-antalya.jpg', 50, 50, 1, 7, 4, 1),
+(29, 'Port du sud', '<p>Aut error amet aut repudiandae rerum aut <strong>nulla aspernatur</strong> non iusto velit vel fuga expedita ad nulla dolorum. Qui nihil dolore qui obcaecati quis est quidem adipisci et labore aperiam rem corporis officiis et aspernatur explicabo.</p>\r\n<p>&nbsp;</p>\r\n<p>Non aspernatur cumque vel velit dicta in eveniet <em>laudantium eum quam</em> facilis est sint ipsam et dolores illum est quia internos.</p>', 'app/Public/Front/img/Port-du-sud.jpeg', 80, 70, 2, 17, 1, 2),
+(30, 'Paysage bretagne fleur', '<p>Qui vero quia sit libero error et <strong>maxime eius qui culpa repellat</strong>. Sit cupiditate velit qui iusto suscipit ut dolorum sint ut omnis galisum. Obcaecati voluptatem ut esse sunt nam explicabo dolorem vel quibusdam incidunt. Sed quod sint qui odit consequatur vel voluptatem ducimus.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Qui reprehenderit veniam aut veritatis dicta sit atque quae vel <em>accusantium asperiores</em>. Et pariatur dolor est voluptatum assumenda ea praesentium quasi vel nihil sapiente sit labore quae et similique veritatis!</p>', 'app/Public/Front/img/Paysage-bretagne-fleur.jpg', 80, 110, 1, 18, 1, 2),
+(32, 'Tableau abstrait rouge gris', '<p>Et corrupti debitis aut <strong>beatae officiis et accusantium</strong> assumenda ab culpa consequuntur sed incidunt ducimus. Sit aliquid necessitatibus et suscipit nostrum hic possimus accusamus. Et autem impedit et illo laborum sit repellendus possimus et voluptatum consequuntur sed natus cumque sit deserunt atque non commodi perspiciatis.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Et cupiditate corporis sed culpa libero ut quos veritatis sed <strong>eius corporis?</strong> 33 itaque consequatur sed beatae<em> numquam</em> vel natus quos sit atque aspernatur et voluptatem fugiat.</p>', 'app/Public/Front/img/Tableau-abstrait-rouge-gris.jpg', 70, 60, 1, 6, 2, 2),
+(37, 'Poisson bleu', '<p>Lorem ipsum dolor sit amet. <strong>Aut ducimus corrupti</strong> aut alias minus qui reprehenderit deserunt et incidunt autem ut velit quidem. Et odio minus qui reiciendis illum qui omnis asperiores? Qui sequi officiis et <em>minus illum</em> At enim veniam aut voluptatem error et cumque maiores. Et omnis laudantium 33 nihil dolore aut vitae illum aut aperiam facilis!&nbsp;</p>', 'app/Public/Front/img/tableau-en-verre-poisson-bleu-100x100cm-kare-design.jpg', 100, 100, 9, 5, 5, 4),
+(38, 'Tableau les tropiques', '<p><strong>orem ipsum dolor sit amet</strong>. Sit culpa temporibus aut iure quod eum magni magnam. Ut impedit voluptas aut dolorem consectetur hic error assumenda est dolorem possimus aut maxime nesciunt rem aliquam <em>33 dolores perferendis</em>.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Cum internos ullam qui <strong>quia voluptas </strong>in voluptates accusamus aut sunt fugit sed sint repellendus. Sit deserunt aliquid est molestiae quis ut magni consequatur.</p>', 'app/Public/Front/img/tableau-peinture-a-l-huile-tropique.jpeg', 100, 100, 1, 18, 1, 3),
+(39, 'Tableau Joker', '<p>Eum galisum vitae et dolore nihil in <strong>provident cumque</strong> et odit explicabo At nostrum nulla qui delectus obcaecati! Aut voluptas corporis est inventore quis sit possimus enim et reprehenderit numquam.&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>Sed alias veritatis id neque eius et sint <em>quis ut magnam</em> quod sit laudantium alias.&nbsp;</p>', 'app/Public/Front/img/tableau-portrait-joker-pop-art.jpg', 120, 80, 9, 6, 5, 2);
 
 -- --------------------------------------------------------
 
@@ -306,9 +306,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `mail`, `password`, `UsersRoles`) VALUES
-(4, 'renaud', 'maleyran', 'maleyran@hotmail.fr', '$2y$10$VpKwOy5lqtl0XTi3XqVhj.6CFW2WHWd5dl3juYGKF8M1Vor/mGXp2', 1),
-(40, 'editeur', 'editeur', 'editeur@editeur.fr', '$2y$10$b9zjY7AJ51UoNM5Rq5MR2eRk7.zIFpsTv4Dw0/vbjt4W062opUXXK', 4),
-(41, 'admin', 'admin', 'admin@admin.fr', '$2y$10$F3iOYqgB0V3JqjHHM4xgUeGE2lwBoSIzb543LsRhhCotqja2A2shG', 1);
+(43, 'admin', 'admin', 'admin@admin.fr', '$2y$10$7NPu0bZAJHXFZuo2Obv23OpPWuCSR0BpYHAwPGvDyPAQrwfpcWbIm', 1),
+(44, 'John', 'Doe', 'editeur@editeur.fr', '$2y$10$a63k8yxO7Izq6LXDQRxCx.7gSCo.aMDHFpFGMoJb5doXCFXTO8gDO', 4);
 
 --
 -- Index pour les tables déchargées
@@ -395,13 +394,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT pour la table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT pour la table `frames`
@@ -419,13 +418,13 @@ ALTER TABLE `homepage`
 -- AUTO_INCREMENT pour la table `painters`
 --
 ALTER TABLE `painters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT pour la table `paints`
 --
 ALTER TABLE `paints`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT pour la table `roles`
@@ -437,7 +436,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT pour la table `styles`
 --
 ALTER TABLE `styles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT pour la table `types`
@@ -449,7 +448,7 @@ ALTER TABLE `types`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- Contraintes pour les tables déchargées

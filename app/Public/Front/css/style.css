@@ -81,7 +81,7 @@ a {
 
 h1 {
 
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     color: #a08a3a;
 
 }
@@ -181,7 +181,7 @@ hr {
     font-family: 'Spartan', sans-serif;
     margin-bottom: 20px;
     margin-left: 10px;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     text-transform: capitalize;
     
 }
@@ -618,8 +618,8 @@ hr {
     background: linear-gradient(0deg, rgba(43,43,43,1) 0%, rgba(0,0,0,1) 100%); 
     width: 35%;
     max-width: 450px;
-    min-width: 300px;
-    height: 670px;
+    min-width: 270px;
+    height: 620px;
     margin: 10px;
     position: relative;
     
@@ -651,35 +651,34 @@ hr {
 #insta_blog  #frame_corner_lt {
 
     position: absolute;
-    top: -40px;
-    left: -40px;
-    width: 50%;
+    top: -25px;
+    left: -25px;
+    width: 40%;
 
 }
 
 #insta_blog  #frame_corner_lb {
 
     position: absolute;
-    bottom: -460px;
-    left: -40px;
-    width: 50%;
+    bottom: -445px;
+    left: -25px;
+    width: 40%;
 }
 
 #insta_blog  #frame_corner_rt {
 
     position: absolute;
-    top: -730px;
-    right: -40px;
-    width: 50%;
-
+    top: -665px;
+    right: -25px;
+    width: 40%;
 }
 
 #insta_blog  #frame_corner_rb {
 
     position: absolute;
-    bottom: -40px;
-    right: -40px;
-    width: 50%;
+    bottom: -25px;
+    right: -25px;
+    width: 40%;
 
 }
 #insta_blog_flex #block_instagram #instagram_cards {
@@ -710,8 +709,9 @@ hr {
 }
 #insta_blog_flex #block_instagram #instagram_cards a img {
    
-    max-width: 137px;
-    height: 180px;
+    width: 120px;
+    height: 160px;
+    object-fit: cover;
 
 }
 
@@ -722,8 +722,8 @@ hr {
     text-align: center;
     margin: 15px auto;
     font-size: 1rem;
-    left: 25%;
-    right: 25%;
+    left: 15%;
+    right: 15%;
 
 }
 
@@ -738,7 +738,7 @@ hr {
 
 #insta_blog #block_blog .card_blog {
 
-    width: 43%;
+    width: 40%;
     padding: 10px;
     height: 133px;
     z-index: 2000;
@@ -770,7 +770,7 @@ hr {
 #insta_blog #block_blog .card_blog img {
 
     border-radius: 8px;
-    width: 130px;
+    width: 110px;
     height: 95px;
     object-fit: cover;
 
@@ -794,7 +794,7 @@ hr {
 
     min-width: 50%;
     padding-bottom: 15px;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     position: relative;
     
 }
@@ -813,7 +813,7 @@ hr {
 
 .flex-template .card-template img {
 
-    width: 300px;
+    width: 270px;
     height: 250px;
     object-fit: cover;
     transition: all 1s;
@@ -832,9 +832,9 @@ hr {
 .flex-template .card-template .infos-paint {
 
     position: absolute;
-    bottom: 38px;
+    bottom: 36px;
     display: flex;
-    width: 300px;
+    width: 270px;
     justify-content: space-around;
     text-align: left;
     color: #cfcfcf;
@@ -845,7 +845,7 @@ hr {
 
 .flex-template .card-template .infos-paint div {
 
-    width: 45%;
+    width: 47%;
 
 }
 
@@ -859,7 +859,7 @@ hr {
 .flex-template .card-template a {
 
     display: inline-block;
-    width: 300px;
+    width: 270px;
     height: 250px;
     color: #333333;
     box-shadow: 0px 2px 5px rgb(48, 48, 48);
@@ -877,9 +877,9 @@ hr {
 .frame_template_top .frame_template_corner_lt {
 
     position: absolute;
-    top:  -40px;
-    left: -30px;
-    max-width: 140px;
+    top:  -20px;
+    left: -20px;
+    max-width: 90px;
   
 }
 
@@ -887,9 +887,9 @@ hr {
 .frame_template_top .frame_template_corner_rt {
 
     position: absolute;
-    top:  -40px;
-    right: -330px;
-    max-width: 140px;
+    top:  -20px;
+    right: -290px;
+    max-width: 90px;
    
 }
 
@@ -897,8 +897,8 @@ hr {
 
     position: absolute;
     bottom: 0px;
-    right: -30px;
-    max-width: 140px;
+    right: -20px;
+    max-width: 90px;
     
 }
 
@@ -906,13 +906,17 @@ hr {
 
     position: absolute;
     bottom: 0px;
-    left: -330px;
-    max-width: 140px;
+    left: -290px;
+    max-width: 90px;
    
 }
 
 #frames_others_bottom .frame_template_corner_rb, #frames_others_bottom .frame_template_corner_lb {
-    bottom: -20px;
+    bottom: -5px;
+}
+
+#frame_galerie_top {
+    bottom: 20px;
 }
 
 /* BLOG */
@@ -929,7 +933,7 @@ hr {
 
 .flex-template .card-blog .infos-blog {
 
-    width: 300px;
+    width: 270px;
     text-align: left;
     padding: 5px;
     display: flex;
@@ -937,16 +941,17 @@ hr {
     justify-content: space-between;
     height: 185px;
 }
+
 .flex-template .card-blog .infos-blog p {
 
-    width: 290px;
+    width: 260px;
 
 }
 
 
 .flex-template .card-blog img {
 
-    width: 300px;
+    width: 270px;
     height: 150px;
     object-fit: cover; 
 }
@@ -954,7 +959,7 @@ hr {
 .flex-template .card-blog a {
 
     display: inline-block;
-    width: 300px;
+    width: 270px;
     min-height: 330px;
     height: auto;
     background-color: #E2DBD4;
@@ -967,16 +972,16 @@ hr {
 .flex-template .card-blog hr{
 
     margin-top: 5px;
-    width: 280px;
+    width: 250px;
     color: #E3D6A5;
-    text-align: center;
+    margin-left: 0;
 
 }
 
 .flex-template .card-blog h2 {
 
     font-size: 0.9rem;
-    width: 290px;
+    width: 260px;
     
 }
 .flex-template .card-blog .infos-auteur {
@@ -1025,7 +1030,7 @@ hr {
 
 .flex-painter .card-painter img {
 
-    width: 300px;
+    width: 270px;
     height: 250px;
     object-fit: cover;
     
@@ -1040,7 +1045,7 @@ hr {
 .flex-painter .card-painter a {
 
     display: inline-block;
-    width: 300px;
+    width: 270px;
     height: 100%;
     background-color: #E2DBD4;
     color: #333333;
@@ -1060,7 +1065,7 @@ hr {
     position: absolute;
     top: 0;
     display: flex;
-    width: 300px;
+    width: 270px;
     justify-content: center;
     background-color: #2e2e2ebe;
     color: #E3D6A5;
@@ -1100,7 +1105,7 @@ hr {
 
 .flex-painter .card-painter .infos-painter-desc hr {
 
-    width: 260px;
+    width: 240px;
     margin-top: 5px;
     color: #E3D6A5;
 
@@ -1473,8 +1478,7 @@ footer #copy_foot {
 
     text-align: center;
     padding-top: 20px;
-    
-    font-size: 1.2rem;
+    font-size: 1rem;
 
 }
 
@@ -1527,6 +1531,71 @@ footer #copy_foot hr {
 
     }
 
+    /* Section Blog et instagram de home */
+
+    #insta_blog .block_bottom {
+
+        min-width: 300px;
+        
+    }
+
+    #insta_blog #block_blog .card_blog img {
+
+        width: 130px;
+        
+    }
+
+    #insta_blog #block_blog .card_blog {
+
+        width: 43%;
+    
+    }
+
+    #insta_blog_flex #block_instagram #instagram_cards a img {
+   
+        width: 135px;
+        height: 160px;
+    
+    }
+
+    #insta_blog .button_blog_insta {
+
+        left: 25%;
+        right: 25%;
+    
+    }
+
+    #insta_blog  #frame_corner_lt {
+
+        top: -40px;
+        left: -40px;
+        width: 50%;
+    
+    }
+
+    #insta_blog  #frame_corner_lb {
+
+        bottom: -460px;
+        left: -40px;
+        width: 50%;
+    }
+    
+    #insta_blog  #frame_corner_rt {
+
+        top: -680px;
+        right: -40px;
+        width: 50%;
+    
+    }
+    
+    #insta_blog  #frame_corner_rb {
+    
+        bottom: -40px;
+        right: -40px;
+        width: 50%;
+    
+    }
+
     /* PAGE SOLO (peinture) */
 
     #page-solo #infos-solo-paint {
@@ -1534,9 +1603,154 @@ footer #copy_foot hr {
         font-size: 1.3rem;
     }
 
+    /* Page BLOG */
+
+    .flex-template .card-blog a {
+    
+        width: 300px;
+    
+    }
+    .flex-template .card-blog h2 {
+
+        width: 290px;
+    
+    }
+    
+    .flex-template .card-blog hr{
+
+        width: 280px;
+      
+    }
+    
+    .flex-template .card-blog .infos-blog {
+
+        width: 300px;
+    
+    }
+
+    .flex-template .card-blog .infos-blog p {
+
+        width: 290px;
+    
+    }
+
+    .flex-template .card-blog img {
+
+        width: 300px;
+     
+    }
+
+    /* Page Galerie & Blog */
+
+    .frame_template_top .frame_template_corner_lt {
+
+        top:  -40px;
+        left: -30px;
+        max-width: 140px;
+      
+    }
+
+    .frame_template_top .frame_template_corner_rt {
+        
+        top:  -40px;
+        right: -330px;
+        max-width: 140px;
+       
+    }
+    
+    .frame_template_bottom .frame_template_corner_rb {
+    
+        bottom: 0px;
+        right: -30px;
+        max-width: 140px;
+        
+    }
+    
+    .frame_template_bottom .frame_template_corner_lb {
+    
+        bottom: 0px;
+        left: -330px;
+        max-width: 140px;
+       
+    }
+
+    #frames_others_bottom .frame_template_corner_rb, #frames_others_bottom .frame_template_corner_lb {
+        bottom: -20px;
+    }
+
+    .flex-template .card-template .infos-paint {
+
+        bottom: 38px;
+        width: 300px;
+       
+    }
+
+    .flex-template .card-template a {
+
+        width: 300px;
+        
+    }
+
+    .flex-template .card-template img {
+
+        width: 300px;
+    
+    }
+
+    .flex-template .card-template {
+
+        font-size: 0.8rem;
+        
+    }
+
+    #frame_galerie_top {
+        
+        bottom: 0px;
+    }
+
+    /* Page Artistes */
+
+    .flex-painter .card-painter a {
+
+        width: 300px;
+ 
+    }
+
+    .flex-painter .card-painter img {
+
+        width: 300px;
+    
+    }
+
+    .flex-painter .name-painter {
+
+        width: 300px;
+    
+    }
+
+    .flex-painter .card-painter .infos-painter-desc hr {
+
+        width: 260px;
+    
+    }
+    /* Footer */
+
+    footer #copy_foot {
+ 
+        font-size: 1.2rem;
+    
+    }
+    
+    
 }
 
 @media screen and (min-width: 580px) {
+
+h1 {
+
+        font-size: 2.2rem;
+        
+    }
 
 /* Section Blog et instagram de home */
 
@@ -1595,6 +1809,12 @@ footer #copy_foot hr {
     width: 45%;
     height: 176px;
 
+}
+
+#insta_blog_flex #block_instagram #instagram_cards a img {
+    
+    width: 135px;
+    height: 180px;
 }
 
 #insta_blog #block_blog .card_blog img {
@@ -2255,6 +2475,7 @@ footer #copy_foot hr {
         min-height: 375px;
         
     }
+
     .flex-template .card-blog hr{
 
         margin-top: 6px;

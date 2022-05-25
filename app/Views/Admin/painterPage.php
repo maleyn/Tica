@@ -35,11 +35,12 @@
         <div class="grid-2 padding-top20">
             <div class="grid">
                 <legend class="text-blue">Styles de peintures de l'artiste :</legend>
-                <div class="padding-top10">
+                <div class="padding-top10 flex_style">
                 
                 <?php foreach($styles as $style) { ?>
+                <div>
                 <label class="padding5" for="<?= $style['name'] ?>"><?= $style['name'] ?></label>
-                <input class="padding-top10" type="checkbox" name="<?= $style['name'] ?>" value="<?= $style['name'] ?>"
+                <input id="<?= $style['name'] ?>" class="padding-top10" type="checkbox" name="<?= $style['name'] ?>" value="<?= $style['name'] ?>"
                 <?php if(!empty($dataPainter)){
                         foreach($paintersStyle as $painterStyle)
                         {
@@ -50,6 +51,7 @@
                 
                 }  
                 ?>>
+                </div>
                 <?php } ?>
                 </div>
             </div>
@@ -58,7 +60,7 @@
             <label class="text-blue" for="content">résumé de l'artiste : </label>
             <textarea id="mytextarealight" name="content" required><?php if(!empty($dataPainter)) { echo $dataPainter['content']; };?></textarea>
         </div>
-        <div class="padding-top20 margin-bottom40">
+        <div id="button_div" class="padding-top20 margin-bottom40">
             <input class="button_submit" type="submit" value="<?php if(!empty($dataPainter)) { echo 'Mettre à jour'; } else { echo 'Ajouter'; }; ?>">
             <?php if(!empty($dataPainter)) {; ?>
                 <a data-id="<?=$dataPainter['idpainter'] ?>" href="indexAdmin.php?action=painterDelete&id=<?=$dataPainter['idpainter'] ?>" class="btn-modal btnsup button_submit">Supprimer</a>
