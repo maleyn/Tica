@@ -41,6 +41,8 @@
 
 Site de partage d'oeuvres de différents artistes avec une page galerie regroupant les peintures , page de blog avec des tutos et des infos sur la peinture, page artistes avec les infos des différents artistes partenaire.
 
+Le site est aussi en ligne à cette adresse : https://www.tica.go.yj.fr/
+
 Evolution :
 
 - Ajout de compte utilisateur permettant de laisser des commentaires
@@ -65,8 +67,6 @@ Evolution :
 [TinyMCE](https://www.tiny.cloud/) pour la partie administration du site
 
 ## Commencer
-
-Le site est aussi en ligne à cette adresse : https://www.tica.go.yj.fr/
 
 Renommez le fichier **.env.example** situé à la raçine du projet en **.env**   
 
