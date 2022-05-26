@@ -2,6 +2,8 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/5801c40dbc2f93e6b1b8/maintainability)](https://codeclimate.com/github/maleyn/Tica/maintainability)
 
+[![Known Vulnerabilities](https://snyk.io/test/github/maleyn/Tica/badge.svg)](https://snyk.io/test/github/maleyn/Tica)
+
 
 
 <h1 align="center">TICA</h1>
@@ -54,6 +56,7 @@ Evolution :
 * HTML
 * CSS
 * JAVASCRIPT
+* SQL
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
