@@ -4,7 +4,7 @@
     $photo_count = 6;
 
     $url = "https://graph.instagram.com/me/media?fields=media_url,caption&access_token=" . $access . '&limit=' . $photo_count;
-    $cache = sha1($url).'.json';
+    $cache = hash('sha256' , $url).'.json';
     // Met en cache les data et l'utilise pendant 1 heure
     if(file_exists('app/Cache/' . $cache) && filemtime('app/Cache/' . $cache) > time() - 60*60){
         $jsonData = json_decode(file_get_contents('app/Cache/' . $cache));
