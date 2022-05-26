@@ -4,7 +4,6 @@
     <h2 class="center text-green"><?php if(isset($confirmUpdate)) { echo $confirmUpdate; } ?></h2>
     <form method="post">
         <h2 class="text-gray padding-top20">Styles de peintures</h2>
-        <p class="text-red">Attention ! Vous ne pouvez pas mettre d'espace dans les noms de style, type et câdre</p>
         <div class="padding-top30">
             <label  class="text-blue" for="style">Tout les styles</label>
             <select id="style" class="form-text width50 margin-top10" name="style">
