@@ -1,9 +1,12 @@
+// Modal de confirmation de suppression dans les pages view admin 
+
 let nbtotal = document.getElementsByClassName('nbtotal')[0].getAttribute('data-nbtotal');
 let modal = document.getElementsByClassName("modaljs")[0];
 let btnsup = document.querySelectorAll('.btn-modal');
 let closemodal1 = document.getElementsByClassName('button-close1')[0];
 let closemodal2 = document.getElementsByClassName('button-close2')[0];
 let action = '';
+
 
 btnsup.forEach(del => {
     del.addEventListener("click", function(e) {

@@ -11,7 +11,7 @@ require_once 'app/Views/Front/header.php';
         </div>
     <?php foreach($paints as $paint) { ?>
         <article class="card-template">
-            <a href="index.php?action=peinture&id=<?= $paint['paintid'] ?>">
+            <a title="Lien vers la peinture" href="index.php?action=peinture&id=<?= $paint['paintid'] ?>">
             <img src="<?= $paint['img-url'] ?>" alt="<?= $paint['paintname'] ?>">
             <h2><?= $paint['paintname'] ?></h2>
             <div class="infos-paint">

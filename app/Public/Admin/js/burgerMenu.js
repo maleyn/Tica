@@ -4,10 +4,12 @@ let btn_burger_open = document.getElementById('bouton_burger_open');
 let btn_burger_close = document.getElementById('bouton_burger_close');
 let menuBurger = document.getElementById('menu_burger');
 
+// ouverture du menu au click
 btn_burger_open.addEventListener("click", function(e) {
     e.preventDefault();
     showmenu();
 })
+// fermeture du menu au click 
 btn_burger_close.addEventListener("click", function(e) {
     e.preventDefault();
     showmenu();

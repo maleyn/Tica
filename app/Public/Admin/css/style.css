@@ -2,19 +2,21 @@
 
  21  - Config générale
  219 - Pagination
- 332 - Menu Burger
- 359 - Ecran de connexion
- 423 - Dashboard
- 543 - Page accueil
- 563 - Page Galerie, Page Artistes
- 623 - Page Penture solo, Page Artiste solo
- 648 - Page Catégories
- 669 - MailView && usersView(gestion de compte)
- 714 - MailSolo
- 748 - Modal
- 820 - media screen max 1000
- 832 - media screen max 800
- 848 - media screen max 700
+ 256 - Menu Burger
+ 333 - Menu Burger (page burger no js)
+ 360 - Ecran de connexion
+ 401 - Dashboard
+ 521 - Page accueil
+ 541 - Page Galerie, Page Artistes
+ 611 - Page Penture solo, Page Artiste solo
+ 663 - Page Catégories
+ 684 - MailView && usersView(gestion de compte)
+ 729 - MailSolo
+ 763 - Modal
+ 835 - media screen max 1000
+ 847 - media screen max 800
+ 863 - media screen max 700
+ 951 - media screen max 400
 
 /* Config Générale */
 
@@ -41,7 +43,6 @@ h1 {
    text-align: center;
    margin: 30px 0 30px 0;
    padding: 0px 10px;
-
 }
 
 .small_font {
@@ -96,7 +97,6 @@ a {
 a:hover {
 
     color: rgb(110, 110, 110);
-
 }
 .button_submit {
 
@@ -329,7 +329,7 @@ a:hover {
 
 }
 
-/* MENU BURGER (pas de js) */
+/* MENU BURGER (page burger no js) */
 
 #burger-nojs {
 
@@ -546,7 +546,7 @@ a:hover {
 }
 .cardpage .button_submit {
 
-    margin-left: 30px;
+    margin-left: 11%;
 
 }
 

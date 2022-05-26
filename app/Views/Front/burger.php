@@ -12,16 +12,16 @@
     <nav>
         <ul>
             <li>
-                <a href="index.php">ACCUEIL</a>
+                <a title="lien vers Accueil" href="index.php">ACCUEIL</a>
             </li>
             <li>
-                <a href="index.php?action=blog">BLOG</a>
+                <a title="lien vers Blog" href="index.php?action=blog">BLOG</a>
             </li>
             <li>
-                <a href="index.php?action=artistes">ARTISTES</a>
+                <a title="lien vers Artistes" href="index.php?action=artistes">ARTISTES</a>
             </li>
             <li>
-                <a href="index.php?action=galerie">GALERIE</a>
+                <a title="lien vers Galerie" href="index.php?action=galerie">GALERIE</a>
             </li>
         </ul>
     </nav>

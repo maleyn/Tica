@@ -19,28 +19,28 @@
             <div class="container">
                 <div id="headband_items">
                     <div id="headband_logo">
-                        <a href="index.php">
+                        <a title="Lien vers accueil" href="index.php">
                             <p>TICA</p>
                             <p>Peinture</p>
                         </a>
                     </div>
                     <nav id="menu_principal">
                         <ul id="main_menu">
-                            <li class="<?= (empty($_GET['action']) ? 'active_menu' : ""); ?>"><a href="index.php">Accueil</a></li>
-                            <li class="<?= !empty($_GET['action']) ? (($_GET['action']) == 'blog' ? 'active_menu' : "") : ""; ?>"><a href="index.php?action=blog">Blog</a></li>
-                            <li class="<?= !empty($_GET['action']) ? (($_GET['action']) == 'artistes' ? 'active_menu' : "") : ""; ?>"><a href="index.php?action=artistes">Artistes</a></li>
-                            <li class="<?= !empty($_GET['action']) ? (($_GET['action']) == 'galerie' ? 'active_menu' : "") : ""; ?>"><a href="index.php?action=galerie">Galerie</a></li>
+                            <li class="<?= (empty($_GET['action']) ? 'active_menu' : ""); ?>"><a title="Lien vers accueil" href="index.php">Accueil</a></li>
+                            <li class="<?= !empty($_GET['action']) ? (($_GET['action']) == 'blog' ? 'active_menu' : "") : ""; ?>"><a title="Lien vers blog" href="index.php?action=blog">Blog</a></li>
+                            <li class="<?= !empty($_GET['action']) ? (($_GET['action']) == 'artistes' ? 'active_menu' : "") : ""; ?>"><a title="Lien vers artistes" href="index.php?action=artistes">Artistes</a></li>
+                            <li class="<?= !empty($_GET['action']) ? (($_GET['action']) == 'galerie' ? 'active_menu' : "") : ""; ?>"><a title="Lien vers galerie" href="index.php?action=galerie">Galerie</a></li>
                         </ul>
                     </nav>
                     <nav id="menu_burger" class="hidden">
                         <ul id="burger_ul">
-                            <li class="<?= (empty($_GET['action']) ? 'active_menu' : " "); ?>"><a  href="index.php">Accueil</a></li>
-                            <li class="<?= !empty($_GET['action']) ? (($_GET['action']) == 'blog' ? 'active_menu' : "") : ""; ?>"><a href="index.php?action=blog">Blog</a></li>
-                            <li class="<?= !empty($_GET['action']) ? (($_GET['action']) == 'artistes' ? 'active_menu' : "") : ""; ?>"><a href="index.php?action=artistes">Artistes</a></li>
-                            <li class="<?= !empty($_GET['action']) ? (($_GET['action']) == 'galerie' ? 'active_menu' : "") : ""; ?>"><a href="index.php?action=galerie">Galerie</a></li>
+                            <li class="<?= (empty($_GET['action']) ? 'active_menu' : " "); ?>"><a title="Lien vers accueil" href="index.php">Accueil</a></li>
+                            <li class="<?= !empty($_GET['action']) ? (($_GET['action']) == 'blog' ? 'active_menu' : "") : ""; ?>"><a title="Lien vers blog" href="index.php?action=blog">Blog</a></li>
+                            <li class="<?= !empty($_GET['action']) ? (($_GET['action']) == 'artistes' ? 'active_menu' : "") : ""; ?>"><a title="Lien vers artistes" href="index.php?action=artistes">Artistes</a></li>
+                            <li class="<?= !empty($_GET['action']) ? (($_GET['action']) == 'galerie' ? 'active_menu' : "") : ""; ?>"><a title="Lien vers galerie" href="index.php?action=galerie">Galerie</a></li>
                         </ul>
                     </nav>
-                    <a href="index.php?action=burger">
+                    <a title="Menu du site" href="index.php?action=burger">
                         <svg id="bouton_burger_open" class="burger_btn" viewBox="0 0 100 100" width="45" height="45"
                             xmlns="http://www.w3.org/2000/svg">
                             <rect fill="currentColor" width="100" height="15" rx="8"></rect>

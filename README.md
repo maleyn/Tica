@@ -63,6 +63,8 @@ Evolution :
 
 ## Commencer
 
+Le site est aussi en ligne à cette adresse : https://www.tica.go.yj.fr/
+
 Renommez le fichier **.env.example** situé à la raçine du projet en **.env**   
 
 Modifiez ce fichier en changeant les différentes variables.
@@ -175,6 +177,8 @@ Pour accéder à la partie administration tapez dans l'url : localhost/tica/inde
 Renaud Maleyran - maleyran.ren@hotmail.fr
 
 Lien du projet: [https://github.com/maleyn/Tica](https://github.com/maleyn/Tica)
+
+Lien du site en ligne : https://www.tica.go.yj.fr/
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

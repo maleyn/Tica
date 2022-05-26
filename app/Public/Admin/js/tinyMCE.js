@@ -1,3 +1,5 @@
+// Initialisation de l'éditeur de texte riche pour la partie admin
+
 tinymce.init({
     selector: '.mytextarealight',
     toolbar: 'undo redo | bold italic',
@@ -12,7 +14,7 @@ tinymce.init({
   });
 
   tinymce.init({
-    selector: '#mytextarea',
+    selector: '.mytextarea',
     menubar: '',
     height: 450,
     setup: function (editor) {

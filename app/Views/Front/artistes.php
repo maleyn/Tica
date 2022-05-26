@@ -13,7 +13,7 @@ require_once 'app/Views/Front/header.php';
         </div>
     <?php foreach($painters as $painter) { ?>
         <article class="card-painter">
-            <a href="index.php?action=artiste&id=<?= $painter['id'] ?>">
+            <a title="lien vers l'artiste" href="index.php?action=artiste&id=<?= $painter['id'] ?>">
             <img src="<?= $painter['photo-url'] ?>" alt="<?= $painter['name'] ?>">
             <p class="name-painter"><?= $painter['name'] ?></p>
             <div class="infos-painter">

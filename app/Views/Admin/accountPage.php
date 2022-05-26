@@ -6,21 +6,21 @@
         <form class="grid" action="indexAdmin.php?action=update-user" method="post">
             <div>
             <label for="iduser" hidden>id</label>
-                <input type="text" name="iduser" value="<?= $user['id'] ?>" hidden>
+                <input id="iduser" type="text" name="iduser" value="<?= $user['id'] ?>" hidden>
             </div>
             <div class="grid padding-top20">
                 <label class="text-blue" for="lastname">Nom</label>
-                <input class="form-text margin-top10 width50" type="text" placeholder="Nom de l'utilisateur"
+                <input id="lastname" class="form-text margin-top10 width50" type="text" placeholder="Nom de l'utilisateur"
                     name="lastname" value="<?= $user['lastname'] ?>" required>
             </div>
             <div class="grid padding-top20">
                 <label class="text-blue" for="firstname">Prénom</label>
-                <input class="form-text margin-top10 width50" type="text" placeholder="Prénom de l'utilisateur"
+                <input id="firstname" class="form-text margin-top10 width50" type="text" placeholder="Prénom de l'utilisateur"
                     name="firstname" value="<?= $user['firstname'] ?>" required>
             </div>
             <div class="grid padding-top20">
                 <label for="role" class="text-blue">Rôle</label>
-                <select class="form-text width50 margin-top10" name="role"  required>
+                <select id="role" class="form-text width50 margin-top10" name="role"  required>
                 <option value="">Choisissez un rôle</option>
                     <?php foreach($roles as $role) { ?>
                         <option value="<?=$role['role']?>"><?=$role['role']?></option>

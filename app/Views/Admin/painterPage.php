@@ -18,11 +18,11 @@
     <form class="grid" action='indexAdmin.php?action=painterUpdate' method="post" enctype="multipart/form-data">
         <div>
             <label for="painterid" hidden>Id dz l'artiste : </label>
-            <input type="text" name="painterid" value="<?php if(!empty($dataPainter)) { echo $dataPainter['idpainter']; }; ?>" hidden>
+            <input id="painterid" type="text" name="painterid" value="<?php if(!empty($dataPainter)) { echo $dataPainter['idpainter']; }; ?>" hidden>
         </div>
         <div class="grid padding-top20 photo-solomod">
             <label class="text-blue" for="painterurl">Photo de l'artiste (taille max : 2.5Mo) : </label>
-            <input type="file" name="painterurl" accept=".jpeg, .jpg, .png">
+            <input id="painterurl" type="file" name="painterurl" accept=".jpeg, .jpg, .png">
             <p class="text-blue padding-top10">Photo actuelle : </p>
             <img class="padding-top10" height="400" src="<?php if(!empty($dataPainter)) { echo $dataPainter['photopainter']; }; ?>" alt="<?php if(!empty($dataPainter)) { echo $dataPainter['namepainter']; }; ?>">
             <span class="text-blue padding-top10">Emplacement : 
@@ -30,11 +30,11 @@
         </div>
         <div class="grid padding-top20">
             <label class="text-blue" for="paintername">Nom de l'artiste : </label>
-            <input class="form-text margin-top10 width50" type="text" name="paintername" value="<?php if(!empty($dataPainter)) { echo $dataPainter['namepainter']; }; ?>" required>
+            <input id="paintername" class="form-text margin-top10 width50" type="text" name="paintername" value="<?php if(!empty($dataPainter)) { echo $dataPainter['namepainter']; }; ?>" required>
         </div>
         <div class="grid-2 padding-top20">
             <div class="grid">
-                <legend class="text-blue">Styles de peintures de l'artiste :</legend>
+                <p class="text-blue">Styles de peintures de l'artiste :</p>
                 <div class="padding-top10 flex_style">
                 
                 <?php foreach($styles as $style) { ?>
@@ -58,7 +58,7 @@
         </div>
         <div class="grid padding-top20">
             <label class="text-blue" for="content">résumé de l'artiste : </label>
-            <textarea id="mytextarealight" name="content" required><?php if(!empty($dataPainter)) { echo $dataPainter['content']; };?></textarea>
+            <textarea id="content" class="mytextarealight" name="content" required><?php if(!empty($dataPainter)) { echo $dataPainter['content']; };?></textarea>
         </div>
         <div id="button_div" class="padding-top20 margin-bottom40">
             <input class="button_submit" type="submit" value="<?php if(!empty($dataPainter)) { echo 'Mettre à jour'; } else { echo 'Ajouter'; }; ?>">

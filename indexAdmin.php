@@ -190,7 +190,7 @@ try {
             $introContent = $_POST['introContent'];
             $presentAlt = htmlspecialchars($_POST['presentAlt']);
             $presentTitle = htmlspecialchars($_POST['presentTitle']);
-            $presentText1 = $_POST['presentText'];
+            $presentText1 = $_POST['presentText1'];
 
             if(!empty($_FILES['sliderUrl']['name']))
             {

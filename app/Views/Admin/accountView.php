@@ -9,12 +9,12 @@
         <form class="grid" action="indexAdmin.php?action=update-self" method="post">
             <div class="grid padding-top20">
                 <label class="text-blue" for="lastname">Nom</label>
-                <input class="form-text margin-top10 width50" type="text" placeholder="Nom de l'utilisateur"
+                <input id="lastname" class="form-text margin-top10 width50" type="text" placeholder="Nom de l'utilisateur"
                     name="lastname" value="<?= $lastname ?>" required>
             </div>
             <div class="grid padding-top20">
                 <label class="text-blue" for="firstname">Prénom</label>
-                <input class="form-text margin-top10 width50" type="text" placeholder="Prénom de l'utilisateur"
+                <input id="firstname" class="form-text margin-top10 width50" type="text" placeholder="Prénom de l'utilisateur"
                     name="firstname" value="<?= $firstname ?>" required>
             </div>
             <div class="grid padding-top20">

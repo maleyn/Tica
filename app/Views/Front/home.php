@@ -16,7 +16,7 @@ require 'app/Views/Front/header.php';
                     <p><?= $dataFront['slider-text2'] ?></p>
                 </div>
                 <div id="button_galerie">
-                    <a id="button_galerie_home" class="button_light" href="index.php?action=galerie">Galerie</a>
+                    <a title="Lien vers galerie" id="button_galerie_home" class="button_light" href="index.php?action=galerie">Galerie</a>
                 </div>
             </div>
         </div>
@@ -35,7 +35,7 @@ require 'app/Views/Front/header.php';
                 <?= $dataFront['present-text'] ?>
             </div>
         <div id="button_artistes">
-            <a href="index.php?action=artistes" class="button_dark">artistes</a>
+            <a title="Lien vers artistes" href="index.php?action=artistes" class="button_dark">artistes</a>
         </div>
         <hr>
     </section>
@@ -44,11 +44,11 @@ require 'app/Views/Front/header.php';
             <div id="block_instagram" class="block_bottom">
                 <div id="instagram_cards">
                     <?php foreach ($dataInsta as $data) { ?>
-                    <a href="<?= $data->media_url ?>"><img src="<?= $data->media_url ?>" alt="<?= $data->caption ?>"></a>
+                    <a title="Ouvrir l'image" target="_blank" href="<?= $data->media_url ?>"><img src="<?= $data->media_url ?>" alt="<?= $data->caption ?>"></a>
                     
                     <?php } ?>
                 </div>
-                <a href="https://www.instagram.com/kti_peinture/?hl=fr" target="_blank" class="button_dark_gold button_blog_insta">instagram</a>
+                <a title="Lien vers instagram" href="https://www.instagram.com/kti_peinture/?hl=fr" target="_blank" class="button_dark_gold button_blog_insta">instagram</a>
                 <div class="frames_bottom">
                     <img id="frame_corner_lt" src="app/Public/Front/img/Framebottom_corner_LT.svg" alt="cadre coin haut gauche">
                     <img id="frame_corner_lb" src="app/Public/Front/img/Framebottom_corner_LB.svg" alt="cadre coin bas gauche">
@@ -58,7 +58,7 @@ require 'app/Views/Front/header.php';
                 <div id="block_blog_flex">
                     <?php foreach ($blogArticles as $article) { ?>
                     <article class="card_blog">
-                        <a href="index.php?action=article&id=<?=$article['id']?>">
+                        <a title="Lien vers l'article" href="index.php?action=article&id=<?=$article['id']?>">
                             <img src="<?= $article['image-url'] ?>" alt="<?= $article['title'] ?>">
                             <p>Par <?= $article['firstname']; ?> <?= $article['lastname']; ?> le <?= $article['create-date'] ?></p>
                             <h2><?= $article['title'] ?></h2>
@@ -66,7 +66,7 @@ require 'app/Views/Front/header.php';
                     </article>
                     <?php } ?>
                 </div>
-                <a href="index.php?action=blog" class="button_dark_gold button_blog_insta">blog</a>
+                <a title="Lien vers le blog" href="index.php?action=blog" class="button_dark_gold button_blog_insta">blog</a>
                 <div class="frames_bottom">
                     <img id="frame_corner_rb" src="app/Public/Front/img/Framebottom_corner_RB.svg" alt="cadre coin bas droite">
                     <img id="frame_corner_rt" src="app/Public/Front/img/Framebottom_corner_RT.svg" alt="cadre coin haut droite">

@@ -16,11 +16,11 @@
     <form class="grid" action='indexAdmin.php?action=articleUpdate' method="POST" enctype="multipart/form-data">
         <div>
             <label for="articleid" hidden>Id de l'article : </label>
-            <input type="text" name="articleid" value="<?php if(!empty($dataArticle)) { echo $dataArticle['idarticle']; }; ?>" hidden>
+            <input id="articleid" type="text" name="articleid" value="<?php if(!empty($dataArticle)) { echo $dataArticle['idarticle']; }; ?>" hidden>
         </div>
         <div class="grid padding-top20 photo-solomod">
             <label class="text-blue" for="articleurl">Photo de l'article (taille max : 2.5Mo) : </label>
-            <input type="file" name="articleurl" accept=".jpeg, .jpg, .png">
+            <input id="articleurl" type="file" name="articleurl" accept=".jpeg, .jpg, .png">
             <p class="text-blue padding-top10">Photo actuelle : </p>
             <img class="padding-top10" height="400" src="<?php if(!empty($dataArticle)) { echo $dataArticle['image-url']; }; ?>" alt="<?php if(!empty($dataArticle)) { echo $dataArticle['title']; }; ?>">
             <span class="text-blue padding-top10">Emplacement : 
@@ -28,15 +28,15 @@
         </div>
         <div class="grid padding-top20">
             <label class="text-blue" for="title">Titre de l'article : </label>
-            <input class="form-text margin-top10 width50" type="text" name="title" value="<?php if(!empty($dataArticle)) { echo $dataArticle['title']; }; ?>" required>
+            <input id="title" class="form-text margin-top10 width50" type="text" name="title" value="<?php if(!empty($dataArticle)) { echo $dataArticle['title']; }; ?>" required>
         </div>
         <div class="grid padding-top20">
             <label class="text-blue" for="content">Contenu de l'article : </label>
-            <textarea id="mytextarea" name="content" required><?php if(!empty($dataArticle)) { echo $dataArticle['content']; };?></textarea>
+            <textarea id="content" class="mytextarea" name="content" required><?php if(!empty($dataArticle)) { echo $dataArticle['content']; };?></textarea>
         </div>
         <div class="grid">
                 <label  class="text-blue" for="type">Choisissez l'auteur : </label>
-                <select class="form-text width50 margin-top10" name="auteur" required>
+                <select id="type" class="form-text width50 margin-top10" name="auteur" required>
                     <option value="">Choisissez l'auteur</option>
                         <?php foreach($users as $user) { ?>
                             <option value="<?= $user['id'] ?>"><?=$user['firstname'] . ' ' . $user['lastname']?></option>

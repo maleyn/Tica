@@ -1,3 +1,5 @@
+// Modal de confirmation de suppression dans les pages solo admin
+
 let modal = document.getElementsByClassName("modaljs")[0];
 let btnsup = document.querySelectorAll('.btn-modal');
 let closemodal1 = document.getElementsByClassName('button-close1')[0]; 

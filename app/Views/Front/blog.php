@@ -14,7 +14,7 @@ require_once 'app/Views/Front/header.php';
         </div>
         <?php foreach($articles as $article) { ?>
         <article class="card-blog">
-            <a href="index.php?action=article&id=<?=$article['id']?>">
+            <a title="lien vers l'article" href="index.php?action=article&id=<?=$article['id']?>">
                 <img src="<?= $article['image-url'] ?>" alt="<?= $article['title'] ?>">
                 <div class="infos-blog">
                     <div class="infos-blog-desc">
